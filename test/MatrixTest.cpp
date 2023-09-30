@@ -86,6 +86,8 @@ TEST(MatrixTest, getCell)
     EXPECT_EQ(m.getCell(0, 0), 1);
     EXPECT_EQ(m.getCell(1, 1), 5);
     EXPECT_EQ(m.getCell(2, 2), 9);
+    EXPECT_EQ(m.getCell(0, 1), 4);
+    EXPECT_EQ(m.getCell(1, 0), 2);
 
     // OUT OF RANGE - ROW
     EXPECT_THROW(m.getCell(3, 0), std::out_of_range);
@@ -248,19 +250,19 @@ TEST(MatrixTest, setCell)
 
     // 1x3 MATRIX
     Matrix<int> m2 = {{1, 2, 3}};
-    m2.setCell(0, 0, 10);
-    EXPECT_EQ(m2.getCell(0, 0), 10);
+    m2.setCell(1, 0, 10);
+    EXPECT_EQ(m2.getCell(1, 0), 10);
 
     // 3x1 MATRIX
     Matrix<int> m3 = {{1}, {2}, {3}};
-    m3.setCell(0, 0, 10);
-    EXPECT_EQ(m3.getCell(0, 0), 10);
+    m3.setCell(0, 1, 10);
+    EXPECT_EQ(m3.getCell(0, 1), 10);
 
     // EMPTY MATRIX
     Matrix<std::string> m4;
     EXPECT_THROW(m4.setCell(0, 0, "a"), std::invalid_argument);
 
-    // OUT OF RANGE ROW
+    // OUT OF RANGE - ROW
     EXPECT_THROW(m.setCell(3, 0, 10), std::invalid_argument);
 
     // OUT OF RANGE - COLUMN

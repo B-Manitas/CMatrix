@@ -64,12 +64,12 @@ public:
     /**
      * @brief Get a cell of the matrix.
      *
-     * @param x The row of the cell to get.
-     * @param y The column of the cell to get.
+     * @param col The column of the cell to get.
+     * @param row The row of the cell to get.
      * @return T The cell.
      * @throw std::out_of_range If the index is out of range.
      */
-    T getCell(const int x, const int y) const;
+    T getCell(const int col, const int row) const;
 
     /**
      * @brief Get the row matrix of the matrix.
@@ -89,28 +89,28 @@ public:
     Matrix<T> iloc(const int x) const;
 
     /**
-     * @brief The number of rows of the matrix.
-     *
-     * @return size_t The number of rows.
-     */
-    size_t dimH() const;
-    /**
      * @brief The number of columns of the matrix.
      *
      * @return size_t The number of columns.
+     */
+    size_t dimH() const;
+    /**
+     * @brief The number of rows of the matrix.
+     *
+     * @return size_t The number of rows.
      */
     size_t dimV() const;
     /**
      * @brief The dimensions of the matrix.
      *
-     * @return std::tuple<size_t, size_t> The dimensions.
+     * @return std::tuple<size_t, size_t> The number of rows and columns.
      */
     std::tuple<size_t, size_t> dim() const;
 
     // SETTER METHODS
     /**
      * @brief Set a row of the matrix.
-     *
+     * 
      * @param n The index of the row to set.
      * @param val The value to set.
      * @throw std::out_of_range If the index is out of range.
@@ -121,7 +121,7 @@ public:
     void setRow(const size_t n, const std::vector<T> val);
     /**
      * @brief Set a column of the matrix.
-     *
+     * 
      * @param n The index of the column to set.
      * @param val The value to set.
      * @throw std::out_of_range If the index is out of range.
@@ -132,15 +132,16 @@ public:
     void setCol(const size_t n, const std::vector<T> val);
     /**
      * @brief Set a cell of the matrix.
-     *
-     * @param row The row of the cell to set.
+     * 
      * @param col The column of the cell to set.
+     * @param row The row of the cell to set.
      * @param val The value to set.
      * @throw std::out_of_range If the index is out of range.
      *
      * @note The cell must be of the same type of the matrix.
      */
-    void setCell(const int row, const int col, T val);
+    void setCell(const int col, const int row, T val);
+    /**
 
     // MANIPULATION METHODS
     /**

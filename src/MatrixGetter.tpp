@@ -25,9 +25,9 @@ std::vector<std::vector<T>> Matrix<T>::getCol(const int n) const
 }
 
 template <class T>
-T Matrix<T>::getCell(const int x, const int y) const
+T Matrix<T>::getCell(const int col, const int row) const
 {
-    return matrix.at(y).at(x);
+    return matrix.at(row).at(col);
 }
 
 // ==================================================

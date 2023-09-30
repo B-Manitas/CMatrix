@@ -35,10 +35,10 @@ void Matrix<T>::setCol(const size_t n, const std::vector<T> val)
 }
 
 template <class T>
-void Matrix<T>::setCell(const int x, const int y, T val)
+void Matrix<T>::setCell(const int col, const int row, T val)
 {
-    if (dimH() > (size_t)x and dimV() > (size_t)y)
-        matrix.at(y).at(x) = val;
+    if (dimH() > (size_t)col and dimV() > (size_t)row)
+        matrix.at(row).at(col) = val;
 
     else
         throw std::invalid_argument("invalid row or col");
