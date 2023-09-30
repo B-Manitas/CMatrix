@@ -205,6 +205,26 @@ TEST(MatrixTest, transpose)
     EXPECT_EQ(m7.transpose(), Matrix<std::string>());
 }
 
+/** Test diag method of Matrix class */
+TEST(MatrixTest, diag)
+{
+    // 3x3 MATRIX
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m1.diag(), std::vector<int>({1, 5, 9}));
+
+    // 1x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}};
+    EXPECT_EQ(m2.diag(), std::vector<int>({1}));
+
+    // 3x1 MATRIX
+    Matrix<int> m3 = {{1}, {2}, {3}};
+    EXPECT_EQ(m3.diag(), std::vector<int>({1}));
+
+    // EMPTY MATRIX
+    Matrix<std::string> m4;
+    EXPECT_EQ(m4.diag(), std::vector<std::string>());
+}
+
 // ==================================================
 // SETTER METHODS
 /** Test setRow method of Matrix class */

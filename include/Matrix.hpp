@@ -113,6 +113,12 @@ public:
      * @return Matrix<T> The transpose of the matrix.
      */
     Matrix<T> transpose() const;
+    /**
+     * @brief Get the diagonal of the matrix.
+     * 
+     * @return std::vector<T> The diagonal of the matrix.
+     */
+    std::vector<T> diag() const;
     // SETTER METHODS
     /**
      * @brief Set a row of the matrix.

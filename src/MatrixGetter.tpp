@@ -91,3 +91,13 @@ Matrix<T> Matrix<T>::transpose() const
     return m;
 }
 
+template <class T>
+std::vector<T> Matrix<T>::diag() const
+{
+    std::vector<T> d;
+
+    for (size_t i = 0; i < std::min(dimH(), dimV()); i++)
+        d.push_back(getCell(i, i));
+
+    return d;
+}
