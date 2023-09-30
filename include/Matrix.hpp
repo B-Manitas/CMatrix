@@ -390,13 +390,20 @@ public:
      */
     std::ostream &operator<<(std::ostream &os);
     /**
+     * @brief Apply a operator to each cell of the matrix.
+     * 
+     * @param f The operator to apply. f(T value, T value) -> T
+     * @param m The matrix to apply.
+     * @return Matrix<T> The result of the operator.
+     */
+    Matrix<T> operatorMap(std::function<T(T, T)> f, const Matrix<T> &m) const;
+    /**
      * @brief The addition operator.
      *
      * @param m The matrix to add.
      * @return Matrix<T> The sum of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @warning NOT IMPLEMENTED
      */
     Matrix<T> operator+(const Matrix<T> &m) const;
     /**
@@ -406,7 +413,6 @@ public:
      * @return Matrix<T> The difference of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @warning NOT IMPLEMENTED
      */
     Matrix<T> operator-(const Matrix<T> &m) const;
     /**
@@ -420,7 +426,6 @@ public:
      */
     Matrix<T> operator*(const Matrix<T> &m) const;
 };
-
 
 #include "Matrix.tpp"
 #include "MatrixCheck.tpp"

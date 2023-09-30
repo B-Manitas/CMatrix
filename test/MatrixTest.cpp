@@ -759,6 +759,85 @@ TEST(MatrixTest, operatorEquals)
     EXPECT_TRUE(m7 != m8);
 }
 
+/** Test operatorMap method of Matrix class */
+TEST(MatrixTest, operatorMap)
+{
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m2 = {{6, 5, 4}, {3, 2, 1}};
+
+    // EQUAL DIMENSIONS
+    EXPECT_NO_THROW(m1.operatorMap(std::plus<int>(), m1));
+
+    // NOT EQUAL DIMENSIONS
+    EXPECT_THROW(m1.operatorMap(std::plus<int>(), m2), std::invalid_argument);
+}
+
+/** Test operatorSum method of Matrix class */
+TEST(MatrixTest, operatorSum)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m3 = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
+    EXPECT_EQ(m1 + m2, m3);
+
+    // 1x3 MATRICES
+    Matrix<int> m4 = {{1, 2, 3}};
+    Matrix<int> m5 = {{4, 5, 6}};
+    Matrix<int> m6 = {{5, 7, 9}};
+    EXPECT_EQ(m4 + m5, m6);
+
+    // 3x1 MATRICES
+    Matrix<int> m7 = {{1}, {2}, {3}};
+    Matrix<int> m8 = {{4}, {5}, {6}};
+    Matrix<int> m9 = {{5}, {7}, {9}};
+    EXPECT_EQ(m7 + m8, m9);
+
+    // EMPTY MATRICES
+    Matrix<int> m10;
+    Matrix<int> m11;
+    Matrix<int> m12;
+    EXPECT_EQ(m10 + m11, m12);
+
+    // NOT EQUAL DIMENSIONS
+    Matrix<int> m13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m14 = {{6, 5, 4}, {3, 2, 1}};
+    EXPECT_THROW(m13 + m14, std::invalid_argument);
+}
+
+/** Test operatorSub method of Matrix class */
+TEST(MatrixTest, operatorSub)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
+    Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m1 - m2, m3);
+
+    // 1x3 MATRICES
+    Matrix<int> m4 = {{5, 7, 9}};
+    Matrix<int> m5 = {{1, 2, 3}};
+    Matrix<int> m6 = {{4, 5, 6}};
+    EXPECT_EQ(m4 - m5, m6);
+
+    // 3x1 MATRICES
+    Matrix<int> m7 = {{5}, {7}, {9}};
+    Matrix<int> m8 = {{1}, {2}, {3}};
+    Matrix<int> m9 = {{4}, {5}, {6}};
+    EXPECT_EQ(m7 - m8, m9);
+
+    // EMPTY MATRICES
+    Matrix<int> m10;
+    Matrix<int> m11;
+    Matrix<int> m12;
+    EXPECT_EQ(m10 - m11, m12);
+
+    // NOT EQUAL DIMENSIONS
+    Matrix<int> m13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m14 = {{6, 5, 4}, {3, 2, 1}};
+    EXPECT_THROW(m13 - m14, std::invalid_argument);
+}
+
 GTEST_API_ int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);

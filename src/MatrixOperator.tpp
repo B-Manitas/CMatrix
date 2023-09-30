@@ -43,3 +43,32 @@ bool Matrix<T>::operator!=(const Matrix<T> &m) const
 {
     return not(*this == m);
 }
+
+// ==================================================
+// ARITHMETIC OPERATORS
+
+template <class T>
+Matrix<T> Matrix<T>::operatorMap(std::function<T(T, T)> f, const Matrix<T> &m) const
+{
+    if (dim() != m.dim())
+        throw std::invalid_argument("The matrices must have the same dimension.");
+
+    size_t col = 0, row = 0;
+    size_t *colPtr = &col, *rowPtr = &row;
+
+    return map([&](T value, size_t *col, size_t *row)
+               { return f(value, m.getCell(*col, *row)); },
+               colPtr, rowPtr);
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator+(const Matrix<T> &m) const
+{
+    return operatorMap(std::plus<T>(), m);
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator-(const Matrix<T> &m) const
+{
+    return operatorMap(std::minus<T>(), m);
+}
