@@ -279,6 +279,29 @@ public:
      * @brief Clear the matrix.
      */
     void clear();
+    /**
+     * @brief Copy the matrix.
+     * 
+     * @return Matrix<T> The copied matrix.
+     */
+    Matrix<T> copy() const;
+    /**
+     * @brief Apply a function to each cell of the matrix.
+     * 
+     * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
+     * @param col The pointer to the column index. (default: nullptr)
+     * @param row The pointer to the row index. (default: nullptr)
+     */
+    void apply(std::function<T(T, size_t *, size_t *)> f, size_t *col = nullptr, size_t *row = nullptr);
+    /**
+     * @brief Apply a function to each cell of the matrix and return the result.
+     * 
+     * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
+     * @param col The pointer to the column index. (default: nullptr)
+     * @param row The pointer to the row index. (default: nullptr)
+     * @return Matrix<T> The result of the function.
+     */
+    Matrix<T> map(std::function<T(T, size_t *, size_t *)> f, size_t *col = nullptr, size_t *row = nullptr) const;
 
     // STATIC METHODS
     /**
