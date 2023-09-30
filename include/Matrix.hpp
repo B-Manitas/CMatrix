@@ -338,7 +338,15 @@ public:
      * @param dimV The number of columns.
      * @return Matrix<int> The matrix of zeros.
      */
-    static Matrix<int> zeros(const int dimH, const int dimV);
+    static Matrix<int> zeros(const size_t dimH, const size_t dimV);
+    /**
+     * @brief Generate the identity matrix.
+     * 
+     * @param dim The number of rows and columns.
+     * @return Matrix<int> The identity matrix.
+     *
+     */
+    static Matrix<int> identity(const size_t dim);
 
     // OPERATOR METHODS
     /**

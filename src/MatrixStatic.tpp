@@ -29,11 +29,14 @@ Matrix<int> Matrix<int>::randint(const int dimH, const int dimV, const int min, 
 template <>
 Matrix<int> Matrix<int>::zeros(const int dimH, const int dimV)
 {
-    Matrix<int> m;
+    return Matrix<int>(dimH, dimV, 0);
+}
 
-    for (int r = 0; r < dimV; r++)
-        m.pushRowBack(std::vector<int>(dimH, 0));
-
+template <>
+Matrix<int> Matrix<int>::identity(const int dim)
+{
+    Matrix<int> m = Matrix<int>::zeros(dim, dim);
+    m.setDiag(std::vector<int>(dim, 1));
     return m;
 }
 

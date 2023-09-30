@@ -730,6 +730,29 @@ TEST(MatrixTest, zeros)
             EXPECT_EQ(m3.getCell(i, j), 0);
 }
 
+/** Test identity method of Matrix class */
+TEST(MatrixTest, identity)
+{
+    // EMPTY MATRIX
+    Matrix<int> m = Matrix<int>::identity(0);
+    EXPECT_TRUE(m.isEmpty());
+
+    // 1x3 MATRIX
+    Matrix<int> m1 = Matrix<int>::identity(1);
+    EXPECT_EQ(m1.dimH(), 1);
+    EXPECT_EQ(m1.dimV(), 1);
+    EXPECT_EQ(m1.getCell(0, 0), 1);
+
+    // 2x2 MATRIX
+    Matrix<int> m2 = Matrix<int>::identity(2);
+    EXPECT_EQ(m2.dimH(), 2);
+    EXPECT_EQ(m2.dimV(), 2);
+    EXPECT_EQ(m2.getCell(0, 0), 1);
+    EXPECT_EQ(m2.getCell(0, 1), 0);
+    EXPECT_EQ(m2.getCell(1, 0), 0);
+    EXPECT_EQ(m2.getCell(1, 1), 1);
+}
+
 // ==================================================
 // OPERATOR METHODS
 /** Test operatorEquals method of Matrix class */
