@@ -22,6 +22,8 @@ void Matrix<T>::show() const
 template <class T>
 void Matrix<T>::clear()
 {
+    matrix = std::vector<std::vector<T>>();
+}
 
 template <class T>
 Matrix<T> Matrix<T>::copy() const
