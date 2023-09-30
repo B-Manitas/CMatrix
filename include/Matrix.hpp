@@ -27,6 +27,21 @@ public:
      * @brief Construct a new Matrix object.
      */
     Matrix();
+    /**
+     * @brief Construct a new Matrix object.
+     *
+     * @param dimH The number of rows.
+     * @param dimV The number of columns.
+     */
+    Matrix(const size_t dimH, const size_t dimV);
+    /**
+     * @brief Construct a new Matrix object.
+     *
+     * @param dimH The number of rows.
+     * @param dimV The number of columns.
+     * @param val The value to fill the matrix.
+     */
+    Matrix(const size_t dimH, const size_t dimV, const T val);
     ~Matrix();
 
     // GETTER METHODS

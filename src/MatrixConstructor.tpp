@@ -21,6 +21,18 @@ Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> m)
         throw std::invalid_argument("the argument is not a matrix");
 }
 
+template <class T>
+Matrix<T>::Matrix(const size_t dimH, const size_t dimV)
+{
+    matrix = std::vector<std::vector<T>>(dimV, std::vector<T>(dimH));
+}
+
+template <class T>
+Matrix<T>::Matrix(const size_t dimH, const size_t dimV, const T value)
+{
+    matrix = std::vector<std::vector<T>>(dimV, std::vector<T>(dimH, value));
+}
+
 // ==================================================
 // DESTRUCTOR
 

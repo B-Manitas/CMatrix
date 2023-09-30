@@ -35,8 +35,21 @@ TEST(MatrixTest, Constructor)
     EXPECT_EQ(m4.dimH(), 3);
     EXPECT_EQ(m4.dimV(), 1);
 
+    // CREATE MATRIX FROM DIMENSIONS
+    Matrix<std::string> m5(2, 3);
+    EXPECT_EQ(m5.dimH(), 2);
+    EXPECT_EQ(m5.dimV(), 3);
+
+    // CREATE MATRIX FROM DIMENSIONS AND VALUE
+    Matrix<std::string> m6(2, 3, "a");
+    EXPECT_EQ(m6.dimH(), 2);
+    EXPECT_EQ(m6.dimV(), 3);
+    for (size_t r = 0; r < m6.dimV(); r++)
+        for (size_t c = 0; c < m6.dimH(); c++)
+            EXPECT_EQ(m6.getCell(c, r), "a");
+
     // INVALID MATRIX - NOT RECTANGULAR
-    EXPECT_THROW(Matrix<int> m3({{1, 2}, {3, 4, 5}}), std::invalid_argument);
+    EXPECT_THROW(Matrix<int> m6({{1, 2}, {3, 4, 5}}), std::invalid_argument);
 }
 
 // ==================================================
