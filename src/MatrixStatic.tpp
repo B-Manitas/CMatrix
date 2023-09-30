@@ -8,16 +8,16 @@
 // GENERATOR METHODS
 
 template <>
-Matrix<int> Matrix<int>::randint(const int dimH, const int dimV, const int min, const int max, const int seed)
+Matrix<int> Matrix<int>::randint(const size_t dimH, const size_t dimV, const int min, const int max, const int seed)
 {
     std::srand(seed);
     Matrix<int> m;
 
-    for (int r = 0; r < dimV; r++)
+    for (size_t r = 0; r < dimV; r++)
     {
         std::vector<int> row;
 
-        for (int c = 0; c < dimH; c++)
+        for (size_t c = 0; c < dimH; c++)
             row.push_back(rand() % max + min);
 
         m.pushRowBack(row);
@@ -27,13 +27,13 @@ Matrix<int> Matrix<int>::randint(const int dimH, const int dimV, const int min, 
 }
 
 template <>
-Matrix<int> Matrix<int>::zeros(const int dimH, const int dimV)
+Matrix<int> Matrix<int>::zeros(const size_t dimH, const size_t dimV)
 {
     return Matrix<int>(dimH, dimV, 0);
 }
 
 template <>
-Matrix<int> Matrix<int>::identity(const int dim)
+Matrix<int> Matrix<int>::identity(const size_t dim)
 {
     Matrix<int> m = Matrix<int>::zeros(dim, dim);
     m.setDiag(std::vector<int>(dim, 1));

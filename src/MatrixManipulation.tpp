@@ -8,7 +8,7 @@
 // INSERT FUNCTIONS
 
 template <class T>
-void Matrix<T>::insertRow(const int pos, const std::vector<T> val)
+void Matrix<T>::insertRow(const size_t pos, const std::vector<T> val)
 {
     if (isEmpty())
     {
@@ -29,7 +29,7 @@ void Matrix<T>::insertRow(const int pos, const std::vector<T> val)
 }
 
 template <class T>
-void Matrix<T>::insertCol(const int pos, const std::vector<T> val)
+void Matrix<T>::insertCol(const size_t pos, const std::vector<T> val)
 {
     if (isEmpty())
     {

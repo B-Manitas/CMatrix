@@ -35,7 +35,7 @@ void Matrix<T>::setCol(const size_t n, const std::vector<T> val)
 }
 
 template <class T>
-void Matrix<T>::setCell(const int col, const int row, T val)
+void Matrix<T>::setCell(const size_t col, const size_t row, T val)
 {
     if (dimH() > (size_t)col and dimV() > (size_t)row)
         matrix.at(row).at(col) = val;
@@ -44,5 +44,14 @@ void Matrix<T>::setCell(const int col, const int row, T val)
         throw std::invalid_argument("invalid row or col");
 }
 
+template <class T>
+void Matrix<T>::setDiag(const std::vector<T> val)
+{
+    size_t min = std::min(dimH(), dimV());
+    
     if (val.size() != min)
+        throw std::invalid_argument("val must be the same length than matrix");
+
     for (size_t i = 0; i < min; i++)
+        setCell(i, i, val.at(i));
+}

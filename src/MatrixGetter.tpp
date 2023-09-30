@@ -8,13 +8,13 @@
 // GET METHODS
 
 template <class T>
-std::vector<T> Matrix<T>::getRow(const int n) const
+std::vector<T> Matrix<T>::getRow(const size_t n) const
 {
     return matrix.at(n);
 }
 
 template <class T>
-std::vector<std::vector<T>> Matrix<T>::getCol(const int n) const
+std::vector<std::vector<T>> Matrix<T>::getCol(const size_t n) const
 {
     std::vector<std::vector<T>> col;
 
@@ -25,7 +25,7 @@ std::vector<std::vector<T>> Matrix<T>::getCol(const int n) const
 }
 
 template <class T>
-T Matrix<T>::getCell(const int col, const int row) const
+T Matrix<T>::getCell(const size_t col, const size_t row) const
 {
     return matrix.at(row).at(col);
 }
@@ -34,7 +34,7 @@ T Matrix<T>::getCell(const int col, const int row) const
 // SLICING METHODS
 
 template <class T>
-Matrix<T> Matrix<T>::at(const int y) const
+Matrix<T> Matrix<T>::at(const size_t y) const
 {
     if ((size_t)y < 0 || (size_t)y >= dimV())
         throw std::out_of_range("Invalid row index");
@@ -45,7 +45,7 @@ Matrix<T> Matrix<T>::at(const int y) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::iloc(const int x) const
+Matrix<T> Matrix<T>::iloc(const size_t x) const
 {
     if ((size_t)x < 0 || (size_t)x >= dimH())
         throw std::out_of_range("Invalid column index");

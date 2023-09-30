@@ -52,7 +52,7 @@ public:
      * @return std::vector<T> The row.
      * @throw std::out_of_range If the index is out of range.
      */
-    std::vector<T> getRow(const int n) const;
+    std::vector<T> getRow(const size_t n) const;
     /**
      * @brief Get a column of the matrix.
      *
@@ -60,7 +60,7 @@ public:
      * @return std::vector<T> The column.
      * @throw std::out_of_range If the index is out of range.
      */
-    std::vector<std::vector<T>> getCol(const int n) const;
+    std::vector<std::vector<T>> getCol(const size_t n) const;
     /**
      * @brief Get a cell of the matrix.
      *
@@ -69,7 +69,7 @@ public:
      * @return T The cell.
      * @throw std::out_of_range If the index is out of range.
      */
-    T getCell(const int col, const int row) const;
+    T getCell(const size_t col, const size_t row) const;
 
     /**
      * @brief Get the row matrix of the matrix.
@@ -78,7 +78,7 @@ public:
      * @return std::vector<T> The row matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> at(const int y) const;
+    Matrix<T> at(const size_t y) const;
     /**
      * @brief Get the column matrix of the matrix.
      *
@@ -86,7 +86,7 @@ public:
      * @return std::vector<T> The column matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> iloc(const int x) const;
+    Matrix<T> iloc(const size_t x) const;
 
     /**
      * @brief The number of columns of the matrix.
@@ -152,7 +152,7 @@ public:
      *
      * @note The cell must be of the same type of the matrix.
      */
-    void setCell(const int col, const int row, T val);
+    void setCell(const size_t col, const size_t row, T val);
     /**
      * @brief Set the diagonal of the matrix.
      * 
@@ -174,7 +174,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void insertRow(const int pos, const std::vector<T> val);
+    void insertRow(const size_t pos, const std::vector<T> val);
     /**
      * @brief Insert a row in the matrix.
      *
@@ -185,7 +185,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void insertCol(const int pos, const std::vector<T> val);
+    void insertCol(const size_t pos, const std::vector<T> val);
     /**
      * @brief Push a row in the front of the matrix.
      *
@@ -330,7 +330,7 @@ public:
      *
      * @return Matrix<int> The random matrix of integers.
      */
-    static Matrix<int> randint(const int dimH, const int dimV, const int min, const int max, const int seed = time(nullptr));
+    static Matrix<int> randint(const size_t dimH, const size_t dimV, const int min, const int max, const int seed = time(nullptr));
     /**
      * @brief Generate a matrix of zeros.
      *
