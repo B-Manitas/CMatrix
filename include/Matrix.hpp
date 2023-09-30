@@ -242,6 +242,13 @@ public:
      * @return false If the matrix is not empty.
      */
     bool isEmpty() const;
+    /**
+     * @brief Check if the matrix is a square matrix.
+     *
+     * @return true If the matrix is a square matrix.
+     * @return false If the matrix is not a square matrix.
+     */
+    bool isSquare() const;
 
     // OTHER METHODS
     /**

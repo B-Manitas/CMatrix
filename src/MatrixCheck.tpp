@@ -13,4 +13,9 @@ bool Matrix<T>::isEmpty() const
     return dimH() == 0 and dimV() == 0;
 }
 
+template <class T>
+bool Matrix<T>::isSquare() const
+{
+    return dimH() == dimV();
+}
 

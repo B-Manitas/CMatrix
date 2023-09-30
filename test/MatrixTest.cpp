@@ -446,6 +446,26 @@ TEST(MatrixTest, isEmpty)
     EXPECT_FALSE(m4.isEmpty());
 }
 
+/** Test isSquare method of Matrix class */
+TEST(MatrixTest, isSquare)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_TRUE(m1.isSquare());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_TRUE(m2.isSquare());
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_FALSE(m3.isSquare());
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_FALSE(m4.isSquare());
+}
+
 // ==================================================
 // OTHER METHODS
 /** Test clear method of Matrix class */
