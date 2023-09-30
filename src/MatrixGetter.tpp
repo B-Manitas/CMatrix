@@ -75,3 +75,19 @@ std::tuple<size_t, size_t> Matrix<T>::dim() const
 {
     return std::tuple<size_t, size_t>(dimV(), dimH());
 }
+
+// ==================================================
+// SIMILARS MATRIX
+
+template <class T>
+Matrix<T> Matrix<T>::transpose() const
+{
+    Matrix<T> m(dimV(), dimH());
+
+    for (size_t r = 0; r < dimV(); r++)
+        for (size_t c = 0; c < dimH(); c++)
+            m.setCell(r, c, getCell(c, r));
+
+    return m;
+}
+

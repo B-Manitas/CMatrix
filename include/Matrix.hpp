@@ -107,6 +107,12 @@ public:
      */
     std::tuple<size_t, size_t> dim() const;
 
+    /**
+     * @brief Get the transpose of the matrix.
+     * 
+     * @return Matrix<T> The transpose of the matrix.
+     */
+    Matrix<T> transpose() const;
     // SETTER METHODS
     /**
      * @brief Set a row of the matrix.

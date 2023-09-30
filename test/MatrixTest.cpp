@@ -182,6 +182,29 @@ TEST(MatrixTest, dim)
     EXPECT_EQ(m4.dim(), std::make_tuple(0, 0));
 }
 
+/** Test transpose method of Matrix class */
+TEST(MatrixTest, transpose)
+{
+    // 3x3 MATRIX
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m2 = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
+    EXPECT_EQ(m1.transpose(), m2);
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m3.transpose(), m4);
+
+    // 3x1 MATRIX
+    Matrix<int> m5 = {{1}, {2}, {3}};
+    Matrix<int> m6 = {{1, 2, 3}};
+    EXPECT_EQ(m5.transpose(), m6);
+
+    // EMPTY MATRIX
+    Matrix<std::string> m7;
+    EXPECT_EQ(m7.transpose(), Matrix<std::string>());
+}
+
 // ==================================================
 // SETTER METHODS
 /** Test setRow method of Matrix class */
