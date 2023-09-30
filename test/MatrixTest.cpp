@@ -312,6 +312,33 @@ TEST(MatrixTest, setCell)
     EXPECT_THROW(m.setCell(0, 3, 10), std::invalid_argument);
 }
 
+/** Test setDiag method of Matrix class */
+TEST(MatrixTest, setDiag)
+{
+    // 3x3 MATRIX
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    m1.setDiag({10, 11, 12});
+    EXPECT_EQ(m1.getCell(0, 0), 10);
+    EXPECT_EQ(m1.getCell(1, 1), 11);
+    EXPECT_EQ(m1.getCell(2, 2), 12);
+
+    // 1x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}};
+    m2.setDiag({10});
+    EXPECT_EQ(m2.getCell(0, 0), 10);
+
+    // 3x1 MATRIX
+    Matrix<int> m3 = {{1}, {2}, {3}};
+    m3.setDiag({10});
+    EXPECT_EQ(m3.getCell(0, 0), 10);
+    // EMPTY MATRIX
+    Matrix<std::string> m4;
+    EXPECT_THROW(m4.setDiag({"a", "b", "c"}), std::invalid_argument);
+
+    // INVALID SIZE
+    EXPECT_THROW(m1.setDiag({10, 11, 12, 13}), std::invalid_argument);
+}
+
 // ==================================================
 // MANIPULATION METHODS
 /** Test insertRow method of Matrix class */

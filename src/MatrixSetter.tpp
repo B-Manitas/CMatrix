@@ -43,3 +43,6 @@ void Matrix<T>::setCell(const int col, const int row, T val)
     else
         throw std::invalid_argument("invalid row or col");
 }
+
+    if (val.size() != min)
+    for (size_t i = 0; i < min; i++)

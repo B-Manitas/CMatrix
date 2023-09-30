@@ -154,6 +154,14 @@ public:
      */
     void setCell(const int col, const int row, T val);
     /**
+     * @brief Set the diagonal of the matrix.
+     * 
+     * @param val The diagonal to set.
+     * @throw std::invalid_argument If the size of the vector `val` is not equal to the minimum of the number of rows and columns of the matrix.
+     *
+     * @note The diagonal must be a vector of the same type of the matrix.
+     */
+    void setDiag(const std::vector<T> val);
 
     // MANIPULATION METHODS
     /**
