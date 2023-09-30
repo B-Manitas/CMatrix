@@ -10,7 +10,7 @@
 template <class T>
 Matrix<T> Matrix<T>::operator=(const Matrix<T> &m)
 {
-    if (this != m)
+    if (this != &m)
         matrix = m.matrix;
 
     return *this;
