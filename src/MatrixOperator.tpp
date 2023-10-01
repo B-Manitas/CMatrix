@@ -94,3 +94,33 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
 
     return result;
 }
+// ==================================================
+// OTHER OPERATORS
+
+template <class T>
+std::ostream &operator<<(std::ostream &out, const Matrix<T> &m)
+{
+    out << "[";
+
+    for (size_t i = 0; i < m.dimV(); i++)
+    {
+        out << "[";
+
+        for (size_t j = 0; j < m.dimH(); j++)
+        {
+            out << m.getCell(j, i);
+
+            if (j != m.dimH() - 1)
+                out << ", ";
+        }
+
+        out << "]";
+
+        if (i != m.dimV() - 1)
+            out << ", ";
+    }
+
+    out << "]";
+
+    return out;
+}

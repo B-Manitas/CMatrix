@@ -782,6 +782,34 @@ TEST(MatrixTest, operatorEquals)
     EXPECT_TRUE(m7 != m8);
 }
 
+/** Test operatorStream method of Matrix class */
+TEST(MatrixTest, operatorStream)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    std::stringstream ss1;
+    ss1 << m1;
+    EXPECT_EQ(ss1.str(), "[]");
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    std::stringstream ss2;
+    ss2 << m2;
+    EXPECT_EQ(ss2.str(), "[[1, 2, 3], [4, 5, 6], [7, 8, 9]]");
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    std::stringstream ss3;
+    ss3 << m3;
+    EXPECT_EQ(ss3.str(), "[[1, 2, 3]]");
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    std::stringstream ss4;
+    ss4 << m4;
+    EXPECT_EQ(ss4.str(), "[[1], [2], [3]]");
+}
+
 /** Test operatorMap method of Matrix class */
 TEST(MatrixTest, operatorMap)
 {

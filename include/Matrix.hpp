@@ -390,13 +390,12 @@ public:
     /**
      * @brief The output operator.
      *
-     * @param os The output stream.
+     * @param out The output stream.
      * @param m The matrix to print.
      * @return std::ostream& The output stream.
-     *
-     * @note The matrix must be of the same type of the matrix.
      */
-    std::ostream &operator<<(const std::ostream &os) const;
+    template <class U>
+    friend std::ostream &operator<<(std::ostream &out, const Matrix<U> &m);
     /**
      * @brief The addition operator.
      *
