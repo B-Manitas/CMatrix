@@ -48,7 +48,7 @@ bool Matrix<T>::operator!=(const Matrix<T> &m) const
 // ARITHMETIC OPERATORS
 
 template <class T>
-Matrix<T> Matrix<T>::operatorMap(std::function<T(T, T)> f, const Matrix<T> &m) const
+Matrix<T> Matrix<T>::operatorMap(const std::function<T(T, T)> &f, const Matrix<T> &m) const
 {
     if (dim() != m.dim())
         throw std::invalid_argument("The matrices must have the same dimension.");

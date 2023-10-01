@@ -8,7 +8,7 @@
 // SET FUNCTIONS
 
 template <class T>
-void Matrix<T>::setRow(const size_t n, const std::vector<T> val)
+void Matrix<T>::setRow(const size_t &n, const std::vector<T> &val)
 {
     if (val.size() != dimH())
         throw std::invalid_argument("val must be the same length than matrix" + std::to_string(val.size()) + " " + std::to_string(dimV()));
@@ -21,7 +21,7 @@ void Matrix<T>::setRow(const size_t n, const std::vector<T> val)
 }
 
 template <class T>
-void Matrix<T>::setCol(const size_t n, const std::vector<T> val)
+void Matrix<T>::setCol(const size_t &n, const std::vector<T> &val)
 {
     if (val.size() != dimV())
         throw std::invalid_argument("val must be the same length than matrix");
@@ -35,7 +35,7 @@ void Matrix<T>::setCol(const size_t n, const std::vector<T> val)
 }
 
 template <class T>
-void Matrix<T>::setCell(const size_t col, const size_t row, T val)
+void Matrix<T>::setCell(const size_t &col, const size_t &row, const T &val)
 {
     if (dimH() > (size_t)col and dimV() > (size_t)row)
         matrix.at(row).at(col) = val;
@@ -45,10 +45,10 @@ void Matrix<T>::setCell(const size_t col, const size_t row, T val)
 }
 
 template <class T>
-void Matrix<T>::setDiag(const std::vector<T> val)
+void Matrix<T>::setDiag(const std::vector<T> &val)
 {
     size_t min = std::min(dimH(), dimV());
-    
+
     if (val.size() != min)
         throw std::invalid_argument("val must be the same length than matrix");
 

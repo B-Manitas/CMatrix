@@ -22,7 +22,7 @@ public:
      *
      * @param m The matrix to copy.
      */
-    Matrix(const std::initializer_list<std::initializer_list<T>> m);
+    Matrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief Construct a new Matrix object.
      */
@@ -33,7 +33,7 @@ public:
      * @param dimH The number of rows.
      * @param dimV The number of columns.
      */
-    Matrix(const size_t dimH, const size_t dimV);
+    Matrix(const size_t &dimH, const size_t &dimV);
     /**
      * @brief Construct a new Matrix object.
      *
@@ -41,7 +41,7 @@ public:
      * @param dimV The number of columns.
      * @param val The value to fill the matrix.
      */
-    Matrix(const size_t dimH, const size_t dimV, const T val);
+    Matrix(const size_t &dimH, const size_t &dimV, const T &val);
     ~Matrix();
 
     // GETTER METHODS
@@ -52,7 +52,7 @@ public:
      * @return std::vector<T> The row.
      * @throw std::out_of_range If the index is out of range.
      */
-    std::vector<T> getRow(const size_t n) const;
+    std::vector<T> getRow(const size_t &n) const;
     /**
      * @brief Get a column of the matrix.
      *
@@ -60,7 +60,7 @@ public:
      * @return std::vector<T> The column.
      * @throw std::out_of_range If the index is out of range.
      */
-    std::vector<std::vector<T>> getCol(const size_t n) const;
+    std::vector<std::vector<T>> getCol(const size_t &n) const;
     /**
      * @brief Get a cell of the matrix.
      *
@@ -69,7 +69,7 @@ public:
      * @return T The cell.
      * @throw std::out_of_range If the index is out of range.
      */
-    T getCell(const size_t col, const size_t row) const;
+    T getCell(const size_t &col, const size_t &row) const;
 
     /**
      * @brief Get the row matrix of the matrix.
@@ -78,7 +78,7 @@ public:
      * @return std::vector<T> The row matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> at(const size_t y) const;
+    Matrix<T> at(const size_t &y) const;
     /**
      * @brief Get the column matrix of the matrix.
      *
@@ -86,7 +86,7 @@ public:
      * @return std::vector<T> The column matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> iloc(const size_t x) const;
+    Matrix<T> iloc(const size_t &x) const;
 
     /**
      * @brief The number of columns of the matrix.
@@ -109,20 +109,20 @@ public:
 
     /**
      * @brief Get the transpose of the matrix.
-     * 
+     *
      * @return Matrix<T> The transpose of the matrix.
      */
     Matrix<T> transpose() const;
     /**
      * @brief Get the diagonal of the matrix.
-     * 
+     *
      * @return std::vector<T> The diagonal of the matrix.
      */
     std::vector<T> diag() const;
     // SETTER METHODS
     /**
      * @brief Set a row of the matrix.
-     * 
+     *
      * @param n The index of the row to set.
      * @param val The value to set.
      * @throw std::out_of_range If the index is out of range.
@@ -130,10 +130,10 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void setRow(const size_t n, const std::vector<T> val);
+    void setRow(const size_t &n, const std::vector<T> &val);
     /**
      * @brief Set a column of the matrix.
-     * 
+     *
      * @param n The index of the column to set.
      * @param val The value to set.
      * @throw std::out_of_range If the index is out of range.
@@ -141,10 +141,10 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void setCol(const size_t n, const std::vector<T> val);
+    void setCol(const size_t &n, const std::vector<T> &val);
     /**
      * @brief Set a cell of the matrix.
-     * 
+     *
      * @param col The column of the cell to set.
      * @param row The row of the cell to set.
      * @param val The value to set.
@@ -152,16 +152,16 @@ public:
      *
      * @note The cell must be of the same type of the matrix.
      */
-    void setCell(const size_t col, const size_t row, T val);
+    void setCell(const size_t &col, const size_t &row, const T &val);
     /**
      * @brief Set the diagonal of the matrix.
-     * 
+     *
      * @param val The diagonal to set.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the minimum of the number of rows and columns of the matrix.
      *
      * @note The diagonal must be a vector of the same type of the matrix.
      */
-    void setDiag(const std::vector<T> val);
+    void setDiag(const std::vector<T> &val);
 
     // MANIPULATION METHODS
     /**
@@ -174,7 +174,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void insertRow(const size_t pos, const std::vector<T> val);
+    void insertRow(const size_t &pos, const std::vector<T> &val);
     /**
      * @brief Insert a row in the matrix.
      *
@@ -185,7 +185,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void insertCol(const size_t pos, const std::vector<T> val);
+    void insertCol(const size_t &pos, const std::vector<T> &val);
     /**
      * @brief Push a row in the front of the matrix.
      *
@@ -194,7 +194,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void pushRowFront(const std::vector<T> val);
+    void pushRowFront(const std::vector<T> &val);
     /**
      * @brief Push a row in the back of the matrix.
      *
@@ -203,7 +203,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void pushRowBack(const std::vector<T> val);
+    void pushRowBack(const std::vector<T> &val);
 
     /**
      * @brief Push a column in the front of the matrix.
@@ -213,7 +213,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void pushColFront(const std::vector<T> val);
+    void pushColFront(const std::vector<T> &val);
     /**
      * @brief Push a column in the back of the matrix.
      *
@@ -222,7 +222,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void pushColBack(const std::vector<T> val);
+    void pushColBack(const std::vector<T> &val);
 
     /**
      * @brief Find the first row matching the given row.
@@ -233,7 +233,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    int findRow(const std::vector<T> val) const;
+    int findRow(const std::vector<T> &val) const;
     /**
      * @brief Find the first column matching the given column.
      *
@@ -243,7 +243,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    int findCol(const std::vector<T> val) const;
+    int findCol(const std::vector<T> &val) const;
     /**
      * @brief Find the first cell matching the given cell.
      *
@@ -252,7 +252,7 @@ public:
      *
      * @note The cell must be of the same type of the matrix.
      */
-    std::tuple<int, int> find(const T val) const;
+    std::tuple<int, int> find(const T &val) const;
 
     // CHECK METHODS
     /**
@@ -281,27 +281,27 @@ public:
     void clear();
     /**
      * @brief Copy the matrix.
-     * 
+     *
      * @return Matrix<T> The copied matrix.
      */
     Matrix<T> copy() const;
     /**
      * @brief Apply a function to each cell of the matrix.
-     * 
+     *
      * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
      * @param col The pointer to the column index. (default: nullptr)
      * @param row The pointer to the row index. (default: nullptr)
      */
-    void apply(std::function<T(T, size_t *, size_t *)> f, size_t *col = nullptr, size_t *row = nullptr);
+    void apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr);
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
-     * 
+     *
      * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
      * @param col The pointer to the column index. (default: nullptr)
      * @param row The pointer to the row index. (default: nullptr)
      * @return Matrix<T> The result of the function.
      */
-    Matrix<T> map(std::function<T(T, size_t *, size_t *)> f, size_t *col = nullptr, size_t *row = nullptr) const;
+    Matrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
 
     // STATIC METHODS
     /**
@@ -311,14 +311,14 @@ public:
      * @return true If the nested vector is a matrix.
      * @return false If the nested vector is not a matrix.
      */
-    static bool isMatrix(const std::initializer_list<std::initializer_list<T>> m);
+    static bool isMatrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief Flatten a nested vector.
      *
      * @param vec The nested vector to flatten.
      * @return std::vector<T> The flattened vector.
      */
-    static std::vector<T> flattenVector(const std::vector<std::vector<T>> vec);
+    static std::vector<T> flattenVector(const std::vector<std::vector<T>> &vec);
     /**
      * @brief Generate a random matrix of integers.
      *
@@ -330,7 +330,7 @@ public:
      *
      * @return Matrix<int> The random matrix of integers.
      */
-    static Matrix<int> randint(const size_t dimH, const size_t dimV, const int min, const int max, const int seed = time(nullptr));
+    static Matrix<int> randint(const size_t &dimH, const size_t &dimV, const int &min, const int &max, const int &seed = time(nullptr));
     /**
      * @brief Generate a matrix of zeros.
      *
@@ -338,15 +338,15 @@ public:
      * @param dimV The number of columns.
      * @return Matrix<int> The matrix of zeros.
      */
-    static Matrix<int> zeros(const size_t dimH, const size_t dimV);
+    static Matrix<int> zeros(const size_t &dimH, const size_t &dimV);
     /**
      * @brief Generate the identity matrix.
-     * 
+     *
      * @param dim The number of rows and columns.
      * @return Matrix<int> The identity matrix.
      *
      */
-    static Matrix<int> identity(const size_t dim);
+    static Matrix<int> identity(const size_t &dim);
 
     // OPERATOR METHODS
     /**
@@ -396,15 +396,7 @@ public:
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    std::ostream &operator<<(std::ostream &os);
-    /**
-     * @brief Apply a operator to each cell of the matrix.
-     * 
-     * @param f The operator to apply. f(T value, T value) -> T
-     * @param m The matrix to apply.
-     * @return Matrix<T> The result of the operator.
-     */
-    Matrix<T> operatorMap(std::function<T(T, T)> f, const Matrix<T> &m) const;
+    std::ostream &operator<<(const std::ostream &os) const;
     /**
      * @brief The addition operator.
      *
@@ -432,6 +424,14 @@ public:
      * @note The matrix must be of the same type of the matrix.
      */
     Matrix<T> operator*(const Matrix<T> &m) const;
+    /**
+     * @brief Apply a operator to each cell of the matrix.
+     *
+     * @param f The operator to apply. f(T value, T value) -> T
+     * @param m The matrix to apply.
+     * @return Matrix<T> The result of the operator.
+     */
+    Matrix<T> operatorMap(const std::function<T(T, T)> &f, const Matrix<T> &m) const;
 };
 
 #include "Matrix.tpp"

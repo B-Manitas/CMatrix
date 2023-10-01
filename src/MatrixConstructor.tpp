@@ -11,7 +11,7 @@ template <class T>
 Matrix<T>::Matrix() {}
 
 template <class T>
-Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> m)
+Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> &m)
 {
     if (isMatrix(m))
         for (auto &&row : m)
@@ -22,13 +22,13 @@ Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> m)
 }
 
 template <class T>
-Matrix<T>::Matrix(const size_t dimH, const size_t dimV)
+Matrix<T>::Matrix(const size_t &dimH, const size_t &dimV)
 {
     matrix = std::vector<std::vector<T>>(dimV, std::vector<T>(dimH));
 }
 
 template <class T>
-Matrix<T>::Matrix(const size_t dimH, const size_t dimV, const T value)
+Matrix<T>::Matrix(const size_t &dimH, const size_t &dimV, const T &value)
 {
     matrix = std::vector<std::vector<T>>(dimV, std::vector<T>(dimH, value));
 }

@@ -38,7 +38,7 @@ Matrix<T> Matrix<T>::copy() const
 }
 
 template <class T>
-void Matrix<T>::apply(std::function<T(T, size_t *, size_t *)> f, size_t *col, size_t *row)
+void Matrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row)
 {
     for (size_t r = 0; r < dimV(); r++)
     {
@@ -56,7 +56,7 @@ void Matrix<T>::apply(std::function<T(T, size_t *, size_t *)> f, size_t *col, si
 }
 
 template <class T>
-Matrix<T> Matrix<T>::map(std::function<T(T, size_t *, size_t *)> f, size_t *col, size_t *row) const
+Matrix<T> Matrix<T>::map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row) const
 {
     Matrix<T> m = copy();
     m.apply(f, col, row);

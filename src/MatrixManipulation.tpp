@@ -8,7 +8,7 @@
 // INSERT FUNCTIONS
 
 template <class T>
-void Matrix<T>::insertRow(const size_t pos, const std::vector<T> val)
+void Matrix<T>::insertRow(const size_t &pos, const std::vector<T> &val)
 {
     if (isEmpty())
     {
@@ -29,7 +29,7 @@ void Matrix<T>::insertRow(const size_t pos, const std::vector<T> val)
 }
 
 template <class T>
-void Matrix<T>::insertCol(const size_t pos, const std::vector<T> val)
+void Matrix<T>::insertCol(const size_t &pos, const std::vector<T> &val)
 {
     if (isEmpty())
     {
@@ -57,25 +57,25 @@ void Matrix<T>::insertCol(const size_t pos, const std::vector<T> val)
 // PUSH FUNCTIONS
 
 template <class T>
-void Matrix<T>::pushRowFront(const std::vector<T> val)
+void Matrix<T>::pushRowFront(const std::vector<T> &val)
 {
     insertRow(0, val);
 }
 
 template <class T>
-void Matrix<T>::pushRowBack(const std::vector<T> val)
+void Matrix<T>::pushRowBack(const std::vector<T> &val)
 {
     insertRow(dimV(), val);
 }
 
 template <class T>
-void Matrix<T>::pushColFront(const std::vector<T> val)
+void Matrix<T>::pushColFront(const std::vector<T> &val)
 {
     insertCol(0, val);
 }
 
 template <class T>
-void Matrix<T>::pushColBack(const std::vector<T> val)
+void Matrix<T>::pushColBack(const std::vector<T> &val)
 {
     insertCol(dimH(), val);
 }
@@ -84,7 +84,7 @@ void Matrix<T>::pushColBack(const std::vector<T> val)
 // FIND FUNCTIONS
 
 template <class T>
-int Matrix<T>::findRow(const std::vector<T> val) const
+int Matrix<T>::findRow(const std::vector<T> &val) const
 {
     if (val.size() != dimH())
         throw std::invalid_argument("val must be the same length than matrix");
@@ -97,7 +97,7 @@ int Matrix<T>::findRow(const std::vector<T> val) const
 }
 
 template <class T>
-int Matrix<T>::findCol(const std::vector<T> val) const
+int Matrix<T>::findCol(const std::vector<T> &val) const
 {
     if (val.size() != dimV())
         throw std::invalid_argument("val must be the same length than matrix");
@@ -110,7 +110,7 @@ int Matrix<T>::findCol(const std::vector<T> val) const
 }
 
 template <class T>
-std::tuple<int, int> Matrix<T>::find(const T val) const
+std::tuple<int, int> Matrix<T>::find(const T &val) const
 {
 
     for (size_t row = 0; row < dimV(); row++)

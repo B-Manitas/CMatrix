@@ -8,7 +8,7 @@
 // GENERATOR METHODS
 
 template <>
-Matrix<int> Matrix<int>::randint(const size_t dimH, const size_t dimV, const int min, const int max, const int seed)
+Matrix<int> Matrix<int>::randint(const size_t &dimH, const size_t &dimV, const int &min, const int &max, const int &seed)
 {
     std::srand(seed);
     Matrix<int> m;
@@ -27,13 +27,13 @@ Matrix<int> Matrix<int>::randint(const size_t dimH, const size_t dimV, const int
 }
 
 template <>
-Matrix<int> Matrix<int>::zeros(const size_t dimH, const size_t dimV)
+Matrix<int> Matrix<int>::zeros(const size_t &dimH, const size_t &dimV)
 {
     return Matrix<int>(dimH, dimV, 0);
 }
 
 template <>
-Matrix<int> Matrix<int>::identity(const size_t dim)
+Matrix<int> Matrix<int>::identity(const size_t &dim)
 {
     Matrix<int> m = Matrix<int>::zeros(dim, dim);
     m.setDiag(std::vector<int>(dim, 1));
@@ -44,7 +44,7 @@ Matrix<int> Matrix<int>::identity(const size_t dim)
 // OTHERS METHODS
 
 template <class T>
-bool Matrix<T>::isMatrix(const std::initializer_list<std::initializer_list<T>> m)
+bool Matrix<T>::isMatrix(const std::initializer_list<std::initializer_list<T>> &m)
 {
     size_t rowSize = 0;
     for (auto &&row : m)
@@ -59,7 +59,7 @@ bool Matrix<T>::isMatrix(const std::initializer_list<std::initializer_list<T>> m
 }
 
 template <class T>
-std::vector<T> Matrix<T>::flattenVector(const std::vector<std::vector<T>> vec)
+std::vector<T> Matrix<T>::flattenVector(const std::vector<std::vector<T>> &vec)
 {
     std::vector<T> r;
 
