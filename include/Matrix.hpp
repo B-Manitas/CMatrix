@@ -31,15 +31,15 @@ public:
     /**
      * @brief Construct a new Matrix object.
      *
-     * @param dimH The number of rows.
-     * @param dimV The number of columns.
+     * @param dimH The number of columns.
+     * @param dimV The number of rows.
      */
     Matrix(const size_t &dimH, const size_t &dimV);
     /**
      * @brief Construct a new Matrix object.
      *
-     * @param dimH The number of rows.
-     * @param dimV The number of columns.
+     * @param dimH The number of columns.
+     * @param dimV The number of rows.
      * @param val The value to fill the matrix.
      */
     Matrix(const size_t &dimH, const size_t &dimV, const T &val);
@@ -335,8 +335,8 @@ public:
     /**
      * @brief Generate a matrix of zeros.
      *
-     * @param dimH The number of rows.
-     * @param dimV The number of columns.
+     * @param dimH The number of columns.
+     * @param dimV The number of rows.
      * @return Matrix<int> The matrix of zeros.
      */
     static Matrix<int> zeros(const size_t &dimH, const size_t &dimV);
