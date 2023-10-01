@@ -72,3 +72,25 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &m) const
 {
     return operatorMap(std::minus<T>(), m);
 }
+
+template <class T>
+Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
+{
+    if (dimH() != m.dimV())
+        throw std::invalid_argument("The number of columns of the first matrix must be equal to the number of rows of the second matrix.");
+
+    Matrix<T> result(dimV(), m.dimH());
+
+    for (size_t i = 0; i < dimV(); i++)
+        for (size_t j = 0; j < m.dimH(); j++)
+        {
+            T sum{};
+
+            for (size_t k = 0; k < dimH(); k++)
+                sum += getCell(k, i) * m.getCell(j, k);
+
+            result.setCell(j, i, sum);
+        }
+
+    return result;
+}

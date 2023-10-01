@@ -861,6 +861,39 @@ TEST(MatrixTest, operatorSub)
     EXPECT_THROW(m13 - m14, std::invalid_argument);
 }
 
+/** Test operatorMul method of Matrix class */
+TEST(MatrixTest, operatorMul)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+    Matrix<int> m3 = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
+    EXPECT_EQ(m1 * m2, m3);
+
+    // 1x3 MATRICES
+    Matrix<int> m4 = {{5, 7, 9}};
+    Matrix<int> m5 = {{1}, {2}, {3}};
+    Matrix<int> m6 = {{46}};
+    EXPECT_EQ(m4 * m5, m6);
+
+    // 3x1 MATRICES
+    Matrix<int> m7 = {{1}, {2}, {3}};
+    Matrix<int> m8 = {{5, 7, 9}};
+    Matrix<int> m9 = {{5, 7, 9}, {10, 14, 18}, {15, 21, 27}};
+    EXPECT_EQ(m7 * m8, m9);
+
+    // EMPTY MATRICES
+    Matrix<int> m10;
+    Matrix<int> m11;
+    Matrix<int> m12;
+    EXPECT_EQ(m10 * m11, m12);
+
+    // NOT EQUAL DIMENSIONS
+    Matrix<int> m13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m14 = {{6, 5, 4}, {3, 2, 1}};
+    EXPECT_THROW(m13 * m14, std::invalid_argument);
+}
+
 GTEST_API_ int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);

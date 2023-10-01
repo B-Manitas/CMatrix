@@ -430,7 +430,6 @@ public:
      * @return Matrix<T> The product of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @warning NOT IMPLEMENTED
      */
     Matrix<T> operator*(const Matrix<T> &m) const;
 };
