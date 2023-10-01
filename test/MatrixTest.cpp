@@ -922,6 +922,28 @@ TEST(MatrixTest, operatorMul)
     EXPECT_THROW(m13 * m14, std::invalid_argument);
 }
 
+/** Test operatorPower method of Matrix class */
+TEST(MatrixTest, operatorPower)
+{
+    // 3x3 MATRIX
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m2 = {{30, 36, 42}, {66, 81, 96}, {102, 126, 150}};
+    EXPECT_EQ(m1 ^ 2, m2);
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_THROW(m3 ^ 2, std::invalid_argument);
+
+    // 3x1 MATRIX
+    Matrix<int> m5 = {{1}, {2}, {3}};
+    EXPECT_THROW(m5 ^ 2, std::invalid_argument);
+
+    // EMPTY MATRIX
+    Matrix<int> m7;
+    Matrix<int> m8;
+    EXPECT_EQ(m7 ^ 2, m8);
+}
+
 GTEST_API_ int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);

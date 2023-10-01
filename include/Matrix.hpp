@@ -3,6 +3,7 @@
 #include <vector>
 #include <tuple>
 #include <iostream>
+#include <functional>
 
 /**
  * @brief Matrix class.
@@ -423,6 +424,14 @@ public:
      * @note The matrix must be of the same type of the matrix.
      */
     Matrix<T> operator*(const Matrix<T> &m) const;
+    /**
+     * @brief The power operator.
+     *
+     * @param m The power. Must be a positive integer.
+     * @return Matrix<T> The powered matrix.
+     * @throw std::invalid_argument If the matrix is not a square matrix.
+     */
+    Matrix<T> operator^(const unsigned int &m) const;
     /**
      * @brief Apply a operator to each cell of the matrix.
      *

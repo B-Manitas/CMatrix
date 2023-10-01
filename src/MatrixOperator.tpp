@@ -94,6 +94,25 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
 
     return result;
 }
+
+template <class T>
+Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
+{
+    if (dimH() != dimV())
+        throw std::invalid_argument("The matrix must be square.");
+
+    if (n == 0)
+        return Matrix<T>::identity(dimH());
+
+    if (n == 1)
+        return copy();
+
+    if (n % 2 == 0)
+        return (*this * *this) ^ (n / 2);
+
+    return *this * ((*this * *this) ^ ((n - 1) / 2));
+}
+
 // ==================================================
 // OTHER OPERATORS
 
