@@ -536,6 +536,105 @@ TEST(MatrixTest, isSquare)
     EXPECT_FALSE(m4.isSquare());
 }
 
+/** Test isDiagonal method of Matrix class */
+TEST(MatrixTest, isDiagonal)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_TRUE(m1.isDiagonal());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 0, 0}, {0, 5, 0}, {0, 0, 9}};
+    EXPECT_TRUE(m2.isDiagonal());
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_FALSE(m3.isDiagonal());
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_FALSE(m4.isDiagonal());
+}
+
+/** Test isIdentity method of Matrix class */
+TEST(MatrixTest, isIdentity)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_TRUE(m1.isIdentity());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+    EXPECT_TRUE(m2.isIdentity());
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_FALSE(m3.isIdentity());
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_FALSE(m4.isIdentity());
+}
+
+TEST(MatrixTest, isSymmetric)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_TRUE(m1.isSymmetric());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {2, 5, 6}, {3, 6, 9}};
+    EXPECT_TRUE(m2.isSymmetric());
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_FALSE(m3.isSymmetric());
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_FALSE(m4.isSymmetric());
+}
+
+/** Test isUpperTriangular method of Matrix class */
+TEST(MatrixTest, isUpperTriangular)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_TRUE(m1.isUpperTriangular());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {0, 5, 6}, {0, 0, 9}};
+    EXPECT_TRUE(m2.isUpperTriangular());
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_FALSE(m3.isUpperTriangular());
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_FALSE(m4.isUpperTriangular());
+}
+
+/** Test isLowerTriangular method of Matrix class */
+TEST(MatrixTest, isLowerTriangular)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_TRUE(m1.isLowerTriangular());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 0, 0}, {4, 5, 0}, {7, 8, 9}};
+    EXPECT_TRUE(m2.isLowerTriangular());
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_FALSE(m3.isLowerTriangular());
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_FALSE(m4.isLowerTriangular());
+}
+
 /** Test isAll method of Matrix class */
 TEST(MatrixTest, isAll)
 {

@@ -20,6 +20,56 @@ bool Matrix<T>::isSquare() const
 }
 
 template <class T>
+bool Matrix<T>::isDiagonal() const
+{
+    return isSquare() and isUpperTriangular() and isLowerTriangular();
+}
+
+template <class T>
+bool Matrix<T>::isIdentity() const
+{
+    return identity(dimH()) == *this;
+}
+
+template <class T>
+bool Matrix<T>::isSymmetric() const
+{
+    return *this == transpose();
+}
+
+template <class T>
+bool Matrix<T>::isUpperTriangular() const
+{
+    if (isSquare())
+    {
+        for (size_t r = 0; r < dimV(); r++)
+            for (size_t c = 0; c < dimH(); c++)
+                if (r > c and getCell(c, r) != 0)
+                    return false;
+
+        return true;
+    }
+
+    return false;
+}
+
+template <class T>
+bool Matrix<T>::isLowerTriangular() const
+{
+    if (isSquare())
+    {
+        for (size_t r = 0; r < dimV(); r++)
+            for (size_t c = 0; c < dimH(); c++)
+                if (r < c and getCell(c, r) != 0)
+                    return false;
+
+        return true;
+    }
+
+    return false;
+}
+
+template <class T>
 bool Matrix<T>::isAll(const std::function<bool(T)> &f) const
 {
     for (size_t r = 0; r < dimV(); r++)

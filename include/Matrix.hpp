@@ -271,6 +271,40 @@ public:
      */
     bool isSquare() const;
     /**
+     * @brief Check if the matrix is a diagonal matrix.
+     *
+     * @return true If the matrix is a diagonal matrix.
+     * @return false If the matrix is not a diagonal matrix.
+     */
+    bool isDiagonal() const;
+    /**
+     * @brief Check if the matrix is the identity matrix.
+     *
+     * @return true If the matrix is the identity matrix.
+     * @return false If the matrix is not the identity matrix.
+     */
+    bool isIdentity() const;
+    /**
+     * @brief Check if the matrix is a symmetric matrix.
+     *
+     * @return true If the matrix is a symmetric matrix.
+     * @return false If the matrix is not a symmetric matrix.
+     */
+    bool isSymmetric() const;
+    /**
+     * @brief Check if the matrix is an upper triangular matrix.
+     *
+     * @return true If the matrix is an upper triangular matrix.
+     * @return false If the matrix is not an upper triangular matrix.
+     */
+    bool isUpperTriangular() const;
+    /**
+     * @brief Check if the matrix is a lower triangular matrix.
+     *
+     * @return true If the matrix is a lower triangular matrix.
+     * @return false If the matrix is not a lower triangular matrix.
+     */
+    bool isLowerTriangular() const;
     /**
      * @brief Check if all the cells of the matrix satisfy a condition.
      *
