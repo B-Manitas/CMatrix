@@ -378,6 +378,12 @@ public:
      * @return Matrix<T> The result of the function.
      */
     Matrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
+    /**
+     * @brief Fill the matrix with a value.
+     *
+     * @param val The value to fill the matrix.
+     */
+    void fill(const T &val);
 
     // STATIC METHODS
     /**

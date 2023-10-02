@@ -806,6 +806,28 @@ TEST(MatrixTest, map)
     EXPECT_EQ(m4, expected2);
 }
 
+/** Test fill method of Matrix class */
+TEST(MatrixTest, fill)
+{
+    // 3x3 MATRIX
+    Matrix<int> m1 = Matrix<int>::zeros(3, 3);
+    Matrix<int> expected = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+    m1.fill(1);
+    EXPECT_EQ(m1, expected);
+
+    // 1x3 MATRIX
+    Matrix<int> m2 = Matrix<int>::zeros(3, 1);
+    Matrix<int> expected2 = {{1, 1, 1}};
+    m2.fill(1);
+    EXPECT_EQ(m2, expected2);
+
+    // 3x1 MATRIX
+    Matrix<int> m3 = Matrix<int>::zeros(1, 3);
+    Matrix<int> expected3 = {{1}, {1}, {1}};
+    m3.fill(1);
+    EXPECT_EQ(m3, expected3);
+}
+
 // ==================================================
 // STATIC METHODS
 /** Test isMatrix method of Matrix class */

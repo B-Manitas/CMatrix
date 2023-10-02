@@ -56,3 +56,9 @@ Matrix<T> Matrix<T>::map(const std::function<T(T, size_t *, size_t *)> &f, size_
     m.apply(f, col, row);
     return m;
 }
+
+template <class T>
+void Matrix<T>::fill(const T &value)
+{
+    apply([&](T, size_t *, size_t *) { return value; });
+}
