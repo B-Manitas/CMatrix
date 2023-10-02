@@ -234,25 +234,50 @@ public:
     void pushColBack(const std::vector<T> &val);
 
     /**
+     * @bried Find the first row matching the condition.
+     * 
+     * @param f The condition to satisfy. f(std::vector<T> row) -> bool
+     * @return int The first index of the row. -1 if not found.
+     * 
+     * @note The empty matrix always return -1.
+     */
+    int findRow(const std::function<bool(std::vector<T>)> &f) const;
+    /**
      * @brief Find the first row matching the given row.
      *
      * @param val The row to find.
      * @return int The first index of the row. -1 if not found.
-     * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of columns of the matrix.
      *
      * @note The row must be a vector of the same type of the matrix.
      */
     int findRow(const std::vector<T> &val) const;
+        /**
+     * @brief Find the first column matching the condition.
+     * 
+     * @param f The condition to satisfy. f(std::vector<T> col) -> bool
+     * @return int The first index of the column. -1 if not found.
+     * 
+     * @note The empty matrix always return -1.
+     */
+    int findCol(const std::function<bool(std::vector<T>)> &f) const;
     /**
      * @brief Find the first column matching the given column.
      *
      * @param val The column to find.
      * @return int The first index of the row. -1 if not found.
-     * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of rows of the matrix.
      *
      * @note The column must be a vector of the same type of the matrix.
      */
     int findCol(const std::vector<T> &val) const;
+    /**
+     * @brief Find the first cell matching the condition.
+     * 
+     * @param f The condition to satisfy. f(T value) -> bool
+     * @return std::tuple<int, int> The first index of the cell. (-1, -1) if not found.
+     * 
+     * @note The empty matrix always return (-1, -1).
+     */
+    std::tuple<int, int> find(const std::function<bool(T)> &f) const;
     /**
      * @brief Find the first cell matching the given cell.
      *

@@ -501,14 +501,40 @@ TEST(MatrixTest, pushColBack)
 
 TEST(MatrixTest, findRow)
 {
-    // Test findRow with existing row
-    // Expected returns the correct row index
+    // 3x3 MATRIX - FIND
     Matrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     EXPECT_EQ(m.findRow({4, 5, 6}), 1);
+    EXPECT_EQ(m.findRow([](std::vector<int> row)
+                        { return row.at(0) == row.at(1) - 1 && row.at(1) == row.at(2) - 1; }),
+              0);
 
-    // Test findRow with non-existing row
-    // Expected returns -1
+    // 3x3 MATRIX - NOT FIND
     EXPECT_EQ(m.findRow({10, 11, 12}), -1);
+    EXPECT_EQ(m.findRow({10, 11, 12, 13}), -1);
+
+    // 3x1 MATRIX - FIND
+    Matrix<int> m2 = {{1}, {2}, {3}};
+    EXPECT_EQ(m2.findRow({2}), 1);
+    EXPECT_EQ(m2.findRow([](std::vector<int> row)
+                         { return row.at(0) == 2; }),
+              1);
+
+    // 3x1 MATRIX - NOT FIND
+    EXPECT_EQ(m2.findRow({10}), -1);
+
+    // 1x3 MATRIX - FIND
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_EQ(m3.findRow({1, 2, 3}), 0);
+    EXPECT_EQ(m3.findRow([](std::vector<int> row)
+                         { return row.at(2) == 3; }),
+              0);
+
+    // 1x3 MATRIX - NOT FIND
+    EXPECT_EQ(m3.findRow({10, 11, 12}), -1);
+
+    // EMPTY MATRIX
+    Matrix<int> m4;
+    EXPECT_EQ(m4.findRow({1, 2, 3}), -1);
 }
 
 /** Test findCol method of Matrix class */
@@ -521,6 +547,25 @@ TEST(MatrixTest, findCol)
 
     // 3x3 MATRIX - NOT FIND
     EXPECT_EQ(m.findCol({10, 11, 12}), -1);
+    EXPECT_EQ(m.findCol({10, 11, 12, 13}), -1);
+
+    // 3x1 MATRIX - FIND
+    Matrix<int> m2 = {{1}, {2}, {3}};
+    EXPECT_EQ(m2.findCol({1, 2, 3}), 0);
+
+    // 3x1 MATRIX - NOT FIND
+    EXPECT_EQ(m2.findCol({10}), -1);
+
+    // 1x3 MATRIX - FIND
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_EQ(m3.findCol({2}), 1);
+
+    // 1x3 MATRIX - NOT FIND
+    EXPECT_EQ(m3.findCol({10, 11, 12}), -1);
+
+    // EMPTY MATRIX
+    Matrix<int> m4;
+    EXPECT_EQ(m4.findCol({1, 2, 3}), -1);
 }
 
 /** Test find method of Matrix class */

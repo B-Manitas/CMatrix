@@ -84,14 +84,28 @@ void Matrix<T>::pushColBack(const std::vector<T> &val)
 // FIND FUNCTIONS
 
 template <class T>
+int Matrix<T>::findRow(const std::function<bool(std::vector<T>)> &f) const
+{
+    for (size_t row = 0; row < dimV(); row++)
+        if (f(getRow(row)))
+            return row;
+
+    return -1;
+}
+
+template <class T>
 int Matrix<T>::findRow(const std::vector<T> &val) const
 {
-    if (val.size() != dimH())
-        throw std::invalid_argument("val must be the same length than matrix");
+    return findRow([&](std::vector<T> row)
+                   { return row == val; });
+}
 
-    for (size_t row = 0; row < dimV(); row++)
-        if (getRow(row) == val)
-            return row;
+template <class T>
+int Matrix<T>::findCol(const std::function<bool(std::vector<T>)> &f) const
+{
+    for (size_t col = 0; col < dimH(); col++)
+        if (f(getFlatCol(col)))
+            return col;
 
     return -1;
 }
@@ -99,24 +113,24 @@ int Matrix<T>::findRow(const std::vector<T> &val) const
 template <class T>
 int Matrix<T>::findCol(const std::vector<T> &val) const
 {
-    if (val.size() != dimV())
-        throw std::invalid_argument("val must be the same length than matrix");
+    return findCol([&](std::vector<T> col)
+                   { return col == val; });
+}
 
-    for (size_t col = 0; col < dimH(); col++)
-        if (flattenVector(getCol(col)) == val)
-            return col;
+template <class T>
+std::tuple<int, int> Matrix<T>::find(const std::function<bool(T)> &f) const
+{
+    for (size_t row = 0; row < dimV(); row++)
+        for (size_t col = 0; col < dimH(); col++)
+            if (f(getCell(col, row)))
+                return std::tuple<int, int>(int(col), int(row));
 
-    return -1;
+    return std::tuple<int, int>(-1, -1);
 }
 
 template <class T>
 std::tuple<int, int> Matrix<T>::find(const T &val) const
 {
-
-    for (size_t row = 0; row < dimV(); row++)
-        for (size_t col = 0; col < dimH(); col++)
-            if (getCell(col, row) == val)
-                return std::tuple<int, int>(int(col), int(row));
-
-    return std::tuple<int, int>(-1, -1);
+    return find([&](T e)
+                { return e == val; });
 }
