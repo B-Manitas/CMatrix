@@ -63,6 +63,14 @@ public:
      */
     std::vector<std::vector<T>> getCol(const size_t &n) const;
     /**
+     * @brief Get a column of the matrix as a flattened vector.
+     * 
+     * @param n The index of the column to get.
+     * @return std::vector<T> The column as a flattened vector.
+     * @throw std::out_of_range If the index is out of range.
+     */
+    std::vector<T> getFlatCol(const size_t &n) const;
+    /**
      * @brief Get a cell of the matrix.
      *
      * @param col The column of the cell to get.

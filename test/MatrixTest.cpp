@@ -78,6 +78,27 @@ TEST(MatrixTest, getCol)
     EXPECT_THROW(m.getCol(3), std::out_of_range);
 }
 
+/** Test getFlatCol method of Matrix class */
+TEST(MatrixTest, getFlatCol)
+{
+    // 3x3 MATRIX
+    Matrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m.getFlatCol(0), std::vector<int>({1, 4, 7}));
+    EXPECT_EQ(m.getFlatCol(1), std::vector<int>({2, 5, 8}));
+    EXPECT_EQ(m.getFlatCol(2), std::vector<int>({3, 6, 9}));
+
+    // 1x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}};
+    EXPECT_EQ(m2.getFlatCol(0), std::vector<int>({1}));
+
+    // 3x1 MATRIX
+    Matrix<int> m3 = {{1}, {2}, {3}};
+    EXPECT_EQ(m3.getFlatCol(0), std::vector<int>({1, 2, 3}));
+
+    // OUT OF RANGE - COLUMN
+    EXPECT_THROW(m.getFlatCol(3), std::out_of_range);
+}
+
 /** Test getCell method of Matrix class */
 TEST(MatrixTest, getCell)
 {

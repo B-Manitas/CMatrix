@@ -25,6 +25,17 @@ std::vector<std::vector<T>> Matrix<T>::getCol(const size_t &n) const
 }
 
 template <class T>
+std::vector<T> Matrix<T>::getFlatCol(const size_t &n) const
+{
+    std::vector<T> col;
+
+    for (auto &&row : matrix)
+        col.push_back(row.at(n));
+
+    return col;
+}
+
+template <class T>
 T Matrix<T>::getCell(const size_t &col, const size_t &row) const
 {
     return matrix.at(row).at(col);
