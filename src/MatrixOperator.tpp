@@ -114,6 +114,33 @@ Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
 }
 
 // ==================================================
+// ARITHMETIC ASSIGNMENT OPERATORS
+
+template <class T>
+Matrix<T> Matrix<T>::operator+=(const Matrix<T> &m)
+{
+    return *this = *this + m;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator-=(const Matrix<T> &m)
+{
+    return *this = *this - m;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator*=(const Matrix<T> &m)
+{
+    return *this = *this * m;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator^=(const unsigned int &n)
+{
+    return *this = *this ^ n;
+}
+
+// ==================================================
 // OTHER OPERATORS
 
 template <class T>

@@ -564,6 +564,41 @@ public:
      */
     Matrix<T> operator^(const unsigned int &m) const;
     /**
+     * @brief The addition assignment operator.
+     *
+     * @param m The matrix to add.
+     * @return Matrix<T>& The sum of the matrices.
+     *
+     * @note The matrix must be of the same type of the matrix.
+     */
+    Matrix<T> operator+=(const Matrix<T> &m);
+    /**
+     * @brief The subtraction assignment operator.
+     *
+     * @param m The matrix to subtract.
+     * @return Matrix<T>& The difference of the matrices.
+     *
+     * @note The matrix must be of the same type of the matrix.
+     */
+    Matrix<T> operator-=(const Matrix<T> &m);
+    /**
+     * @brief The multiplication assignment operator.
+     *
+     * @param m The matrix to multiply.
+     * @return Matrix<T>& The product of the matrices.
+     *
+     * @note The matrix must be of the same type of the matrix.
+     */
+    Matrix<T> operator*=(const Matrix<T> &m);
+    /**
+     * @brief The power assignment operator.
+     *
+     * @param m The power. Must be a positive integer.
+     * @return Matrix<T>& The powered matrix.
+     * @throw std::invalid_argument If the matrix is not a square matrix.
+     */
+    Matrix<T> operator^=(const unsigned int &m);
+    /**
      * @brief Apply a operator to each cell of the matrix.
      *
      * @param f The operator to apply. f(T value, T value) -> T

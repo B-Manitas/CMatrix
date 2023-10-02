@@ -1285,6 +1285,122 @@ TEST(MatrixTest, operatorPower)
     EXPECT_EQ(m7 ^ 2, m8);
 }
 
+/** Test operatorSumAssign method of Matrix class */
+TEST(MatrixTest, operatorSumAssign)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m3 = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
+    m1 += m2;
+    EXPECT_EQ(m1, m3);
+
+    // 1x3 MATRICES
+    Matrix<int> m4 = {{1, 2, 3}};
+    Matrix<int> m5 = {{4, 5, 6}};
+    Matrix<int> m6 = {{5, 7, 9}};
+    m4 += m5;
+    EXPECT_EQ(m4, m6);
+
+    // 3x1 MATRICES
+    Matrix<int> m7 = {{1}, {2}, {3}};
+    Matrix<int> m8 = {{4}, {5}, {6}};
+    Matrix<int> m9 = {{5}, {7}, {9}};
+    m7 += m8;
+    EXPECT_EQ(m7, m9);
+
+    // EMPTY MATRICES
+    Matrix<int> m10;
+    Matrix<int> m11;
+    m10 += m11;
+    EXPECT_EQ(m10, Matrix<int>());
+}
+
+/** Test operatorSubAssign method of Matrix class */
+TEST(MatrixTest, operatorSubAssign)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
+    Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    m1 -= m2;
+    EXPECT_EQ(m1, m3);
+
+    // 1x3 MATRICES
+    Matrix<int> m4 = {{5, 7, 9}};
+    Matrix<int> m5 = {{1, 2, 3}};
+    Matrix<int> m6 = {{4, 5, 6}};
+    m4 -= m5;
+    EXPECT_EQ(m4, m6);
+
+    // 3x1 MATRICES
+    Matrix<int> m7 = {{5}, {7}, {9}};
+    Matrix<int> m8 = {{1}, {2}, {3}};
+    Matrix<int> m9 = {{4}, {5}, {6}};
+    m7 -= m8;
+    EXPECT_EQ(m7, m9);
+
+    // EMPTY MATRICES
+    Matrix<int> m10;
+    Matrix<int> m11;
+    m10 -= m11;
+    EXPECT_EQ(m10, Matrix<int>());
+}
+
+/** Test operatorMulAssign method of Matrix class */
+TEST(MatrixTest, operatorMulAssign)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+    Matrix<int> m3 = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
+    m1 *= m2;
+    EXPECT_EQ(m1, m3);
+
+    // 1x3 MATRICES
+    Matrix<int> m4 = {{5, 7, 9}};
+    Matrix<int> m5 = {{1}, {2}, {3}};
+    Matrix<int> m6 = {{46}};
+    m4 *= m5;
+    EXPECT_EQ(m4, m6);
+
+    // 3x1 MATRICES
+    Matrix<int> m7 = {{1}, {2}, {3}};
+    Matrix<int> m8 = {{5, 7, 9}};
+    Matrix<int> m9 = {{5, 7, 9}, {10, 14, 18}, {15, 21, 27}};
+    m7 *= m8;
+    EXPECT_EQ(m7, m9);
+
+    // EMPTY MATRICES
+    Matrix<int> m10;
+    Matrix<int> m11;
+    m10 *= m11;
+    EXPECT_EQ(m10, Matrix<int>());
+}
+
+/** Test operatorPowerAssign method of Matrix class */
+TEST(MatrixTest, operatorPowerAssign)
+{
+    // 3x3 MATRIX
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m2 = {{30, 36, 42}, {66, 81, 96}, {102, 126, 150}};
+    m1 ^= 2;
+    EXPECT_EQ(m1, m2);
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_THROW(m3 ^= 2, std::invalid_argument);
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_THROW(m4 ^= 2, std::invalid_argument);
+
+    // EMPTY MATRIX
+    Matrix<int> m5;
+    m5 ^= 2;
+    EXPECT_EQ(m5, Matrix<int>());
+}
+
 GTEST_API_ int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);
