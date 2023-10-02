@@ -580,6 +580,64 @@ TEST(MatrixTest, find)
     EXPECT_EQ(m.find(10), std::make_tuple(-1, -1));
 }
 
+/** Test removeRow method of Matrix class */
+TEST(MatrixTest, removeRow)
+{
+    // 3x3 MATRIX
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    // REMOVE FIRST ROW
+    m1.removeRow(0);
+    EXPECT_EQ(m1.getRow(0), std::vector<int>({4, 5, 6}));
+    EXPECT_EQ(m1.getRow(1), std::vector<int>({7, 8, 9}));
+
+    // REMOVE LAST ROW
+    m1.removeRow(1);
+    EXPECT_EQ(m1.getRow(0), std::vector<int>({4, 5, 6}));
+
+    // REMOVE ONLY ROW
+    m1.removeRow(0);
+    EXPECT_TRUE(m1.isEmpty());
+
+    // EMPTY MATRIX
+    Matrix<int> m2;
+    EXPECT_THROW(m2.removeRow(0), std::invalid_argument);
+
+    // OUT OF RANGE
+    EXPECT_THROW(m1.removeRow(0), std::invalid_argument);
+}
+
+/** Test removeCol method of Matrix class */
+TEST(MatrixTest, removeCol)
+{
+    // 3x3 MATRIX
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    // REMOVE FIRST COLUMN
+    m1.removeCol(0);
+    EXPECT_EQ(m1.dimH(), 2);
+    EXPECT_EQ(m1.dimV(), 3);
+    EXPECT_EQ(m1.getFlatCol(0), std::vector<int>({2, 5, 8}));
+    EXPECT_EQ(m1.getFlatCol(1), std::vector<int>({3, 6, 9}));
+
+    // REMOVE LAST COLUMN
+    m1.removeCol(1);
+    EXPECT_EQ(m1.dimH(), 1);
+    EXPECT_EQ(m1.dimV(), 3);
+    EXPECT_EQ(m1.getFlatCol(0), std::vector<int>({2, 5, 8}));
+
+    // REMOVE ONLY COLUMN
+    m1.removeCol(0);
+    EXPECT_TRUE(m1.isEmpty());
+
+    // EMPTY MATRIX
+    Matrix<int> m2;
+    EXPECT_THROW(m2.removeCol(0), std::invalid_argument);
+
+    // OUT OF RANGE
+    EXPECT_THROW(m1.removeCol(0), std::invalid_argument);
+}
+
 // ==================================================
 // CHECK METHODS
 /** Test isEmpty method of Matrix class */

@@ -288,6 +288,23 @@ public:
      */
     std::tuple<int, int> find(const T &val) const;
 
+    /**
+     * @brief Remove a row of the matrix.
+     *
+     * @param n The index of the row to remove.
+     * @throw std::out_of_range If the index is out of range.
+     * @throw std::invalid_argument If the matrix is empty.
+     */
+    void removeRow(const size_t &n);
+    /**
+     * @brief Remove a column of the matrix.
+     *
+     * @param n The index of the column to remove.
+     * @throw std::out_of_range If the index is out of range.
+     * @throw std::invalid_argument If the matrix is empty.
+     */
+    void removeCol(const size_t &n);
+
     // CHECK METHODS
     /**
      * @brief Check if the matrix is empty.

@@ -134,3 +134,35 @@ std::tuple<int, int> Matrix<T>::find(const T &val) const
     return find([&](T e)
                 { return e == val; });
 }
+
+// ==================================================
+// ERASE FUNCTIONS
+
+template <class T>
+void Matrix<T>::removeRow(const size_t &pos)
+{
+    if (isEmpty())
+        throw std::invalid_argument("matrix is empty");
+
+    if (not(0 <= (size_t)pos and (size_t) pos < dimV()))
+        throw std::invalid_argument("pos must be between 0 and dimV");
+
+    matrix.erase(matrix.begin() + pos);
+}
+
+template <class T>
+void Matrix<T>::removeCol(const size_t &pos)
+{
+    if (isEmpty())
+        throw std::invalid_argument("matrix is empty");
+
+    if (not(0 <= (size_t)pos and (size_t) pos < dimH()))
+        throw std::invalid_argument("pos must be between 0 and dimH");
+
+    if (dimH() == 1)
+        matrix.clear();
+
+    else
+        for (size_t i = 0; i < dimV(); i++)
+            matrix.at(i).erase(matrix.at(i).begin() + pos);
+}
