@@ -270,6 +270,47 @@ public:
      * @return false If the matrix is not a square matrix.
      */
     bool isSquare() const;
+    /**
+    /**
+     * @brief Check if all the cells of the matrix satisfy a condition.
+     *
+     * @param f The condition to satisfy. f(T value) -> bool
+     * @return true If all the cells satisfy the condition.
+     * @return false If at least one cell does not satisfy the condition.
+     *
+     * @note The empty matrix always return true.
+     */
+    bool isAll(const std::function<bool(T)> &f) const;
+    /**
+     * @brief Check if all the cells of the matrix are equal to a value.
+     * 
+     * @param val The value to check.
+     * @return true If all the cells are equal to the value.
+     * @return false If at least one cell is not equal to the value.
+     * 
+     * @note The empty matrix always return true.
+     */
+    bool isAll(const T &val) const;
+    /**
+     * @brief Check if at least one cell of the matrix satisfy a condition.
+     * 
+     * @param f The condition to satisfy. f(T value) -> bool
+     * @return true If at least one cell satisfy the condition.
+     * @return false If all the cells does not satisfy the condition.
+     * 
+     * @note The empty matrix always return false.
+     */
+    bool isAny(const std::function<bool(T)> &f) const;
+    /**
+     * @brief Check if at least one cell of the matrix is equal to a value.
+     * 
+     * @param val The value to check.
+     * @return true If at least one cell is equal to the value.
+     * @return false If all the cells are not equal to the value.
+     * 
+     * @note The empty matrix always return false.
+     */
+    bool isAny(const T &val) const;
 
     // OTHER METHODS
     /**

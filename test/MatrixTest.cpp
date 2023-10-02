@@ -536,6 +536,82 @@ TEST(MatrixTest, isSquare)
     EXPECT_FALSE(m4.isSquare());
 }
 
+/** Test isAll method of Matrix class */
+TEST(MatrixTest, isAll)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_TRUE(m1.isAll([](int x)
+                         { return x == 0; }));
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {2, 5, 6}, {3, 6, 9}};
+    EXPECT_FALSE(m2.isAll(0));
+    EXPECT_FALSE(m2.isAll([](int x)
+                          { return x == 0; }));
+    EXPECT_TRUE(m2.isAll([](int x)
+                         { return x > 0; }));
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_FALSE(m3.isAll([](int x)
+                          { return x == 0; }));
+
+    EXPECT_TRUE(m3.isAll([](int x)
+                         { return x > 0; }));
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_FALSE(m4.isAll([](int x)
+                          { return x == 0; }));
+
+    EXPECT_TRUE(m4.isAll([](int x)
+                         { return x > 0; }));
+
+    // FILL MATRIX WITH 4
+    Matrix<int> m5(3, 3, 4);
+    EXPECT_TRUE(m5.isAll(4));
+    EXPECT_FALSE(m5.isAll(2));
+}
+
+/** Test isAny method of Matrix class */
+TEST(MatrixTest, isAny)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_FALSE(m1.isAny([](int x)
+                          { return x == 0; }));
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {2, 5, 6}, {3, 6, 9}};
+    EXPECT_FALSE(m2.isAny([](int x)
+                          { return x == 0; }));
+
+    EXPECT_TRUE(m2.isAny(1));
+    EXPECT_TRUE(m2.isAny([](int x)
+                         { return x == 5; }));
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_FALSE(m3.isAny(5));
+    EXPECT_FALSE(m3.isAny([](int x)
+                          { return x == 0; }));
+
+    EXPECT_TRUE(m3.isAny(3));
+    EXPECT_TRUE(m3.isAny([](int x)
+                         { return x == 2; }));
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_FALSE(m3.isAny(5));
+    EXPECT_FALSE(m4.isAny([](int x)
+                          { return x == 0; }));
+
+    EXPECT_TRUE(m3.isAny(2));
+    EXPECT_TRUE(m4.isAny([](int x)
+                         { return x == 2; }));
+}
+
 // ==================================================
 // OTHER METHODS
 /** Test clear method of Matrix class */
