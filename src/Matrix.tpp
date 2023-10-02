@@ -10,13 +10,7 @@
 template <class T>
 void Matrix<T>::show() const
 {
-    for (auto &&row : matrix)
-    {
-        for (auto &&cell : row)
-            std::cout << cell << " ";
-
-        std::cout << std::endl;
-    }
+    std::cout << *this << std::endl;
 }
 
 template <class T>
