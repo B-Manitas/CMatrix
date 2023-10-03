@@ -50,8 +50,7 @@ bool Matrix<T>::operator!=(const Matrix<T> &m) const
 template <class T>
 Matrix<T> Matrix<T>::operatorMap(const std::function<T(T, T)> &f, const Matrix<T> &m) const
 {
-    if (dim() != m.dim())
-        throw std::invalid_argument("The matrices must have the same dimension.");
+    checkDim(m);
 
     size_t col = 0, row = 0;
     size_t *colPtr = &col, *rowPtr = &row;
@@ -77,7 +76,10 @@ template <class T>
 Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
 {
     if (dimH() != m.dimV())
-        throw std::invalid_argument("The number of columns of the first matrix must be equal to the number of rows of the second matrix.");
+        throw std::invalid_argument("The number of columns of the first matrix must be equal to the number of rows of the second matrix. Expected: " +
+                                    std::to_string(dimH()) +
+                                    ". Actual: " +
+                                    std::to_string(m.dimV()));
 
     Matrix<T> result(dimV(), m.dimH());
 
@@ -99,7 +101,10 @@ template <class T>
 Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
 {
     if (dimH() != dimV())
-        throw std::invalid_argument("The matrix must be square.");
+        throw std::invalid_argument("The matrix must be square. Expected: " +
+                                    std::to_string(dimH()) +
+                                    ". Actual: " +
+                                    std::to_string(dimV()));
 
     if (n == 0)
         return Matrix<T>::identity(dimH());

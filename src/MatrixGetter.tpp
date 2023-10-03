@@ -10,12 +10,14 @@
 template <class T>
 std::vector<T> Matrix<T>::getRow(const size_t &n) const
 {
+    checkIdRow(n);
     return matrix.at(n);
 }
 
 template <class T>
 std::vector<std::vector<T>> Matrix<T>::getCol(const size_t &n) const
 {
+    checkIdCol(n);
     std::vector<std::vector<T>> col;
 
     for (auto &&row : matrix)
@@ -27,6 +29,7 @@ std::vector<std::vector<T>> Matrix<T>::getCol(const size_t &n) const
 template <class T>
 std::vector<T> Matrix<T>::getFlatCol(const size_t &n) const
 {
+    checkIdCol(n);
     std::vector<T> col;
 
     for (auto &&row : matrix)
@@ -38,6 +41,8 @@ std::vector<T> Matrix<T>::getFlatCol(const size_t &n) const
 template <class T>
 T Matrix<T>::getCell(const size_t &col, const size_t &row) const
 {
+    checkIdRow(row);
+    checkIdCol(col);
     return matrix.at(row).at(col);
 }
 
@@ -47,9 +52,6 @@ T Matrix<T>::getCell(const size_t &col, const size_t &row) const
 template <class T>
 Matrix<T> Matrix<T>::at(const size_t &y) const
 {
-    if ((size_t)y < 0 || (size_t)y >= dimV())
-        throw std::out_of_range("Invalid row index");
-
     Matrix<T> m;
     m.pushRowFront(getRow(y));
     return m;
@@ -58,9 +60,6 @@ Matrix<T> Matrix<T>::at(const size_t &y) const
 template <class T>
 Matrix<T> Matrix<T>::iloc(const size_t &x) const
 {
-    if ((size_t)x < 0 || (size_t)x >= dimH())
-        throw std::out_of_range("Invalid column index");
-
     Matrix<T> m;
     m.pushColFront(Matrix<T>::flattenVector(getCol(x)));
     return m;

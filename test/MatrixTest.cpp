@@ -288,10 +288,10 @@ TEST(MatrixTest, setRow)
 
     // EMPTY MATRIX
     Matrix<std::string> m4;
-    EXPECT_THROW(m4.setRow(0, {"a", "b", "c"}), std::invalid_argument);
+    EXPECT_THROW(m4.setRow(0, {"a", "b", "c"}), std::out_of_range);
 
     // OUT OF RANGE - ROW
-    EXPECT_THROW(m1.setRow(3, {10, 11, 12}), std::invalid_argument);
+    EXPECT_THROW(m1.setRow(3, {10, 11, 12}), std::out_of_range);
 }
 
 /** Test setCol method of Matrix class */
@@ -318,10 +318,10 @@ TEST(MatrixTest, setCol)
 
     // EMPTY MATRIX
     Matrix<std::string> m4;
-    EXPECT_THROW(m4.setCol(0, {"a", "b", "c"}), std::invalid_argument);
+    EXPECT_THROW(m4.setCol(0, {"a", "b", "c"}), std::out_of_range);
 
     // OUT OF RANGE - COLUMN
-    EXPECT_THROW(m.setCol(3, {10, 11, 12}), std::invalid_argument);
+    EXPECT_THROW(m.setCol(3, {10, 11, 12}), std::out_of_range);
 }
 
 /** Test setCell method of Matrix class */
@@ -344,13 +344,13 @@ TEST(MatrixTest, setCell)
 
     // EMPTY MATRIX
     Matrix<std::string> m4;
-    EXPECT_THROW(m4.setCell(0, 0, "a"), std::invalid_argument);
+    EXPECT_THROW(m4.setCell(0, 0, "a"), std::out_of_range);
 
     // OUT OF RANGE - ROW
-    EXPECT_THROW(m.setCell(3, 0, 10), std::invalid_argument);
+    EXPECT_THROW(m.setCell(3, 0, 10), std::out_of_range);
 
     // OUT OF RANGE - COLUMN
-    EXPECT_THROW(m.setCell(0, 3, 10), std::invalid_argument);
+    EXPECT_THROW(m.setCell(0, 3, 10), std::out_of_range);
 }
 
 /** Test setDiag method of Matrix class */
@@ -397,12 +397,13 @@ TEST(MatrixTest, insertRow)
 
     // OUT OF RANGE - EMPTY MATRIX
     Matrix<int> m3;
-    EXPECT_THROW(m3.insertRow(1, {10, 11, 12}), std::invalid_argument);
+    EXPECT_THROW(m3.insertRow(1, {10, 11, 12}), std::out_of_range);
 
     // OUT OF RANGE - 1x3 MATRIX
     Matrix<int> m4 = {{1, 2, 3}};
-    EXPECT_THROW(m4.insertRow(2, {10, 11, 12}), std::invalid_argument);
+    EXPECT_THROW(m4.insertRow(2, {10, 11, 12}), std::out_of_range);
 
+    // INVALID SIZE
     EXPECT_THROW(m4.insertRow(0, {10, 11, 12, 13}), std::invalid_argument);
 }
 
@@ -429,11 +430,13 @@ TEST(MatrixTest, insertCol)
 
     // OUT OF RANGE - EMPTY MATRIX
     Matrix<int> m3;
-    EXPECT_THROW(m3.insertCol(1, {10, 11, 12}), std::invalid_argument);
+    EXPECT_THROW(m3.insertCol(1, {10, 11, 12}), std::out_of_range);
 
     // OUT OF RANGE - 1x3 MATRIX
     Matrix<int> m4 = {{1, 2, 3}};
-    EXPECT_THROW(m4.insertCol(2, {10, 11, 12}), std::invalid_argument);
+    EXPECT_THROW(m4.insertCol(4, {10}), std::out_of_range);
+
+    // INVALID SIZE
     EXPECT_THROW(m4.insertCol(0, {10, 11, 12, 13}), std::invalid_argument);
 }
 
@@ -601,10 +604,10 @@ TEST(MatrixTest, removeRow)
 
     // EMPTY MATRIX
     Matrix<int> m2;
-    EXPECT_THROW(m2.removeRow(0), std::invalid_argument);
+    EXPECT_THROW(m2.removeRow(0), std::out_of_range);
 
     // OUT OF RANGE
-    EXPECT_THROW(m1.removeRow(0), std::invalid_argument);
+    EXPECT_THROW(m1.removeRow(0), std::out_of_range);
 }
 
 /** Test removeCol method of Matrix class */
@@ -632,10 +635,10 @@ TEST(MatrixTest, removeCol)
 
     // EMPTY MATRIX
     Matrix<int> m2;
-    EXPECT_THROW(m2.removeCol(0), std::invalid_argument);
+    EXPECT_THROW(m2.removeCol(0), std::out_of_range);
 
     // OUT OF RANGE
-    EXPECT_THROW(m1.removeCol(0), std::invalid_argument);
+    EXPECT_THROW(m1.removeCol(0), std::out_of_range);
 }
 
 // ==================================================
@@ -853,6 +856,90 @@ TEST(MatrixTest, isAny)
     EXPECT_TRUE(m3.isAny(2));
     EXPECT_TRUE(m4.isAny([](int x)
                          { return x == 2; }));
+}
+
+/** Test checkDim method of Matrix class */
+TEST(MatrixTest, checkDim)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_NO_THROW(m1.checkDim(std::tuple<size_t, size_t>(0, 0)));
+    EXPECT_THROW(m1.checkDim(std::tuple<size_t, size_t>(1, 1)), std::invalid_argument);
+
+    // 2x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {3, 6, 9}};
+    Matrix<int> m3 = {{1, 2, 3}, {3, 6, 9}};
+    EXPECT_NO_THROW(m2.checkDim(std::tuple<size_t, size_t>(2, 3)));
+    EXPECT_NO_THROW(m2.checkDim(m3));
+    EXPECT_THROW(m2.checkDim(std::tuple<size_t, size_t>(3, 1)), std::invalid_argument);
+    EXPECT_THROW(m2.checkDim(m1), std::invalid_argument);
+}
+
+/** Test checkValidRow method of Matrix class */
+TEST(MatrixTest, checkValidRow)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_THROW(m1.checkValidRow({0}), std::invalid_argument);
+
+    // 2x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {3, 6, 9}};
+    EXPECT_NO_THROW(m2.checkValidRow({0, 1, 2}));
+    EXPECT_THROW(m2.checkValidRow({1}), std::invalid_argument);
+}
+
+/** Test checkValidCol method of Matrix class */
+TEST(MatrixTest, checkValidCol)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_THROW(m1.checkValidCol({0}), std::invalid_argument);
+
+    // 2x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {3, 6, 9}};
+    EXPECT_NO_THROW(m2.checkValidCol({0, 1}));
+    EXPECT_THROW(m2.checkValidCol({3, 3, 4}), std::invalid_argument);
+}
+
+/** Test checkIdRow method of Matrix class */
+TEST(MatrixTest, checkIdRow)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_THROW(m1.checkIdRow(0), std::out_of_range);
+
+    // 2x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {3, 6, 9}};
+    EXPECT_NO_THROW(m2.checkIdRow(0));
+    EXPECT_THROW(m2.checkIdRow(3), std::out_of_range);
+}
+
+/** Test checkIdCol method of Matrix class */
+TEST(MatrixTest, checkIdCol)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_THROW(m1.checkIdCol(0), std::out_of_range);
+
+    // 2x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {3, 6, 9}};
+    EXPECT_NO_THROW(m2.checkIdCol(0));
+    EXPECT_THROW(m2.checkIdCol(3), std::out_of_range);
+}
+
+/** Test checkIdExpected method of Matrix class */
+TEST(MatrixTest, checkIdExpected)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_NO_THROW(m1.checkIdExpected(0, 0));
+    EXPECT_THROW(m1.checkIdExpected(1, 0), std::out_of_range);
+
+    // 2x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {3, 6, 9}};
+    EXPECT_NO_THROW(m2.checkIdExpected(2, 0, 3));
+    EXPECT_NO_THROW(m2.checkIdExpected(2, 0, 2));
+    EXPECT_NO_THROW(m2.checkIdExpected(3, 3));
 }
 
 // ==================================================

@@ -396,6 +396,77 @@ public:
      */
     bool isAny(const T &val) const;
 
+    /**
+     * @brief Check if dimensions are equals to the dimensions of the matrix.
+     *
+     * @param dim The vertical and horizontal dimensions.
+     * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
+     */
+    void checkDim(const std::tuple<size_t, size_t> &dim) const;
+    /**
+     * @brief Check if dimensions are equals to the dimensions of the matrix.
+     *
+     * @param m The matrix.
+     * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
+     */
+    void checkDim(const Matrix<T> &m) const;
+    /**
+     * @brief Check if the vector is a valid row of the matrix.
+     *
+     * @param row The row to check.
+     * @throw std::invalid_argument If the vector is not a valid row of the matrix.
+     *
+     * @note The row must be a vector of the same type of the matrix.
+     */
+    void checkValidRow(const std::vector<T> &row) const;
+    /**
+     * @brief Check if the vector is a valid column of the matrix.
+
+     * @param col The column to check.
+     * @throw std::invalid_argument If the vector is not a valid column of the matrix.
+     *
+     * @note The column must be a vector of the same type of the matrix.
+     */
+    void checkValidCol(const std::vector<T> &col) const;
+    /**
+     * @brief Check if the diagonal is a valid diagonal of the matrix.
+     *
+     * @param diag The diagonal to check.
+     * @throw std::invalid_argument If the vector is not a valid diagonal of the matrix.
+     */
+    void checkValidDiag(const std::vector<T> &diag) const;
+    /**
+     * @brief Check if the row is a valid row index of the matrix.
+     *
+     * @param row The row index to check.
+     * @throw std::invalid_argument If the row is not a valid row index of the matrix.
+     */
+    void checkIdRow(const size_t &n) const;
+    /**
+     * @brief Check if the column is a valid column index of the matrix.
+     *
+     * @param col The column index to check.
+     * @throw std::invalid_argument If the column is not a valid column index of the matrix.
+     */
+    void checkIdCol(const size_t &n) const;
+    /**
+     * @brief Check if the index is expected.
+     *
+     * @param n The index to check.
+     * @param expected The expected index.
+     * @throw std::invalid_argument If the index is not the expected index.
+     */
+    void checkIdExpected(const size_t &n, const size_t &expected) const;
+    /**
+     * @brief Check if the index is expected.
+     *
+     * @param n The index to check.
+     * @param expectedBegin The expected begin index inclusive.
+     * @param exepectedEnd The expected end index inlusive.
+     * @throw std::invalid_argument If the index is not the expected index.
+     */
+    void checkIdExpected(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const;
+
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.

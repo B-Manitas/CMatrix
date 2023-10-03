@@ -18,7 +18,7 @@ Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> &m)
             matrix.push_back(std::vector<T>(row));
 
     else
-        throw std::invalid_argument("the argument is not a matrix");
+        throw std::invalid_argument("The initializer list must be a matrix.");
 }
 
 template <class T>

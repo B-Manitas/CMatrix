@@ -10,19 +10,14 @@
 template <class T>
 void Matrix<T>::insertRow(const size_t &pos, const std::vector<T> &val)
 {
+    // If the matrix is empty, we can insert the row of any size.
     if (isEmpty())
-    {
-        if (pos != 0)
-            throw std::invalid_argument("pos must be equal to 0");
-    }
+        checkIdExpected(pos, 0);
 
     else
     {
-        if (val.size() != dimH())
-            throw std::invalid_argument("val must be the same length than matrix");
-
-        if (not(0 <= (size_t)pos and (size_t) pos <= dimV()))
-            throw std::invalid_argument("pos must be between 0 and dimV");
+        checkIdExpected(pos, 0, dimV());
+        checkValidRow(val);
     }
 
     matrix.insert(matrix.begin() + pos, val);
@@ -31,10 +26,10 @@ void Matrix<T>::insertRow(const size_t &pos, const std::vector<T> &val)
 template <class T>
 void Matrix<T>::insertCol(const size_t &pos, const std::vector<T> &val)
 {
+    // If the matrix is empty, we can insert the column of any size.
     if (isEmpty())
     {
-        if (pos != 0)
-            throw std::invalid_argument("pos must be equal to 0");
+        checkIdExpected(pos, 0);
 
         for (size_t i = 0; i < val.size(); i++)
             matrix.push_back(std::vector<T>{val.at(i)});
@@ -42,11 +37,8 @@ void Matrix<T>::insertCol(const size_t &pos, const std::vector<T> &val)
 
     else
     {
-        if (val.size() != dimV())
-            throw std::invalid_argument("val must be the same length than matrix");
-
-        if (not(0 <= (size_t)pos and (size_t) pos <= dimH()))
-            throw std::invalid_argument("pos must be between 0 and dimH");
+        checkIdExpected(pos, 0, dimH());
+        checkValidCol(val);
 
         for (size_t i = 0; i < dimV(); i++)
             matrix.at(i).insert(matrix.at(i).begin() + pos, val.at(i));
@@ -141,23 +133,14 @@ std::tuple<int, int> Matrix<T>::find(const T &val) const
 template <class T>
 void Matrix<T>::removeRow(const size_t &pos)
 {
-    if (isEmpty())
-        throw std::invalid_argument("matrix is empty");
-
-    if (not(0 <= (size_t)pos and (size_t) pos < dimV()))
-        throw std::invalid_argument("pos must be between 0 and dimV");
-
+    checkIdRow(pos);
     matrix.erase(matrix.begin() + pos);
 }
 
 template <class T>
 void Matrix<T>::removeCol(const size_t &pos)
 {
-    if (isEmpty())
-        throw std::invalid_argument("matrix is empty");
-
-    if (not(0 <= (size_t)pos and (size_t) pos < dimH()))
-        throw std::invalid_argument("pos must be between 0 and dimH");
+    checkIdCol(pos);
 
     if (dimH() == 1)
         matrix.clear();
