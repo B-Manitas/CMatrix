@@ -8,7 +8,7 @@
 // ASSIGMENT OPERATOR
 
 template <class T>
-Matrix<T> Matrix<T>::operator=(const Matrix<T> &m)
+Matrix<T>& Matrix<T>::operator=(const Matrix<T> &m)
 {
     if (this != &m)
         matrix = m.matrix;
@@ -17,7 +17,7 @@ Matrix<T> Matrix<T>::operator=(const Matrix<T> &m)
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator=(const std::initializer_list<std::initializer_list<T>> &m)
+Matrix<T>& Matrix<T>::operator=(const std::initializer_list<std::initializer_list<T>> &m)
 {
     return Matrix<T>(m);
 }
@@ -117,25 +117,25 @@ Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
 // ARITHMETIC ASSIGNMENT OPERATORS
 
 template <class T>
-Matrix<T> Matrix<T>::operator+=(const Matrix<T> &m)
+Matrix<T>& Matrix<T>::operator+=(const Matrix<T> &m)
 {
     return *this = *this + m;
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator-=(const Matrix<T> &m)
+Matrix<T>& Matrix<T>::operator-=(const Matrix<T> &m)
 {
     return *this = *this - m;
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator*=(const Matrix<T> &m)
+Matrix<T>& Matrix<T>::operator*=(const Matrix<T> &m)
 {
     return *this = *this * m;
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator^=(const unsigned int &n)
+Matrix<T>& Matrix<T>::operator^=(const unsigned int &n)
 {
     return *this = *this ^ n;
 }

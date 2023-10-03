@@ -489,7 +489,7 @@ public:
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> operator=(const std::initializer_list<std::initializer_list<T>> &m);
+    Matrix<T> &operator=(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief The assignment operator.
      *
@@ -498,7 +498,7 @@ public:
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> operator=(const Matrix<T> &m);
+    Matrix<T> &operator=(const Matrix<T> &m);
     /**
      * @brief The equality operator.
      *
@@ -571,7 +571,7 @@ public:
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> operator+=(const Matrix<T> &m);
+    Matrix<T> &operator+=(const Matrix<T> &m);
     /**
      * @brief The subtraction assignment operator.
      *
@@ -580,7 +580,7 @@ public:
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> operator-=(const Matrix<T> &m);
+    Matrix<T> &operator-=(const Matrix<T> &m);
     /**
      * @brief The multiplication assignment operator.
      *
@@ -589,7 +589,7 @@ public:
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> operator*=(const Matrix<T> &m);
+    Matrix<T> &operator*=(const Matrix<T> &m);
     /**
      * @brief The power assignment operator.
      *
@@ -597,7 +597,7 @@ public:
      * @return Matrix<T>& The powered matrix.
      * @throw std::invalid_argument If the matrix is not a square matrix.
      */
-    Matrix<T> operator^=(const unsigned int &m);
+    Matrix<T> &operator^=(const unsigned int &m);
     /**
      * @brief Apply a operator to each cell of the matrix.
      *
