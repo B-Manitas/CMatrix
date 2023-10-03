@@ -64,7 +64,7 @@ public:
     std::vector<std::vector<T>> getCol(const size_t &n) const;
     /**
      * @brief Get a column of the matrix as a flattened vector.
-     * 
+     *
      * @param n The index of the column to get.
      * @return std::vector<T> The column as a flattened vector.
      * @throw std::out_of_range If the index is out of range.
@@ -84,7 +84,7 @@ public:
      * @brief Get the row matrix of the matrix.
      *
      * @param n The index of the row to get.
-     * @return std::vector<T> The row matrix.
+     * @return Matrix<T> The row matrix.
      * @throw std::out_of_range If the index is out of range.
      */
     Matrix<T> at(const size_t &y) const;
@@ -92,7 +92,7 @@ public:
      * @brief Get the column matrix of the matrix.
      *
      * @param n The index of the column to get.
-     * @return std::vector<T> The column matrix.
+     * @return Matrix<T> The column matrix.
      * @throw std::out_of_range If the index is out of range.
      */
     Matrix<T> iloc(const size_t &x) const;
@@ -235,10 +235,10 @@ public:
 
     /**
      * @bried Find the first row matching the condition.
-     * 
+     *
      * @param f The condition to satisfy. f(std::vector<T> row) -> bool
      * @return int The first index of the row. -1 if not found.
-     * 
+     *
      * @note The empty matrix always return -1.
      */
     int findRow(const std::function<bool(std::vector<T>)> &f) const;
@@ -251,12 +251,12 @@ public:
      * @note The row must be a vector of the same type of the matrix.
      */
     int findRow(const std::vector<T> &val) const;
-        /**
+    /**
      * @brief Find the first column matching the condition.
-     * 
+     *
      * @param f The condition to satisfy. f(std::vector<T> col) -> bool
      * @return int The first index of the column. -1 if not found.
-     * 
+     *
      * @note The empty matrix always return -1.
      */
     int findCol(const std::function<bool(std::vector<T>)> &f) const;
@@ -271,10 +271,10 @@ public:
     int findCol(const std::vector<T> &val) const;
     /**
      * @brief Find the first cell matching the condition.
-     * 
+     *
      * @param f The condition to satisfy. f(T value) -> bool
      * @return std::tuple<int, int> The first index of the cell. (-1, -1) if not found.
-     * 
+     *
      * @note The empty matrix always return (-1, -1).
      */
     std::tuple<int, int> find(const std::function<bool(T)> &f) const;
@@ -367,31 +367,31 @@ public:
     bool isAll(const std::function<bool(T)> &f) const;
     /**
      * @brief Check if all the cells of the matrix are equal to a value.
-     * 
+     *
      * @param val The value to check.
      * @return true If all the cells are equal to the value.
      * @return false If at least one cell is not equal to the value.
-     * 
+     *
      * @note The empty matrix always return true.
      */
     bool isAll(const T &val) const;
     /**
      * @brief Check if at least one cell of the matrix satisfy a condition.
-     * 
+     *
      * @param f The condition to satisfy. f(T value) -> bool
      * @return true If at least one cell satisfy the condition.
      * @return false If all the cells does not satisfy the condition.
-     * 
+     *
      * @note The empty matrix always return false.
      */
     bool isAny(const std::function<bool(T)> &f) const;
     /**
      * @brief Check if at least one cell of the matrix is equal to a value.
-     * 
+     *
      * @param val The value to check.
      * @return true If at least one cell is equal to the value.
      * @return false If all the cells are not equal to the value.
-     * 
+     *
      * @note The empty matrix always return false.
      */
     bool isAny(const T &val) const;
