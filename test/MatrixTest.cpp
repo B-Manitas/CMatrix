@@ -943,6 +943,70 @@ TEST(MatrixTest, checkIdExpected)
 }
 
 // ==================================================
+// STATISTICS METHODS
+/** Test min method of Matrix class */
+TEST(MatrixTest, min)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_EQ(m1.min(), std::vector<int>());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
+    EXPECT_EQ(m2.min(0), std::vector<int>({-2, 3, -2}));
+    EXPECT_EQ(m2.min(1), std::vector<int>({-2, -2, 3}));
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_EQ(m3.min(0), std::vector<int>({1}));
+    EXPECT_EQ(m3.min(1), std::vector<int>({1, 2, 3}));
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m4.min(0), std::vector<int>({1, 2, 3}));
+    EXPECT_EQ(m4.min(1), std::vector<int>({1}));
+
+    // 1x3 STRING MATRIX
+    Matrix<std::string> m5 = {{"a", "b", "c"}};
+    EXPECT_EQ(m5.min(0), std::vector<std::string>({"a"}));
+    EXPECT_EQ(m5.min(1), std::vector<std::string>({"a", "b", "c"}));
+
+    // INVALID AXIS
+    EXPECT_THROW(m5.min(2), std::invalid_argument);
+}
+
+/** Test max method of Matrix class */
+TEST(MatrixTest, max)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_EQ(m1.max(), std::vector<int>());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
+    EXPECT_EQ(m2.max(0), std::vector<int>({3, 9, 6}));
+    EXPECT_EQ(m2.max(1), std::vector<int>({3, 6, 9}));
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_EQ(m3.max(0), std::vector<int>({3}));
+    EXPECT_EQ(m3.max(1), std::vector<int>({1, 2, 3}));
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m4.max(0), std::vector<int>({1, 2, 3}));
+    EXPECT_EQ(m4.max(1), std::vector<int>({3}));
+
+    // 1x3 STRING MATRIX
+    Matrix<std::string> m5 = {{"a", "b", "c"}};
+    EXPECT_EQ(m5.max(0), std::vector<std::string>({"c"}));
+    EXPECT_EQ(m5.max(1), std::vector<std::string>({"a", "b", "c"}));
+
+    // INVALID AXIS
+    EXPECT_THROW(m5.max(2), std::invalid_argument);
+}
+
+// ==================================================
 // OTHER METHODS
 /** Test clear method of Matrix class */
 TEST(MatrixTest, clear)

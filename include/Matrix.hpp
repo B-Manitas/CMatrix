@@ -270,6 +270,15 @@ public:
      */
     int findCol(const std::vector<T> &val) const;
     /**
+     * @brief Find the cell matching the condition on an axis (0: rows, 1: columns).
+     *
+     * @param axis The axis to find the cells. 0 for the rows, 1 for the columns.
+     * @param f The condition to satisfy. f(T current, T prev) -> bool
+     * @return std::vector<T> The cells matching the condition.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     */
+    std::vector<T> findCellsByCondOnAxis(const unsigned int &axis, const std::function<bool(T, T)> &f) const;
+    /**
      * @brief Find the first cell matching the condition.
      *
      * @param f The condition to satisfy. f(T value) -> bool
@@ -467,6 +476,28 @@ public:
      */
     void checkIdExpected(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const;
 
+    // STATISTICS METHODS
+    /**
+     * @brief Get the minimum value for each row (axis: 0) or column (axis: 1) of the matrix.
+     *
+     * @param axis The axis to get the minimum value. 0 for the rows, 1 for the columns. (default: 0)
+     * @return T The minimum value for each row or column of the matrix.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     *
+     * @note The type of the matrix must implement the operator <.
+     */
+    std::vector<T> min(const unsigned int &axis = 0) const;
+    /**
+     * @brief Get the maximum value for each row (axis: 0) or column (axis: 1) of the matrix.
+     *
+     * @param axis The axis to get the maximum value. 0 for the rows, 1 for the columns. (default: 0)
+     * @return T The maximum value for each row or column of the matrix.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     *
+     * @note The type of the matrix must implement the operator >.
+     */
+    std::vector<T> max(const unsigned int &axis = 0) const;
+    /**
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.
@@ -687,3 +718,4 @@ public:
 #include "MatrixOperator.tpp"
 #include "MatrixSetter.tpp"
 #include "MatrixStatic.tpp"
+#include "MatrixStatistics.tpp"

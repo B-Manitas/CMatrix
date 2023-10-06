@@ -110,6 +110,52 @@ int Matrix<T>::findCol(const std::vector<T> &val) const
 }
 
 template <class T>
+std::vector<T> Matrix<T>::findCellsByCondOnAxis(const unsigned int &axis, const std::function<bool(T, T)> &f) const
+{
+    std::vector<T> vecOfCell;
+
+    // Find the cell by condition of each row
+    if (axis == 0)
+    {
+        for (size_t r = 0; r < dimV(); r++)
+        {
+            vecOfCell.push_back(getCell(0, r));
+
+            for (size_t c = 0; c < dimH(); c++)
+            {
+                const T &current = getCell(c, r);
+
+                if (f(current, vecOfCell.at(r)))
+                    vecOfCell.at(r) = current;
+            }
+        }
+
+        return vecOfCell;
+    }
+
+    // Find the cell by condition of each column
+    else if (axis == 1)
+    {
+        for (size_t c = 0; c < dimH(); c++)
+        {
+            vecOfCell.push_back(getCell(c, 0));
+
+            for (size_t r = 0; r < dimV(); r++)
+            {
+                const T &current = getCell(c, r);
+
+                if (f(current, vecOfCell.at(c)))
+                    vecOfCell.at(c) = current;
+            }
+        }
+
+        return vecOfCell;
+    }
+    else
+        throw std::invalid_argument("The axis must be 0: horizontal, or 1: vertical. Actual: " + std::to_string(axis) + ".");
+}
+
+template <class T>
 std::tuple<int, int> Matrix<T>::find(const std::function<bool(T)> &f) const
 {
     for (size_t row = 0; row < dimV(); row++)
