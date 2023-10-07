@@ -4,6 +4,7 @@
 #include <tuple>
 #include <iostream>
 #include <functional>
+#include <numeric>
 
 /**
  * @brief Matrix class.
@@ -498,6 +499,15 @@ public:
      */
     std::vector<T> max(const unsigned int &axis = 0) const;
     /**
+    /**
+     * @brief Get the sum of the matrix for each row (axis: 0) or column (axis: 1) of the matrix.
+     *
+     * @param axis The axis to get the sum. 0 for the rows, 1 for the columns. (default: 0)
+     * @param zero The zero value of the sum. (default: the value of the default constructor of the type T)
+     * @return T The sum of the matrix.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     */
+    std::vector<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.

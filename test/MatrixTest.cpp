@@ -1006,6 +1006,47 @@ TEST(MatrixTest, max)
     EXPECT_THROW(m5.max(2), std::invalid_argument);
 }
 
+/** Test sum method of Matrix class */
+TEST(MatrixTest, sum)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_EQ(m1.sum(), std::vector<int>());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
+    EXPECT_EQ(m2.sum(0), std::vector<int>({2, 18, 8}));
+    EXPECT_EQ(m2.sum(1), std::vector<int>({2, 8, 18}));
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_EQ(m3.sum(0), std::vector<int>({6}));
+    EXPECT_EQ(m3.sum(1), std::vector<int>({1, 2, 3}));
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m4.sum(0), std::vector<int>({1, 2, 3}));
+    EXPECT_EQ(m4.sum(1), std::vector<int>({6}));
+
+    // 1x3 STRING MATRIX
+    Matrix<std::string> m5 = {{"a", "b", "c"}};
+    EXPECT_EQ(m5.sum(0), std::vector<std::string>({"abc"}));
+    EXPECT_EQ(m5.sum(1), std::vector<std::string>({"a", "b", "c"}));
+
+    // 2x3 MATRIX OF MATRICES
+    Matrix<Matrix<int>> m6;
+    Matrix<int> m7 = {{1, 2, 3}, {4, 5, 6}};
+    Matrix<int> m8 = {{7, 8, 9}, {10, 11, 12}};
+    std::vector<Matrix<int>> v1 = {m7, m8};
+    m6.pushRowBack({m7, m8});
+
+    EXPECT_EQ(m6.sum(0, Matrix<int>(3, 2)), std::vector<Matrix<int>>({{{{8, 10, 12}, {14, 16, 18}}}}));
+    EXPECT_EQ(m6.sum(1, Matrix<int>(3, 2)), v1);
+
+    // INVALID AXIS
+    EXPECT_THROW(m5.sum(2), std::invalid_argument);
+}
+
 // ==================================================
 // OTHER METHODS
 /** Test clear method of Matrix class */
