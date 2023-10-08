@@ -129,9 +129,9 @@ TEST(MatrixTest, rows)
 
     // 1x3 MATRIX
     Matrix<int> m2 = {{1, 2, 3}};
-    EXPECT_EQ(m2.rows({0}).dimH(), 3);
-    EXPECT_EQ(m2.rows({0}).dimV(), 1);
-    EXPECT_EQ(m2.rows({0}), m2);
+    EXPECT_EQ(m2.rows(0).dimH(), 3);
+    EXPECT_EQ(m2.rows(0).dimV(), 1);
+    EXPECT_EQ(m2.rows(0), m2);
 
     // 3x1 MATRIX
     Matrix<int> m3 = {{1}, {2}, {3}};
@@ -161,9 +161,9 @@ TEST(MatrixTest, columns)
 
     // 3x1 MATRIX
     Matrix<int> m3 = {{1}, {2}, {3}};
-    EXPECT_EQ(m3.columns({0}).dimH(), 1);
-    EXPECT_EQ(m3.columns({0}).dimV(), 3);
-    EXPECT_EQ(m3.columns({0}), m3);
+    EXPECT_EQ(m3.columns(0).dimH(), 1);
+    EXPECT_EQ(m3.columns(0).dimV(), 3);
+    EXPECT_EQ(m3.columns(0), m3);
 
     // OUT OF RANGE - COLUMN
     EXPECT_THROW(m.columns({0, 3}), std::out_of_range);

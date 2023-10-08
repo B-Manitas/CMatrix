@@ -38,10 +38,17 @@ std::vector<T> Matrix<T>::getFlatCol(const size_t &n) const
     return col;
 }
 
-
+// ==================================================
+// GET SUBMATRIX METHODS
 
 template <class T>
-Matrix<T> Matrix<T>::rows(const std::initializer_list<size_t> ids) const
+Matrix<T> Matrix<T>::rows(const size_t &ids) const
+{
+    return rows({ids});
+}
+
+template <class T>
+Matrix<T> Matrix<T>::rows(const std::initializer_list<size_t> &ids) const
 {
     Matrix<T> m;
 
@@ -55,7 +62,13 @@ Matrix<T> Matrix<T>::rows(const std::initializer_list<size_t> ids) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> ids) const
+Matrix<T> Matrix<T>::columns(const size_t &ids) const
+{
+    return columns({ids});
+}
+
+template <class T>
+Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> &ids) const
 {
     Matrix<T> m;
 
@@ -74,7 +87,13 @@ Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> ids) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>> ids) const
+Matrix<T> Matrix<T>::cells(const size_t &row, const size_t &col) const
+{
+    return cells({{row, col}});
+}
+
+template <class T>
+Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const
 {
     Matrix<T> m;
 

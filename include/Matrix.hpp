@@ -82,7 +82,15 @@ public:
      * @return Matrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> rows(const std::initializer_list<size_t> ids) const;
+    Matrix<T> rows(const size_t &ids) const;
+    /**
+     * @brief Get the rows of the matrix.
+     *
+     * @param ids The indexes of the rows to get.
+     * @return Matrix<T> The rows of the matrix.
+     * @throw std::out_of_range If the index is out of range.
+     */
+    Matrix<T> rows(const std::initializer_list<size_t> &ids) const;
     /**
      * @brief Get the columns of the matrix.
      *
@@ -90,7 +98,24 @@ public:
      * @return Matrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> columns(const std::initializer_list<size_t> ids) const;
+    Matrix<T> columns(const size_t &ids) const;
+    /**
+     * @brief Get the columns of the matrix.
+     *
+     * @param ids The indexes of the columns to get.
+     * @return Matrix<T> The columns of the matrix.
+     * @throw std::out_of_range If the index is out of range.
+     */
+    Matrix<T> columns(const std::initializer_list<size_t> &ids) const;
+    /**
+     * @brief Get the cells of the matrix.
+     *
+     * @param row The row of the cell to get.
+     * @param col The column of the cell to get.
+     * @return Matrix<T> The cells of the matrix.
+     * @throw std::out_of_range If the index is out of range.
+     */
+    Matrix<T> cells(const size_t &row, const size_t &col) const;
     /**
      * @brief Get the cells of the matrix.
      *
@@ -98,10 +123,10 @@ public:
      * @return Matrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> ids) const;
+    Matrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const;
     /**
      * @brief Get a cell of the matrix.
-     * 
+     *
      * @param row The row of the cell to get.
      * @param col The column of the cell to get.
      * @return T The cell.
@@ -509,7 +534,6 @@ public:
      * @note The type of the matrix must implement the operator >.
      */
     std::vector<T> max(const unsigned int &axis = 0) const;
-    /**
     /**
      * @brief Get the sum of the matrix for each row (axis: 0) or column (axis: 1) of the matrix.
      *
