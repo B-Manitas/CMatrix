@@ -137,30 +137,105 @@ TEST(MatrixTest, getCell)
     EXPECT_THROW(m.getCell(0, 3), std::out_of_range);
 }
 
-/** Test at method of Matrix class */
-TEST(MatrixTest, at)
+/** Test rows method of Matrix class */
+TEST(MatrixTest, rows)
 {
     // 3x3 MATRIX
     Matrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    EXPECT_EQ(m.at(0), Matrix<int>({{1, 2, 3}}));
-    EXPECT_EQ(m.at(1), Matrix<int>({{4, 5, 6}}));
-    EXPECT_EQ(m.at(2), Matrix<int>({{7, 8, 9}}));
+    Matrix<int> expected = {{1, 2, 3}, {7, 8, 9}};
+    EXPECT_EQ(m.rows({0, 2}).dimH(), 3);
+    EXPECT_EQ(m.rows({0, 2}).dimV(), 2);
+    EXPECT_EQ(m.rows({0, 2}), expected);
+
+    // 1x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}};
+    EXPECT_EQ(m2.rows({0}).dimH(), 3);
+    EXPECT_EQ(m2.rows({0}).dimV(), 1);
+    EXPECT_EQ(m2.rows({0}), m2);
+
+    // 3x1 MATRIX
+    Matrix<int> m3 = {{1}, {2}, {3}};
+    EXPECT_EQ(m3.rows({0, 2}).dimH(), 1);
+    EXPECT_EQ(m3.rows({0, 2}).dimV(), 2);
+    EXPECT_EQ(m3.rows({0, 2}), Matrix<int>({{1}, {3}}));
 
     // OUT OF RANGE - ROW
-    EXPECT_THROW(m.at(3), std::out_of_range);
+    EXPECT_THROW(m.rows({0, 3}), std::out_of_range);
 }
 
-/** Test iloc method of Matrix class */
-TEST(MatrixTest, iloc)
+/** Test columns method of Matrix class */
+TEST(MatrixTest, columns)
 {
     // 3x3 MATRIX
     Matrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    EXPECT_EQ(m.iloc(0), Matrix<int>({{1}, {4}, {7}}));
-    EXPECT_EQ(m.iloc(1), Matrix<int>({{2}, {5}, {8}}));
-    EXPECT_EQ(m.iloc(2), Matrix<int>({{3}, {6}, {9}}));
+    Matrix<int> expected = {{1, 3}, {4, 6}, {7, 9}};
+    EXPECT_EQ(m.columns({0, 2}).dimH(), 2);
+    EXPECT_EQ(m.columns({0, 2}).dimV(), 3);
+    EXPECT_EQ(m.columns({0, 2}), expected);
+
+    // 1x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}};
+    EXPECT_EQ(m2.columns({0, 2}).dimH(), 2);
+    EXPECT_EQ(m2.columns({0, 2}).dimV(), 1);
+    EXPECT_EQ(m2.columns({0, 2}), Matrix<int>({{1, 3}}));
+
+    // 3x1 MATRIX
+    Matrix<int> m3 = {{1}, {2}, {3}};
+    EXPECT_EQ(m3.columns({0}).dimH(), 1);
+    EXPECT_EQ(m3.columns({0}).dimV(), 3);
+    EXPECT_EQ(m3.columns({0}), m3);
 
     // OUT OF RANGE - COLUMN
-    EXPECT_THROW(m.iloc(3), std::out_of_range);
+    EXPECT_THROW(m.columns({0, 3}), std::out_of_range);
+}
+
+/** Test cells method of Matrix class */
+TEST(MatrixTest, cells)
+{
+    // 3x3 MATRIX
+    Matrix<int> m = {{1, 2, 3},
+                     {4, 5, 6},
+                     {7, 8, 9}};
+    Matrix<int> expected = {{1, 2, 5}};
+    EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}).dimH(), 3);
+    EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}).dimV(), 1);
+    EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}), expected);
+
+    // 1x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}};
+    EXPECT_EQ(m2.cells({{0, 0}, {0, 1}}).dimH(), 2);
+    EXPECT_EQ(m2.cells({{0, 0}, {0, 1}}).dimV(), 1);
+    EXPECT_EQ(m2.cells({{0, 0}, {0, 1}}), Matrix<int>({{1, 2}}));
+
+    // 3x1 MATRIX
+    Matrix<int> m3 = {{1}, {2}, {3}};
+    EXPECT_EQ(m3.cells({{0, 0}, {1, 0}}).dimH(), 2);
+    EXPECT_EQ(m3.cells({{0, 0}, {1, 0}}).dimV(), 1);
+    EXPECT_EQ(m3.cells({{0, 0}, {1, 0}}), Matrix<int>({{1, 2}}));
+
+    // OUT OF RANGE - ROW
+    EXPECT_THROW(m.cells({{0, 0}, {3, 0}}), std::out_of_range);
+
+    // OUT OF RANGE - COLUMN
+    EXPECT_THROW(m.cells({{0, 0}, {0, 3}}), std::out_of_range);
+}
+
+/** Test cell method of Matrix class */
+TEST(MatrixTest, cell)
+{
+    // 3x3 MATRIX
+    Matrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m.cell(0, 0), 1);
+    EXPECT_EQ(m.cell(1, 1), 5);
+    EXPECT_EQ(m.cell(2, 2), 9);
+    EXPECT_EQ(m.cell(0, 1), 2);
+    EXPECT_EQ(m.cell(1, 0), 4);
+
+    // OUT OF RANGE - ROW
+    EXPECT_THROW(m.cell(3, 0), std::out_of_range);
+
+    // OUT OF RANGE - COLUMN
+    EXPECT_THROW(m.cell(0, 3), std::out_of_range);
 }
 
 /** Test dimH method of Matrix class */

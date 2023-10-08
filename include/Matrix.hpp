@@ -82,21 +82,38 @@ public:
     T getCell(const size_t &col, const size_t &row) const;
 
     /**
-     * @brief Get the row matrix of the matrix.
+     * @brief Get the rows of the matrix.
      *
-     * @param n The index of the row to get.
-     * @return Matrix<T> The row matrix.
+     * @param ids The indexes of the rows to get.
+     * @return Matrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> at(const size_t &y) const;
+    Matrix<T> rows(const std::initializer_list<size_t> ids) const;
     /**
-     * @brief Get the column matrix of the matrix.
+     * @brief Get the columns of the matrix.
      *
-     * @param n The index of the column to get.
-     * @return Matrix<T> The column matrix.
+     * @param ids The indexes of the columns to get.
+     * @return Matrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> iloc(const size_t &x) const;
+    Matrix<T> columns(const std::initializer_list<size_t> ids) const;
+    /**
+     * @brief Get the cells of the matrix.
+     *
+     * @param ids The indexes of the cells to get. (row, column)
+     * @return Matrix<T> The cells of the matrix.
+     * @throw std::out_of_range If the index is out of range.
+     */
+    Matrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> ids) const;
+    /**
+     * @brief Get a cell of the matrix.
+     * 
+     * @param row The row of the cell to get.
+     * @param col The column of the cell to get.
+     * @return T The cell.
+     * @throw std::out_of_range If the index is out of range.
+     */
+    T cell(const size_t &row, const size_t &col) const;
 
     /**
      * @brief The number of columns of the matrix.

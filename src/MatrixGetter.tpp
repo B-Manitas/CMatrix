@@ -46,23 +46,56 @@ T Matrix<T>::getCell(const size_t &col, const size_t &row) const
     return matrix.at(row).at(col);
 }
 
-// ==================================================
-// SLICING METHODS
-
 template <class T>
-Matrix<T> Matrix<T>::at(const size_t &y) const
+Matrix<T> Matrix<T>::rows(const std::initializer_list<size_t> ids) const
 {
     Matrix<T> m;
-    m.pushRowFront(getRow(y));
+
+    for (const size_t &id : ids)
+    {
+        checkIdRow(id);
+        m.pushRowBack(matrix.at(id));
+    }
+
     return m;
 }
 
 template <class T>
-Matrix<T> Matrix<T>::iloc(const size_t &x) const
+Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> ids) const
 {
     Matrix<T> m;
-    m.pushColFront(Matrix<T>::flattenVector(getCol(x)));
+
+    for (const size_t &id : ids)
+    {
+        checkIdCol(id);
+        std::vector<T> col;
+
+        for (auto &&row : matrix)
+            col.push_back(row.at(id));
+
+        m.pushColBack(col);
+    }
+
     return m;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>> ids) const
+{
+    Matrix<T> m;
+
+    for (const std::pair<size_t, size_t> &id : ids)
+        m.pushColBack({cell(id.first, id.second)});
+
+    return m;
+}
+
+template <class T>
+T Matrix<T>::cell(const size_t &row, const size_t &col) const
+{
+    checkIdRow(row);
+    checkIdCol(col);
+    return matrix.at(row).at(col);
 }
 
 // ==================================================
