@@ -533,7 +533,7 @@ public:
     /**
      * @brief Print the matrix in the standard output.
      */
-    void show() const;
+    void print() const;
     /**
      * @brief Clear the matrix.
      */

@@ -8,7 +8,7 @@
 // GENERAL FUNCTIONS
 
 template <class T>
-void Matrix<T>::show() const
+void Matrix<T>::print() const
 {
     std::cout << *this << std::endl;
 }
