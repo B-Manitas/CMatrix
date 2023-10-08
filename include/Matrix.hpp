@@ -53,6 +53,7 @@ public:
      * @param n The index of the row to get.
      * @return std::vector<T> The row.
      * @throw std::out_of_range If the index is out of range.
+     * @deprecated Use `rows` instead.
      */
     std::vector<T> getRow(const size_t &n) const;
     /**
@@ -61,6 +62,7 @@ public:
      * @param n The index of the column to get.
      * @return std::vector<T> The column.
      * @throw std::out_of_range If the index is out of range.
+     * @deprecated Use `columns` instead.
      */
     std::vector<std::vector<T>> getCol(const size_t &n) const;
     /**
@@ -69,6 +71,7 @@ public:
      * @param n The index of the column to get.
      * @return std::vector<T> The column as a flattened vector.
      * @throw std::out_of_range If the index is out of range.
+     * @deprecated Use `columns` instead.
      */
     std::vector<T> getFlatCol(const size_t &n) const;
     /**
@@ -78,6 +81,7 @@ public:
      * @param row The row of the cell to get.
      * @return T The cell.
      * @throw std::out_of_range If the index is out of range.
+     * @deprecated Use `cell` instead.
      */
     T getCell(const size_t &col, const size_t &row) const;
 
