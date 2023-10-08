@@ -74,16 +74,6 @@ public:
      * @deprecated Use `columns` instead.
      */
     std::vector<T> getFlatCol(const size_t &n) const;
-    /**
-     * @brief Get a cell of the matrix.
-     *
-     * @param col The column of the cell to get.
-     * @param row The row of the cell to get.
-     * @return T The cell.
-     * @throw std::out_of_range If the index is out of range.
-     * @deprecated Use `cell` instead.
-     */
-    T getCell(const size_t &col, const size_t &row) const;
 
     /**
      * @brief Get the rows of the matrix.

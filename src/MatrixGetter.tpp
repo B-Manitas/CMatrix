@@ -38,13 +38,7 @@ std::vector<T> Matrix<T>::getFlatCol(const size_t &n) const
     return col;
 }
 
-template <class T>
-T Matrix<T>::getCell(const size_t &col, const size_t &row) const
-{
-    checkIdRow(row);
-    checkIdCol(col);
-    return matrix.at(row).at(col);
-}
+
 
 template <class T>
 Matrix<T> Matrix<T>::rows(const std::initializer_list<size_t> ids) const
@@ -129,7 +123,7 @@ Matrix<T> Matrix<T>::transpose() const
 
     for (size_t r = 0; r < dimV(); r++)
         for (size_t c = 0; c < dimH(); c++)
-            m.setCell(r, c, getCell(c, r));
+            m.setCell(r, c, cell(r, c));
 
     return m;
 }
@@ -140,7 +134,7 @@ std::vector<T> Matrix<T>::diag() const
     std::vector<T> d;
 
     for (size_t i = 0; i < std::min(dimH(), dimV()); i++)
-        d.push_back(getCell(i, i));
+        d.push_back(cell(i, i));
 
     return d;
 }

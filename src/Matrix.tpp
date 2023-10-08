@@ -26,7 +26,7 @@ Matrix<T> Matrix<T>::copy() const
 
     for (size_t r = 0; r < dimV(); r++)
         for (size_t c = 0; c < dimH(); c++)
-            m.setCell(c, r, getCell(c, r));
+            m.setCell(c, r, cell(r, c));
 
     return m;
 }
@@ -44,7 +44,7 @@ void Matrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *
             if (col != nullptr)
                 col = &c;
 
-            setCell(c, r, f(getCell(c, r), col, row));
+            setCell(c, r, f(cell(r, c), col, row));
         }
     }
 }

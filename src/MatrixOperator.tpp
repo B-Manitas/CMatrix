@@ -56,7 +56,7 @@ Matrix<T> Matrix<T>::operatorMap(const std::function<T(T, T)> &f, const Matrix<T
     size_t *colPtr = &col, *rowPtr = &row;
 
     return map([&](T value, size_t *col, size_t *row)
-               { return f(value, m.getCell(*col, *row)); },
+               { return f(value, m.cell(*row, *col)); },
                colPtr, rowPtr);
 }
 
@@ -89,7 +89,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
             T sum{};
 
             for (size_t k = 0; k < dimH(); k++)
-                sum += getCell(k, i) * m.getCell(j, k);
+                sum += cell(i, k) * m.cell(k, j);
 
             result.setCell(j, i, sum);
         }
@@ -159,7 +159,7 @@ std::ostream &operator<<(std::ostream &out, const Matrix<T> &m)
 
         for (size_t j = 0; j < m.dimH(); j++)
         {
-            out << m.getCell(j, i);
+            out << m.cell(i, j);
 
             if (j != m.dimH() - 1)
                 out << ", ";

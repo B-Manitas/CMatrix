@@ -44,7 +44,7 @@ bool Matrix<T>::isUpperTriangular() const
     {
         for (size_t r = 0; r < dimV(); r++)
             for (size_t c = 0; c < dimH(); c++)
-                if (r > c and getCell(c, r) != 0)
+                if (r > c and cell(r, c) != 0)
                     return false;
 
         return true;
@@ -60,7 +60,7 @@ bool Matrix<T>::isLowerTriangular() const
     {
         for (size_t r = 0; r < dimV(); r++)
             for (size_t c = 0; c < dimH(); c++)
-                if (r < c and getCell(c, r) != 0)
+                if (r < c and cell(r, c) != 0)
                     return false;
 
         return true;
@@ -74,7 +74,7 @@ bool Matrix<T>::isAll(const std::function<bool(T)> &f) const
 {
     for (size_t r = 0; r < dimV(); r++)
         for (size_t c = 0; c < dimH(); c++)
-            if (!f(getCell(c, r)))
+            if (!f(cell(r, c)))
                 return false;
 
     return true;
@@ -92,7 +92,7 @@ bool Matrix<T>::isAny(const std::function<bool(T)> &f) const
 {
     for (size_t r = 0; r < dimV(); r++)
         for (size_t c = 0; c < dimH(); c++)
-            if (f(getCell(c, r)))
+            if (f(cell(r, c)))
                 return true;
 
     return false;

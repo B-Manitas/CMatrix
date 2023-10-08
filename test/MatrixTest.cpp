@@ -15,19 +15,17 @@ TEST(MatrixTest, Constructor)
     Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     EXPECT_EQ(m2.dimH(), 3);
     EXPECT_EQ(m2.dimV(), 3);
-    EXPECT_EQ(m2.getRow(0), std::vector<int>({1, 2, 3}));
-    EXPECT_EQ(m2.getCol(1).at(0), std::vector<int>({2}));
-    EXPECT_EQ(m2.getCol(1).at(1), std::vector<int>({5}));
-    EXPECT_EQ(m2.getCol(1).at(2), std::vector<int>({8}));
-    EXPECT_EQ(m2.getCell(2, 2), 9);
+    EXPECT_EQ(m2.rows(0), Matrix<int>({{1, 2, 3}}));
+    EXPECT_EQ(m2.rows(1), Matrix<int>({{4, 5, 6}}));
+    EXPECT_EQ(m2.rows(2), Matrix<int>({{7, 8, 9}}));
 
     // 1X3 MATRIX
     Matrix<int> m3 = {{1}, {4}, {7}};
     EXPECT_EQ(m3.dimH(), 1);
     EXPECT_EQ(m3.dimV(), 3);
-    EXPECT_EQ(m3.getCol(0).at(0), std::vector<int>({1}));
-    EXPECT_EQ(m3.getCol(0).at(1), std::vector<int>({4}));
-    EXPECT_EQ(m3.getCol(0).at(2), std::vector<int>({7}));
+    EXPECT_EQ(m3.rows(0), Matrix<int>({{1}}));
+    EXPECT_EQ(m3.rows(1), Matrix<int>({{4}}));
+    EXPECT_EQ(m3.rows(2), Matrix<int>({{7}}));
 
     // 3X1 MATRIX
     Matrix<int> m4 = {{1, 2, 3}};
@@ -46,7 +44,7 @@ TEST(MatrixTest, Constructor)
     EXPECT_EQ(m6.dimV(), 3);
     for (size_t r = 0; r < m6.dimV(); r++)
         for (size_t c = 0; c < m6.dimH(); c++)
-            EXPECT_EQ(m6.getCell(c, r), "a");
+            EXPECT_EQ(m6.cell(r, c), "a");
 
     // INVALID MATRIX - NOT RECTANGULAR
     EXPECT_THROW(Matrix<int> m6({{1, 2}, {3, 4, 5}}), std::invalid_argument);
@@ -117,24 +115,6 @@ TEST(MatrixTest, getFlatCol)
 
     // OUT OF RANGE - COLUMN
     EXPECT_THROW(m.getFlatCol(3), std::out_of_range);
-}
-
-/** Test getCell method of Matrix class */
-TEST(MatrixTest, getCell)
-{
-    // 3x3 MATRIX
-    Matrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    EXPECT_EQ(m.getCell(0, 0), 1);
-    EXPECT_EQ(m.getCell(1, 1), 5);
-    EXPECT_EQ(m.getCell(2, 2), 9);
-    EXPECT_EQ(m.getCell(0, 1), 4);
-    EXPECT_EQ(m.getCell(1, 0), 2);
-
-    // OUT OF RANGE - ROW
-    EXPECT_THROW(m.getCell(3, 0), std::out_of_range);
-
-    // OUT OF RANGE - COLUMN
-    EXPECT_THROW(m.getCell(0, 3), std::out_of_range);
 }
 
 /** Test rows method of Matrix class */
@@ -212,6 +192,7 @@ TEST(MatrixTest, cells)
     EXPECT_EQ(m3.cells({{0, 0}, {1, 0}}).dimH(), 2);
     EXPECT_EQ(m3.cells({{0, 0}, {1, 0}}).dimV(), 1);
     EXPECT_EQ(m3.cells({{0, 0}, {1, 0}}), Matrix<int>({{1, 2}}));
+    EXPECT_EQ(m3.cells(0, 0), Matrix<int>({{1}}));
 
     // OUT OF RANGE - ROW
     EXPECT_THROW(m.cells({{0, 0}, {3, 0}}), std::out_of_range);
@@ -375,21 +356,21 @@ TEST(MatrixTest, setCol)
     // 3x3 MATRIX
     Matrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     m.setCol(0, {10, 11, 12});
-    EXPECT_EQ(m.getCell(0, 0), 10);
-    EXPECT_EQ(m.getCell(0, 1), 11);
-    EXPECT_EQ(m.getCell(0, 2), 12);
+    EXPECT_EQ(m.cell(0, 0), 10);
+    EXPECT_EQ(m.cell(1, 0), 11);
+    EXPECT_EQ(m.cell(2, 0), 12);
 
     // 1x3 MATRIX
     Matrix<int> m2 = {{1, 2, 3}};
     m2.setCol(0, {10});
-    EXPECT_EQ(m2.getCell(0, 0), 10);
+    EXPECT_EQ(m2.cell(0, 0), 10);
 
     // 3x1 MATRIX
     Matrix<int> m3 = {{1}, {2}, {3}};
     m3.setCol(0, {10, 11, 12});
-    EXPECT_EQ(m3.getCell(0, 0), 10);
-    EXPECT_EQ(m3.getCell(0, 1), 11);
-    EXPECT_EQ(m3.getCell(0, 2), 12);
+    EXPECT_EQ(m3.cell(0, 0), 10);
+    EXPECT_EQ(m3.cell(1, 0), 11);
+    EXPECT_EQ(m3.cell(2, 0), 12);
 
     // EMPTY MATRIX
     Matrix<std::string> m4;
@@ -405,17 +386,17 @@ TEST(MatrixTest, setCell)
     // 3x3 MATRIX
     Matrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     m.setCell(0, 0, 10);
-    EXPECT_EQ(m.getCell(0, 0), 10);
+    EXPECT_EQ(m.cell(0, 0), 10);
 
     // 1x3 MATRIX
     Matrix<int> m2 = {{1, 2, 3}};
     m2.setCell(1, 0, 10);
-    EXPECT_EQ(m2.getCell(1, 0), 10);
+    EXPECT_EQ(m2.cell(0, 1), 10);
 
     // 3x1 MATRIX
     Matrix<int> m3 = {{1}, {2}, {3}};
     m3.setCell(0, 1, 10);
-    EXPECT_EQ(m3.getCell(0, 1), 10);
+    EXPECT_EQ(m3.cell(1, 0), 10);
 
     // EMPTY MATRIX
     Matrix<std::string> m4;
@@ -434,19 +415,19 @@ TEST(MatrixTest, setDiag)
     // 3x3 MATRIX
     Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     m1.setDiag({10, 11, 12});
-    EXPECT_EQ(m1.getCell(0, 0), 10);
-    EXPECT_EQ(m1.getCell(1, 1), 11);
-    EXPECT_EQ(m1.getCell(2, 2), 12);
+    EXPECT_EQ(m1.cell(0, 0), 10);
+    EXPECT_EQ(m1.cell(1, 1), 11);
+    EXPECT_EQ(m1.cell(2, 2), 12);
 
     // 1x3 MATRIX
     Matrix<int> m2 = {{1, 2, 3}};
     m2.setDiag({10});
-    EXPECT_EQ(m2.getCell(0, 0), 10);
+    EXPECT_EQ(m2.cell(0, 0), 10);
 
     // 3x1 MATRIX
     Matrix<int> m3 = {{1}, {2}, {3}};
     m3.setDiag({10});
-    EXPECT_EQ(m3.getCell(0, 0), 10);
+    EXPECT_EQ(m3.cell(0, 0), 10);
     // EMPTY MATRIX
     Matrix<std::string> m4;
     EXPECT_THROW(m4.setDiag({"a", "b", "c"}), std::invalid_argument);
@@ -490,18 +471,18 @@ TEST(MatrixTest, insertCol)
     m1.insertCol(1, {10, 11, 12});
     EXPECT_EQ(m1.dimH(), 4);
     EXPECT_EQ(m1.dimV(), 3);
-    EXPECT_EQ(m1.getCell(1, 0), 10);
-    EXPECT_EQ(m1.getCell(1, 1), 11);
-    EXPECT_EQ(m1.getCell(1, 2), 12);
+    EXPECT_EQ(m1.cell(0, 1), 10);
+    EXPECT_EQ(m1.cell(1, 1), 11);
+    EXPECT_EQ(m1.cell(2, 1), 12);
 
     // EMPTY MATRIX
     Matrix<int> m2;
     m2.insertCol(0, {10, 11, 12});
     EXPECT_EQ(m2.dimH(), 1);
     EXPECT_EQ(m2.dimV(), 3);
-    EXPECT_EQ(m2.getCell(0, 0), 10);
-    EXPECT_EQ(m2.getCell(0, 1), 11);
-    EXPECT_EQ(m2.getCell(0, 2), 12);
+    EXPECT_EQ(m2.cell(0, 0), 10);
+    EXPECT_EQ(m2.cell(1, 0), 11);
+    EXPECT_EQ(m2.cell(2, 0), 12);
 
     // OUT OF RANGE - EMPTY MATRIX
     Matrix<int> m3;
@@ -549,15 +530,15 @@ TEST(MatrixTest, pushColFront)
     // EMPTY MATRIX
     Matrix<int> m1;
     m1.pushColFront({1, 2, 3});
-    EXPECT_EQ(m1.getCell(0, 0), 1);
-    EXPECT_EQ(m1.getCell(0, 1), 2);
-    EXPECT_EQ(m1.getCell(0, 2), 3);
+    EXPECT_EQ(m1.cell(0, 0), 1);
+    EXPECT_EQ(m1.cell(1, 0), 2);
+    EXPECT_EQ(m1.cell(2, 0), 3);
 
     // 2x3 MATRIX
     Matrix<int> m2 = {{4, 5, 6}, {7, 8, 9}};
     m2.pushColFront({1, 2});
-    EXPECT_EQ(m2.getCell(0, 0), 1);
-    EXPECT_EQ(m2.getCell(0, 1), 2);
+    EXPECT_EQ(m2.cell(0, 0), 1);
+    EXPECT_EQ(m2.cell(1, 0), 2);
 }
 
 /** Test pushColBack method of Matrix class */
@@ -566,15 +547,15 @@ TEST(MatrixTest, pushColBack)
     // EMPTY MATRIX
     Matrix<int> m1;
     m1.pushColBack({1, 2, 3});
-    EXPECT_EQ(m1.getCell(0, 0), 1);
-    EXPECT_EQ(m1.getCell(0, 1), 2);
-    EXPECT_EQ(m1.getCell(0, 2), 3);
+    EXPECT_EQ(m1.cell(0, 0), 1);
+    EXPECT_EQ(m1.cell(1, 0), 2);
+    EXPECT_EQ(m1.cell(2, 0), 3);
 
     // 2x3 MATRIX
     Matrix<int> m2 = {{4, 5, 6}, {7, 8, 9}};
     m2.pushColBack({1, 2});
-    EXPECT_EQ(m2.getCell(3, 0), 1);
-    EXPECT_EQ(m2.getCell(3, 1), 2);
+    EXPECT_EQ(m2.cell(0, 3), 1);
+    EXPECT_EQ(m2.cell(1, 3), 2);
 }
 
 TEST(MatrixTest, findRow)
@@ -1281,8 +1262,8 @@ TEST(MatrixTest, randint)
     for (size_t i = 0; i < m1.dimH(); i++)
         for (size_t j = 0; j < m1.dimV(); j++)
         {
-            EXPECT_GE(m1.getCell(i, j), 0);
-            EXPECT_LE(m1.getCell(i, j), 10);
+            EXPECT_GE(m1.cell(j, i), 0);
+            EXPECT_LE(m1.cell(j, i), 10);
         }
 
     // 3x1 MATRIX
@@ -1293,8 +1274,8 @@ TEST(MatrixTest, randint)
     for (size_t i = 0; i < m2.dimH(); i++)
         for (size_t j = 0; j < m2.dimV(); j++)
         {
-            EXPECT_GE(m2.getCell(i, j), 0);
-            EXPECT_LE(m2.getCell(i, j), 10);
+            EXPECT_GE(m2.cell(j, i), 0);
+            EXPECT_LE(m2.cell(j, i), 10);
         }
 
     // 3x3 MATRIX
@@ -1305,8 +1286,8 @@ TEST(MatrixTest, randint)
     for (size_t i = 0; i < m3.dimH(); i++)
         for (size_t j = 0; j < m3.dimV(); j++)
         {
-            EXPECT_GE(m3.getCell(i, j), 0);
-            EXPECT_LE(m3.getCell(i, j), 10);
+            EXPECT_GE(m3.cell(j, i), 0);
+            EXPECT_LE(m3.cell(j, i), 10);
         }
 }
 
@@ -1319,7 +1300,7 @@ TEST(MatrixTest, zeros)
     EXPECT_EQ(m1.dimV(), 3);
     for (size_t i = 0; i < m1.dimH(); i++)
         for (size_t j = 0; j < m1.dimV(); j++)
-            EXPECT_EQ(m1.getCell(i, j), 0);
+            EXPECT_EQ(m1.cell(j, i), 0);
 
     // 3x1 MATRIX
     Matrix<int> m2 = Matrix<int>::zeros(3, 1);
@@ -1327,7 +1308,7 @@ TEST(MatrixTest, zeros)
     EXPECT_EQ(m2.dimV(), 1);
     for (size_t i = 0; i < m2.dimH(); i++)
         for (size_t j = 0; j < m2.dimV(); j++)
-            EXPECT_EQ(m2.getCell(i, j), 0);
+            EXPECT_EQ(m2.cell(j, i), 0);
 
     // 3x3 MATRIX
     Matrix<int> m3 = Matrix<int>::zeros(3, 3);
@@ -1335,7 +1316,7 @@ TEST(MatrixTest, zeros)
     EXPECT_EQ(m3.dimV(), 3);
     for (size_t i = 0; i < m3.dimH(); i++)
         for (size_t j = 0; j < m3.dimV(); j++)
-            EXPECT_EQ(m3.getCell(i, j), 0);
+            EXPECT_EQ(m3.cell(j, i), 0);
 }
 
 /** Test identity method of Matrix class */
@@ -1349,16 +1330,16 @@ TEST(MatrixTest, identity)
     Matrix<int> m1 = Matrix<int>::identity(1);
     EXPECT_EQ(m1.dimH(), 1);
     EXPECT_EQ(m1.dimV(), 1);
-    EXPECT_EQ(m1.getCell(0, 0), 1);
+    EXPECT_EQ(m1.cell(0, 0), 1);
 
     // 2x2 MATRIX
     Matrix<int> m2 = Matrix<int>::identity(2);
     EXPECT_EQ(m2.dimH(), 2);
     EXPECT_EQ(m2.dimV(), 2);
-    EXPECT_EQ(m2.getCell(0, 0), 1);
-    EXPECT_EQ(m2.getCell(0, 1), 0);
-    EXPECT_EQ(m2.getCell(1, 0), 0);
-    EXPECT_EQ(m2.getCell(1, 1), 1);
+    EXPECT_EQ(m2.cell(0, 0), 1);
+    EXPECT_EQ(m2.cell(1, 0), 0);
+    EXPECT_EQ(m2.cell(0, 1), 0);
+    EXPECT_EQ(m2.cell(1, 1), 1);
 }
 
 // ==================================================

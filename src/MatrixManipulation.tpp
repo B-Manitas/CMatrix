@@ -119,11 +119,11 @@ std::vector<T> Matrix<T>::findCellsByCondOnAxis(const unsigned int &axis, const 
     {
         for (size_t r = 0; r < dimV(); r++)
         {
-            vecOfCell.push_back(getCell(0, r));
+            vecOfCell.push_back(cell(r, 0));
 
             for (size_t c = 0; c < dimH(); c++)
             {
-                const T &current = getCell(c, r);
+                const T &current = cell(r, c);
 
                 if (f(current, vecOfCell.at(r)))
                     vecOfCell.at(r) = current;
@@ -138,11 +138,11 @@ std::vector<T> Matrix<T>::findCellsByCondOnAxis(const unsigned int &axis, const 
     {
         for (size_t c = 0; c < dimH(); c++)
         {
-            vecOfCell.push_back(getCell(c, 0));
+            vecOfCell.push_back(cell(0, c));
 
             for (size_t r = 0; r < dimV(); r++)
             {
-                const T &current = getCell(c, r);
+                const T &current = cell(r, c);
 
                 if (f(current, vecOfCell.at(c)))
                     vecOfCell.at(c) = current;
@@ -160,7 +160,7 @@ std::tuple<int, int> Matrix<T>::find(const std::function<bool(T)> &f) const
 {
     for (size_t row = 0; row < dimV(); row++)
         for (size_t col = 0; col < dimH(); col++)
-            if (f(getCell(col, row)))
+            if (f(cell(row, col)))
                 return std::tuple<int, int>(int(col), int(row));
 
     return std::tuple<int, int>(-1, -1);
