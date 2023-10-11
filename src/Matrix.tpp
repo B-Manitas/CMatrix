@@ -62,3 +62,9 @@ void Matrix<T>::fill(const T &value)
 {
     apply([&](T, size_t *, size_t *) { return value; });
 }
+
+template <class T>
+std::vector<std::vector<T>> Matrix<T>::toVector() const
+{
+    return matrix;
+}

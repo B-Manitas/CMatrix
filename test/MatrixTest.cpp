@@ -1005,27 +1005,35 @@ TEST(MatrixTest, min)
 {
     // EMPTY MATRIX
     Matrix<int> m1;
-    EXPECT_EQ(m1.min(), std::vector<int>());
+    EXPECT_EQ(m1.min(), Matrix<int>(0, 0));
 
     // 3x3 MATRIX
     Matrix<int> m2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
-    EXPECT_EQ(m2.min(0), std::vector<int>({-2, 3, -2}));
-    EXPECT_EQ(m2.min(1), std::vector<int>({-2, -2, 3}));
+    Matrix<int> expected2Row = {{-2}, {3}, {-2}};
+    Matrix<int> expected2Col = {{-2, -2, 3}};
+    EXPECT_EQ(m2.min(0), expected2Row);
+    EXPECT_EQ(m2.min(1), expected2Col);
 
     // 1x3 MATRIX
     Matrix<int> m3 = {{1, 2, 3}};
-    EXPECT_EQ(m3.min(0), std::vector<int>({1}));
-    EXPECT_EQ(m3.min(1), std::vector<int>({1, 2, 3}));
+    Matrix<int> expected3Row = {{1}};
+    Matrix<int> expected3Col = {{1, 2, 3}};
+    EXPECT_EQ(m3.min(0), expected3Row);
+    EXPECT_EQ(m3.min(1), expected3Col);
 
     // 3x1 MATRIX
     Matrix<int> m4 = {{1}, {2}, {3}};
-    EXPECT_EQ(m4.min(0), std::vector<int>({1, 2, 3}));
-    EXPECT_EQ(m4.min(1), std::vector<int>({1}));
+    Matrix<int> expected4Row = {{1}, {2}, {3}};
+    Matrix<int> expected4Col = {{1}};
+    EXPECT_EQ(m4.min(0), expected4Row);
+    EXPECT_EQ(m4.min(1), expected4Col);
 
     // 1x3 STRING MATRIX
     Matrix<std::string> m5 = {{"a", "b", "c"}};
-    EXPECT_EQ(m5.min(0), std::vector<std::string>({"a"}));
-    EXPECT_EQ(m5.min(1), std::vector<std::string>({"a", "b", "c"}));
+    Matrix<std::string> expected5Row = {{"a"}};
+    Matrix<std::string> expected5Col = {{"a", "b", "c"}};
+    EXPECT_EQ(m5.min(0), expected5Row);
+    EXPECT_EQ(m5.min(1), expected5Col);
 
     // INVALID AXIS
     EXPECT_THROW(m5.min(2), std::invalid_argument);
@@ -1036,27 +1044,35 @@ TEST(MatrixTest, max)
 {
     // EMPTY MATRIX
     Matrix<int> m1;
-    EXPECT_EQ(m1.max(), std::vector<int>());
+    EXPECT_EQ(m1.max(), Matrix<int>());
 
     // 3x3 MATRIX
     Matrix<int> m2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
-    EXPECT_EQ(m2.max(0), std::vector<int>({3, 9, 6}));
-    EXPECT_EQ(m2.max(1), std::vector<int>({3, 6, 9}));
+    Matrix<int> expected2Row = {{3}, {9}, {6}};
+    Matrix<int> expected2Col = {{3, 6, 9}};
+    EXPECT_EQ(m2.max(0), expected2Row);
+    EXPECT_EQ(m2.max(1), expected2Col);
 
     // 1x3 MATRIX
     Matrix<int> m3 = {{1, 2, 3}};
-    EXPECT_EQ(m3.max(0), std::vector<int>({3}));
-    EXPECT_EQ(m3.max(1), std::vector<int>({1, 2, 3}));
+    Matrix<int> expected3Row = {{3}};
+    Matrix<int> expected3Col = {{1, 2, 3}};
+    EXPECT_EQ(m3.max(0), expected3Row);
+    EXPECT_EQ(m3.max(1), expected3Col);
 
     // 3x1 MATRIX
     Matrix<int> m4 = {{1}, {2}, {3}};
-    EXPECT_EQ(m4.max(0), std::vector<int>({1, 2, 3}));
-    EXPECT_EQ(m4.max(1), std::vector<int>({3}));
+    Matrix<int> expected4Row = {{1}, {2}, {3}};
+    Matrix<int> expected4Col = {{3}};
+    EXPECT_EQ(m4.max(0), expected4Row);
+    EXPECT_EQ(m4.max(1), expected4Col);
 
     // 1x3 STRING MATRIX
     Matrix<std::string> m5 = {{"a", "b", "c"}};
-    EXPECT_EQ(m5.max(0), std::vector<std::string>({"c"}));
-    EXPECT_EQ(m5.max(1), std::vector<std::string>({"a", "b", "c"}));
+    Matrix<std::string> expected5Row = {{"c"}};
+    Matrix<std::string> expected5Col = {{"a", "b", "c"}};
+    EXPECT_EQ(m5.max(0), expected5Row);
+    EXPECT_EQ(m5.max(1), expected5Col);
 
     // INVALID AXIS
     EXPECT_THROW(m5.max(2), std::invalid_argument);
@@ -1067,37 +1083,46 @@ TEST(MatrixTest, sum)
 {
     // EMPTY MATRIX
     Matrix<int> m1;
-    EXPECT_EQ(m1.sum(), std::vector<int>());
+    EXPECT_EQ(m1.sum(), Matrix<int>());
 
     // 3x3 MATRIX
     Matrix<int> m2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
-    EXPECT_EQ(m2.sum(0), std::vector<int>({2, 18, 8}));
-    EXPECT_EQ(m2.sum(1), std::vector<int>({2, 8, 18}));
+    Matrix<int> expected2Row = {{2}, {18}, {8}};
+    Matrix<int> expected2Col = {{2, 8, 18}};
+    EXPECT_EQ(m2.sum(0), expected2Row);
+    EXPECT_EQ(m2.sum(1), expected2Col);
 
     // 1x3 MATRIX
     Matrix<int> m3 = {{1, 2, 3}};
-    EXPECT_EQ(m3.sum(0), std::vector<int>({6}));
-    EXPECT_EQ(m3.sum(1), std::vector<int>({1, 2, 3}));
+    Matrix<int> expected3Row = {{6}};
+    Matrix<int> expected3Col = {{1, 2, 3}};
+    EXPECT_EQ(m3.sum(0), expected3Row);
+    EXPECT_EQ(m3.sum(1), expected3Col);
 
     // 3x1 MATRIX
     Matrix<int> m4 = {{1}, {2}, {3}};
-    EXPECT_EQ(m4.sum(0), std::vector<int>({1, 2, 3}));
-    EXPECT_EQ(m4.sum(1), std::vector<int>({6}));
+    Matrix<int> expected4Row = {{1}, {2}, {3}};
+    Matrix<int> expected4Col = {{6}};
+    EXPECT_EQ(m4.sum(0), expected4Row);
+    EXPECT_EQ(m4.sum(1), expected4Col);
 
     // 1x3 STRING MATRIX
     Matrix<std::string> m5 = {{"a", "b", "c"}};
-    EXPECT_EQ(m5.sum(0), std::vector<std::string>({"abc"}));
-    EXPECT_EQ(m5.sum(1), std::vector<std::string>({"a", "b", "c"}));
+    Matrix<std::string> expected5Row = {{"abc"}};
+    Matrix<std::string> expected5Col = {{"a", "b", "c"}};
+    EXPECT_EQ(m5.sum(0), expected5Row);
+    EXPECT_EQ(m5.sum(1), expected5Col);
 
     // 2x3 MATRIX OF MATRICES
     Matrix<Matrix<int>> m6;
     Matrix<int> m7 = {{1, 2, 3}, {4, 5, 6}};
     Matrix<int> m8 = {{7, 8, 9}, {10, 11, 12}};
-    std::vector<Matrix<int>> v1 = {m7, m8};
     m6.pushRowBack({m7, m8});
 
-    EXPECT_EQ(m6.sum(0, Matrix<int>(3, 2)), std::vector<Matrix<int>>({{{{8, 10, 12}, {14, 16, 18}}}}));
-    EXPECT_EQ(m6.sum(1, Matrix<int>(3, 2)), v1);
+    Matrix<Matrix<int>> expected6Row = {{{{8, 10, 12}, {14, 16, 18}}}};
+
+    EXPECT_EQ(m6.sum(0, Matrix<int>(3, 2)), expected6Row);
+    EXPECT_EQ(m6.sum(1, Matrix<int>(3, 2)), m6);
 
     // INVALID AXIS
     EXPECT_THROW(m5.sum(2), std::invalid_argument);
@@ -1218,6 +1243,26 @@ TEST(MatrixTest, fill)
     Matrix<int> expected3 = {{1}, {1}, {1}};
     m3.fill(1);
     EXPECT_EQ(m3, expected3);
+}
+
+/** Test toVector method of Matrix class */
+TEST(MatrixTest, toVector)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_EQ(m1.toVector(), std::vector<std::vector<int>>());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m2.toVector(), std::vector<std::vector<int>>({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    EXPECT_EQ(m3.toVector(), std::vector<std::vector<int>>({{1, 2, 3}}));
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m4.toVector(), std::vector<std::vector<int>>({{1}, {2}, {3}}));
 }
 
 // ==================================================

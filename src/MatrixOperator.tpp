@@ -32,7 +32,7 @@ bool Matrix<T>::operator==(const Matrix<T> &m) const
         return false;
 
     for (size_t i = 0; i < dimV(); i++)
-        if (getRow(i) != m.getRow(i))
+        if (rows(i).toVector().at(0) != m.rows(i).toVector().at(0))
             return false;
 
     return true;

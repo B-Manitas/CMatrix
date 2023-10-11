@@ -307,15 +307,6 @@ public:
      */
     int findCol(const std::vector<T> &val) const;
     /**
-     * @brief Find the cell matching the condition on an axis (0: rows, 1: columns).
-     *
-     * @param axis The axis to find the cells. 0 for the rows, 1 for the columns.
-     * @param f The condition to satisfy. f(T current, T prev) -> bool
-     * @return std::vector<T> The cells matching the condition.
-     * @throw std::invalid_argument If the axis is not 0 or 1.
-     */
-    std::vector<T> findCellsByCondOnAxis(const unsigned int &axis, const std::function<bool(T, T)> &f) const;
-    /**
      * @brief Find the first cell matching the condition.
      *
      * @param f The condition to satisfy. f(T value) -> bool
@@ -518,31 +509,31 @@ public:
      * @brief Get the minimum value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the minimum value. 0 for the rows, 1 for the columns. (default: 0)
-     * @return T The minimum value for each row or column of the matrix.
+     * @return Matrix<T> The minimum value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The type of the matrix must implement the operator <.
      */
-    std::vector<T> min(const unsigned int &axis = 0) const;
+    Matrix<T> min(const unsigned int &axis = 0) const;
     /**
      * @brief Get the maximum value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the maximum value. 0 for the rows, 1 for the columns. (default: 0)
-     * @return T The maximum value for each row or column of the matrix.
+     * @return Matrix<T> The maximum value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The type of the matrix must implement the operator >.
      */
-    std::vector<T> max(const unsigned int &axis = 0) const;
+    Matrix<T> max(const unsigned int &axis = 0) const;
     /**
      * @brief Get the sum of the matrix for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the sum. 0 for the rows, 1 for the columns. (default: 0)
      * @param zero The zero value of the sum. (default: the value of the default constructor of the type T)
-     * @return T The sum of the matrix.
+     * @return Matrix<T> The sum of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      */
-    std::vector<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
+    Matrix<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.
@@ -581,6 +572,12 @@ public:
      * @param val The value to fill the matrix.
      */
     void fill(const T &val);
+    /**
+     * @brief Convert the matrix to a vector.
+     *
+     * @return std::vector<T> The vector.
+     */
+    std::vector<std::vector<T>> toVector() const;
 
     // STATIC METHODS
     /**
