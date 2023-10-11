@@ -104,6 +104,14 @@ Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>
 }
 
 template <class T>
+T &Matrix<T>::cell(const size_t &row, const size_t &col)
+{
+    checkIdRow(row);
+    checkIdCol(col);
+    return matrix.at(row).at(col);
+}
+
+template <class T>
 T Matrix<T>::cell(const size_t &row, const size_t &col) const
 {
     checkIdRow(row);
@@ -142,7 +150,7 @@ Matrix<T> Matrix<T>::transpose() const
 
     for (size_t r = 0; r < dimV(); r++)
         for (size_t c = 0; c < dimH(); c++)
-            m.setCell(r, c, cell(r, c));
+            m.cell(c, r) = cell(r, c);
 
     return m;
 }

@@ -11,7 +11,7 @@ Matrix<T> Matrix<T>::min(const unsigned int &axis) const
 
             for (size_t j = 0; j < dimH(); j++)
                 if (cell(i, j) < result.cell(i, 0))
-                    result.setCell(i, 0, cell(i, j));
+                    result.cell(0, i) = cell(i, j);
         }
 
         return result;
@@ -25,7 +25,7 @@ Matrix<T> Matrix<T>::min(const unsigned int &axis) const
 
             for (size_t j = 0; j < dimV(); j++)
                 if (cell(j, i) < result.cell(0, i))
-                    result.setCell(0, i, cell(j, i));
+                    result.cell(i, 0) = cell(j, i);
         }
 
         return result;
@@ -52,7 +52,7 @@ Matrix<T> Matrix<T>::max(const unsigned int &axis) const
                 T stored = result.cell(r, 0);
 
                 if (current > stored)
-                    result.setCell(0, r, current);
+                    result.cell(r, 0) = current;
             }
         }
 
@@ -71,7 +71,7 @@ Matrix<T> Matrix<T>::max(const unsigned int &axis) const
                 T stored = result.cell(0, c);
 
                 if (current > stored)
-                    result.setCell(c, 0, current);
+                    result.cell(0, c) = current;
             }
         }
 

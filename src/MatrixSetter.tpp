@@ -39,5 +39,5 @@ void Matrix<T>::setDiag(const std::vector<T> &val)
     size_t min = std::min(dimH(), dimV());
 
     for (size_t i = 0; i < min; i++)
-        setCell(i, i, val.at(i));
+        cell(i, i) = val.at(i);
 }

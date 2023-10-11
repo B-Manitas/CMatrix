@@ -91,7 +91,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
             for (size_t k = 0; k < dimH(); k++)
                 sum += cell(i, k) * m.cell(k, j);
 
-            result.setCell(j, i, sum);
+            result.cell(i, j) = sum;
         }
 
     return result;
