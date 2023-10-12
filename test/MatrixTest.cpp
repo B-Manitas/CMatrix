@@ -48,6 +48,15 @@ TEST(MatrixTest, Constructor)
 
     // INVALID MATRIX - NOT RECTANGULAR
     EXPECT_THROW(Matrix<int> m6({{1, 2}, {3, 4, 5}}), std::invalid_argument);
+
+    // CONVERSION FROM OTHER TYPES
+    Matrix<int> m7 = {{1, 2, 3}};
+    Matrix<float> m8(m7);
+    EXPECT_EQ(m8.dimH(), 3);
+    EXPECT_EQ(m8.dimV(), 1);
+    EXPECT_EQ(m8.cell(0, 0), 1.0f);
+    EXPECT_EQ(m8.cell(0, 1), 2.0f);
+    EXPECT_EQ(m8.cell(0, 2), 3.0f);  
 }
 
 // ==================================================

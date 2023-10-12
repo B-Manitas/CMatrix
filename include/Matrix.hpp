@@ -46,6 +46,14 @@ public:
      * @param val The value to fill the matrix.
      */
     Matrix(const size_t &dimH, const size_t &dimV, const T &val);
+    /**
+     * @brief Construct a new Matrix object.
+     * 
+     * @tparam U The type of elements in the matrix to copy.
+     * @param m The matrix to copy.
+     */
+    template <class U>
+    Matrix(const Matrix<U> &m);
     ~Matrix();
 
     // GETTER METHODS

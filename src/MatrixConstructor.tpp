@@ -33,6 +33,14 @@ Matrix<T>::Matrix(const size_t &dimH, const size_t &dimV, const T &value)
     matrix = std::vector<std::vector<T>>(dimV, std::vector<T>(dimH, value));
 }
 
+template <class T>
+template <class U>
+Matrix<T>::Matrix(const Matrix<U> &m)
+{
+    Matrix<T> result = m.template cast<T>();
+    matrix = result.toVector();
+}
+
 // ==================================================
 // DESTRUCTOR
 
