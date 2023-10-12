@@ -69,3 +69,25 @@ std::vector<std::vector<T>> Matrix<T>::toVector() const
 {
     return matrix;
 }
+
+template <class T>
+template <class U>
+Matrix<U> Matrix<T>::cast() const
+{
+
+    if (std::is_convertible<T, U>::value)
+    {
+        Matrix<U> m(dimH(), dimV());
+
+        for (size_t r = 0; r < dimV(); r++)
+            for (size_t c = 0; c < dimH(); c++)
+                m.setCell(c, r, static_cast<U>(cell(r, c)));
+
+        return m;
+    }
+    else
+        throw std::invalid_argument("T type" +
+                                    std::string(typeid(T).name()) +
+                                    " must be convertible into U type " +
+                                    std::string(typeid(U).name()) + ".");
+}

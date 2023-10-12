@@ -1265,6 +1265,27 @@ TEST(MatrixTest, toVector)
     EXPECT_EQ(m4.toVector(), std::vector<std::vector<int>>({{1}, {2}, {3}}));
 }
 
+/** Test cast method of Matrix class */
+TEST(MatrixTest, cast)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    Matrix<float> m1Cast = m1.cast<float>();
+    EXPECT_EQ(m1Cast, Matrix<float>());
+
+    // 3x1 MATRIX INT TO FLOAT
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    Matrix<float> m4Cast = m4.cast<float>();
+    Matrix<float> expected4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m4Cast, expected4);
+
+    // 3x1 MATRIX FLOAT TO INT
+    Matrix<float> m5 = {{1.1}, {2.2}, {3.3}};
+    Matrix<int> m5Cast = m5.cast<int>();
+    Matrix<int> expected5 = {{1}, {2}, {3}};
+    EXPECT_EQ(m5Cast, expected5);
+}
+
 // ==================================================
 // STATIC METHODS
 /** Test isMatrix method of Matrix class */

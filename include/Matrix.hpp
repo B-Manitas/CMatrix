@@ -588,6 +588,15 @@ public:
      * @return std::vector<T> The vector.
      */
     std::vector<std::vector<T>> toVector() const;
+    /**
+     * @brief Convert the matrix to a matrix of another type.
+     *
+     * @tparam U The type of the matrix.
+     * @return Matrix<U> The matrix of another type.
+     * @throw std::invalid_argument If the type T is not convertible to the type U.
+     */
+    template <class U>
+    Matrix<U> cast() const;
 
     // STATIC METHODS
     /**
