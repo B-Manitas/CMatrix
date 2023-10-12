@@ -554,6 +554,16 @@ public:
      * @throw std::invalid_argument If the axis is not 0 or 1.
      */
     Matrix<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
+    /**
+     * @brief Get the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
+     *
+     * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
+     * @return T The mean value for each row or column of the matrix.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     *
+     * @note The matrix must be of type int, float or double.
+     */
+    Matrix<float> mean(const unsigned int &axis = 0) const;
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.

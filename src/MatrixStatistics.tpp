@@ -122,3 +122,17 @@ Matrix<T> Matrix<T>::sum(const unsigned int &axis, const T &zero) const
     else
         throw std::invalid_argument("The axis must be 0: horizontal, or 1: vertical. Actual: " + std::to_string(axis) + ".");
 }
+
+template <typename T>
+Matrix<float> Matrix<T>::mean(const unsigned int &axis) const
+{
+    if (not std::is_arithmetic<T>::value)
+        throw std::invalid_argument("The type of the matrix must be arithmetic.");
+
+    if (isEmpty())
+        return Matrix<float>();
+
+    Matrix<float> result(sum(axis));
+    result /= axis == 0 ? dimH() : dimV();
+    return result;
+}
