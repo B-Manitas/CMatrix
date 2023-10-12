@@ -1598,6 +1598,34 @@ TEST(MatrixTest, operatorMul)
     EXPECT_THROW(m13 * m14, std::invalid_argument);
 }
 
+/** Test operatorDiv method of Matrix class */
+TEST(MatrixTest, operatorDiv)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
+    Matrix<int> m2 = {{15, 12, 9}, {42, 34, 27}, {69, 57, 45}};
+    EXPECT_EQ(m1 / 2, m2);
+
+    // 1x3 MATRICES
+    Matrix<int> m3 = {{10, 14, 18}};
+    Matrix<int> m4 = {{1, 1, 1}};
+    EXPECT_EQ(m3 / 10, m4);
+
+    // 3x1 MATRICES
+    Matrix<int> m5 = {{100}, {140}, {180}};
+    Matrix<int> m6 = {{10}, {14}, {18}};
+    EXPECT_EQ(m5 / 10, m6);
+
+    // EMPTY MATRICES
+    Matrix<int> m7;
+    Matrix<int> m8;
+    EXPECT_EQ(m7 / 10, m8);
+
+    // DIVISION BY ZEROS
+    Matrix<int> m9 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_THROW(m9 / 0, std::invalid_argument);
+}
+
 /** Test operatorPower method of Matrix class */
 TEST(MatrixTest, operatorPower)
 {
@@ -1731,6 +1759,36 @@ TEST(MatrixTest, operatorMulAssign)
     EXPECT_EQ(m12, m13);
 }
 
+/** Test operatorDivAssign method of Matrix class */
+TEST(MatrixTest, operatorDivAssign)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
+    Matrix<int> m2 = {{15, 12, 9}, {42, 34, 27}, {69, 57, 45}};
+    m1 /= 2;
+    EXPECT_EQ(m1, m2);
+
+    // 1x3 MATRICES
+    Matrix<int> m3 = {{10, 14, 18}};
+    Matrix<int> m4 = {{1, 1, 1}};
+    m3 /= 10;
+    EXPECT_EQ(m3, m4);
+
+    // 3x1 MATRICES
+    Matrix<int> m5 = {{100}, {140}, {180}};
+    Matrix<int> m6 = {{10}, {14}, {18}};
+    m5 /= 10;
+    EXPECT_EQ(m5, m6);
+
+    // EMPTY MATRICES
+    Matrix<int> m7;
+    Matrix<int> m8;
+    m7 /= 10;
+    EXPECT_EQ(m7, m8);
+
+    // DIVISION BY ZEROS
+    Matrix<int> m9 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_THROW(m9 /= 0, std::invalid_argument);
 }
 
 /** Test operatorPowerAssign method of Matrix class */

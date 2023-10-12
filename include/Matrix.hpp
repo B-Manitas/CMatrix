@@ -741,6 +741,14 @@ public:
      * @return Matrix<T> The product of the matrices.
      */
     Matrix<T> operator*(const T &val) const;
+    /**
+     * @brief The division operator.
+     *
+     * @param val The value to divide.
+     * @return Matrix<T> The quotient of the matrices.
+     */
+    Matrix<T> operator/(const T &val) const;
+    /**
      * @brief The power operator.
      *
      * @param m The power. Must be a positive integer.
@@ -796,6 +804,14 @@ public:
      * @return Matrix<T>& The product of the matrices.
      */
     Matrix<T> &operator*=(const T &val);
+    /**
+     * @brief The division assignment operator.
+     *
+     * @param val The value to divide.
+     * @return Matrix<T>& The quotient of the matrices.
+     */
+    Matrix<T> &operator/=(const T &val);
+    /**
      * @brief The power assignment operator.
      *
      * @param m The power. Must be a positive integer.

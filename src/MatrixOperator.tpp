@@ -119,6 +119,16 @@ Matrix<T> Matrix<T>::operator*(const T &n) const
 }
 
 template <class T>
+Matrix<T> Matrix<T>::operator/(const T &val) const
+{
+    if (val == 0)
+        throw std::invalid_argument("The value must be different from 0.");
+
+    return map([&](T value, size_t *col, size_t *row)
+               { return value / val; });
+}
+
+template <class T>
 Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
 {
     if (dimH() != dimV())
@@ -176,6 +186,12 @@ template <class T>
 Matrix<T> &Matrix<T>::operator*=(const T &n)
 {
     return *this = *this * n;
+}
+
+template <class T>
+Matrix<T> &Matrix<T>::operator/=(const T &val)
+{
+    return *this = *this / val;
 }
 
 template <class T>
