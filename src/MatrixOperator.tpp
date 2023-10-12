@@ -67,9 +67,23 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &m) const
 }
 
 template <class T>
+Matrix<T> Matrix<T>::operator+(const T &n) const
+{
+    return map([&](T value, size_t *col, size_t *row)
+               { return value + n; });
+}
+
+template <class T>
 Matrix<T> Matrix<T>::operator-(const Matrix<T> &m) const
 {
     return operatorMap(std::minus<T>(), m);
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator-(const T &n) const
+{
+    return map([&](T value, size_t *col, size_t *row)
+               { return value - n; });
 }
 
 template <class T>
@@ -95,6 +109,13 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
         }
 
     return result;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator*(const T &n) const
+{
+    return map([&](T value, size_t *col, size_t *row)
+               { return value * n; });
 }
 
 template <class T>
@@ -128,15 +149,33 @@ Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &m)
 }
 
 template <class T>
+Matrix<T> &Matrix<T>::operator+=(const T &n)
+{
+    return *this = *this + n;
+}
+
+template <class T>
 Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &m)
 {
     return *this = *this - m;
 }
 
 template <class T>
+Matrix<T> &Matrix<T>::operator-=(const T &n)
+{
+    return *this = *this - n;
+}
+
+template <class T>
 Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &m)
 {
     return *this = *this * m;
+}
+
+template <class T>
+Matrix<T> &Matrix<T>::operator*=(const T &n)
+{
+    return *this = *this * n;
 }
 
 template <class T>

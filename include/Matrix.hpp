@@ -1,10 +1,12 @@
 #pragma once
 
-#include <vector>
-#include <tuple>
-#include <iostream>
+#include <algorithm>
+#include <cmath>
 #include <functional>
+#include <iostream>
 #include <numeric>
+#include <tuple>
+#include <vector>
 
 /**
  * @brief Matrix class.
@@ -701,6 +703,13 @@ public:
      */
     Matrix<T> operator+(const Matrix<T> &m) const;
     /**
+     * @brief The addition operator.
+     *
+     * @param val The value to add.
+     * @return Matrix<T> The sum of the matrices.
+     */
+    Matrix<T> operator+(const T &val) const;
+    /**
      * @brief The subtraction operator.
      *
      * @param m The matrix to subtract.
@@ -709,6 +718,13 @@ public:
      * @note The matrix must be of the same type of the matrix.
      */
     Matrix<T> operator-(const Matrix<T> &m) const;
+    /**
+     * @brief The subtraction operator.
+     *
+     * @param val The value to subtract.
+     * @return Matrix<T> The difference of the matrices.
+     */
+    Matrix<T> operator-(const T &val) const;
     /**
      * @brief The multiplication operator.
      *
@@ -719,6 +735,12 @@ public:
      */
     Matrix<T> operator*(const Matrix<T> &m) const;
     /**
+     * @brief The multiplication operator.
+     *
+     * @param val The value to multiply.
+     * @return Matrix<T> The product of the matrices.
+     */
+    Matrix<T> operator*(const T &val) const;
      * @brief The power operator.
      *
      * @param m The power. Must be a positive integer.
@@ -736,6 +758,13 @@ public:
      */
     Matrix<T> &operator+=(const Matrix<T> &m);
     /**
+     * @brief The addition assignment operator.
+     *
+     * @param val The value to add.
+     * @return Matrix<T>& The sum of the matrices.
+     */
+    Matrix<T> &operator+=(const T &val);
+    /**
      * @brief The subtraction assignment operator.
      *
      * @param m The matrix to subtract.
@@ -744,6 +773,13 @@ public:
      * @note The matrix must be of the same type of the matrix.
      */
     Matrix<T> &operator-=(const Matrix<T> &m);
+    /**
+     * @brief The subtraction assignment operator.
+     *
+     * @param val The value to subtract.
+     * @return Matrix<T>& The difference of the matrices.
+     */
+    Matrix<T> &operator-=(const T &val);
     /**
      * @brief The multiplication assignment operator.
      *
@@ -754,6 +790,12 @@ public:
      */
     Matrix<T> &operator*=(const Matrix<T> &m);
     /**
+     * @brief The multiplication assignment operator.
+     *
+     * @param val The value to multiply.
+     * @return Matrix<T>& The product of the matrices.
+     */
+    Matrix<T> &operator*=(const T &val);
      * @brief The power assignment operator.
      *
      * @param m The power. Must be a positive integer.

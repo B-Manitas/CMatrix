@@ -1485,25 +1485,32 @@ TEST(MatrixTest, operatorSum)
     Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     Matrix<int> m3 = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
+    Matrix<int> m3Coeff = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}};
     EXPECT_EQ(m1 + m2, m3);
+    EXPECT_EQ(m1 + 1, m3Coeff);
 
     // 1x3 MATRICES
     Matrix<int> m4 = {{1, 2, 3}};
     Matrix<int> m5 = {{4, 5, 6}};
     Matrix<int> m6 = {{5, 7, 9}};
+    Matrix<int> m6Coeff = {{11, 12, 13}};
     EXPECT_EQ(m4 + m5, m6);
+    EXPECT_EQ(m4 + 10, m6Coeff);
 
     // 3x1 MATRICES
     Matrix<int> m7 = {{1}, {2}, {3}};
     Matrix<int> m8 = {{4}, {5}, {6}};
     Matrix<int> m9 = {{5}, {7}, {9}};
+    Matrix<int> m9Coeff = {{11}, {12}, {13}};
     EXPECT_EQ(m7 + m8, m9);
+    EXPECT_EQ(m7 + 10, m9Coeff);
 
     // EMPTY MATRICES
     Matrix<int> m10;
     Matrix<int> m11;
     Matrix<int> m12;
     EXPECT_EQ(m10 + m11, m12);
+    EXPECT_EQ(m10 + 10, m12);
 
     // NOT EQUAL DIMENSIONS
     Matrix<int> m13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -1518,25 +1525,32 @@ TEST(MatrixTest, operatorSub)
     Matrix<int> m1 = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
     Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     Matrix<int> m3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m3Coeff = {{1, 3, 5}, {7, 9, 11}, {13, 15, 17}};
     EXPECT_EQ(m1 - m2, m3);
+    EXPECT_EQ(m1 - 1, m3Coeff);
 
     // 1x3 MATRICES
     Matrix<int> m4 = {{5, 7, 9}};
     Matrix<int> m5 = {{1, 2, 3}};
     Matrix<int> m6 = {{4, 5, 6}};
+    Matrix<int> m6Coeff = {{-5, -3, -1}};
     EXPECT_EQ(m4 - m5, m6);
+    EXPECT_EQ(m4 - 10, m6Coeff);
 
     // 3x1 MATRICES
     Matrix<int> m7 = {{5}, {7}, {9}};
     Matrix<int> m8 = {{1}, {2}, {3}};
     Matrix<int> m9 = {{4}, {5}, {6}};
+    Matrix<int> m9Coeff = {{-5}, {-3}, {-1}};
     EXPECT_EQ(m7 - m8, m9);
+    EXPECT_EQ(m7 - 10, m9Coeff);
 
     // EMPTY MATRICES
     Matrix<int> m10;
     Matrix<int> m11;
     Matrix<int> m12;
     EXPECT_EQ(m10 - m11, m12);
+    EXPECT_EQ(m10 - 10, m12);
 
     // NOT EQUAL DIMENSIONS
     Matrix<int> m13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -1551,25 +1565,32 @@ TEST(MatrixTest, operatorMul)
     Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     Matrix<int> m2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
     Matrix<int> m3 = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
+    Matrix<int> m3Coeff = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
     EXPECT_EQ(m1 * m2, m3);
+    EXPECT_EQ(m1 * 2, m3Coeff);
 
     // 1x3 MATRICES
     Matrix<int> m4 = {{5, 7, 9}};
     Matrix<int> m5 = {{1}, {2}, {3}};
     Matrix<int> m6 = {{46}};
+    Matrix<int> m6Coeff = {{50, 70, 90}};
     EXPECT_EQ(m4 * m5, m6);
+    EXPECT_EQ(m4 * 10, m6Coeff);
 
     // 3x1 MATRICES
     Matrix<int> m7 = {{1}, {2}, {3}};
     Matrix<int> m8 = {{5, 7, 9}};
     Matrix<int> m9 = {{5, 7, 9}, {10, 14, 18}, {15, 21, 27}};
+    Matrix<int> m9Coeff = {{2}, {4}, {6}};
     EXPECT_EQ(m7 * m8, m9);
+    EXPECT_EQ(m7 * 2, m9Coeff);
 
     // EMPTY MATRICES
     Matrix<int> m10;
     Matrix<int> m11;
     Matrix<int> m12;
     EXPECT_EQ(m10 * m11, m12);
+    EXPECT_EQ(m10 * 10, m12);
 
     // NOT EQUAL DIMENSIONS
     Matrix<int> m13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -1628,6 +1649,12 @@ TEST(MatrixTest, operatorSumAssign)
     Matrix<int> m11;
     m10 += m11;
     EXPECT_EQ(m10, Matrix<int>());
+
+    // WITH COEFFICIENT
+    Matrix<int> m12 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m13 = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}};
+    m12 += 1;
+    EXPECT_EQ(m12, m13);
 }
 
 /** Test operatorSubAssign method of Matrix class */
@@ -1659,6 +1686,12 @@ TEST(MatrixTest, operatorSubAssign)
     Matrix<int> m11;
     m10 -= m11;
     EXPECT_EQ(m10, Matrix<int>());
+
+    // WITH COEFFICIENT
+    Matrix<int> m12 = {{2, 4, 6}, {8, 10, 12}};
+    Matrix<int> m13 = {{1, 3, 5}, {7, 9, 11}};
+    m12 -= 1;
+    EXPECT_EQ(m12, m13);
 }
 
 /** Test operatorMulAssign method of Matrix class */
@@ -1690,6 +1723,14 @@ TEST(MatrixTest, operatorMulAssign)
     Matrix<int> m11;
     m10 *= m11;
     EXPECT_EQ(m10, Matrix<int>());
+
+    // WITH COEFFICIENT
+    Matrix<int> m12 = {{1, 2, 3}, {4, 5, 6}};
+    Matrix<int> m13 = {{2, 4, 6}, {8, 10, 12}};
+    m12 *= 2;
+    EXPECT_EQ(m12, m13);
+}
+
 }
 
 /** Test operatorPowerAssign method of Matrix class */
