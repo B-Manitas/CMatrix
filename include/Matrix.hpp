@@ -19,6 +19,26 @@ class Matrix
 private:
     std::vector<std::vector<T>> matrix = std::vector<std::vector<T>>();
 
+    /**
+     * @brief Compute the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
+     * This method is used when the type of the matrix is arithmetic.
+     *
+     * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
+     * @param true_type The type of the matrix is arithmetic.
+     * @return Matrix<float> The mean value for each row or column of the matrix.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     */
+    Matrix<float> __mean(const unsigned int &axis, std::true_type) const;
+    /**
+     * @brief Compute the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
+     * This method is used when the type of the matrix is not arithmetic.
+     *
+     * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
+     * @param false_type The type of the matrix is not arithmetic.
+     * @throw std::invalid_argument If the matrix is not arithmetic.
+     *
+     */
+    Matrix<float> __mean(const unsigned int &axis, std::false_type) const;
 public:
     // CONSTRUCTOR METHODS
     /**
@@ -574,6 +594,7 @@ public:
      * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
      * @return T The mean value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
+     * @throw std::invalid_argument If the matrix is not arithmetic.
      *
      * @note The matrix must be of type int, float or double.
      */

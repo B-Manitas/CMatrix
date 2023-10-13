@@ -124,15 +124,24 @@ Matrix<T> Matrix<T>::sum(const unsigned int &axis, const T &zero) const
 }
 
 template <typename T>
-Matrix<float> Matrix<T>::mean(const unsigned int &axis) const
+Matrix<float> Matrix<T>::__mean(const unsigned int &axis, std::true_type) const
 {
-    if (not std::is_arithmetic<T>::value)
-        throw std::invalid_argument("The type of the matrix must be arithmetic.");
-
     if (isEmpty())
         return Matrix<float>();
 
     Matrix<float> result(sum(axis));
     result /= axis == 0 ? dimH() : dimV();
     return result;
+}
+
+template <typename T>
+Matrix<float> Matrix<T>::__mean(const unsigned int &axis, std::false_type) const
+{
+    throw std::invalid_argument("The type of the matrix must be arithmetic.");
+}
+
+template <typename T>
+Matrix<float> Matrix<T>::mean(const unsigned int &axis) const
+{
+    return __mean(axis, std::is_arithmetic<T>());
 }

@@ -1169,6 +1169,10 @@ TEST(MatrixTest, mean)
     EXPECT_EQ(m4.mean(1), expected4Col);
 
     // 1x3 NON NUMERIC MATRIX
+    Matrix<std::string> m5 = {{"a", "b", "c"}};
+    EXPECT_THROW(m5.mean(), std::invalid_argument);
+}
+
     // Matrix<std::string> m5 = {{"a", "b", "c"}};
     // EXPECT_THROW(m5.mean(), std::invalid_argument);
 }
