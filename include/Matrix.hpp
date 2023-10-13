@@ -588,6 +588,12 @@ public:
      */
     void apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr);
     /**
+     * @brief Apply a function to each cell of the matrix.
+     *
+     * @param f The function to apply. f(T value) -> T
+     */
+    void apply(const std::function<T(T)> &f);
+    /**
      * @brief Apply a function to each cell of the matrix and return the result.
      *
      * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
@@ -596,6 +602,13 @@ public:
      * @return Matrix<T> The result of the function.
      */
     Matrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
+    /**
+     * @brief Apply a function to each cell of the matrix and return the result.
+     *
+     * @param f The function to apply. f(T value) -> T
+     * @return Matrix<T> The result of the function.
+     */
+    Matrix<T> map(const std::function<T(T)> &f) const;
     /**
      * @brief Fill the matrix with a value.
      *

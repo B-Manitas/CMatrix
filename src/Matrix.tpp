@@ -50,10 +50,25 @@ void Matrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *
 }
 
 template <class T>
+void Matrix<T>::apply(const std::function<T(T)> &f)
+{
+    apply([&](T cell, size_t *, size_t *)
+          { return f(cell); });
+}
+
+template <class T>
 Matrix<T> Matrix<T>::map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row) const
 {
     Matrix<T> m = copy();
     m.apply(f, col, row);
+    return m;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::map(const std::function<T(T)> &f) const
+{
+    Matrix<T> m = copy();
+    m.apply(f);
     return m;
 }
 

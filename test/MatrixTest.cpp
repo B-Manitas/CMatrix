@@ -1226,24 +1226,36 @@ TEST(MatrixTest, apply)
 {
     // 3x3 MATRIX
     Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<int> m1Copy = m1.copy();
     Matrix<int> expected = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
     m1.apply([](int x, size_t *i, size_t *j)
              { return x * 2; });
     EXPECT_EQ(m1, expected);
+    m1.apply([](int x)
+             { return x / 2; });
+    EXPECT_EQ(m1, m1Copy);
 
     // 1x3 MATRIX
     Matrix<int> m2 = {{1, 2, 3}};
+    Matrix<int> m2Copy = m2.copy();
     Matrix<int> expected2 = {{2, 3, 4}};
     m2.apply([](int x, size_t *i, size_t *j)
              { return x + 1; });
     EXPECT_EQ(m2, expected2);
+    m2.apply([](int x)
+             { return x - 1; });
+    EXPECT_EQ(m2, m2Copy);
 
     // 3x1 MATRIX
     Matrix<int> m3 = {{1}, {2}, {3}};
+    Matrix<int> m3Copy = m3.copy();
     Matrix<int> expected3 = {{2}, {3}, {4}};
     m3.apply([](int x, size_t *i, size_t *j)
              { return x + 1; });
     EXPECT_EQ(m3, expected3);
+    m3.apply([](int x)
+             { return x - 1; });
+    EXPECT_EQ(m3, m3Copy);
 }
 
 /** Test map method of Matrix class */
@@ -1254,7 +1266,9 @@ TEST(MatrixTest, map)
     Matrix<int> expected = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
     Matrix<int> m2 = m1.map([](int x, size_t *i, size_t *j)
                             { return x * 2; });
-
+    EXPECT_EQ(m2, expected);
+    m2 = m1.map([](int x)
+                { return x * 2; });
     EXPECT_EQ(m2, expected);
 
     // 1x3 MATRIX
@@ -1262,6 +1276,9 @@ TEST(MatrixTest, map)
     Matrix<int> expected2 = {{2, 3, 4}};
     Matrix<int> m4 = m3.map([](int x, size_t *i, size_t *j)
                             { return x + 1; });
+    EXPECT_EQ(m4, expected2);
+    m4 = m3.map([](int x)
+                { return x + 1; });
     EXPECT_EQ(m4, expected2);
 }
 
