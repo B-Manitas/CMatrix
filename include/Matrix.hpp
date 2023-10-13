@@ -39,6 +39,27 @@ private:
      *
      */
     Matrix<float> __mean(const unsigned int &axis, std::false_type) const;
+    /**
+     * @brief Compute the std value for each row (axis: 0) or column (axis: 1) of the matrix.
+     * This method is used when the type of the matrix is arithmetic.
+     *
+     * @param axis The axis to get the std value. 0 for the rows, 1 for the columns. (default: 0)
+     * @param true_type The type of the matrix is arithmetic.
+     * @return Matrix<float> The std value for each row or column of the matrix.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     */
+    Matrix<float> __std(const unsigned int &axis, std::true_type) const;
+    /**
+     * @brief Compute the std value for each row (axis: 0) or column (axis: 1) of the matrix.
+     * This method is used when the type of the matrix is not arithmetic.
+     *
+     * @param axis The axis to get the std value. 0 for the rows, 1 for the columns. (default: 0)
+     * @param false_type The type of the matrix is not arithmetic.
+     * @throw std::invalid_argument If the matrix is not arithmetic.
+     *
+     */
+    Matrix<float> __std(const unsigned int &axis, std::false_type) const;
+
 public:
     // CONSTRUCTOR METHODS
     /**
@@ -599,6 +620,19 @@ public:
      * @note The matrix must be of type int, float or double.
      */
     Matrix<float> mean(const unsigned int &axis = 0) const;
+    /**
+     * @brief Get the standard deviation value for each row (axis: 0) or column (axis: 1) of the matrix.
+     *
+     * @param axis The axis to get the standard deviation. 0 for the rows, 1 for the columns. (default: 0)
+     * @return T The standard deviation for each row or column of the matrix.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     * @throw std::invalid_argument If the matrix is not arithmetic.
+     * @throw std::invalid_argument If the number of elements is less than 2 for the axis.
+     *
+     * @note The type of the matrix must implement the operator +, -, * and /.
+     */
+    Matrix<float> std(const unsigned int &axis = 0) const;
+    /**
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.

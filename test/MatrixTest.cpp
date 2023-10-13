@@ -1173,6 +1173,37 @@ TEST(MatrixTest, mean)
     EXPECT_THROW(m5.mean(), std::invalid_argument);
 }
 
+/** Test std method of Matrix class */
+TEST(MatrixTest, std)
+{
+    // EMPTY MATRIX
+    Matrix<int> m1;
+    EXPECT_EQ(m1.std(), Matrix<float>());
+
+    // 3x3 MATRIX
+    Matrix<int> m2 = {{6, 12, 6}, {12, 6, 12}, {6, 12, 6}};
+    Matrix<float> expected2Row = {{2.828427125}, {2.828427125}, {2.828427125}};
+    Matrix<float> expected2Col = {{2.828427125, 2.828427125, 2.828427125}};
+    EXPECT_EQ(m2.std(0), expected2Row);
+    EXPECT_EQ(m2.std(1), expected2Col);
+
+    // 1x3 MATRIX
+    Matrix<int> m3 = {{1, 2, 3}};
+    Matrix<float> expected3 = {{0.8164965809}};
+    EXPECT_EQ(m3.std(0), expected3);
+    EXPECT_THROW(m3.std(1), std::invalid_argument);
+
+    // 3x1 MATRIX
+    Matrix<int> m4 = {{1}, {2}, {3}};
+    Matrix<float> expected4 = {{0.8164965809}};
+    EXPECT_EQ(m4.std(1), expected4);
+    EXPECT_THROW(m4.std(0), std::invalid_argument);
+
+    // 1x3 NON NUMERIC MATRIX
+    Matrix<std::string> m5 = {{"a", "b", "c"}};
+    EXPECT_THROW(m5.std(), std::invalid_argument);
+}
+
     // Matrix<std::string> m5 = {{"a", "b", "c"}};
     // EXPECT_THROW(m5.mean(), std::invalid_argument);
 }

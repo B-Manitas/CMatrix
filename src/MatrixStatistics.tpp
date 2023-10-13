@@ -145,3 +145,78 @@ Matrix<float> Matrix<T>::mean(const unsigned int &axis) const
 {
     return __mean(axis, std::is_arithmetic<T>());
 }
+
+template <class T>
+Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::true_type) const
+{
+    Matrix<float> result;
+
+    // Compute the standard deviation for each row.
+    if (axis == 0)
+    {
+        // Cannot calculate the standard deviation of a single value.
+        if (dimH() == 1)
+            throw std::invalid_argument("The matrix must have more than one column.");
+
+        // Calculate the mean of each row.
+        const Matrix<float> &meanMat = this->mean(0);
+
+        for (size_t r = 0; r < dimV(); r++)
+        {
+            const float &mean = meanMat.cell(r, 0);
+            float sum = 0;
+
+            // Calculate the sum of the squares of the differences between the values and the mean.
+            for (size_t c = 0; c < dimH(); c++)
+                sum += std::pow(cell(r, c) - mean, 2);
+
+            // Calculate the standard deviation and push it to the result matrix.
+            result.pushRowBack({std::sqrt(sum / dimH())});
+        }
+
+        return result;
+    }
+
+    // Compute the standard deviation for each column.
+    else if (axis == 1)
+    {
+        // Cannot calculate the standard deviation of a single value.
+        if (dimV() == 1)
+            throw std::invalid_argument("The matrix must have more than one row.");
+
+        // Calculate the mean of each column.
+        const Matrix<float> &meanMat = this->mean(1);
+
+        for (size_t c = 0; c < dimH(); c++)
+        {
+            // Calculate the mean of the column.
+            const float &mean = meanMat.cell(0, c);
+            float sum = 0;
+
+            // Calculate the sum of the squares of the differences between the values and the mean.
+            for (size_t r = 0; r < dimV(); r++)
+                sum += std::pow(cell(r, c) - mean, 2);
+
+            // Calculate the standard deviation and push it to the result matrix.
+            result.pushColBack({std::sqrt(sum / dimV())});
+        }
+
+        return result;
+    }
+
+    else
+        throw std::invalid_argument("The axis must be 0: horizontal, or 1: vertical. Actual: " + std::to_string(axis) + ".");
+}
+
+template <class T>
+Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::false_type) const
+{
+    throw std::invalid_argument("The type of the matrix must be arithmetic.");
+}
+
+template <class T>
+Matrix<float> Matrix<T>::std(const unsigned int &axis) const
+{
+    return __std(axis, std::is_arithmetic<T>());
+}
+
