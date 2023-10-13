@@ -56,7 +56,10 @@ TEST(MatrixTest, Constructor)
     EXPECT_EQ(m8.dimV(), 1);
     EXPECT_EQ(m8.cell(0, 0), 1.0f);
     EXPECT_EQ(m8.cell(0, 1), 2.0f);
-    EXPECT_EQ(m8.cell(0, 2), 3.0f);  
+    EXPECT_EQ(m8.cell(0, 2), 3.0f);
+
+    // CONVERSION FROM OTHER TYPES - INVALID
+    EXPECT_THROW(Matrix<bool> m9(m7), std::invalid_argument);
 }
 
 // ==================================================

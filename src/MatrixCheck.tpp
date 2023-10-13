@@ -196,3 +196,10 @@ void Matrix<T>::checkIdExpected(const size_t &n, const size_t &expected) const
 {
     checkIdExpected(n, expected, expected);
 }
+
+template <class T>
+void Matrix<T>::checkValidType() const
+{
+    if (std::is_same<T, bool>::value)
+        throw std::invalid_argument("The type " + std::string(typeid(T).name()) + " is not supported.");
+}

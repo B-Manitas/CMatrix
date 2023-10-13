@@ -25,10 +25,14 @@ public:
      * @brief Construct a new Matrix object.
      *
      * @param m The matrix to copy.
+     * @throw std::invalid_argument If the initializer list is not a matrix.
+     * @throw std::invalid_argument If the type is bool.
      */
     Matrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief Construct a new Matrix object.
+     * 
+     * @throw std::invalid_argument If the type is bool.
      */
     Matrix();
     /**
@@ -36,6 +40,7 @@ public:
      *
      * @param dimH The number of columns.
      * @param dimV The number of rows.
+     * @throw std::invalid_argument If the type is bool.
      */
     Matrix(const size_t &dimH, const size_t &dimV);
     /**
@@ -44,13 +49,15 @@ public:
      * @param dimH The number of columns.
      * @param dimV The number of rows.
      * @param val The value to fill the matrix.
+     * @throw std::invalid_argument If the type is bool.
      */
     Matrix(const size_t &dimH, const size_t &dimV, const T &val);
     /**
-     * @brief Construct a new Matrix object.
-     * 
-     * @tparam U The type of elements in the matrix to copy.
+     * @brief Cast a matrix to another type.
+     *
      * @param m The matrix to copy.
+     * @tparam U The type of the matrix to copy.
+     * @throw std::invalid_argument If the type is bool.
      */
     template <class U>
     Matrix(const Matrix<U> &m);
@@ -523,6 +530,13 @@ public:
      * @throw std::invalid_argument If the index is not the expected index.
      */
     void checkIdExpected(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const;
+    /**
+     * @brief Check if the type of the matrix is valid.
+     * List of types not supported: bool.
+     * 
+     * @throw std::invalid_argument If the type is invalid.
+     */
+    void checkValidType() const;
 
     // STATISTICS METHODS
     /**
