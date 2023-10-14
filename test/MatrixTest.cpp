@@ -1204,10 +1204,6 @@ TEST(MatrixTest, std)
     EXPECT_THROW(m5.std(), std::invalid_argument);
 }
 
-    // Matrix<std::string> m5 = {{"a", "b", "c"}};
-    // EXPECT_THROW(m5.mean(), std::invalid_argument);
-}
-
 // ==================================================
 // OTHER METHODS
 /** Test clear method of Matrix class */
@@ -1560,19 +1556,6 @@ TEST(MatrixTest, operatorStream)
     std::stringstream ss4;
     ss4 << m4;
     EXPECT_EQ(ss4.str(), "[[1], [2], [3]]");
-}
-
-/** Test operatorMap method of Matrix class */
-TEST(MatrixTest, operatorMap)
-{
-    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    Matrix<int> m2 = {{6, 5, 4}, {3, 2, 1}};
-
-    // EQUAL DIMENSIONS
-    EXPECT_NO_THROW(m1.operatorMap(std::plus<int>(), m1));
-
-    // NOT EQUAL DIMENSIONS
-    EXPECT_THROW(m1.operatorMap(std::plus<int>(), m2), std::invalid_argument);
 }
 
 /** Test operatorSum method of Matrix class */

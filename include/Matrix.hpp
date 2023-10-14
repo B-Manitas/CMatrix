@@ -59,6 +59,14 @@ private:
      *
      */
     Matrix<float> __std(const unsigned int &axis, std::false_type) const;
+    /**
+     * @brief Apply a operator to each cell of the matrix.
+     *
+     * @param f The operator to apply. f(T value, T value) -> T
+     * @param m The matrix to apply.
+     * @return Matrix<T> The result of the operator.
+     */
+    Matrix<T> __mapArithmetic(const std::function<T(T, T)> &f, const Matrix<T> &m) const;
 
 public:
     // CONSTRUCTOR METHODS
@@ -632,7 +640,7 @@ public:
      * @note The type of the matrix must implement the operator +, -, * and /.
      */
     Matrix<float> std(const unsigned int &axis = 0) const;
-    /**
+
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.
@@ -919,14 +927,6 @@ public:
      * @throw std::invalid_argument If the matrix is not a square matrix.
      */
     Matrix<T> &operator^=(const unsigned int &m);
-    /**
-     * @brief Apply a operator to each cell of the matrix.
-     *
-     * @param f The operator to apply. f(T value, T value) -> T
-     * @param m The matrix to apply.
-     * @return Matrix<T> The result of the operator.
-     */
-    Matrix<T> operatorMap(const std::function<T(T, T)> &f, const Matrix<T> &m) const;
 };
 
 #include "Matrix.tpp"

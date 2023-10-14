@@ -48,22 +48,9 @@ bool Matrix<T>::operator!=(const Matrix<T> &m) const
 // ARITHMETIC OPERATORS
 
 template <class T>
-Matrix<T> Matrix<T>::operatorMap(const std::function<T(T, T)> &f, const Matrix<T> &m) const
-{
-    checkDim(m);
-
-    size_t col = 0, row = 0;
-    size_t *colPtr = &col, *rowPtr = &row;
-
-    return map([&](T value, size_t *col, size_t *row)
-               { return f(value, m.cell(*row, *col)); },
-               colPtr, rowPtr);
-}
-
-template <class T>
 Matrix<T> Matrix<T>::operator+(const Matrix<T> &m) const
 {
-    return operatorMap(std::plus<T>(), m);
+    return __mapArithmetic(std::plus<T>(), m);
 }
 
 template <class T>
@@ -76,7 +63,7 @@ Matrix<T> Matrix<T>::operator+(const T &n) const
 template <class T>
 Matrix<T> Matrix<T>::operator-(const Matrix<T> &m) const
 {
-    return operatorMap(std::minus<T>(), m);
+    return __mapArithmetic(std::minus<T>(), m);
 }
 
 template <class T>
@@ -230,3 +217,20 @@ std::ostream &operator<<(std::ostream &out, const Matrix<T> &m)
 
     return out;
 }
+
+// ==================================================
+// PRIVATE METHODS
+
+template <class T>
+Matrix<T> Matrix<T>::__mapArithmetic(const std::function<T(T, T)> &f, const Matrix<T> &m) const
+{
+    checkDim(m);
+
+    size_t col = 0, row = 0;
+    size_t *colPtr = &col, *rowPtr = &row;
+
+    return map([&](T value, size_t *col, size_t *row)
+               { return f(value, m.cell(*row, *col)); },
+               colPtr, rowPtr);
+}
+
