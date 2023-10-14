@@ -813,10 +813,10 @@ public:
     /**
      * @brief The addition operator.
      *
-     * @param val The value to add.
+     * @param n The value to add.
      * @return Matrix<T> The sum of the matrices.
      */
-    Matrix<T> operator+(const T &val) const;
+    Matrix<T> operator+(const T &n) const;
     /**
      * @brief The subtraction operator.
      *
@@ -829,7 +829,7 @@ public:
     /**
      * @brief The subtraction operator.
      *
-     * @param val The value to subtract.
+     * @param n The value to subtract.
      * @return Matrix<T> The difference of the matrices.
      */
     Matrix<T> operator-(const T &val) const;
@@ -845,17 +845,17 @@ public:
     /**
      * @brief The multiplication operator.
      *
-     * @param val The value to multiply.
+     * @param n The value to multiply.
      * @return Matrix<T> The product of the matrices.
      */
-    Matrix<T> operator*(const T &val) const;
+    Matrix<T> operator*(const T &n) const;
     /**
      * @brief The division operator.
      *
-     * @param val The value to divide.
+     * @param n The value to divide.
      * @return Matrix<T> The quotient of the matrices.
      */
-    Matrix<T> operator/(const T &val) const;
+    Matrix<T> operator/(const T &n) const;
     /**
      * @brief The power operator.
      *
@@ -876,10 +876,10 @@ public:
     /**
      * @brief The addition assignment operator.
      *
-     * @param val The value to add.
+     * @param n The value to add.
      * @return Matrix<T>& The sum of the matrices.
      */
-    Matrix<T> &operator+=(const T &val);
+    Matrix<T> &operator+=(const T &n);
     /**
      * @brief The subtraction assignment operator.
      *
@@ -892,10 +892,10 @@ public:
     /**
      * @brief The subtraction assignment operator.
      *
-     * @param val The value to subtract.
+     * @param n The value to subtract.
      * @return Matrix<T>& The difference of the matrices.
      */
-    Matrix<T> &operator-=(const T &val);
+    Matrix<T> &operator-=(const T &n);
     /**
      * @brief The multiplication assignment operator.
      *
@@ -908,17 +908,17 @@ public:
     /**
      * @brief The multiplication assignment operator.
      *
-     * @param val The value to multiply.
+     * @param n The value to multiply.
      * @return Matrix<T>& The product of the matrices.
      */
-    Matrix<T> &operator*=(const T &val);
+    Matrix<T> &operator*=(const T &n);
     /**
      * @brief The division assignment operator.
      *
-     * @param val The value to divide.
+     * @param n The value to divide.
      * @return Matrix<T>& The quotient of the matrices.
      */
-    Matrix<T> &operator/=(const T &val);
+    Matrix<T> &operator/=(const T &n);
     /**
      * @brief The power assignment operator.
      *

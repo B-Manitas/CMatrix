@@ -56,7 +56,7 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &m) const
 template <class T>
 Matrix<T> Matrix<T>::operator+(const T &n) const
 {
-    return map([&](T value, size_t *col, size_t *row)
+    return map([n](T value)
                { return value + n; });
 }
 
@@ -69,7 +69,7 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &m) const
 template <class T>
 Matrix<T> Matrix<T>::operator-(const T &n) const
 {
-    return map([&](T value, size_t *col, size_t *row)
+    return map([n](T value)
                { return value - n; });
 }
 
@@ -101,18 +101,18 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
 template <class T>
 Matrix<T> Matrix<T>::operator*(const T &n) const
 {
-    return map([&](T value, size_t *col, size_t *row)
+    return map([n](T value)
                { return value * n; });
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator/(const T &val) const
+Matrix<T> Matrix<T>::operator/(const T &n) const
 {
-    if (val == 0)
+    if (n == 0)
         throw std::invalid_argument("The value must be different from 0.");
 
-    return map([&](T value, size_t *col, size_t *row)
-               { return value / val; });
+    return map([n](T value)
+               { return value / n; });
 }
 
 template <class T>
@@ -176,9 +176,9 @@ Matrix<T> &Matrix<T>::operator*=(const T &n)
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator/=(const T &val)
+Matrix<T> &Matrix<T>::operator/=(const T &n)
 {
-    return *this = *this / val;
+    return *this = *this / n;
 }
 
 template <class T>
