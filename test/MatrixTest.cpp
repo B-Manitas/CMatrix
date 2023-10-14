@@ -1509,25 +1509,122 @@ TEST(MatrixTest, operatorEquals)
     // EQUAL 3x3 MATRICES
     Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     Matrix<int> m2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<short unsigned int> m1Bool = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
     EXPECT_TRUE(m1 == m2);
+    EXPECT_EQ(m1 == 1, m1Bool);
 
     // EQUAL 1x3 MATRICES
     Matrix<int> m3 = {{1, 2, 3}};
     Matrix<int> m4 = {{1, 2, 3}};
+    Matrix<short unsigned int> m3Bool = {{0, 1, 0}};
     EXPECT_TRUE(m3 == m4);
+    EXPECT_EQ(m3 == 2, m3Bool);
 
     // EQUAL 3x1 MATRICES
     Matrix<int> m5 = {{1}, {2}, {3}};
     Matrix<int> m6 = {{1}, {2}, {3}};
+    Matrix<short unsigned int> m5Bool = {{0}, {0}, {1}};
     EXPECT_TRUE(m5 == m6);
+    EXPECT_EQ(m5 == 3, m5Bool);
 
     // EQUAL EMPTY MATRICES
     EXPECT_TRUE(Matrix<int>() == Matrix<int>());
+    EXPECT_EQ(Matrix<int>() == 1, Matrix<int>());
 
     // NOT EQUAL 3x3 MATRICES
     Matrix<int> m7 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     Matrix<int> m8 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+    Matrix<short unsigned int> m7Bool = {{0, 1, 1}, {1, 1, 1}, {1, 1, 1}};
     EXPECT_TRUE(m7 != m8);
+    EXPECT_EQ(m7 != 1, m7Bool);
+}
+
+/** Test operatorLess method of Matrix class */
+TEST(MatrixTest, operatorLess)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<short unsigned int> m1Bool = {{1, 1, 1}, {1, 0, 0}, {0, 0, 0}};
+    EXPECT_EQ(m1 < 5, m1Bool);
+
+    // 1x3 MATRICES
+    Matrix<int> m3 = {{1, 2, 3}};
+    Matrix<short unsigned int> m3Bool = {{1, 0, 0}};
+    EXPECT_EQ(m3 < 2, m3Bool);
+
+    // 3x1 MATRICES
+    Matrix<int> m5 = {{1}, {2}, {3}};
+    Matrix<short unsigned int> m5Bool = {{0}, {0}, {0}};
+    EXPECT_EQ(m5 < -1, m5Bool);
+
+    // EMPTY MATRICES
+    EXPECT_EQ(Matrix<int>() < 0, Matrix<short unsigned int>());
+}
+
+/** Test operatorLessEqual method of Matrix class */
+TEST(MatrixTest, operatorLessEqual)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    Matrix<short unsigned int> m1Bool = {{1, 1, 1}, {1, 1, 1}, {0, 0, 0}};
+    EXPECT_EQ(m1 <= 6, m1Bool);
+
+    // 1x3 MATRICES
+    Matrix<int> m3 = {{1, 2, 3}};
+    Matrix<short unsigned int> m3Bool = {{1, 1, 1}};
+    EXPECT_EQ(m3 <= 3, m3Bool);
+
+    // 3x1 MATRICES
+    Matrix<int> m5 = {{1}, {2}, {3}};
+    Matrix<short unsigned int> m5Bool = {{1}, {0}, {0}};
+    EXPECT_EQ(m5 <= 1, m5Bool);
+
+    // EMPTY MATRICES
+    EXPECT_EQ(Matrix<int>() <= -6, Matrix<short unsigned int>());
+}
+
+/** Test operatorGreater method of Matrix class */
+TEST(MatrixTest, operatorGreater)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+    Matrix<short unsigned int> m1Bool = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+    EXPECT_EQ(m1 > 8, m1Bool);
+
+    // 1x3 MATRICES
+    Matrix<int> m3 = {{3, 2, 1}};
+    Matrix<short unsigned int> m3Bool = {{1, 0, 0}};
+    EXPECT_EQ(m3 > 2, m3Bool);
+
+    // 3x1 MATRICES
+    Matrix<int> m5 = {{3}, {2}, {1}};
+    Matrix<short unsigned int> m5Bool = {{0}, {0}, {0}};
+    EXPECT_EQ(m5 > 6, m5Bool);
+
+    // EMPTY MATRICES
+    EXPECT_EQ(Matrix<int>() > 2, Matrix<short unsigned int>());
+}
+
+/** Test operatorGreaterEqual method of Matrix class */
+TEST(MatrixTest, operatorGreaterEqual)
+{
+    // 3x3 MATRICES
+    Matrix<int> m1 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+    Matrix<short unsigned int> m1Bool = {{1, 1, 1}, {1, 1, 1}, {1, 1, 0}};
+    EXPECT_EQ(m1 >= 2, m1Bool);
+
+    // 1x3 MATRICES
+    Matrix<int> m3 = {{3, 2, 1}};
+    Matrix<short unsigned int> m3Bool = {{1, 1, 0}};
+    EXPECT_EQ(m3 >= 2, m3Bool);
+
+    // 3x1 MATRICES
+    Matrix<int> m5 = {{3}, {2}, {1}};
+    Matrix<short unsigned int> m5Bool = {{0}, {0}, {0}};
+    EXPECT_EQ(m5 >= 6, m5Bool);
+
+    // EMPTY MATRICES
+    EXPECT_EQ(Matrix<int>() >= 1, Matrix<short unsigned int>());
 }
 
 /** Test operatorStream method of Matrix class */

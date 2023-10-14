@@ -44,8 +44,41 @@ bool Matrix<T>::operator!=(const Matrix<T> &m) const
     return not(*this == m);
 }
 
-// ==================================================
-// ARITHMETIC OPERATORS
+template <class T>
+Matrix<short unsigned int> Matrix<T>::operator==(const T &n) const
+{
+    return __mapComparaisonValue(std::equal_to<T>(), n);
+}
+
+template <class T>
+Matrix<short unsigned int> Matrix<T>::operator!=(const T &n) const
+{
+    return __mapComparaisonValue(std::not_equal_to<T>(), n);
+}
+
+template <class T>
+Matrix<short unsigned int> Matrix<T>::operator<(const T &n) const
+{
+    return __mapComparaisonValue(std::less<T>(), n);
+}
+
+template <class T>
+Matrix<short unsigned int> Matrix<T>::operator<=(const T &n) const
+{
+    return __mapComparaisonValue(std::less_equal<T>(), n);
+}
+
+template <class T>
+Matrix<short unsigned int> Matrix<T>::operator>(const T &n) const
+{
+    return __mapComparaisonValue(std::greater<T>(), n);
+}
+
+template <class T>
+Matrix<short unsigned int> Matrix<T>::operator>=(const T &n) const
+{
+    return __mapComparaisonValue(std::greater_equal<T>(), n);
+}
 
 template <class T>
 Matrix<T> Matrix<T>::operator+(const Matrix<T> &m) const
@@ -234,3 +267,20 @@ Matrix<T> Matrix<T>::__mapArithmetic(const std::function<T(T, T)> &f, const Matr
                colPtr, rowPtr);
 }
 
+template <class T>
+Matrix<short unsigned int> Matrix<T>::__mapComparaisonValue(const std::function<T(T, T)> &f, const T &n) const
+{
+    // Initialize a matrix with the same dimensions of the current matrix
+    Matrix<short unsigned int> result(dimH(), dimV(), 0);
+
+    // Initialize variables to store the coordinates of the current cell.
+    // At the beginning, they are set to -1.
+    size_t col = -1, row = -1;
+
+    // Check if the value of the cell is less than or equal to the value passed as parameter 'val'.
+    result.apply([&](T _, size_t *col, size_t *row)
+                 { return f(cell(*row, *col), n); },
+                 &col, &row);
+
+    return result;
+}

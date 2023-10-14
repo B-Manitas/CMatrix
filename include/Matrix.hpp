@@ -67,6 +67,14 @@ private:
      * @return Matrix<T> The result of the operator.
      */
     Matrix<T> __mapArithmetic(const std::function<T(T, T)> &f, const Matrix<T> &m) const;
+    /**
+     * @brief Map a comparison operator to each cell of the matrix and return a matrix of boolean.
+     *
+     * @param f The comparison operator to apply. f(T value, T value) -> bool
+     * @param n The number to compare.
+     * @return Matrix<short unsigned int> The result of the comparison.
+     */
+    Matrix<short unsigned int> __mapComparaisonValue(const std::function<T(T, T)> &f, const T &n) const;
 
 public:
     // CONSTRUCTOR METHODS
@@ -80,7 +88,7 @@ public:
     Matrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief Construct a new Matrix object.
-     * 
+     *
      * @throw std::invalid_argument If the type is bool.
      */
     Matrix();
@@ -582,7 +590,7 @@ public:
     /**
      * @brief Check if the type of the matrix is valid.
      * List of types not supported: bool.
-     * 
+     *
      * @throw std::invalid_argument If the type is invalid.
      */
     void checkValidType() const;
@@ -792,6 +800,49 @@ public:
      * @note The matrix must be of the same type of the matrix.
      */
     bool operator!=(const Matrix<T> &m) const;
+    /**
+     * @brief The equality operator comparing the matrix with a value.
+     *
+     * @param val The value to compare.
+     * @return Matrix<short unsigned int> The matrix of booleans.
+     */
+    Matrix<short unsigned int> operator==(const T &n) const;
+    /**
+     * @brief The inequality operator comparing the matrix with a value.
+     *
+     * @param val The value to compare.
+     * @return Matrix<short unsigned int> The matrix of booleans.
+     */
+    Matrix<short unsigned int> operator!=(const T &n) const;
+    /**
+     * @brief The strictly less than operator comparing the matrix with a value.
+     *
+     * @param val The value to compare.
+     * @return Matrix<short unsigned int> The matrix of booleans.
+     */
+    Matrix<short unsigned int> operator<(const T &n) const;
+    /**
+     * @brief The less than operator comparing the matrix with a value.
+     *
+     * @param val The value to compare.
+     * @return Matrix<short unsigned int> The matrix of booleans.
+     */
+    Matrix<short unsigned int> operator<=(const T &n) const;
+    /**
+     * @brief The strictly greater than operator comparing the matrix with a value.
+     *
+     * @param val The value to compare.
+     * @return Matrix<short unsigned int> The matrix of booleans.
+     */
+    Matrix<short unsigned int> operator>(const T &n) const;
+    /**
+     * @brief The greater than operator comparing the matrix with a value.
+     *
+     * @param val The value to compare.
+     * @return Matrix<short unsigned int> The matrix of booleans.
+     */
+    Matrix<short unsigned int> operator>=(const T &n) const;
+
     /**
      * @brief The output operator.
      *
