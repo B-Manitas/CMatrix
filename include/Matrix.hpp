@@ -131,15 +131,6 @@ public:
      */
     std::vector<T> getRow(const size_t &n) const;
     /**
-     * @brief Get a column of the matrix.
-     *
-     * @param n The index of the column to get.
-     * @return std::vector<T> The column.
-     * @throw std::out_of_range If the index is out of range.
-     * @deprecated Use `columns` instead.
-     */
-    std::vector<std::vector<T>> getCol(const size_t &n) const;
-    /**
      * @brief Get a column of the matrix as a flattened vector.
      *
      * @param n The index of the column to get.

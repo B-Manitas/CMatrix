@@ -15,18 +15,6 @@ std::vector<T> Matrix<T>::getRow(const size_t &n) const
 }
 
 template <class T>
-std::vector<std::vector<T>> Matrix<T>::getCol(const size_t &n) const
-{
-    checkIdCol(n);
-    std::vector<std::vector<T>> col;
-
-    for (auto &&row : matrix)
-        col.push_back(std::vector<T>{row.at(n)});
-
-    return col;
-}
-
-template <class T>
 std::vector<T> Matrix<T>::getFlatCol(const size_t &n) const
 {
     checkIdCol(n);
