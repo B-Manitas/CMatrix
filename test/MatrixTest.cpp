@@ -34,12 +34,12 @@ TEST(MatrixTest, Constructor)
     EXPECT_EQ(m4.dimV(), 1);
 
     // CREATE MATRIX FROM DIMENSIONS
-    Matrix<std::string> m5(2, 3);
+    Matrix<std::string> m5(3, 2);
     EXPECT_EQ(m5.dimH(), 2);
     EXPECT_EQ(m5.dimV(), 3);
 
     // CREATE MATRIX FROM DIMENSIONS AND VALUE
-    Matrix<std::string> m6(2, 3, "a");
+    Matrix<std::string> m6(3, 2, "a");
     EXPECT_EQ(m6.dimH(), 2);
     EXPECT_EQ(m6.dimV(), 3);
     for (size_t r = 0; r < m6.dimV(); r++)
@@ -1133,8 +1133,8 @@ TEST(MatrixTest, sum)
 
     Matrix<Matrix<int>> expected6Row = {{{{8, 10, 12}, {14, 16, 18}}}};
 
-    EXPECT_EQ(m6.sum(0, Matrix<int>(3, 2)), expected6Row);
-    EXPECT_EQ(m6.sum(1, Matrix<int>(3, 2)), m6);
+    EXPECT_EQ(m6.sum(0, Matrix<int>(2, 3)), expected6Row);
+    EXPECT_EQ(m6.sum(1, Matrix<int>(2, 3)), m6);
 
     // INVALID AXIS
     EXPECT_THROW(m5.sum(2), std::invalid_argument);

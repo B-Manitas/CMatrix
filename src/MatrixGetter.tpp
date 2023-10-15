@@ -146,7 +146,7 @@ std::tuple<size_t, size_t> Matrix<T>::dim() const
 template <class T>
 Matrix<T> Matrix<T>::transpose() const
 {
-    Matrix<T> m(dimV(), dimH());
+    Matrix<T> m(dimH(), dimV());
 
     for (size_t r = 0; r < dimV(); r++)
         for (size_t c = 0; c < dimH(); c++)

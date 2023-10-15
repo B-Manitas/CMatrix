@@ -118,7 +118,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
                                     ". Actual: " +
                                     std::to_string(m.dimV()));
 
-    Matrix<T> result(dimV(), m.dimH());
+    Matrix<T> result(m.dimH(), dimV());
 
     for (size_t i = 0; i < dimV(); i++)
         for (size_t j = 0; j < m.dimH(); j++)
@@ -274,7 +274,7 @@ template <class T>
 Matrix<short unsigned int> Matrix<T>::__mapComparaisonValue(const std::function<T(T, T)> &f, const T &n) const
 {
     // Initialize a matrix with the same dimensions of the current matrix
-    Matrix<short unsigned int> result(dimH(), dimV(), 0);
+    Matrix<short unsigned int> result(dimV(), dimH(), 0);
 
     // Initialize variables to store the coordinates of the current cell.
     // At the beginning, they are set to -1.

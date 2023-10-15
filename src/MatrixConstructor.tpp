@@ -27,7 +27,7 @@ Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> &m)
 }
 
 template <class T>
-Matrix<T>::Matrix(const size_t &dimH, const size_t &dimV)
+Matrix<T>::Matrix(const size_t &dimV, const size_t &dimH)
 {
     checkValidType();
 
@@ -35,7 +35,7 @@ Matrix<T>::Matrix(const size_t &dimH, const size_t &dimV)
 }
 
 template <class T>
-Matrix<T>::Matrix(const size_t &dimH, const size_t &dimV, const T &value)
+Matrix<T>::Matrix(const size_t &dimV, const size_t &dimH, const T &value)
 {
     checkValidType();
 

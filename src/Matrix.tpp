@@ -22,7 +22,7 @@ void Matrix<T>::clear()
 template <class T>
 Matrix<T> Matrix<T>::copy() const
 {
-    Matrix<T> m(dimH(), dimV());
+    Matrix<T> m(dimV(), dimH());
 
     for (size_t r = 0; r < dimV(); r++)
         for (size_t c = 0; c < dimH(); c++)
@@ -92,7 +92,7 @@ Matrix<U> Matrix<T>::cast() const
 
     if (std::is_convertible<T, U>::value)
     {
-        Matrix<U> m(dimH(), dimV());
+        Matrix<U> m(dimV(), dimH());
 
         for (size_t r = 0; r < dimV(); r++)
             for (size_t c = 0; c < dimH(); c++)

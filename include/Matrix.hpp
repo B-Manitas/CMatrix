@@ -95,20 +95,20 @@ public:
     /**
      * @brief Construct a new Matrix object.
      *
-     * @param dimH The number of columns.
      * @param dimV The number of rows.
+     * @param dimH The number of columns.
      * @throw std::invalid_argument If the type is bool.
      */
-    Matrix(const size_t &dimH, const size_t &dimV);
+    Matrix(const size_t &dimV, const size_t &dimH);
     /**
      * @brief Construct a new Matrix object.
      *
-     * @param dimH The number of columns.
      * @param dimV The number of rows.
+     * @param dimH The number of columns.
      * @param val The value to fill the matrix.
      * @throw std::invalid_argument If the type is bool.
      */
-    Matrix(const size_t &dimH, const size_t &dimV, const T &val);
+    Matrix(const size_t &dimV, const size_t &dimH, const T &val);
     /**
      * @brief Cast a matrix to another type.
      *

@@ -29,7 +29,7 @@ Matrix<int> Matrix<int>::randint(const size_t &dimH, const size_t &dimV, const i
 template <>
 Matrix<int> Matrix<int>::zeros(const size_t &dimH, const size_t &dimV)
 {
-    return Matrix<int>(dimH, dimV, 0);
+    return Matrix<int>(dimV, dimH, 0);
 }
 
 template <>
