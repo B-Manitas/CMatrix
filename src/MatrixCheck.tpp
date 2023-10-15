@@ -8,42 +8,42 @@
 // IS METHODS
 
 template <class T>
-bool Matrix<T>::isEmpty() const
+bool Matrix<T>::is_empty() const
 {
-    return dimH() == 0 and dimV() == 0;
+    return dim_h() == 0 and dim_v() == 0;
 }
 
 template <class T>
-bool Matrix<T>::isSquare() const
+bool Matrix<T>::is_square() const
 {
-    return dimH() == dimV();
+    return dim_h() == dim_v();
 }
 
 template <class T>
-bool Matrix<T>::isDiagonal() const
+bool Matrix<T>::is_diag() const
 {
-    return isSquare() and isUpperTriangular() and isLowerTriangular();
+    return is_square() and is_triangular_up() and is_triangular_low();
 }
 
 template <class T>
-bool Matrix<T>::isIdentity() const
+bool Matrix<T>::is_identity() const
 {
-    return identity(dimH()) == *this;
+    return identity(dim_h()) == *this;
 }
 
 template <class T>
-bool Matrix<T>::isSymmetric() const
+bool Matrix<T>::is_symetric() const
 {
     return *this == transpose();
 }
 
 template <class T>
-bool Matrix<T>::isUpperTriangular() const
+bool Matrix<T>::is_triangular_up() const
 {
-    if (isSquare())
+    if (is_square())
     {
-        for (size_t r = 0; r < dimV(); r++)
-            for (size_t c = 0; c < dimH(); c++)
+        for (size_t r = 0; r < dim_v(); r++)
+            for (size_t c = 0; c < dim_h(); c++)
                 if (r > c and cell(r, c) != 0)
                     return false;
 
@@ -54,12 +54,12 @@ bool Matrix<T>::isUpperTriangular() const
 }
 
 template <class T>
-bool Matrix<T>::isLowerTriangular() const
+bool Matrix<T>::is_triangular_low() const
 {
-    if (isSquare())
+    if (is_square())
     {
-        for (size_t r = 0; r < dimV(); r++)
-            for (size_t c = 0; c < dimH(); c++)
+        for (size_t r = 0; r < dim_v(); r++)
+            for (size_t c = 0; c < dim_h(); c++)
                 if (r < c and cell(r, c) != 0)
                     return false;
 
@@ -70,10 +70,10 @@ bool Matrix<T>::isLowerTriangular() const
 }
 
 template <class T>
-bool Matrix<T>::isAll(const std::function<bool(T)> &f) const
+bool Matrix<T>::all(const std::function<bool(T)> &f) const
 {
-    for (size_t r = 0; r < dimV(); r++)
-        for (size_t c = 0; c < dimH(); c++)
+    for (size_t r = 0; r < dim_v(); r++)
+        for (size_t c = 0; c < dim_h(); c++)
             if (!f(cell(r, c)))
                 return false;
 
@@ -81,17 +81,17 @@ bool Matrix<T>::isAll(const std::function<bool(T)> &f) const
 }
 
 template <class T>
-bool Matrix<T>::isAll(const T &val) const
+bool Matrix<T>::all(const T &val) const
 {
-    return isAll([&](T e)
+    return all([&](T e)
                  { return e == val; });
 }
 
 template <class T>
-bool Matrix<T>::isAny(const std::function<bool(T)> &f) const
+bool Matrix<T>::any(const std::function<bool(T)> &f) const
 {
-    for (size_t r = 0; r < dimV(); r++)
-        for (size_t c = 0; c < dimH(); c++)
+    for (size_t r = 0; r < dim_v(); r++)
+        for (size_t c = 0; c < dim_h(); c++)
             if (f(cell(r, c)))
                 return true;
 
@@ -99,9 +99,9 @@ bool Matrix<T>::isAny(const std::function<bool(T)> &f) const
 }
 
 template <class T>
-bool Matrix<T>::isAny(const T &val) const
+bool Matrix<T>::any(const T &val) const
 {
-    return isAny([&](T e)
+    return any([&](T e)
                  { return e == val; });
 }
 
@@ -109,13 +109,13 @@ bool Matrix<T>::isAny(const T &val) const
 // THROW METHODS
 
 template <class T>
-void Matrix<T>::checkDim(const std::tuple<size_t, size_t> &dim) const
+void Matrix<T>::check_dim(const std::tuple<size_t, size_t> &dim) const
 {
-    if (std::get<0>(dim) != dimV() || std::get<1>(dim) != dimH())
+    if (std::get<0>(dim) != dim_v() || std::get<1>(dim) != dim_h())
         throw std::invalid_argument("The matrices must have the same dimension. Expected: " +
-                                    std::to_string(dimV()) +
+                                    std::to_string(dim_v()) +
                                     "x" +
-                                    std::to_string(dimH()) +
+                                    std::to_string(dim_h()) +
                                     ". Actual: " +
                                     std::to_string(std::get<0>(dim)) +
                                     "x" +
@@ -123,35 +123,35 @@ void Matrix<T>::checkDim(const std::tuple<size_t, size_t> &dim) const
 }
 
 template <class T>
-void Matrix<T>::checkDim(const Matrix<T> &m) const
+void Matrix<T>::check_dim(const Matrix<T> &m) const
 {
-    checkDim(m.dim());
+    check_dim(m.dim());
 }
 
 template <class T>
-void Matrix<T>::checkValidRow(const std::vector<T> &row) const
+void Matrix<T>::check_valid_row(const std::vector<T> &row) const
 {
-    if (row.size() != dimH())
+    if (row.size() != dim_h())
         throw std::invalid_argument("Invalid row size. Expected: " +
-                                    std::to_string(dimH()) +
+                                    std::to_string(dim_h()) +
                                     ". Actual: " +
                                     std::to_string(row.size()));
 }
 
 template <class T>
-void Matrix<T>::checkValidCol(const std::vector<T> &col) const
+void Matrix<T>::check_valid_col(const std::vector<T> &col) const
 {
-    if (col.size() != dimV())
+    if (col.size() != dim_v())
         throw std::invalid_argument("Invalid column size. Expected: " +
-                                    std::to_string(dimV()) +
+                                    std::to_string(dim_v()) +
                                     ". Actual: " +
                                     std::to_string(col.size()));
 }
 
 template <class T>
-void Matrix<T>::checkValidDiag(const std::vector<T> &diag) const
+void Matrix<T>::check_valid_diag(const std::vector<T> &diag) const
 {
-    const size_t min = std::min(dimH(), dimV());
+    const size_t min = std::min(dim_h(), dim_v());
     if (diag.size() != min)
         throw std::invalid_argument("Invalid diagonal size. Expected: " +
                                     std::to_string(min) +
@@ -160,27 +160,27 @@ void Matrix<T>::checkValidDiag(const std::vector<T> &diag) const
 }
 
 template <class T>
-void Matrix<T>::checkIdRow(const size_t &n) const
+void Matrix<T>::check_valid_row_id(const size_t &n) const
 {
-    if (n < 0 || n >= dimV())
+    if (n < 0 || n >= dim_v())
         throw std::out_of_range("Invalid row index. Expected: 0 <= " +
                                 std::to_string(n) +
                                 " < " +
-                                std::to_string(dimV()));
+                                std::to_string(dim_v()));
 }
 
 template <class T>
-void Matrix<T>::checkIdCol(const size_t &n) const
+void Matrix<T>::check_valid_col_id(const size_t &n) const
 {
-    if (n < 0 || n >= dimH())
+    if (n < 0 || n >= dim_h())
         throw std::out_of_range("Invalid column index. Expected: 0 <= " +
                                 std::to_string(n) +
                                 " < " +
-                                std::to_string(dimH()));
+                                std::to_string(dim_h()));
 }
 
 template <class T>
-void Matrix<T>::checkIdExpected(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const
+void Matrix<T>::check_expected_id(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const
 {
     if (n < expectedBegin || n > exepectedEnd)
         throw std::out_of_range("Invalid index. Expected: " +
@@ -192,13 +192,13 @@ void Matrix<T>::checkIdExpected(const size_t &n, const size_t &expectedBegin, co
 }
 
 template <class T>
-void Matrix<T>::checkIdExpected(const size_t &n, const size_t &expected) const
+void Matrix<T>::check_expected_id(const size_t &n, const size_t &expected) const
 {
-    checkIdExpected(n, expected, expected);
+    check_expected_id(n, expected, expected);
 }
 
 template <class T>
-void Matrix<T>::checkValidType() const
+void Matrix<T>::check_valid_type() const
 {
     if (std::is_same<T, bool>::value)
         throw std::invalid_argument("The type " + std::string(typeid(T).name()) + " is not supported.");

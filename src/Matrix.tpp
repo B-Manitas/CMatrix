@@ -22,10 +22,10 @@ void Matrix<T>::clear()
 template <class T>
 Matrix<T> Matrix<T>::copy() const
 {
-    Matrix<T> m(dimV(), dimH());
+    Matrix<T> m(dim_v(), dim_h());
 
-    for (size_t r = 0; r < dimV(); r++)
-        for (size_t c = 0; c < dimH(); c++)
+    for (size_t r = 0; r < dim_v(); r++)
+        for (size_t c = 0; c < dim_h(); c++)
             m.cell(r, c) = cell(r, c);
 
     return m;
@@ -34,12 +34,12 @@ Matrix<T> Matrix<T>::copy() const
 template <class T>
 void Matrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row)
 {
-    for (size_t r = 0; r < dimV(); r++)
+    for (size_t r = 0; r < dim_v(); r++)
     {
         if (row != nullptr)
             row = &r;
 
-        for (size_t c = 0; c < dimH(); c++)
+        for (size_t c = 0; c < dim_h(); c++)
         {
             if (col != nullptr)
                 col = &c;
@@ -80,7 +80,7 @@ void Matrix<T>::fill(const T &value)
 }
 
 template <class T>
-std::vector<std::vector<T>> Matrix<T>::toVector() const
+std::vector<std::vector<T>> Matrix<T>::to_vector() const
 {
     return matrix;
 }
@@ -92,11 +92,11 @@ Matrix<U> Matrix<T>::cast() const
 
     if (std::is_convertible<T, U>::value)
     {
-        Matrix<U> m(dimV(), dimH());
+        Matrix<U> m(dim_v(), dim_h());
 
-        for (size_t r = 0; r < dimV(); r++)
-            for (size_t c = 0; c < dimH(); c++)
-                m.setCell(c, r, static_cast<U>(cell(r, c)));
+        for (size_t r = 0; r < dim_v(); r++)
+            for (size_t c = 0; c < dim_h(); c++)
+                m.set_cell(c, r, static_cast<U>(cell(r, c)));
 
         return m;
     }

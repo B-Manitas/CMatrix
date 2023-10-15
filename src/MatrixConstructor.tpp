@@ -10,15 +10,15 @@
 template <class T>
 Matrix<T>::Matrix()
 {
-    checkValidType();
+    check_valid_type();
 }
 
 template <class T>
 Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> &m)
 {
-    checkValidType();
+    check_valid_type();
 
-    if (isMatrix(m))
+    if (is_matrix(m))
         for (auto &&row : m)
             matrix.push_back(std::vector<T>(row));
 
@@ -27,29 +27,29 @@ Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> &m)
 }
 
 template <class T>
-Matrix<T>::Matrix(const size_t &dimV, const size_t &dimH)
+Matrix<T>::Matrix(const size_t &dim_v, const size_t &dim_h)
 {
-    checkValidType();
+    check_valid_type();
 
-    matrix = std::vector<std::vector<T>>(dimV, std::vector<T>(dimH));
+    matrix = std::vector<std::vector<T>>(dim_v, std::vector<T>(dim_h));
 }
 
 template <class T>
-Matrix<T>::Matrix(const size_t &dimV, const size_t &dimH, const T &value)
+Matrix<T>::Matrix(const size_t &dim_v, const size_t &dim_h, const T &value)
 {
-    checkValidType();
+    check_valid_type();
 
-    matrix = std::vector<std::vector<T>>(dimV, std::vector<T>(dimH, value));
+    matrix = std::vector<std::vector<T>>(dim_v, std::vector<T>(dim_h, value));
 }
 
 template <class T>
 template <class U>
 Matrix<T>::Matrix(const Matrix<U> &m)
 {
-    checkValidType();
+    check_valid_type();
 
     Matrix<T> result = m.template cast<T>();
-    matrix = result.toVector();
+    matrix = result.to_vector();
 }
 
 // ==================================================

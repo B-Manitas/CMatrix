@@ -8,16 +8,16 @@
 // GET METHODS
 
 template <class T>
-std::vector<T> Matrix<T>::getRow(const size_t &n) const
+std::vector<T> Matrix<T>::rows_vec(const size_t &n) const
 {
-    checkIdRow(n);
+    check_valid_row_id(n);
     return matrix.at(n);
 }
 
 template <class T>
-std::vector<T> Matrix<T>::getFlatCol(const size_t &n) const
+std::vector<T> Matrix<T>::columns_vec(const size_t &n) const
 {
-    checkIdCol(n);
+    check_valid_col_id(n);
     std::vector<T> col;
 
     for (auto &&row : matrix)
@@ -42,8 +42,8 @@ Matrix<T> Matrix<T>::rows(const std::initializer_list<size_t> &ids) const
 
     for (const size_t &id : ids)
     {
-        checkIdRow(id);
-        m.pushRowBack(matrix.at(id));
+        check_valid_row_id(id);
+        m.push_row_back(matrix.at(id));
     }
 
     return m;
@@ -62,13 +62,13 @@ Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> &ids) const
 
     for (const size_t &id : ids)
     {
-        checkIdCol(id);
+        check_valid_col_id(id);
         std::vector<T> col;
 
         for (auto &&row : matrix)
             col.push_back(row.at(id));
 
-        m.pushColBack(col);
+        m.push_col_back(col);
     }
 
     return m;
@@ -86,7 +86,7 @@ Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>
     Matrix<T> m;
 
     for (const std::pair<size_t, size_t> &id : ids)
-        m.pushColBack({cell(id.first, id.second)});
+        m.push_col_back({cell(id.first, id.second)});
 
     return m;
 }
@@ -94,16 +94,16 @@ Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>
 template <class T>
 T &Matrix<T>::cell(const size_t &row, const size_t &col)
 {
-    checkIdRow(row);
-    checkIdCol(col);
+    check_valid_row_id(row);
+    check_valid_col_id(col);
     return matrix.at(row).at(col);
 }
 
 template <class T>
 T Matrix<T>::cell(const size_t &row, const size_t &col) const
 {
-    checkIdRow(row);
-    checkIdCol(col);
+    check_valid_row_id(row);
+    check_valid_col_id(col);
     return matrix.at(row).at(col);
 }
 
@@ -111,13 +111,13 @@ T Matrix<T>::cell(const size_t &row, const size_t &col) const
 // DIM METHODS
 
 template <class T>
-size_t Matrix<T>::dimH() const
+size_t Matrix<T>::dim_h() const
 {
-    return dimV() == 0 ? 0 : matrix.at(0).size();
+    return dim_v() == 0 ? 0 : matrix.at(0).size();
 }
 
 template <class T>
-size_t Matrix<T>::dimV() const
+size_t Matrix<T>::dim_v() const
 {
     return matrix.size();
 }
@@ -125,7 +125,7 @@ size_t Matrix<T>::dimV() const
 template <class T>
 std::tuple<size_t, size_t> Matrix<T>::dim() const
 {
-    return std::tuple<size_t, size_t>(dimV(), dimH());
+    return std::tuple<size_t, size_t>(dim_v(), dim_h());
 }
 
 // ==================================================
@@ -134,10 +134,10 @@ std::tuple<size_t, size_t> Matrix<T>::dim() const
 template <class T>
 Matrix<T> Matrix<T>::transpose() const
 {
-    Matrix<T> m(dimH(), dimV());
+    Matrix<T> m(dim_h(), dim_v());
 
-    for (size_t r = 0; r < dimV(); r++)
-        for (size_t c = 0; c < dimH(); c++)
+    for (size_t r = 0; r < dim_v(); r++)
+        for (size_t c = 0; c < dim_h(); c++)
             m.cell(c, r) = cell(r, c);
 
     return m;
@@ -148,7 +148,7 @@ std::vector<T> Matrix<T>::diag() const
 {
     std::vector<T> d;
 
-    for (size_t i = 0; i < std::min(dimH(), dimV()); i++)
+    for (size_t i = 0; i < std::min(dim_h(), dim_v()); i++)
         d.push_back(cell(i, i));
 
     return d;

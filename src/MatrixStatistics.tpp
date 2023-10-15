@@ -5,11 +5,11 @@ Matrix<T> Matrix<T>::min(const unsigned int &axis) const
 
     if (axis == 0)
     {
-        for (size_t i = 0; i < dimV(); i++)
+        for (size_t i = 0; i < dim_v(); i++)
         {
-            result.pushRowBack({cell(i, 0)});
+            result.push_row_back({cell(i, 0)});
 
-            for (size_t j = 0; j < dimH(); j++)
+            for (size_t j = 0; j < dim_h(); j++)
                 if (cell(i, j) < result.cell(i, 0))
                     result.cell(0, i) = cell(i, j);
         }
@@ -19,11 +19,11 @@ Matrix<T> Matrix<T>::min(const unsigned int &axis) const
 
     else if (axis == 1)
     {
-        for (size_t i = 0; i < dimH(); i++)
+        for (size_t i = 0; i < dim_h(); i++)
         {
-            result.pushColBack({cell(0, i)});
+            result.push_col_back({cell(0, i)});
 
-            for (size_t j = 0; j < dimV(); j++)
+            for (size_t j = 0; j < dim_v(); j++)
                 if (cell(j, i) < result.cell(0, i))
                     result.cell(i, 0) = cell(j, i);
         }
@@ -42,11 +42,11 @@ Matrix<T> Matrix<T>::max(const unsigned int &axis) const
 
     if (axis == 0)
     {
-        for (size_t r = 0; r < dimV(); r++)
+        for (size_t r = 0; r < dim_v(); r++)
         {
-            result.pushRowBack({cell(r, 0)});
+            result.push_row_back({cell(r, 0)});
 
-            for (size_t c = 0; c < dimH(); c++)
+            for (size_t c = 0; c < dim_h(); c++)
             {
                 T current = cell(r, c);
                 T stored = result.cell(r, 0);
@@ -61,11 +61,11 @@ Matrix<T> Matrix<T>::max(const unsigned int &axis) const
 
     else if (axis == 1)
     {
-        for (size_t c = 0; c < dimH(); c++)
+        for (size_t c = 0; c < dim_h(); c++)
         {
-            result.pushColBack({cell(0, c)});
+            result.push_col_back({cell(0, c)});
 
-            for (size_t r = 0; r < dimV(); r++)
+            for (size_t r = 0; r < dim_v(); r++)
             {
                 T current = cell(r, c);
                 T stored = result.cell(0, c);
@@ -89,15 +89,15 @@ Matrix<T> Matrix<T>::sum(const unsigned int &axis, const T &zero) const
 
     if (axis == 0)
     {
-        for (size_t i = 0; i < dimV(); i++)
+        for (size_t i = 0; i < dim_v(); i++)
         {
 
             T sum = zero;
 
-            for (size_t j = 0; j < dimH(); j++)
+            for (size_t j = 0; j < dim_h(); j++)
                 sum += cell(i, j);
 
-            result.pushRowBack({sum});
+            result.push_row_back({sum});
         }
 
         return result;
@@ -105,15 +105,15 @@ Matrix<T> Matrix<T>::sum(const unsigned int &axis, const T &zero) const
 
     else if (axis == 1)
     {
-        for (size_t i = 0; i < dimH(); i++)
+        for (size_t i = 0; i < dim_h(); i++)
         {
 
             T sum = zero;
 
-            for (size_t j = 0; j < dimV(); j++)
+            for (size_t j = 0; j < dim_v(); j++)
                 sum += cell(j, i);
 
-            result.pushColBack({sum});
+            result.push_col_back({sum});
         }
 
         return result;
@@ -126,11 +126,11 @@ Matrix<T> Matrix<T>::sum(const unsigned int &axis, const T &zero) const
 template <typename T>
 Matrix<float> Matrix<T>::__mean(const unsigned int &axis, std::true_type) const
 {
-    if (isEmpty())
+    if (is_empty())
         return Matrix<float>();
 
     Matrix<float> result(sum(axis));
-    result /= axis == 0 ? dimH() : dimV();
+    result /= axis == 0 ? dim_h() : dim_v();
     return result;
 }
 
@@ -155,23 +155,23 @@ Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::true_type) const
     if (axis == 0)
     {
         // Cannot calculate the standard deviation of a single value.
-        if (dimH() == 1)
+        if (dim_h() == 1)
             throw std::invalid_argument("The matrix must have more than one column.");
 
         // Calculate the mean of each row.
-        const Matrix<float> &meanMat = this->mean(0);
+        const Matrix<float> &matrix_mean = this->mean(0);
 
-        for (size_t r = 0; r < dimV(); r++)
+        for (size_t r = 0; r < dim_v(); r++)
         {
-            const float &mean = meanMat.cell(r, 0);
+            const float &mean = matrix_mean.cell(r, 0);
             float sum = 0;
 
             // Calculate the sum of the squares of the differences between the values and the mean.
-            for (size_t c = 0; c < dimH(); c++)
+            for (size_t c = 0; c < dim_h(); c++)
                 sum += std::pow(cell(r, c) - mean, 2);
 
             // Calculate the standard deviation and push it to the result matrix.
-            result.pushRowBack({std::sqrt(sum / dimH())});
+            result.push_row_back({std::sqrt(sum / dim_h())});
         }
 
         return result;
@@ -181,24 +181,24 @@ Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::true_type) const
     else if (axis == 1)
     {
         // Cannot calculate the standard deviation of a single value.
-        if (dimV() == 1)
+        if (dim_v() == 1)
             throw std::invalid_argument("The matrix must have more than one row.");
 
         // Calculate the mean of each column.
-        const Matrix<float> &meanMat = this->mean(1);
+        const Matrix<float> &matrix_mean = this->mean(1);
 
-        for (size_t c = 0; c < dimH(); c++)
+        for (size_t c = 0; c < dim_h(); c++)
         {
             // Calculate the mean of the column.
-            const float &mean = meanMat.cell(0, c);
+            const float &mean = matrix_mean.cell(0, c);
             float sum = 0;
 
             // Calculate the sum of the squares of the differences between the values and the mean.
-            for (size_t r = 0; r < dimV(); r++)
+            for (size_t r = 0; r < dim_v(); r++)
                 sum += std::pow(cell(r, c) - mean, 2);
 
             // Calculate the standard deviation and push it to the result matrix.
-            result.pushColBack({std::sqrt(sum / dimV())});
+            result.push_col_back({std::sqrt(sum / dim_v())});
         }
 
         return result;
@@ -228,14 +228,14 @@ Matrix<T> Matrix<T>::median(const unsigned int &axis) const
     // Compute the median for each row.
     if (axis == 0)
     {
-        for (size_t i = 0; i < dimV(); i++)
+        for (size_t i = 0; i < dim_v(); i++)
         {
             // Get the row and sort it.
-            std::vector<T> row = getRow(i);
+            std::vector<T> row = rows_vec(i);
             std::sort(row.begin(), row.end());
 
             // Push the median ( middle value -> row.size() / 2 ) to the result matrix.
-            result.pushRowBack({row[row.size() / 2]});
+            result.push_row_back({row[row.size() / 2]});
         }
 
         return result;
@@ -244,14 +244,14 @@ Matrix<T> Matrix<T>::median(const unsigned int &axis) const
     // Compute the median for each column.
     else if (axis == 1)
     {
-        for (size_t i = 0; i < dimH(); i++)
+        for (size_t i = 0; i < dim_h(); i++)
         {
             // Get the column and sort it.
-            std::vector<T> col = getFlatCol(i);
+            std::vector<T> col = columns_vec(i);
             std::sort(col.begin(), col.end());
 
             // Push the median ( middle value -> row.size() / 2 ) to the result matrix.
-            result.pushColBack({col[col.size() / 2]});
+            result.push_col_back({col[col.size() / 2]});
         }
 
         return result;

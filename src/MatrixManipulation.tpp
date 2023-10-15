@@ -8,28 +8,28 @@
 // INSERT FUNCTIONS
 
 template <class T>
-void Matrix<T>::insertRow(const size_t &pos, const std::vector<T> &val)
+void Matrix<T>::insert_row(const size_t &pos, const std::vector<T> &val)
 {
     // If the matrix is empty, we can insert the row of any size.
-    if (isEmpty())
-        checkIdExpected(pos, 0);
+    if (is_empty())
+        check_expected_id(pos, 0);
 
     else
     {
-        checkIdExpected(pos, 0, dimV());
-        checkValidRow(val);
+        check_expected_id(pos, 0, dim_v());
+        check_valid_row(val);
     }
 
     matrix.insert(matrix.begin() + pos, val);
 }
 
 template <class T>
-void Matrix<T>::insertCol(const size_t &pos, const std::vector<T> &val)
+void Matrix<T>::insert_column(const size_t &pos, const std::vector<T> &val)
 {
     // If the matrix is empty, we can insert the column of any size.
-    if (isEmpty())
+    if (is_empty())
     {
-        checkIdExpected(pos, 0);
+        check_expected_id(pos, 0);
 
         for (size_t i = 0; i < val.size(); i++)
             matrix.push_back(std::vector<T>{val.at(i)});
@@ -37,10 +37,10 @@ void Matrix<T>::insertCol(const size_t &pos, const std::vector<T> &val)
 
     else
     {
-        checkIdExpected(pos, 0, dimH());
-        checkValidCol(val);
+        check_expected_id(pos, 0, dim_h());
+        check_valid_col(val);
 
-        for (size_t i = 0; i < dimV(); i++)
+        for (size_t i = 0; i < dim_v(); i++)
             matrix.at(i).insert(matrix.at(i).begin() + pos, val.at(i));
     }
 }
@@ -49,71 +49,71 @@ void Matrix<T>::insertCol(const size_t &pos, const std::vector<T> &val)
 // PUSH FUNCTIONS
 
 template <class T>
-void Matrix<T>::pushRowFront(const std::vector<T> &val)
+void Matrix<T>::push_row_front(const std::vector<T> &val)
 {
-    insertRow(0, val);
+    insert_row(0, val);
 }
 
 template <class T>
-void Matrix<T>::pushRowBack(const std::vector<T> &val)
+void Matrix<T>::push_row_back(const std::vector<T> &val)
 {
-    insertRow(dimV(), val);
+    insert_row(dim_v(), val);
 }
 
 template <class T>
-void Matrix<T>::pushColFront(const std::vector<T> &val)
+void Matrix<T>::push_col_front(const std::vector<T> &val)
 {
-    insertCol(0, val);
+    insert_column(0, val);
 }
 
 template <class T>
-void Matrix<T>::pushColBack(const std::vector<T> &val)
+void Matrix<T>::push_col_back(const std::vector<T> &val)
 {
-    insertCol(dimH(), val);
+    insert_column(dim_h(), val);
 }
 
 // ==================================================
 // FIND FUNCTIONS
 
 template <class T>
-int Matrix<T>::findRow(const std::function<bool(std::vector<T>)> &f) const
+int Matrix<T>::find_row(const std::function<bool(std::vector<T>)> &f) const
 {
-    for (size_t row = 0; row < dimV(); row++)
-        if (f(getRow(row)))
+    for (size_t row = 0; row < dim_v(); row++)
+        if (f(rows_vec(row)))
             return row;
 
     return -1;
 }
 
 template <class T>
-int Matrix<T>::findRow(const std::vector<T> &val) const
+int Matrix<T>::find_row(const std::vector<T> &val) const
 {
-    return findRow([&](std::vector<T> row)
+    return find_row([&](std::vector<T> row)
                    { return row == val; });
 }
 
 template <class T>
-int Matrix<T>::findCol(const std::function<bool(std::vector<T>)> &f) const
+int Matrix<T>::find_column(const std::function<bool(std::vector<T>)> &f) const
 {
-    for (size_t col = 0; col < dimH(); col++)
-        if (f(getFlatCol(col)))
+    for (size_t col = 0; col < dim_h(); col++)
+        if (f(columns_vec(col)))
             return col;
 
     return -1;
 }
 
 template <class T>
-int Matrix<T>::findCol(const std::vector<T> &val) const
+int Matrix<T>::find_column(const std::vector<T> &val) const
 {
-    return findCol([&](std::vector<T> col)
+    return find_column([&](std::vector<T> col)
                    { return col == val; });
 }
 
 template <class T>
 std::tuple<int, int> Matrix<T>::find(const std::function<bool(T)> &f) const
 {
-    for (size_t row = 0; row < dimV(); row++)
-        for (size_t col = 0; col < dimH(); col++)
+    for (size_t row = 0; row < dim_v(); row++)
+        for (size_t col = 0; col < dim_h(); col++)
             if (f(cell(row, col)))
                 return std::tuple<int, int>(int(col), int(row));
 
@@ -131,21 +131,21 @@ std::tuple<int, int> Matrix<T>::find(const T &val) const
 // ERASE FUNCTIONS
 
 template <class T>
-void Matrix<T>::removeRow(const size_t &pos)
+void Matrix<T>::remove_row(const size_t &pos)
 {
-    checkIdRow(pos);
+    check_valid_row_id(pos);
     matrix.erase(matrix.begin() + pos);
 }
 
 template <class T>
-void Matrix<T>::removeCol(const size_t &pos)
+void Matrix<T>::remove_column(const size_t &pos)
 {
-    checkIdCol(pos);
+    check_valid_col_id(pos);
 
-    if (dimH() == 1)
+    if (dim_h() == 1)
         matrix.clear();
 
     else
-        for (size_t i = 0; i < dimV(); i++)
+        for (size_t i = 0; i < dim_v(); i++)
             matrix.at(i).erase(matrix.at(i).begin() + pos);
 }

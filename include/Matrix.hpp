@@ -66,7 +66,7 @@ private:
      * @param m The matrix to apply.
      * @return Matrix<T> The result of the operator.
      */
-    Matrix<T> __mapArithmetic(const std::function<T(T, T)> &f, const Matrix<T> &m) const;
+    Matrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const Matrix<T> &m) const;
     /**
      * @brief Map a comparison operator to each cell of the matrix and return a matrix of boolean.
      *
@@ -74,7 +74,7 @@ private:
      * @param n The number to compare.
      * @return Matrix<short unsigned int> The result of the comparison.
      */
-    Matrix<short unsigned int> __mapComparaisonValue(const std::function<T(T, T)> &f, const T &n) const;
+    Matrix<short unsigned int> __map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const;
 
 public:
     // CONSTRUCTOR METHODS
@@ -95,20 +95,20 @@ public:
     /**
      * @brief Construct a new Matrix object.
      *
-     * @param dimV The number of rows.
-     * @param dimH The number of columns.
+     * @param dim_v The number of rows.
+     * @param dim_h The number of columns.
      * @throw std::invalid_argument If the type is bool.
      */
-    Matrix(const size_t &dimV, const size_t &dimH);
+    Matrix(const size_t &dim_v, const size_t &dim_h);
     /**
      * @brief Construct a new Matrix object.
      *
-     * @param dimV The number of rows.
-     * @param dimH The number of columns.
+     * @param dim_v The number of rows.
+     * @param dim_h The number of columns.
      * @param val The value to fill the matrix.
      * @throw std::invalid_argument If the type is bool.
      */
-    Matrix(const size_t &dimV, const size_t &dimH, const T &val);
+    Matrix(const size_t &dim_v, const size_t &dim_h, const T &val);
     /**
      * @brief Cast a matrix to another type.
      *
@@ -129,7 +129,7 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @deprecated Use `rows` instead.
      */
-    std::vector<T> getRow(const size_t &n) const;
+    std::vector<T> rows_vec(const size_t &n) const;
     /**
      * @brief Get a column of the matrix as a flattened vector.
      *
@@ -138,7 +138,7 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @deprecated Use `columns` instead.
      */
-    std::vector<T> getFlatCol(const size_t &n) const;
+    std::vector<T> columns_vec(const size_t &n) const;
 
     /**
      * @brief Get the rows of the matrix.
@@ -213,13 +213,13 @@ public:
      *
      * @return size_t The number of columns.
      */
-    size_t dimH() const;
+    size_t dim_h() const;
     /**
      * @brief The number of rows of the matrix.
      *
      * @return size_t The number of rows.
      */
-    size_t dimV() const;
+    size_t dim_v() const;
     /**
      * @brief The dimensions of the matrix.
      *
@@ -251,7 +251,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void setRow(const size_t &n, const std::vector<T> &val);
+    void set_row(const size_t &n, const std::vector<T> &val);
     /**
      * @brief Set a column of the matrix.
      *
@@ -262,7 +262,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void setCol(const size_t &n, const std::vector<T> &val);
+    void set_column(const size_t &n, const std::vector<T> &val);
     /**
      * @brief Set a cell of the matrix.
      *
@@ -273,7 +273,7 @@ public:
      *
      * @note The cell must be of the same type of the matrix.
      */
-    void setCell(const size_t &col, const size_t &row, const T &val);
+    void set_cell(const size_t &col, const size_t &row, const T &val);
     /**
      * @brief Set the diagonal of the matrix.
      *
@@ -282,7 +282,7 @@ public:
      *
      * @note The diagonal must be a vector of the same type of the matrix.
      */
-    void setDiag(const std::vector<T> &val);
+    void set_diag(const std::vector<T> &val);
 
     // MANIPULATION METHODS
     /**
@@ -295,7 +295,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void insertRow(const size_t &pos, const std::vector<T> &val);
+    void insert_row(const size_t &pos, const std::vector<T> &val);
     /**
      * @brief Insert a row in the matrix.
      *
@@ -306,7 +306,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void insertCol(const size_t &pos, const std::vector<T> &val);
+    void insert_column(const size_t &pos, const std::vector<T> &val);
     /**
      * @brief Push a row in the front of the matrix.
      *
@@ -315,7 +315,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void pushRowFront(const std::vector<T> &val);
+    void push_row_front(const std::vector<T> &val);
     /**
      * @brief Push a row in the back of the matrix.
      *
@@ -324,7 +324,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void pushRowBack(const std::vector<T> &val);
+    void push_row_back(const std::vector<T> &val);
 
     /**
      * @brief Push a column in the front of the matrix.
@@ -334,7 +334,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void pushColFront(const std::vector<T> &val);
+    void push_col_front(const std::vector<T> &val);
     /**
      * @brief Push a column in the back of the matrix.
      *
@@ -343,7 +343,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void pushColBack(const std::vector<T> &val);
+    void push_col_back(const std::vector<T> &val);
 
     /**
      * @bried Find the first row matching the condition.
@@ -353,7 +353,7 @@ public:
      *
      * @note The empty matrix always return -1.
      */
-    int findRow(const std::function<bool(std::vector<T>)> &f) const;
+    int find_row(const std::function<bool(std::vector<T>)> &f) const;
     /**
      * @brief Find the first row matching the given row.
      *
@@ -362,7 +362,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    int findRow(const std::vector<T> &val) const;
+    int find_row(const std::vector<T> &val) const;
     /**
      * @brief Find the first column matching the condition.
      *
@@ -371,7 +371,7 @@ public:
      *
      * @note The empty matrix always return -1.
      */
-    int findCol(const std::function<bool(std::vector<T>)> &f) const;
+    int find_column(const std::function<bool(std::vector<T>)> &f) const;
     /**
      * @brief Find the first column matching the given column.
      *
@@ -380,7 +380,7 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    int findCol(const std::vector<T> &val) const;
+    int find_column(const std::vector<T> &val) const;
     /**
      * @brief Find the first cell matching the condition.
      *
@@ -407,7 +407,7 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the matrix is empty.
      */
-    void removeRow(const size_t &n);
+    void remove_row(const size_t &n);
     /**
      * @brief Remove a column of the matrix.
      *
@@ -415,7 +415,7 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the matrix is empty.
      */
-    void removeCol(const size_t &n);
+    void remove_column(const size_t &n);
 
     // CHECK METHODS
     /**
@@ -424,49 +424,49 @@ public:
      * @return true If the matrix is empty.
      * @return false If the matrix is not empty.
      */
-    bool isEmpty() const;
+    bool is_empty() const;
     /**
      * @brief Check if the matrix is a square matrix.
      *
      * @return true If the matrix is a square matrix.
      * @return false If the matrix is not a square matrix.
      */
-    bool isSquare() const;
+    bool is_square() const;
     /**
      * @brief Check if the matrix is a diagonal matrix.
      *
      * @return true If the matrix is a diagonal matrix.
      * @return false If the matrix is not a diagonal matrix.
      */
-    bool isDiagonal() const;
+    bool is_diag() const;
     /**
      * @brief Check if the matrix is the identity matrix.
      *
      * @return true If the matrix is the identity matrix.
      * @return false If the matrix is not the identity matrix.
      */
-    bool isIdentity() const;
+    bool is_identity() const;
     /**
      * @brief Check if the matrix is a symmetric matrix.
      *
      * @return true If the matrix is a symmetric matrix.
      * @return false If the matrix is not a symmetric matrix.
      */
-    bool isSymmetric() const;
+    bool is_symetric() const;
     /**
      * @brief Check if the matrix is an upper triangular matrix.
      *
      * @return true If the matrix is an upper triangular matrix.
      * @return false If the matrix is not an upper triangular matrix.
      */
-    bool isUpperTriangular() const;
+    bool is_triangular_up() const;
     /**
      * @brief Check if the matrix is a lower triangular matrix.
      *
      * @return true If the matrix is a lower triangular matrix.
      * @return false If the matrix is not a lower triangular matrix.
      */
-    bool isLowerTriangular() const;
+    bool is_triangular_low() const;
     /**
      * @brief Check if all the cells of the matrix satisfy a condition.
      *
@@ -476,7 +476,7 @@ public:
      *
      * @note The empty matrix always return true.
      */
-    bool isAll(const std::function<bool(T)> &f) const;
+    bool all(const std::function<bool(T)> &f) const;
     /**
      * @brief Check if all the cells of the matrix are equal to a value.
      *
@@ -486,7 +486,7 @@ public:
      *
      * @note The empty matrix always return true.
      */
-    bool isAll(const T &val) const;
+    bool all(const T &val) const;
     /**
      * @brief Check if at least one cell of the matrix satisfy a condition.
      *
@@ -496,7 +496,7 @@ public:
      *
      * @note The empty matrix always return false.
      */
-    bool isAny(const std::function<bool(T)> &f) const;
+    bool any(const std::function<bool(T)> &f) const;
     /**
      * @brief Check if at least one cell of the matrix is equal to a value.
      *
@@ -506,7 +506,7 @@ public:
      *
      * @note The empty matrix always return false.
      */
-    bool isAny(const T &val) const;
+    bool any(const T &val) const;
 
     /**
      * @brief Check if dimensions are equals to the dimensions of the matrix.
@@ -514,14 +514,14 @@ public:
      * @param dim The vertical and horizontal dimensions.
      * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
      */
-    void checkDim(const std::tuple<size_t, size_t> &dim) const;
+    void check_dim(const std::tuple<size_t, size_t> &dim) const;
     /**
      * @brief Check if dimensions are equals to the dimensions of the matrix.
      *
      * @param m The matrix.
      * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
      */
-    void checkDim(const Matrix<T> &m) const;
+    void check_dim(const Matrix<T> &m) const;
     /**
      * @brief Check if the vector is a valid row of the matrix.
      *
@@ -530,7 +530,7 @@ public:
      *
      * @note The row must be a vector of the same type of the matrix.
      */
-    void checkValidRow(const std::vector<T> &row) const;
+    void check_valid_row(const std::vector<T> &row) const;
     /**
      * @brief Check if the vector is a valid column of the matrix.
 
@@ -539,28 +539,28 @@ public:
      *
      * @note The column must be a vector of the same type of the matrix.
      */
-    void checkValidCol(const std::vector<T> &col) const;
+    void check_valid_col(const std::vector<T> &col) const;
     /**
      * @brief Check if the diagonal is a valid diagonal of the matrix.
      *
      * @param diag The diagonal to check.
      * @throw std::invalid_argument If the vector is not a valid diagonal of the matrix.
      */
-    void checkValidDiag(const std::vector<T> &diag) const;
+    void check_valid_diag(const std::vector<T> &diag) const;
     /**
      * @brief Check if the row is a valid row index of the matrix.
      *
      * @param row The row index to check.
      * @throw std::invalid_argument If the row is not a valid row index of the matrix.
      */
-    void checkIdRow(const size_t &n) const;
+    void check_valid_row_id(const size_t &n) const;
     /**
      * @brief Check if the column is a valid column index of the matrix.
      *
      * @param col The column index to check.
      * @throw std::invalid_argument If the column is not a valid column index of the matrix.
      */
-    void checkIdCol(const size_t &n) const;
+    void check_valid_col_id(const size_t &n) const;
     /**
      * @brief Check if the index is expected.
      *
@@ -568,7 +568,7 @@ public:
      * @param expected The expected index.
      * @throw std::invalid_argument If the index is not the expected index.
      */
-    void checkIdExpected(const size_t &n, const size_t &expected) const;
+    void check_expected_id(const size_t &n, const size_t &expected) const;
     /**
      * @brief Check if the index is expected.
      *
@@ -577,14 +577,14 @@ public:
      * @param exepectedEnd The expected end index inlusive.
      * @throw std::invalid_argument If the index is not the expected index.
      */
-    void checkIdExpected(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const;
+    void check_expected_id(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const;
     /**
      * @brief Check if the type of the matrix is valid.
      * List of types not supported: bool.
      *
      * @throw std::invalid_argument If the type is invalid.
      */
-    void checkValidType() const;
+    void check_valid_type() const;
 
     // STATISTICS METHODS
     /**
@@ -707,7 +707,7 @@ public:
      *
      * @return std::vector<T> The vector.
      */
-    std::vector<std::vector<T>> toVector() const;
+    std::vector<std::vector<T>> to_vector() const;
     /**
      * @brief Convert the matrix to a matrix of another type.
      *
@@ -726,34 +726,34 @@ public:
      * @return true If the nested vector is a matrix.
      * @return false If the nested vector is not a matrix.
      */
-    static bool isMatrix(const std::initializer_list<std::initializer_list<T>> &m);
+    static bool is_matrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief Flatten a nested vector.
      *
      * @param vec The nested vector to flatten.
      * @return std::vector<T> The flattened vector.
      */
-    static std::vector<T> flattenVector(const std::vector<std::vector<T>> &vec);
+    static std::vector<T> flatten_vector(const std::vector<std::vector<T>> &vec);
     /**
      * @brief Generate a random matrix of integers.
      *
-     * @param dimH The number of rows.
-     * @param dimV The number of columns.
+     * @param dim_h The number of rows.
+     * @param dim_v The number of columns.
      * @param min The minimum value of the matrix.
      * @param max The maximum value of the matrix.
      * @param seed The seed of the random generator. (default: time(nullptr))
      *
      * @return Matrix<int> The random matrix of integers.
      */
-    static Matrix<int> randint(const size_t &dimH, const size_t &dimV, const int &min, const int &max, const int &seed = time(nullptr));
+    static Matrix<int> randint(const size_t &dim_h, const size_t &dim_v, const int &min, const int &max, const int &seed = time(nullptr));
     /**
      * @brief Generate a matrix of zeros.
      *
-     * @param dimH The number of columns.
-     * @param dimV The number of rows.
+     * @param dim_h The number of columns.
+     * @param dim_v The number of rows.
      * @return Matrix<int> The matrix of zeros.
      */
-    static Matrix<int> zeros(const size_t &dimH, const size_t &dimV);
+    static Matrix<int> zeros(const size_t &dim_h, const size_t &dim_v);
     /**
      * @brief Generate the identity matrix.
      *
