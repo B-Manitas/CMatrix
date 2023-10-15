@@ -648,6 +648,17 @@ public:
      * @note The type of the matrix must implement the operator +, -, * and /.
      */
     Matrix<float> std(const unsigned int &axis = 0) const;
+    /**
+     * @brief Get the median value for each row (axis: 0) or column (axis: 1) of the matrix.
+     *
+     * @param axis The axis to get the median value. 0 for the rows, 1 for the columns. (default: 0)
+     * @return Matrix<T> The median value of the matrix for each row or column of the matrix.
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     *
+     * @note The matrix must implement the operator <.
+     * @note If the number of elements is even, the median is the smallest value of the two middle values.
+     */
+    Matrix<T> median(const unsigned int &axis = 0) const;
 
     // OTHER METHODS
     /**

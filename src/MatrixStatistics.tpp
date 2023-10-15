@@ -220,3 +220,43 @@ Matrix<float> Matrix<T>::std(const unsigned int &axis) const
     return __std(axis, std::is_arithmetic<T>());
 }
 
+template <class T>
+Matrix<T> Matrix<T>::median(const unsigned int &axis) const
+{
+    Matrix<T> result;
+
+    // Compute the median for each row.
+    if (axis == 0)
+    {
+        for (size_t i = 0; i < dimV(); i++)
+        {
+            // Get the row and sort it.
+            std::vector<T> row = getRow(i);
+            std::sort(row.begin(), row.end());
+
+            // Push the median ( middle value -> row.size() / 2 ) to the result matrix.
+            result.pushRowBack({row[row.size() / 2]});
+        }
+
+        return result;
+    }
+
+    // Compute the median for each column.
+    else if (axis == 1)
+    {
+        for (size_t i = 0; i < dimH(); i++)
+        {
+            // Get the column and sort it.
+            std::vector<T> col = getFlatCol(i);
+            std::sort(col.begin(), col.end());
+
+            // Push the median ( middle value -> row.size() / 2 ) to the result matrix.
+            result.pushColBack({col[col.size() / 2]});
+        }
+
+        return result;
+    }
+
+    else
+        throw std::invalid_argument("The axis must be 0: horizontal, or 1: vertical. Actual: " + std::to_string(axis) + ".");
+}
