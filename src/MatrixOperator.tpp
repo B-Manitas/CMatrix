@@ -80,6 +80,9 @@ Matrix<short unsigned int> Matrix<T>::operator>=(const T &n) const
     return __mapComparaisonValue(std::greater_equal<T>(), n);
 }
 
+// ==================================================
+// ARITHMETIC OPERATORS
+
 template <class T>
 Matrix<T> Matrix<T>::operator+(const Matrix<T> &m) const
 {

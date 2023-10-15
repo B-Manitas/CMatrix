@@ -629,23 +629,23 @@ public:
      * @brief Get the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
-     * @return T The mean value for each row or column of the matrix.
+     * @return Matrix<float> The mean value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * @throw std::invalid_argument If the matrix is not arithmetic.
      *
-     * @note The matrix must be of type int, float or double.
+     * @note The matrix must be of arithmetic type.
      */
     Matrix<float> mean(const unsigned int &axis = 0) const;
     /**
      * @brief Get the standard deviation value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the standard deviation. 0 for the rows, 1 for the columns. (default: 0)
-     * @return T The standard deviation for each row or column of the matrix.
+     * @return Matrix<float> The standard deviation for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * @throw std::invalid_argument If the matrix is not arithmetic.
      * @throw std::invalid_argument If the number of elements is less than 2 for the axis.
      *
-     * @note The type of the matrix must implement the operator +, -, * and /.
+     * @note The matrix must be of arithmetic type.
      */
     Matrix<float> std(const unsigned int &axis = 0) const;
     /**
