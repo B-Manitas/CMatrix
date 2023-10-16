@@ -51,6 +51,7 @@ bool Matrix<T>::is_matrix(const std::initializer_list<std::initializer_list<T>> 
     size_t rowSize = 0;
 
     // Check if all the rows have the same size
+    for (const std::initializer_list<T> &row : m)
     {
         // If it's the first row, set the size
         if (rowSize == 0)

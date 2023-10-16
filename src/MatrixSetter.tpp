@@ -38,8 +38,8 @@ template <class T>
 void Matrix<T>::set_diag(const std::vector<T> &val)
 {
     check_valid_diag(val);
-    size_t min = std::min(dim_h(), dim_v());
 
     // Iterate over the diagonal
+    for (size_t i = 0; i < std::min(dim_h(), dim_v()); i++)
         cell(i, i) = val.at(i);
 }

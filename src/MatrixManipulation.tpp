@@ -97,7 +97,7 @@ template <class T>
 int Matrix<T>::find_row(const std::vector<T> &val) const
 {
     return find_row([&](std::vector<T> row)
-                   { return row == val; });
+                    { return row == val; });
 }
 
 template <class T>
@@ -115,7 +115,7 @@ template <class T>
 int Matrix<T>::find_column(const std::vector<T> &val) const
 {
     return find_column([&](std::vector<T> col)
-                   { return col == val; });
+                       { return col == val; });
 }
 
 template <class T>

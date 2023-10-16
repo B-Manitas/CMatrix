@@ -77,7 +77,7 @@ Matrix<T> Matrix<T>::map(const std::function<T(T)> &f) const
 template <class T>
 void Matrix<T>::fill(const T &value)
 {
-    apply([&](T, size_t *, size_t *)
+    apply([&](T _)
           { return value; });
 }
 

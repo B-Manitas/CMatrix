@@ -36,8 +36,9 @@ bool Matrix<T>::operator==(const Matrix<T> &m) const
 
     // For each cell, check if the values are the same
     for (size_t i = 0; i < dim_v(); i++)
-        if (rows(i).to_vector().at(0) != m.rows(i).to_vector().at(0))
-            return false;
+        for (size_t j = 0; j < dim_h(); j++)
+            if (cell(i, j) != m.cell(i, j))
+                return false;
 
     return true;
 }
@@ -166,6 +167,7 @@ template <class T>
 Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
 {
     // Check if the matrix is square
+    if (not is_square())
         throw std::invalid_argument("The matrix must be square. Expected: " +
                                     std::to_string(dim_h()) +
                                     ". Actual: " +
@@ -280,12 +282,12 @@ Matrix<T> Matrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, const 
     check_dim(m);
 
     // Initialize variables to store the coordinates of the current cell.
-    size_t *prt_col = &col, *ptr_row = &row;
+    size_t col = -1, row = -1;
 
     // Apply the operator to each cell of the matrix
     return map([&](T value, size_t *col, size_t *row)
                { return f(value, m.cell(*row, *col)); },
-               prt_col, ptr_row);
+               &col, &row);
 }
 
 template <class T>

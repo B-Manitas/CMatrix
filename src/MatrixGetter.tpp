@@ -66,6 +66,7 @@ Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> &ids) const
         std::vector<T> col;
 
         // Get the id-th column
+        for (const std::vector<T> &row : matrix)
             col.push_back(row.at(id));
 
         m.push_col_back(col);

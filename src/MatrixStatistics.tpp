@@ -6,11 +6,15 @@ Matrix<T> Matrix<T>::min(const unsigned int &axis) const
     // Compute the minimum for each row
     if (axis == 0)
     {
-        for (size_t i = 0; i < dim_v(); i++)
+        for (size_t r = 0; r < dim_v(); r++)
         {
             // Push the first element of the row to the result matrix
+            result.push_row_back({cell(r, 0)});
 
             // Check if the current element is smaller than the stored one
+            for (size_t c = 0; c < dim_h(); c++)
+                if (cell(r, c) < result.cell(r, 0))
+                    result.cell(0, r) = cell(r, c);
         }
 
         return result;

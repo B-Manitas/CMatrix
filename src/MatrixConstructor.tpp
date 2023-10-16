@@ -19,7 +19,7 @@ Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> &m)
     check_valid_type();
 
     if (is_matrix(m))
-        for (auto &&row : m)
+        for (const std::initializer_list<T> &row : m)
             matrix.push_back(std::vector<T>(row));
 
     else
