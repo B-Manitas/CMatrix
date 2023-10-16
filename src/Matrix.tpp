@@ -36,11 +36,13 @@ void Matrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *
 {
     for (size_t r = 0; r < dim_v(); r++)
     {
+        // If the user wants to know the row index
         if (row != nullptr)
             row = &r;
 
         for (size_t c = 0; c < dim_h(); c++)
         {
+            // If the user wants to know the column index
             if (col != nullptr)
                 col = &c;
 
@@ -89,17 +91,18 @@ template <class T>
 template <class U>
 Matrix<U> Matrix<T>::cast() const
 {
-
     if (std::is_convertible<T, U>::value)
     {
         Matrix<U> m(dim_v(), dim_h());
 
+        // Set the casted value for each cell
         for (size_t r = 0; r < dim_v(); r++)
             for (size_t c = 0; c < dim_h(); c++)
                 m.set_cell(c, r, static_cast<U>(cell(r, c)));
 
         return m;
     }
+
     else
         throw std::invalid_argument("T type" +
                                     std::string(typeid(T).name()) +

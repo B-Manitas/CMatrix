@@ -42,6 +42,7 @@ bool Matrix<T>::is_triangular_up() const
 {
     if (is_square())
     {
+        // Check if the upper triangle is zero
         for (size_t r = 0; r < dim_v(); r++)
             for (size_t c = 0; c < dim_h(); c++)
                 if (r > c and cell(r, c) != 0)
@@ -58,6 +59,7 @@ bool Matrix<T>::is_triangular_low() const
 {
     if (is_square())
     {
+        // Check if the lower triangle is zero
         for (size_t r = 0; r < dim_v(); r++)
             for (size_t c = 0; c < dim_h(); c++)
                 if (r < c and cell(r, c) != 0)
@@ -72,6 +74,7 @@ bool Matrix<T>::is_triangular_low() const
 template <class T>
 bool Matrix<T>::all(const std::function<bool(T)> &f) const
 {
+    // Check if all elements satisfy the condition
     for (size_t r = 0; r < dim_v(); r++)
         for (size_t c = 0; c < dim_h(); c++)
             if (!f(cell(r, c)))
@@ -90,6 +93,7 @@ bool Matrix<T>::all(const T &val) const
 template <class T>
 bool Matrix<T>::any(const std::function<bool(T)> &f) const
 {
+    // Check if any element satisfies the condition
     for (size_t r = 0; r < dim_v(); r++)
         for (size_t c = 0; c < dim_h(); c++)
             if (f(cell(r, c)))

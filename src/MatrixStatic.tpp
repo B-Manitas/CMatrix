@@ -10,6 +10,7 @@
 template <>
 Matrix<int> Matrix<int>::randint(const size_t &dim_h, const size_t &dim_v, const int &min, const int &max, const int &seed)
 {
+    // Set the seed
     std::srand(seed);
     Matrix<int> m;
 
@@ -17,6 +18,7 @@ Matrix<int> Matrix<int>::randint(const size_t &dim_h, const size_t &dim_v, const
     {
         std::vector<int> row;
 
+        // Generate a random number for each column
         for (size_t c = 0; c < dim_h; c++)
             row.push_back(rand() % max + min);
 
@@ -47,14 +49,18 @@ template <class T>
 bool Matrix<T>::is_matrix(const std::initializer_list<std::initializer_list<T>> &m)
 {
     size_t rowSize = 0;
-    for (auto &&row : m)
+
+    // Check if all the rows have the same size
     {
+        // If it's the first row, set the size
         if (rowSize == 0)
             rowSize = row.size();
 
+        // If the size is different, return false
         else if (row.size() != rowSize)
             return false;
     }
+
     return true;
 }
 

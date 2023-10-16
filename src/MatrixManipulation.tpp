@@ -10,10 +10,13 @@
 template <class T>
 void Matrix<T>::insert_row(const size_t &pos, const std::vector<T> &val)
 {
-    // If the matrix is empty, we can insert the row of any size.
+    // If the matrix is empty, we can insert the row of any size
+    // However, the position must be 0
     if (is_empty())
         check_expected_id(pos, 0);
 
+    // Otherwise, we can only insert a row of the same size as the others
+    // The position must be between 0 and the number of rows
     else
     {
         check_expected_id(pos, 0, dim_v());
@@ -26,20 +29,24 @@ void Matrix<T>::insert_row(const size_t &pos, const std::vector<T> &val)
 template <class T>
 void Matrix<T>::insert_column(const size_t &pos, const std::vector<T> &val)
 {
-    // If the matrix is empty, we can insert the column of any size.
+    // If the matrix is empty, we can insert the column of any size
     if (is_empty())
     {
+        // The position must be 0
         check_expected_id(pos, 0);
 
+        // Insert the column
         for (size_t i = 0; i < val.size(); i++)
             matrix.push_back(std::vector<T>{val.at(i)});
     }
 
+    // Otherwise, we can only insert a column of the same size as the others
     else
     {
         check_expected_id(pos, 0, dim_h());
         check_valid_col(val);
 
+        // For each row, insert the value at the given position
         for (size_t i = 0; i < dim_v(); i++)
             matrix.at(i).insert(matrix.at(i).begin() + pos, val.at(i));
     }
@@ -78,6 +85,7 @@ void Matrix<T>::push_col_back(const std::vector<T> &val)
 template <class T>
 int Matrix<T>::find_row(const std::function<bool(std::vector<T>)> &f) const
 {
+    // For each row, check if the condition is satisfied
     for (size_t row = 0; row < dim_v(); row++)
         if (f(rows_vec(row)))
             return row;
@@ -95,6 +103,7 @@ int Matrix<T>::find_row(const std::vector<T> &val) const
 template <class T>
 int Matrix<T>::find_column(const std::function<bool(std::vector<T>)> &f) const
 {
+    // For each column, check if the condition is satisfied
     for (size_t col = 0; col < dim_h(); col++)
         if (f(columns_vec(col)))
             return col;
@@ -112,6 +121,7 @@ int Matrix<T>::find_column(const std::vector<T> &val) const
 template <class T>
 std::tuple<int, int> Matrix<T>::find(const std::function<bool(T)> &f) const
 {
+    // For each cell, check if the condition is satisfied
     for (size_t row = 0; row < dim_v(); row++)
         for (size_t col = 0; col < dim_h(); col++)
             if (f(cell(row, col)))
@@ -142,9 +152,12 @@ void Matrix<T>::remove_column(const size_t &pos)
 {
     check_valid_col_id(pos);
 
+    // If the matrix has only one column, we can clear it
+    // To prevent matrix = [[]]
     if (dim_h() == 1)
         matrix.clear();
 
+    // Otherwise, for each row, remove the value at the given position
     else
         for (size_t i = 0; i < dim_v(); i++)
             matrix.at(i).erase(matrix.at(i).begin() + pos);

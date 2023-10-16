@@ -20,6 +20,8 @@ void Matrix<T>::set_column(const size_t &n, const std::vector<T> &val)
 {
     check_valid_col_id(n);
     check_valid_col(val);
+
+    // For each row, set the value at the given position
     for (size_t i = 0; i < dim_v(); i++)
         matrix.at(i).at(n) = val.at(i);
 }
@@ -38,6 +40,6 @@ void Matrix<T>::set_diag(const std::vector<T> &val)
     check_valid_diag(val);
     size_t min = std::min(dim_h(), dim_v());
 
-    for (size_t i = 0; i < min; i++)
+    // Iterate over the diagonal
         cell(i, i) = val.at(i);
 }

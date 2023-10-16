@@ -10,6 +10,8 @@
 template <class T>
 Matrix<T> &Matrix<T>::operator=(const Matrix<T> &m)
 {
+    // Check if the matrix is the same
+    // Prevents self-assignment
     if (this != &m)
         matrix = m.matrix;
 
@@ -28,9 +30,11 @@ Matrix<T> &Matrix<T>::operator=(const std::initializer_list<std::initializer_lis
 template <class T>
 bool Matrix<T>::operator==(const Matrix<T> &m) const
 {
+    // Check if the dimensions are the same
     if (dim_h() != m.dim_h() or dim_v() != m.dim_v())
         return false;
 
+    // For each cell, check if the values are the same
     for (size_t i = 0; i < dim_v(); i++)
         if (rows(i).to_vector().at(0) != m.rows(i).to_vector().at(0))
             return false;
@@ -112,19 +116,26 @@ Matrix<T> Matrix<T>::operator-(const T &n) const
 template <class T>
 Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
 {
+    // Check if the number of columns of the first matrix
+    // is equal to the number of rows of the second matrix
     if (dim_h() != m.dim_v())
         throw std::invalid_argument("The number of columns of the first matrix must be equal to the number of rows of the second matrix. Expected: " +
                                     std::to_string(dim_h()) +
                                     ". Actual: " +
                                     std::to_string(m.dim_v()));
 
+    // Create a new matrix with the same number of rows of the first matrix
+    // and the same number of columns of the second matrix
     Matrix<T> result(m.dim_h(), dim_v());
 
+    // For each cell of the new matrix, calculate the sum of the products
     for (size_t i = 0; i < dim_v(); i++)
         for (size_t j = 0; j < m.dim_h(); j++)
         {
             T sum{};
 
+            // For each cell of the first matrix, multiply the value of the cell
+            // with the value of the corresponding cell of the second matrix
             for (size_t k = 0; k < dim_h(); k++)
                 sum += cell(i, k) * m.cell(k, j);
 
@@ -154,21 +165,27 @@ Matrix<T> Matrix<T>::operator/(const T &n) const
 template <class T>
 Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
 {
-    if (dim_h() != dim_v())
+    // Check if the matrix is square
         throw std::invalid_argument("The matrix must be square. Expected: " +
                                     std::to_string(dim_h()) +
                                     ". Actual: " +
                                     std::to_string(dim_v()));
 
+    // If the exponent is 0, return the identity matrix
     if (n == 0)
         return Matrix<T>::identity(dim_h());
 
+    // If the exponent is 1, return a copy of itself
     if (n == 1)
         return copy();
 
+    // If the exponent is even, return the square of the matrix to the power of n / 2
+    // Ex: A^2 = (A * A)^1
     if (n % 2 == 0)
         return (*this * *this) ^ (n / 2);
 
+    // If the exponent is odd, return the square of the matrix to the power of (n - 1) / 2
+    // Ex: A^3 = (A * A)^1 * A
     return *this * ((*this * *this) ^ ((n - 1) / 2));
 }
 
@@ -262,9 +279,10 @@ Matrix<T> Matrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, const 
 {
     check_dim(m);
 
-    size_t col = 0, row = 0;
+    // Initialize variables to store the coordinates of the current cell.
     size_t *prt_col = &col, *ptr_row = &row;
 
+    // Apply the operator to each cell of the matrix
     return map([&](T value, size_t *col, size_t *row)
                { return f(value, m.cell(*row, *col)); },
                prt_col, ptr_row);

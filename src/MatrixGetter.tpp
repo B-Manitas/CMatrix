@@ -65,7 +65,7 @@ Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> &ids) const
         check_valid_col_id(id);
         std::vector<T> col;
 
-        for (auto &&row : matrix)
+        // Get the id-th column
             col.push_back(row.at(id));
 
         m.push_col_back(col);
@@ -85,6 +85,7 @@ Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>
 {
     Matrix<T> m;
 
+    // Get the id-th cell and push it into the matrix
     for (const std::pair<size_t, size_t> &id : ids)
         m.push_col_back({cell(id.first, id.second)});
 
@@ -134,8 +135,10 @@ std::tuple<size_t, size_t> Matrix<T>::dim() const
 template <class T>
 Matrix<T> Matrix<T>::transpose() const
 {
+    // Create a new matrix with the inverted dimensions
     Matrix<T> m(dim_h(), dim_v());
 
+    // Swap the rows and the columns
     for (size_t r = 0; r < dim_v(); r++)
         for (size_t c = 0; c < dim_h(); c++)
             m.cell(c, r) = cell(r, c);
@@ -148,6 +151,7 @@ std::vector<T> Matrix<T>::diag() const
 {
     std::vector<T> d;
 
+    // Iterate over the diagonal of a matrix potentially not square
     for (size_t i = 0; i < std::min(dim_h(), dim_v()); i++)
         d.push_back(cell(i, i));
 
