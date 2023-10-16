@@ -8,7 +8,7 @@
 // GENERATOR METHODS
 
 template <>
-cmatrix<int> cmatrix<int>::randint(const size_t &dim_h, const size_t &dim_v, const int &min, const int &max, const int &seed)
+cmatrix<int> cmatrix<int>::randint(const size_t &dim_v, const size_t &dim_h, const int &min, const int &max, const int &seed)
 {
     // Set the seed
     std::srand(seed);

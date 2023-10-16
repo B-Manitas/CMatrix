@@ -1423,8 +1423,8 @@ TEST(MatrixTest, flatten_vector)
 /** Test randint method of cmatrix class */
 TEST(MatrixTest, randint)
 {
-    // 1x3 MATRIX
-    cmatrix<int> m_1 = cmatrix<int>::randint(1, 3, 0, 10);
+    // 3x1 MATRIX
+    cmatrix<int> m_1 = cmatrix<int>::randint(3, 1, 0, 10);
     EXPECT_EQ(m_1.dim_h(), 1);
     EXPECT_EQ(m_1.dim_v(), 3);
 
@@ -1435,8 +1435,8 @@ TEST(MatrixTest, randint)
             EXPECT_LE(m_1.cell(j, i), 10);
         }
 
-    // 3x1 MATRIX
-    cmatrix<int> m_2 = cmatrix<int>::randint(3, 1, 0, 10);
+    // 1x3 MATRIX
+    cmatrix<int> m_2 = cmatrix<int>::randint(1, 3, 0, 10);
     EXPECT_EQ(m_2.dim_h(), 3);
     EXPECT_EQ(m_2.dim_v(), 1);
 

@@ -745,7 +745,7 @@ public:
      *
      * @return cmatrix<int> The random matrix of integers.
      */
-    static cmatrix<int> randint(const size_t &dim_h, const size_t &dim_v, const int &min, const int &max, const int &seed = time(nullptr));
+    static cmatrix<int> randint(const size_t &dim_v, const size_t &dim_h, const int &min, const int &max, const int &seed = time(nullptr));
     /**
      * @brief Generate a matrix of zeros.
      *
