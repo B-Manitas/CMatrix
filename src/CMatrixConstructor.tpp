@@ -1,20 +1,20 @@
 /**
  * @file MatrixConstructor.tpp
- * @brief This file contains the implementation of constructor methods of the Matrix class.
- * @see Matrix
+ * @brief This file contains the implementation of constructor methods of the cmatrix class.
+ * @see cmatrix
  */
 
 // ==================================================
 // CONSTRUCTORS
 
 template <class T>
-Matrix<T>::Matrix()
+cmatrix<T>::cmatrix()
 {
     check_valid_type();
 }
 
 template <class T>
-Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> &m)
+cmatrix<T>::cmatrix(const std::initializer_list<std::initializer_list<T>> &m)
 {
     check_valid_type();
 
@@ -27,7 +27,7 @@ Matrix<T>::Matrix(const std::initializer_list<std::initializer_list<T>> &m)
 }
 
 template <class T>
-Matrix<T>::Matrix(const size_t &dim_v, const size_t &dim_h)
+cmatrix<T>::cmatrix(const size_t &dim_v, const size_t &dim_h)
 {
     check_valid_type();
 
@@ -35,7 +35,7 @@ Matrix<T>::Matrix(const size_t &dim_v, const size_t &dim_h)
 }
 
 template <class T>
-Matrix<T>::Matrix(const size_t &dim_v, const size_t &dim_h, const T &value)
+cmatrix<T>::cmatrix(const size_t &dim_v, const size_t &dim_h, const T &value)
 {
     check_valid_type();
 
@@ -44,11 +44,11 @@ Matrix<T>::Matrix(const size_t &dim_v, const size_t &dim_h, const T &value)
 
 template <class T>
 template <class U>
-Matrix<T>::Matrix(const Matrix<U> &m)
+cmatrix<T>::cmatrix(const cmatrix<U> &m)
 {
     check_valid_type();
 
-    Matrix<T> result = m.template cast<T>();
+    cmatrix<T> result = m.template cast<T>();
     matrix = result.to_vector();
 }
 
@@ -56,4 +56,4 @@ Matrix<T>::Matrix(const Matrix<U> &m)
 // DESTRUCTOR
 
 template <class T>
-Matrix<T>::~Matrix() {}
+cmatrix<T>::~cmatrix() {}

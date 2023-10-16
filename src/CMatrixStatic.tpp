@@ -1,18 +1,18 @@
 /**
  * @file MatrixStatic.tpp
- * @brief This file contains the implementation of static methods of the Matrix class.
- * @see Matrix
+ * @brief This file contains the implementation of static methods of the cmatrix class.
+ * @see cmatrix
  */
 
 // ==================================================
 // GENERATOR METHODS
 
 template <>
-Matrix<int> Matrix<int>::randint(const size_t &dim_h, const size_t &dim_v, const int &min, const int &max, const int &seed)
+cmatrix<int> cmatrix<int>::randint(const size_t &dim_h, const size_t &dim_v, const int &min, const int &max, const int &seed)
 {
     // Set the seed
     std::srand(seed);
-    Matrix<int> m;
+    cmatrix<int> m;
 
     for (size_t r = 0; r < dim_v; r++)
     {
@@ -29,15 +29,15 @@ Matrix<int> Matrix<int>::randint(const size_t &dim_h, const size_t &dim_v, const
 }
 
 template <>
-Matrix<int> Matrix<int>::zeros(const size_t &dim_h, const size_t &dim_v)
+cmatrix<int> cmatrix<int>::zeros(const size_t &dim_h, const size_t &dim_v)
 {
-    return Matrix<int>(dim_v, dim_h, 0);
+    return cmatrix<int>(dim_v, dim_h, 0);
 }
 
 template <>
-Matrix<int> Matrix<int>::identity(const size_t &dim)
+cmatrix<int> cmatrix<int>::identity(const size_t &dim)
 {
-    Matrix<int> m = Matrix<int>::zeros(dim, dim);
+    cmatrix<int> m = cmatrix<int>::zeros(dim, dim);
     m.set_diag(std::vector<int>(dim, 1));
     return m;
 }
@@ -46,7 +46,7 @@ Matrix<int> Matrix<int>::identity(const size_t &dim)
 // OTHERS METHODS
 
 template <class T>
-bool Matrix<T>::is_matrix(const std::initializer_list<std::initializer_list<T>> &m)
+bool cmatrix<T>::is_matrix(const std::initializer_list<std::initializer_list<T>> &m)
 {
     size_t rowSize = 0;
 
@@ -66,7 +66,7 @@ bool Matrix<T>::is_matrix(const std::initializer_list<std::initializer_list<T>> 
 }
 
 template <class T>
-std::vector<T> Matrix<T>::flatten_vector(const std::vector<std::vector<T>> &vec)
+std::vector<T> cmatrix<T>::flatten_vector(const std::vector<std::vector<T>> &vec)
 {
     std::vector<T> r;
 

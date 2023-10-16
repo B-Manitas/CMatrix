@@ -1,7 +1,7 @@
 template <class T>
-Matrix<T> Matrix<T>::min(const unsigned int &axis) const
+cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
 {
-    Matrix<T> result;
+    cmatrix<T> result;
 
     // Compute the minimum for each row
     if (axis == 0)
@@ -42,9 +42,9 @@ Matrix<T> Matrix<T>::min(const unsigned int &axis) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::max(const unsigned int &axis) const
+cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
 {
-    Matrix<T> result;
+    cmatrix<T> result;
 
     // Compute the maximum for each row
     if (axis == 0)
@@ -95,9 +95,9 @@ Matrix<T> Matrix<T>::max(const unsigned int &axis) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::sum(const unsigned int &axis, const T &zero) const
+cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
 {
-    Matrix<T> result;
+    cmatrix<T> result;
 
     // Compute the sum for each row
     if (axis == 0)
@@ -140,14 +140,14 @@ Matrix<T> Matrix<T>::sum(const unsigned int &axis, const T &zero) const
 }
 
 template <typename T>
-Matrix<float> Matrix<T>::__mean(const unsigned int &axis, std::true_type) const
+cmatrix<float> cmatrix<T>::__mean(const unsigned int &axis, std::true_type) const
 {
     // Return an empty matrix if the matrix is empty
     if (is_empty())
-        return Matrix<float>();
+        return cmatrix<float>();
 
     // Compute sum of the elements of each row
-    Matrix<float> result(sum(axis));
+    cmatrix<float> result(sum(axis));
 
     // Divide the sum by the dimension of the matrix along the specified axis
     // (rows or columns) to get the mean
@@ -157,21 +157,21 @@ Matrix<float> Matrix<T>::__mean(const unsigned int &axis, std::true_type) const
 }
 
 template <typename T>
-Matrix<float> Matrix<T>::__mean(const unsigned int &axis, std::false_type) const
+cmatrix<float> cmatrix<T>::__mean(const unsigned int &axis, std::false_type) const
 {
     throw std::invalid_argument("The type of the matrix must be arithmetic.");
 }
 
 template <typename T>
-Matrix<float> Matrix<T>::mean(const unsigned int &axis) const
+cmatrix<float> cmatrix<T>::mean(const unsigned int &axis) const
 {
     return __mean(axis, std::is_arithmetic<T>());
 }
 
 template <class T>
-Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::true_type) const
+cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
 {
-    Matrix<float> result;
+    cmatrix<float> result;
 
     // Compute the standard deviation for each row
     if (axis == 0)
@@ -181,7 +181,7 @@ Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::true_type) const
             throw std::invalid_argument("The matrix must have more than one column.");
 
         // Calculate the mean of each row
-        const Matrix<float> &matrix_mean = this->mean(0);
+        const cmatrix<float> &matrix_mean = this->mean(0);
 
         for (size_t r = 0; r < dim_v(); r++)
         {
@@ -208,7 +208,7 @@ Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::true_type) const
             throw std::invalid_argument("The matrix must have more than one row.");
 
         // Calculate the mean of each column
-        const Matrix<float> &matrix_mean = this->mean(1);
+        const cmatrix<float> &matrix_mean = this->mean(1);
 
         for (size_t c = 0; c < dim_h(); c++)
         {
@@ -232,21 +232,21 @@ Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::true_type) const
 }
 
 template <class T>
-Matrix<float> Matrix<T>::__std(const unsigned int &axis, std::false_type) const
+cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::false_type) const
 {
     throw std::invalid_argument("The type of the matrix must be arithmetic.");
 }
 
 template <class T>
-Matrix<float> Matrix<T>::std(const unsigned int &axis) const
+cmatrix<float> cmatrix<T>::std(const unsigned int &axis) const
 {
     return __std(axis, std::is_arithmetic<T>());
 }
 
 template <class T>
-Matrix<T> Matrix<T>::median(const unsigned int &axis) const
+cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
 {
-    Matrix<T> result;
+    cmatrix<T> result;
 
     // Compute the median for each row.
     if (axis == 0)

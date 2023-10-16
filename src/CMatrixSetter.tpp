@@ -1,14 +1,14 @@
 /**
  * @file MatrixSetter.tpp
- * @brief This file contains the implementation of setter methods of the Matrix class.
- * @see Matrix
+ * @brief This file contains the implementation of setter methods of the cmatrix class.
+ * @see cmatrix
  */
 
 // ==================================================
 // SET FUNCTIONS
 
 template <class T>
-void Matrix<T>::set_row(const size_t &n, const std::vector<T> &val)
+void cmatrix<T>::set_row(const size_t &n, const std::vector<T> &val)
 {
     check_valid_row_id(n);
     check_valid_row(val);
@@ -16,7 +16,7 @@ void Matrix<T>::set_row(const size_t &n, const std::vector<T> &val)
 }
 
 template <class T>
-void Matrix<T>::set_column(const size_t &n, const std::vector<T> &val)
+void cmatrix<T>::set_column(const size_t &n, const std::vector<T> &val)
 {
     check_valid_col_id(n);
     check_valid_col(val);
@@ -27,7 +27,7 @@ void Matrix<T>::set_column(const size_t &n, const std::vector<T> &val)
 }
 
 template <class T>
-void Matrix<T>::set_cell(const size_t &col, const size_t &row, const T &val)
+void cmatrix<T>::set_cell(const size_t &col, const size_t &row, const T &val)
 {
     check_valid_row_id(row);
     check_valid_col_id(col);
@@ -35,7 +35,7 @@ void Matrix<T>::set_cell(const size_t &col, const size_t &row, const T &val)
 }
 
 template <class T>
-void Matrix<T>::set_diag(const std::vector<T> &val)
+void cmatrix<T>::set_diag(const std::vector<T> &val)
 {
     check_valid_diag(val);
 

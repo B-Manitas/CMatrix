@@ -9,12 +9,12 @@
 #include <vector>
 
 /**
- * @brief Matrix class.
+ * @brief cmatrix class.
  *
- * @tparam T The type of elements in the Matrix.
+ * @tparam T The type of elements in the cmatrix.
  */
 template <class T>
-class Matrix
+class cmatrix
 {
 private:
     std::vector<std::vector<T>> matrix = std::vector<std::vector<T>>();
@@ -25,10 +25,10 @@ private:
      *
      * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
      * @param true_type The type of the matrix is arithmetic.
-     * @return Matrix<float> The mean value for each row or column of the matrix.
+     * @return cmatrix<float> The mean value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      */
-    Matrix<float> __mean(const unsigned int &axis, std::true_type) const;
+    cmatrix<float> __mean(const unsigned int &axis, std::true_type) const;
     /**
      * @brief Compute the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
      * This method is used when the type of the matrix is not arithmetic.
@@ -38,17 +38,17 @@ private:
      * @throw std::invalid_argument If the matrix is not arithmetic.
      *
      */
-    Matrix<float> __mean(const unsigned int &axis, std::false_type) const;
+    cmatrix<float> __mean(const unsigned int &axis, std::false_type) const;
     /**
      * @brief Compute the std value for each row (axis: 0) or column (axis: 1) of the matrix.
      * This method is used when the type of the matrix is arithmetic.
      *
      * @param axis The axis to get the std value. 0 for the rows, 1 for the columns. (default: 0)
      * @param true_type The type of the matrix is arithmetic.
-     * @return Matrix<float> The std value for each row or column of the matrix.
+     * @return cmatrix<float> The std value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      */
-    Matrix<float> __std(const unsigned int &axis, std::true_type) const;
+    cmatrix<float> __std(const unsigned int &axis, std::true_type) const;
     /**
      * @brief Compute the std value for each row (axis: 0) or column (axis: 1) of the matrix.
      * This method is used when the type of the matrix is not arithmetic.
@@ -58,57 +58,57 @@ private:
      * @throw std::invalid_argument If the matrix is not arithmetic.
      *
      */
-    Matrix<float> __std(const unsigned int &axis, std::false_type) const;
+    cmatrix<float> __std(const unsigned int &axis, std::false_type) const;
     /**
      * @brief Apply a operator to each cell of the matrix.
      *
      * @param f The operator to apply. f(T value, T value) -> T
      * @param m The matrix to apply.
-     * @return Matrix<T> The result of the operator.
+     * @return cmatrix<T> The result of the operator.
      */
-    Matrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const Matrix<T> &m) const;
+    cmatrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const cmatrix<T> &m) const;
     /**
      * @brief Map a comparison operator to each cell of the matrix and return a matrix of boolean.
      *
      * @param f The comparison operator to apply. f(T value, T value) -> bool
      * @param n The number to compare.
-     * @return Matrix<short unsigned int> The result of the comparison.
+     * @return cmatrix<short unsigned int> The result of the comparison.
      */
-    Matrix<short unsigned int> __map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const;
+    cmatrix<short unsigned int> __map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const;
 
 public:
     // CONSTRUCTOR METHODS
     /**
-     * @brief Construct a new Matrix object.
+     * @brief Construct a new cmatrix object.
      *
      * @param m The matrix to copy.
      * @throw std::invalid_argument If the initializer list is not a matrix.
      * @throw std::invalid_argument If the type is bool.
      */
-    Matrix(const std::initializer_list<std::initializer_list<T>> &m);
+    cmatrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
-     * @brief Construct a new Matrix object.
+     * @brief Construct a new cmatrix object.
      *
      * @throw std::invalid_argument If the type is bool.
      */
-    Matrix();
+    cmatrix();
     /**
-     * @brief Construct a new Matrix object.
+     * @brief Construct a new cmatrix object.
      *
      * @param dim_v The number of rows.
      * @param dim_h The number of columns.
      * @throw std::invalid_argument If the type is bool.
      */
-    Matrix(const size_t &dim_v, const size_t &dim_h);
+    cmatrix(const size_t &dim_v, const size_t &dim_h);
     /**
-     * @brief Construct a new Matrix object.
+     * @brief Construct a new cmatrix object.
      *
      * @param dim_v The number of rows.
      * @param dim_h The number of columns.
      * @param val The value to fill the matrix.
      * @throw std::invalid_argument If the type is bool.
      */
-    Matrix(const size_t &dim_v, const size_t &dim_h, const T &val);
+    cmatrix(const size_t &dim_v, const size_t &dim_h, const T &val);
     /**
      * @brief Cast a matrix to another type.
      *
@@ -117,8 +117,8 @@ public:
      * @throw std::invalid_argument If the type is bool.
      */
     template <class U>
-    Matrix(const Matrix<U> &m);
-    ~Matrix();
+    cmatrix(const cmatrix<U> &m);
+    ~cmatrix();
 
     // GETTER METHODS
     /**
@@ -144,51 +144,51 @@ public:
      * @brief Get the rows of the matrix.
      *
      * @param ids The indexes of the rows to get.
-     * @return Matrix<T> The rows of the matrix.
+     * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> rows(const size_t &ids) const;
+    cmatrix<T> rows(const size_t &ids) const;
     /**
      * @brief Get the rows of the matrix.
      *
      * @param ids The indexes of the rows to get.
-     * @return Matrix<T> The rows of the matrix.
+     * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> rows(const std::initializer_list<size_t> &ids) const;
+    cmatrix<T> rows(const std::initializer_list<size_t> &ids) const;
     /**
      * @brief Get the columns of the matrix.
      *
      * @param ids The indexes of the columns to get.
-     * @return Matrix<T> The columns of the matrix.
+     * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> columns(const size_t &ids) const;
+    cmatrix<T> columns(const size_t &ids) const;
     /**
      * @brief Get the columns of the matrix.
      *
      * @param ids The indexes of the columns to get.
-     * @return Matrix<T> The columns of the matrix.
+     * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> columns(const std::initializer_list<size_t> &ids) const;
+    cmatrix<T> columns(const std::initializer_list<size_t> &ids) const;
     /**
      * @brief Get the cells of the matrix.
      *
      * @param row The row of the cell to get.
      * @param col The column of the cell to get.
-     * @return Matrix<T> The cells of the matrix.
+     * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> cells(const size_t &row, const size_t &col) const;
+    cmatrix<T> cells(const size_t &row, const size_t &col) const;
     /**
      * @brief Get the cells of the matrix.
      *
      * @param ids The indexes of the cells to get. (row, column)
-     * @return Matrix<T> The cells of the matrix.
+     * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
      */
-    Matrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const;
+    cmatrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const;
     /**
      * @brief Get the reference to a cell of the matrix.
      *
@@ -230,9 +230,9 @@ public:
     /**
      * @brief Get the transpose of the matrix.
      *
-     * @return Matrix<T> The transpose of the matrix.
+     * @return cmatrix<T> The transpose of the matrix.
      */
-    Matrix<T> transpose() const;
+    cmatrix<T> transpose() const;
     /**
      * @brief Get the diagonal of the matrix.
      *
@@ -521,7 +521,7 @@ public:
      * @param m The matrix.
      * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
      */
-    void check_dim(const Matrix<T> &m) const;
+    void check_dim(const cmatrix<T> &m) const;
     /**
      * @brief Check if the vector is a valid row of the matrix.
      *
@@ -591,65 +591,65 @@ public:
      * @brief Get the minimum value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the minimum value. 0 for the rows, 1 for the columns. (default: 0)
-     * @return Matrix<T> The minimum value for each row or column of the matrix.
+     * @return cmatrix<T> The minimum value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The type of the matrix must implement the operator <.
      */
-    Matrix<T> min(const unsigned int &axis = 0) const;
+    cmatrix<T> min(const unsigned int &axis = 0) const;
     /**
      * @brief Get the maximum value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the maximum value. 0 for the rows, 1 for the columns. (default: 0)
-     * @return Matrix<T> The maximum value for each row or column of the matrix.
+     * @return cmatrix<T> The maximum value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The type of the matrix must implement the operator >.
      */
-    Matrix<T> max(const unsigned int &axis = 0) const;
+    cmatrix<T> max(const unsigned int &axis = 0) const;
     /**
      * @brief Get the sum of the matrix for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the sum. 0 for the rows, 1 for the columns. (default: 0)
      * @param zero The zero value of the sum. (default: the value of the default constructor of the type T)
-     * @return Matrix<T> The sum of the matrix.
+     * @return cmatrix<T> The sum of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      */
-    Matrix<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
+    cmatrix<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
     /**
      * @brief Get the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
-     * @return Matrix<float> The mean value for each row or column of the matrix.
+     * @return cmatrix<float> The mean value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * @throw std::invalid_argument If the matrix is not arithmetic.
      *
      * @note The matrix must be of arithmetic type.
      */
-    Matrix<float> mean(const unsigned int &axis = 0) const;
+    cmatrix<float> mean(const unsigned int &axis = 0) const;
     /**
      * @brief Get the standard deviation value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the standard deviation. 0 for the rows, 1 for the columns. (default: 0)
-     * @return Matrix<float> The standard deviation for each row or column of the matrix.
+     * @return cmatrix<float> The standard deviation for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * @throw std::invalid_argument If the matrix is not arithmetic.
      * @throw std::invalid_argument If the number of elements is less than 2 for the axis.
      *
      * @note The matrix must be of arithmetic type.
      */
-    Matrix<float> std(const unsigned int &axis = 0) const;
+    cmatrix<float> std(const unsigned int &axis = 0) const;
     /**
      * @brief Get the median value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the median value. 0 for the rows, 1 for the columns. (default: 0)
-     * @return Matrix<T> The median value of the matrix for each row or column of the matrix.
+     * @return cmatrix<T> The median value of the matrix for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The matrix must implement the operator <.
      * @note If the number of elements is even, the median is the smallest value of the two middle values.
      */
-    Matrix<T> median(const unsigned int &axis = 0) const;
+    cmatrix<T> median(const unsigned int &axis = 0) const;
 
     // OTHER METHODS
     /**
@@ -663,9 +663,9 @@ public:
     /**
      * @brief Copy the matrix.
      *
-     * @return Matrix<T> The copied matrix.
+     * @return cmatrix<T> The copied matrix.
      */
-    Matrix<T> copy() const;
+    cmatrix<T> copy() const;
     /**
      * @brief Apply a function to each cell of the matrix.
      *
@@ -686,16 +686,16 @@ public:
      * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
      * @param col The pointer to the column index. (default: nullptr)
      * @param row The pointer to the row index. (default: nullptr)
-     * @return Matrix<T> The result of the function.
+     * @return cmatrix<T> The result of the function.
      */
-    Matrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
+    cmatrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
      *
      * @param f The function to apply. f(T value) -> T
-     * @return Matrix<T> The result of the function.
+     * @return cmatrix<T> The result of the function.
      */
-    Matrix<T> map(const std::function<T(T)> &f) const;
+    cmatrix<T> map(const std::function<T(T)> &f) const;
     /**
      * @brief Fill the matrix with a value.
      *
@@ -712,11 +712,11 @@ public:
      * @brief Convert the matrix to a matrix of another type.
      *
      * @tparam U The type of the matrix.
-     * @return Matrix<U> The matrix of another type.
+     * @return cmatrix<U> The matrix of another type.
      * @throw std::invalid_argument If the type T is not convertible to the type U.
      */
     template <class U>
-    Matrix<U> cast() const;
+    cmatrix<U> cast() const;
 
     // STATIC METHODS
     /**
@@ -743,45 +743,45 @@ public:
      * @param max The maximum value of the matrix.
      * @param seed The seed of the random generator. (default: time(nullptr))
      *
-     * @return Matrix<int> The random matrix of integers.
+     * @return cmatrix<int> The random matrix of integers.
      */
-    static Matrix<int> randint(const size_t &dim_h, const size_t &dim_v, const int &min, const int &max, const int &seed = time(nullptr));
+    static cmatrix<int> randint(const size_t &dim_h, const size_t &dim_v, const int &min, const int &max, const int &seed = time(nullptr));
     /**
      * @brief Generate a matrix of zeros.
      *
      * @param dim_h The number of columns.
      * @param dim_v The number of rows.
-     * @return Matrix<int> The matrix of zeros.
+     * @return cmatrix<int> The matrix of zeros.
      */
-    static Matrix<int> zeros(const size_t &dim_h, const size_t &dim_v);
+    static cmatrix<int> zeros(const size_t &dim_h, const size_t &dim_v);
     /**
      * @brief Generate the identity matrix.
      *
      * @param dim The number of rows and columns.
-     * @return Matrix<int> The identity matrix.
+     * @return cmatrix<int> The identity matrix.
      *
      */
-    static Matrix<int> identity(const size_t &dim);
+    static cmatrix<int> identity(const size_t &dim);
 
     // OPERATOR METHODS
     /**
      * @brief The assignment operator.
      *
      * @param m The matrix to copy.
-     * @return Matrix<T>& The copied matrix.
+     * @return cmatrix<T>& The copied matrix.
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> &operator=(const std::initializer_list<std::initializer_list<T>> &m);
+    cmatrix<T> &operator=(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief The assignment operator.
      *
      * @param m The matrix to copy.
-     * @return Matrix<T>& The copied matrix.
+     * @return cmatrix<T>& The copied matrix.
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> &operator=(const Matrix<T> &m);
+    cmatrix<T> &operator=(const cmatrix<T> &m);
     /**
      * @brief The equality operator.
      *
@@ -791,7 +791,7 @@ public:
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    bool operator==(const Matrix<T> &m) const;
+    bool operator==(const cmatrix<T> &m) const;
     /**
      * @brief The inequality operator.
      *
@@ -801,49 +801,49 @@ public:
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    bool operator!=(const Matrix<T> &m) const;
+    bool operator!=(const cmatrix<T> &m) const;
     /**
      * @brief The equality operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return Matrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<short unsigned int> The matrix of booleans.
      */
-    Matrix<short unsigned int> operator==(const T &n) const;
+    cmatrix<short unsigned int> operator==(const T &n) const;
     /**
      * @brief The inequality operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return Matrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<short unsigned int> The matrix of booleans.
      */
-    Matrix<short unsigned int> operator!=(const T &n) const;
+    cmatrix<short unsigned int> operator!=(const T &n) const;
     /**
      * @brief The strictly less than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return Matrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<short unsigned int> The matrix of booleans.
      */
-    Matrix<short unsigned int> operator<(const T &n) const;
+    cmatrix<short unsigned int> operator<(const T &n) const;
     /**
      * @brief The less than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return Matrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<short unsigned int> The matrix of booleans.
      */
-    Matrix<short unsigned int> operator<=(const T &n) const;
+    cmatrix<short unsigned int> operator<=(const T &n) const;
     /**
      * @brief The strictly greater than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return Matrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<short unsigned int> The matrix of booleans.
      */
-    Matrix<short unsigned int> operator>(const T &n) const;
+    cmatrix<short unsigned int> operator>(const T &n) const;
     /**
      * @brief The greater than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return Matrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<short unsigned int> The matrix of booleans.
      */
-    Matrix<short unsigned int> operator>=(const T &n) const;
+    cmatrix<short unsigned int> operator>=(const T &n) const;
 
     /**
      * @brief The output operator.
@@ -853,133 +853,133 @@ public:
      * @return std::ostream& The output stream.
      */
     template <class U>
-    friend std::ostream &operator<<(std::ostream &out, const Matrix<U> &m);
+    friend std::ostream &operator<<(std::ostream &out, const cmatrix<U> &m);
     /**
      * @brief The addition operator.
      *
      * @param m The matrix to add.
-     * @return Matrix<T> The sum of the matrices.
+     * @return cmatrix<T> The sum of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> operator+(const Matrix<T> &m) const;
+    cmatrix<T> operator+(const cmatrix<T> &m) const;
     /**
      * @brief The addition operator.
      *
      * @param n The value to add.
-     * @return Matrix<T> The sum of the matrices.
+     * @return cmatrix<T> The sum of the matrices.
      */
-    Matrix<T> operator+(const T &n) const;
+    cmatrix<T> operator+(const T &n) const;
     /**
      * @brief The subtraction operator.
      *
      * @param m The matrix to subtract.
-     * @return Matrix<T> The difference of the matrices.
+     * @return cmatrix<T> The difference of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> operator-(const Matrix<T> &m) const;
+    cmatrix<T> operator-(const cmatrix<T> &m) const;
     /**
      * @brief The subtraction operator.
      *
      * @param n The value to subtract.
-     * @return Matrix<T> The difference of the matrices.
+     * @return cmatrix<T> The difference of the matrices.
      */
-    Matrix<T> operator-(const T &val) const;
+    cmatrix<T> operator-(const T &val) const;
     /**
      * @brief The multiplication operator.
      *
      * @param m The matrix to multiply.
-     * @return Matrix<T> The product of the matrices.
+     * @return cmatrix<T> The product of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> operator*(const Matrix<T> &m) const;
+    cmatrix<T> operator*(const cmatrix<T> &m) const;
     /**
      * @brief The multiplication operator.
      *
      * @param n The value to multiply.
-     * @return Matrix<T> The product of the matrices.
+     * @return cmatrix<T> The product of the matrices.
      */
-    Matrix<T> operator*(const T &n) const;
+    cmatrix<T> operator*(const T &n) const;
     /**
      * @brief The division operator.
      *
      * @param n The value to divide.
-     * @return Matrix<T> The quotient of the matrices.
+     * @return cmatrix<T> The quotient of the matrices.
      */
-    Matrix<T> operator/(const T &n) const;
+    cmatrix<T> operator/(const T &n) const;
     /**
      * @brief The power operator.
      *
      * @param m The power. Must be a positive integer.
-     * @return Matrix<T> The powered matrix.
+     * @return cmatrix<T> The powered matrix.
      * @throw std::invalid_argument If the matrix is not a square matrix.
      */
-    Matrix<T> operator^(const unsigned int &m) const;
+    cmatrix<T> operator^(const unsigned int &m) const;
     /**
      * @brief The addition assignment operator.
      *
      * @param m The matrix to add.
-     * @return Matrix<T>& The sum of the matrices.
+     * @return cmatrix<T>& The sum of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> &operator+=(const Matrix<T> &m);
+    cmatrix<T> &operator+=(const cmatrix<T> &m);
     /**
      * @brief The addition assignment operator.
      *
      * @param n The value to add.
-     * @return Matrix<T>& The sum of the matrices.
+     * @return cmatrix<T>& The sum of the matrices.
      */
-    Matrix<T> &operator+=(const T &n);
+    cmatrix<T> &operator+=(const T &n);
     /**
      * @brief The subtraction assignment operator.
      *
      * @param m The matrix to subtract.
-     * @return Matrix<T>& The difference of the matrices.
+     * @return cmatrix<T>& The difference of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> &operator-=(const Matrix<T> &m);
+    cmatrix<T> &operator-=(const cmatrix<T> &m);
     /**
      * @brief The subtraction assignment operator.
      *
      * @param n The value to subtract.
-     * @return Matrix<T>& The difference of the matrices.
+     * @return cmatrix<T>& The difference of the matrices.
      */
-    Matrix<T> &operator-=(const T &n);
+    cmatrix<T> &operator-=(const T &n);
     /**
      * @brief The multiplication assignment operator.
      *
      * @param m The matrix to multiply.
-     * @return Matrix<T>& The product of the matrices.
+     * @return cmatrix<T>& The product of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
      */
-    Matrix<T> &operator*=(const Matrix<T> &m);
+    cmatrix<T> &operator*=(const cmatrix<T> &m);
     /**
      * @brief The multiplication assignment operator.
      *
      * @param n The value to multiply.
-     * @return Matrix<T>& The product of the matrices.
+     * @return cmatrix<T>& The product of the matrices.
      */
-    Matrix<T> &operator*=(const T &n);
+    cmatrix<T> &operator*=(const T &n);
     /**
      * @brief The division assignment operator.
      *
      * @param n The value to divide.
-     * @return Matrix<T>& The quotient of the matrices.
+     * @return cmatrix<T>& The quotient of the matrices.
      */
-    Matrix<T> &operator/=(const T &n);
+    cmatrix<T> &operator/=(const T &n);
     /**
      * @brief The power assignment operator.
      *
      * @param m The power. Must be a positive integer.
-     * @return Matrix<T>& The powered matrix.
+     * @return cmatrix<T>& The powered matrix.
      * @throw std::invalid_argument If the matrix is not a square matrix.
      */
-    Matrix<T> &operator^=(const unsigned int &m);
+    cmatrix<T> &operator^=(const unsigned int &m);
 };
 
 #include "CMatrix.tpp"

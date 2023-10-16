@@ -1,28 +1,28 @@
 /**
- * @file Matrix.tpp
- * @brief This file contains the implementation of global methods of the Matrix class.
- * @see Matrix
+ * @file cmatrix.tpp
+ * @brief This file contains the implementation of global methods of the cmatrix class.
+ * @see cmatrix
  */
 
 // ==================================================
 // GENERAL FUNCTIONS
 
 template <class T>
-void Matrix<T>::print() const
+void cmatrix<T>::print() const
 {
     std::cout << *this << std::endl;
 }
 
 template <class T>
-void Matrix<T>::clear()
+void cmatrix<T>::clear()
 {
     matrix = std::vector<std::vector<T>>();
 }
 
 template <class T>
-Matrix<T> Matrix<T>::copy() const
+cmatrix<T> cmatrix<T>::copy() const
 {
-    Matrix<T> m(dim_v(), dim_h());
+    cmatrix<T> m(dim_v(), dim_h());
 
     for (size_t r = 0; r < dim_v(); r++)
         for (size_t c = 0; c < dim_h(); c++)
@@ -32,7 +32,7 @@ Matrix<T> Matrix<T>::copy() const
 }
 
 template <class T>
-void Matrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row)
+void cmatrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row)
 {
     for (size_t r = 0; r < dim_v(); r++)
     {
@@ -52,48 +52,48 @@ void Matrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *
 }
 
 template <class T>
-void Matrix<T>::apply(const std::function<T(T)> &f)
+void cmatrix<T>::apply(const std::function<T(T)> &f)
 {
     apply([&](T cell, size_t *, size_t *)
           { return f(cell); });
 }
 
 template <class T>
-Matrix<T> Matrix<T>::map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row) const
+cmatrix<T> cmatrix<T>::map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row) const
 {
-    Matrix<T> m = copy();
+    cmatrix<T> m = copy();
     m.apply(f, col, row);
     return m;
 }
 
 template <class T>
-Matrix<T> Matrix<T>::map(const std::function<T(T)> &f) const
+cmatrix<T> cmatrix<T>::map(const std::function<T(T)> &f) const
 {
-    Matrix<T> m = copy();
+    cmatrix<T> m = copy();
     m.apply(f);
     return m;
 }
 
 template <class T>
-void Matrix<T>::fill(const T &value)
+void cmatrix<T>::fill(const T &value)
 {
     apply([&](T _)
           { return value; });
 }
 
 template <class T>
-std::vector<std::vector<T>> Matrix<T>::to_vector() const
+std::vector<std::vector<T>> cmatrix<T>::to_vector() const
 {
     return matrix;
 }
 
 template <class T>
 template <class U>
-Matrix<U> Matrix<T>::cast() const
+cmatrix<U> cmatrix<T>::cast() const
 {
     if (std::is_convertible<T, U>::value)
     {
-        Matrix<U> m(dim_v(), dim_h());
+        cmatrix<U> m(dim_v(), dim_h());
 
         // Set the casted value for each cell
         for (size_t r = 0; r < dim_v(); r++)

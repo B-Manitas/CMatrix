@@ -1,21 +1,21 @@
 /**
  * @file MatrixGetter.tpp
- * @brief This file contains the implementation of getter methods of the Matrix class.
- * @see Matrix
+ * @brief This file contains the implementation of getter methods of the cmatrix class.
+ * @see cmatrix
  */
 
 // ==================================================
 // GET METHODS
 
 template <class T>
-std::vector<T> Matrix<T>::rows_vec(const size_t &n) const
+std::vector<T> cmatrix<T>::rows_vec(const size_t &n) const
 {
     check_valid_row_id(n);
     return matrix.at(n);
 }
 
 template <class T>
-std::vector<T> Matrix<T>::columns_vec(const size_t &n) const
+std::vector<T> cmatrix<T>::columns_vec(const size_t &n) const
 {
     check_valid_col_id(n);
     std::vector<T> col;
@@ -30,15 +30,15 @@ std::vector<T> Matrix<T>::columns_vec(const size_t &n) const
 // GET SUBMATRIX METHODS
 
 template <class T>
-Matrix<T> Matrix<T>::rows(const size_t &ids) const
+cmatrix<T> cmatrix<T>::rows(const size_t &ids) const
 {
     return rows({ids});
 }
 
 template <class T>
-Matrix<T> Matrix<T>::rows(const std::initializer_list<size_t> &ids) const
+cmatrix<T> cmatrix<T>::rows(const std::initializer_list<size_t> &ids) const
 {
-    Matrix<T> m;
+    cmatrix<T> m;
 
     for (const size_t &id : ids)
     {
@@ -50,15 +50,15 @@ Matrix<T> Matrix<T>::rows(const std::initializer_list<size_t> &ids) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::columns(const size_t &ids) const
+cmatrix<T> cmatrix<T>::columns(const size_t &ids) const
 {
     return columns({ids});
 }
 
 template <class T>
-Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> &ids) const
+cmatrix<T> cmatrix<T>::columns(const std::initializer_list<size_t> &ids) const
 {
-    Matrix<T> m;
+    cmatrix<T> m;
 
     for (const size_t &id : ids)
     {
@@ -76,15 +76,15 @@ Matrix<T> Matrix<T>::columns(const std::initializer_list<size_t> &ids) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::cells(const size_t &row, const size_t &col) const
+cmatrix<T> cmatrix<T>::cells(const size_t &row, const size_t &col) const
 {
     return cells({{row, col}});
 }
 
 template <class T>
-Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const
+cmatrix<T> cmatrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const
 {
-    Matrix<T> m;
+    cmatrix<T> m;
 
     // Get the id-th cell and push it into the matrix
     for (const std::pair<size_t, size_t> &id : ids)
@@ -94,7 +94,7 @@ Matrix<T> Matrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>
 }
 
 template <class T>
-T &Matrix<T>::cell(const size_t &row, const size_t &col)
+T &cmatrix<T>::cell(const size_t &row, const size_t &col)
 {
     check_valid_row_id(row);
     check_valid_col_id(col);
@@ -102,7 +102,7 @@ T &Matrix<T>::cell(const size_t &row, const size_t &col)
 }
 
 template <class T>
-T Matrix<T>::cell(const size_t &row, const size_t &col) const
+T cmatrix<T>::cell(const size_t &row, const size_t &col) const
 {
     check_valid_row_id(row);
     check_valid_col_id(col);
@@ -113,19 +113,19 @@ T Matrix<T>::cell(const size_t &row, const size_t &col) const
 // DIM METHODS
 
 template <class T>
-size_t Matrix<T>::dim_h() const
+size_t cmatrix<T>::dim_h() const
 {
     return dim_v() == 0 ? 0 : matrix.at(0).size();
 }
 
 template <class T>
-size_t Matrix<T>::dim_v() const
+size_t cmatrix<T>::dim_v() const
 {
     return matrix.size();
 }
 
 template <class T>
-std::tuple<size_t, size_t> Matrix<T>::dim() const
+std::tuple<size_t, size_t> cmatrix<T>::dim() const
 {
     return std::tuple<size_t, size_t>(dim_v(), dim_h());
 }
@@ -134,10 +134,10 @@ std::tuple<size_t, size_t> Matrix<T>::dim() const
 // SIMILARS MATRIX
 
 template <class T>
-Matrix<T> Matrix<T>::transpose() const
+cmatrix<T> cmatrix<T>::transpose() const
 {
     // Create a new matrix with the inverted dimensions
-    Matrix<T> m(dim_h(), dim_v());
+    cmatrix<T> m(dim_h(), dim_v());
 
     // Swap the rows and the columns
     for (size_t r = 0; r < dim_v(); r++)
@@ -148,7 +148,7 @@ Matrix<T> Matrix<T>::transpose() const
 }
 
 template <class T>
-std::vector<T> Matrix<T>::diag() const
+std::vector<T> cmatrix<T>::diag() const
 {
     std::vector<T> d;
 

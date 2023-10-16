@@ -1,14 +1,14 @@
 /**
  * @file MatrixOperator.tpp
- * @brief This file contains the implementation of operator methods of the Matrix class.
- * @see Matrix
+ * @brief This file contains the implementation of operator methods of the cmatrix class.
+ * @see cmatrix
  */
 
 // ==================================================
 // ASSIGMENT OPERATOR
 
 template <class T>
-Matrix<T> &Matrix<T>::operator=(const Matrix<T> &m)
+cmatrix<T> &cmatrix<T>::operator=(const cmatrix<T> &m)
 {
     // Check if the matrix is the same
     // Prevents self-assignment
@@ -19,16 +19,16 @@ Matrix<T> &Matrix<T>::operator=(const Matrix<T> &m)
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator=(const std::initializer_list<std::initializer_list<T>> &m)
+cmatrix<T> &cmatrix<T>::operator=(const std::initializer_list<std::initializer_list<T>> &m)
 {
-    return Matrix<T>(m);
+    return cmatrix<T>(m);
 }
 
 // ==================================================
 // COMPARISON OPERATORS
 
 template <class T>
-bool Matrix<T>::operator==(const Matrix<T> &m) const
+bool cmatrix<T>::operator==(const cmatrix<T> &m) const
 {
     // Check if the dimensions are the same
     if (dim_h() != m.dim_h() or dim_v() != m.dim_v())
@@ -44,43 +44,43 @@ bool Matrix<T>::operator==(const Matrix<T> &m) const
 }
 
 template <class T>
-bool Matrix<T>::operator!=(const Matrix<T> &m) const
+bool cmatrix<T>::operator!=(const cmatrix<T> &m) const
 {
     return not(*this == m);
 }
 
 template <class T>
-Matrix<short unsigned int> Matrix<T>::operator==(const T &n) const
+cmatrix<short unsigned int> cmatrix<T>::operator==(const T &n) const
 {
     return __map_op_comparaison_val(std::equal_to<T>(), n);
 }
 
 template <class T>
-Matrix<short unsigned int> Matrix<T>::operator!=(const T &n) const
+cmatrix<short unsigned int> cmatrix<T>::operator!=(const T &n) const
 {
     return __map_op_comparaison_val(std::not_equal_to<T>(), n);
 }
 
 template <class T>
-Matrix<short unsigned int> Matrix<T>::operator<(const T &n) const
+cmatrix<short unsigned int> cmatrix<T>::operator<(const T &n) const
 {
     return __map_op_comparaison_val(std::less<T>(), n);
 }
 
 template <class T>
-Matrix<short unsigned int> Matrix<T>::operator<=(const T &n) const
+cmatrix<short unsigned int> cmatrix<T>::operator<=(const T &n) const
 {
     return __map_op_comparaison_val(std::less_equal<T>(), n);
 }
 
 template <class T>
-Matrix<short unsigned int> Matrix<T>::operator>(const T &n) const
+cmatrix<short unsigned int> cmatrix<T>::operator>(const T &n) const
 {
     return __map_op_comparaison_val(std::greater<T>(), n);
 }
 
 template <class T>
-Matrix<short unsigned int> Matrix<T>::operator>=(const T &n) const
+cmatrix<short unsigned int> cmatrix<T>::operator>=(const T &n) const
 {
     return __map_op_comparaison_val(std::greater_equal<T>(), n);
 }
@@ -89,33 +89,33 @@ Matrix<short unsigned int> Matrix<T>::operator>=(const T &n) const
 // ARITHMETIC OPERATORS
 
 template <class T>
-Matrix<T> Matrix<T>::operator+(const Matrix<T> &m) const
+cmatrix<T> cmatrix<T>::operator+(const cmatrix<T> &m) const
 {
     return __map_op_arithmetic(std::plus<T>(), m);
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator+(const T &n) const
+cmatrix<T> cmatrix<T>::operator+(const T &n) const
 {
     return map([n](T value)
                { return value + n; });
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator-(const Matrix<T> &m) const
+cmatrix<T> cmatrix<T>::operator-(const cmatrix<T> &m) const
 {
     return __map_op_arithmetic(std::minus<T>(), m);
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator-(const T &n) const
+cmatrix<T> cmatrix<T>::operator-(const T &n) const
 {
     return map([n](T value)
                { return value - n; });
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
+cmatrix<T> cmatrix<T>::operator*(const cmatrix<T> &m) const
 {
     // Check if the number of columns of the first matrix
     // is equal to the number of rows of the second matrix
@@ -127,7 +127,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
 
     // Create a new matrix with the same number of rows of the first matrix
     // and the same number of columns of the second matrix
-    Matrix<T> result(m.dim_h(), dim_v());
+    cmatrix<T> result(m.dim_h(), dim_v());
 
     // For each cell of the new matrix, calculate the sum of the products
     for (size_t i = 0; i < dim_v(); i++)
@@ -147,14 +147,14 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &m) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator*(const T &n) const
+cmatrix<T> cmatrix<T>::operator*(const T &n) const
 {
     return map([n](T value)
                { return value * n; });
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator/(const T &n) const
+cmatrix<T> cmatrix<T>::operator/(const T &n) const
 {
     if (n == 0)
         throw std::invalid_argument("The value must be different from 0.");
@@ -164,7 +164,7 @@ Matrix<T> Matrix<T>::operator/(const T &n) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
+cmatrix<T> cmatrix<T>::operator^(const unsigned int &n) const
 {
     // Check if the matrix is square
     if (not is_square())
@@ -175,7 +175,7 @@ Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
 
     // If the exponent is 0, return the identity matrix
     if (n == 0)
-        return Matrix<T>::identity(dim_h());
+        return cmatrix<T>::identity(dim_h());
 
     // If the exponent is 1, return a copy of itself
     if (n == 1)
@@ -195,49 +195,49 @@ Matrix<T> Matrix<T>::operator^(const unsigned int &n) const
 // ARITHMETIC ASSIGNMENT OPERATORS
 
 template <class T>
-Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &m)
+cmatrix<T> &cmatrix<T>::operator+=(const cmatrix<T> &m)
 {
     return *this = *this + m;
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator+=(const T &n)
+cmatrix<T> &cmatrix<T>::operator+=(const T &n)
 {
     return *this = *this + n;
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &m)
+cmatrix<T> &cmatrix<T>::operator-=(const cmatrix<T> &m)
 {
     return *this = *this - m;
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator-=(const T &n)
+cmatrix<T> &cmatrix<T>::operator-=(const T &n)
 {
     return *this = *this - n;
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &m)
+cmatrix<T> &cmatrix<T>::operator*=(const cmatrix<T> &m)
 {
     return *this = *this * m;
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator*=(const T &n)
+cmatrix<T> &cmatrix<T>::operator*=(const T &n)
 {
     return *this = *this * n;
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator/=(const T &n)
+cmatrix<T> &cmatrix<T>::operator/=(const T &n)
 {
     return *this = *this / n;
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator^=(const unsigned int &n)
+cmatrix<T> &cmatrix<T>::operator^=(const unsigned int &n)
 {
     return *this = *this ^ n;
 }
@@ -246,7 +246,7 @@ Matrix<T> &Matrix<T>::operator^=(const unsigned int &n)
 // OTHER OPERATORS
 
 template <class T>
-std::ostream &operator<<(std::ostream &out, const Matrix<T> &m)
+std::ostream &operator<<(std::ostream &out, const cmatrix<T> &m)
 {
     out << "[";
 
@@ -277,7 +277,7 @@ std::ostream &operator<<(std::ostream &out, const Matrix<T> &m)
 // PRIVATE METHODS
 
 template <class T>
-Matrix<T> Matrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, const Matrix<T> &m) const
+cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, const cmatrix<T> &m) const
 {
     check_dim(m);
 
@@ -291,10 +291,10 @@ Matrix<T> Matrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, const 
 }
 
 template <class T>
-Matrix<short unsigned int> Matrix<T>::__map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const
+cmatrix<short unsigned int> cmatrix<T>::__map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const
 {
     // Initialize a matrix with the same dimensions of the current matrix
-    Matrix<short unsigned int> result(dim_v(), dim_h(), 0);
+    cmatrix<short unsigned int> result(dim_v(), dim_h(), 0);
 
     // Initialize variables to store the coordinates of the current cell.
     // At the beginning, they are set to -1.
