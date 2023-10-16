@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Matrix.hpp"
+#include "CMatrix.hpp"
 
 // ==================================================
 // CONSTRUCTOR

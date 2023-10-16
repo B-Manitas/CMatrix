@@ -982,12 +982,12 @@ public:
     Matrix<T> &operator^=(const unsigned int &m);
 };
 
-#include "Matrix.tpp"
-#include "MatrixCheck.tpp"
-#include "MatrixConstructor.tpp"
-#include "MatrixGetter.tpp"
-#include "MatrixManipulation.tpp"
-#include "MatrixOperator.tpp"
-#include "MatrixSetter.tpp"
-#include "MatrixStatic.tpp"
-#include "MatrixStatistics.tpp"
+#include "CMatrix.tpp"
+#include "CMatrixCheck.tpp"
+#include "CMatrixConstructor.tpp"
+#include "CMatrixGetter.tpp"
+#include "CMatrixManipulation.tpp"
+#include "CMatrixOperator.tpp"
+#include "CMatrixSetter.tpp"
+#include "CMatrixStatic.tpp"
+#include "CMatrixStatistics.tpp"
