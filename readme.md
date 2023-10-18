@@ -74,6 +74,11 @@ CMatrix is structured as follows:
 | test                                                         |                                                                                             |
 | [`CMatrixTest.hpp`](test/CMatrixTest.tpp)                    | Contains the tests for the class.                                                           |
 
+
+## Documentation
+
+For detailed information on how to use CMatrix, consult the [documentation](html/classcmatrix.html).
+
 ## License
 
 This project is licensed under the MIT License, ensuring its free and open availability to the community.

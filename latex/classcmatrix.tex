@@ -1,0 +1,2603 @@
+\hypertarget{classcmatrix}{}\doxysection{cmatrix$<$ T $>$ Class Template Reference}
+\label{classcmatrix}\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+
+
+The main template class that can work with any data type except bool.  
+
+
+
+
+{\ttfamily \#include $<$C\+Matrix.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcmatrix_aac0edd8caac8b0ff2f9f02cddd3f9428}{cmatrix}} (const std\+::initializer\+\_\+list$<$ std\+::initializer\+\_\+list$<$ T $>$$>$ \&m)
+\begin{DoxyCompactList}\small\item\em Construct a new cmatrix object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix_a40154e7ad0df15f5f01cc1c7fff3df86}{cmatrix}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new cmatrix object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix_adc7b866d102dc4bd8b9539fdd5dfc640}{cmatrix}} (const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}{dim\+\_\+v}}, const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}{dim\+\_\+h}})
+\begin{DoxyCompactList}\small\item\em Construct a new cmatrix object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix_a39c7266a95655c8c7e7047e1806be52d}{cmatrix}} (const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}{dim\+\_\+v}}, const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}{dim\+\_\+h}}, const T \&val)
+\begin{DoxyCompactList}\small\item\em Construct a new cmatrix object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class U $>$ }\\\mbox{\hyperlink{classcmatrix_a4548d3427fe2306c3bdb8977a4e23224}{cmatrix}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ U $>$ \&m)
+\begin{DoxyCompactList}\small\item\em Cast a matrix to another type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix_ac3e4aa1707d00d1ad31fef4cfea264c1}{$\sim$cmatrix}} ()
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classcmatrix_a120f3aadc600c12d27f7f1ff9318ef9f}{rows\+\_\+vec}} (const size\+\_\+t \&n) const
+\begin{DoxyCompactList}\small\item\em Get a row of the matrix. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classcmatrix_a58925821c0eec27a19624434974ad7e9}{columns\+\_\+vec}} (const size\+\_\+t \&n) const
+\begin{DoxyCompactList}\small\item\em Get a column of the matrix as a flattened vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a9b20cd286afd659056cf947e177437dd}{rows}} (const size\+\_\+t \&ids) const
+\begin{DoxyCompactList}\small\item\em Get the rows of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_ae167e74efe10f452e59573b49fd9c8d2}{rows}} (const std\+::initializer\+\_\+list$<$ size\+\_\+t $>$ \&ids) const
+\begin{DoxyCompactList}\small\item\em Get the rows of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a526f1027d8c2457f8d2ee041c3542261}{columns}} (const size\+\_\+t \&ids) const
+\begin{DoxyCompactList}\small\item\em Get the columns of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a78b573432e56057130fca42c7deea53f}{columns}} (const std\+::initializer\+\_\+list$<$ size\+\_\+t $>$ \&ids) const
+\begin{DoxyCompactList}\small\item\em Get the columns of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_ac4d1db23d0917d2c24959fda156f2d3d}{cells}} (const size\+\_\+t \&row, const size\+\_\+t \&col) const
+\begin{DoxyCompactList}\small\item\em Get the cells of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a05a084faf17f2bbe7d6e8c93ab9122cd}{cells}} (const std\+::initializer\+\_\+list$<$ std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$$>$ \&ids) const
+\begin{DoxyCompactList}\small\item\em Get the cells of the matrix. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classcmatrix_a62b2c0ff0ee5c36e056d9c414e546097}{cell}} (const size\+\_\+t \&row, const size\+\_\+t \&col)
+\begin{DoxyCompactList}\small\item\em Get the reference to a cell of the matrix. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classcmatrix_a7af0450ebbed50469426663cb980e468}{cell}} (const size\+\_\+t \&row, const size\+\_\+t \&col) const
+\begin{DoxyCompactList}\small\item\em Get a cell of the matrix. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}{dim\+\_\+h}} () const
+\begin{DoxyCompactList}\small\item\em The number of columns of the matrix. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}{dim\+\_\+v}} () const
+\begin{DoxyCompactList}\small\item\em The number of rows of the matrix. \end{DoxyCompactList}\item 
+std\+::tuple$<$ size\+\_\+t, size\+\_\+t $>$ \mbox{\hyperlink{classcmatrix_a2bf47c5ff5995b37b282edea524e263d}{dim}} () const
+\begin{DoxyCompactList}\small\item\em The dimensions of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_aa65881168e99756c64bf3bb312bee473}{transpose}} () const
+\begin{DoxyCompactList}\small\item\em Get the transpose of the matrix. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classcmatrix_aa81bdefe0a9fb42d756bf5f0ed3dc13f}{diag}} () const
+\begin{DoxyCompactList}\small\item\em Get the diagonal of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a596d8caaf1cfa941f219165d4785c5b6}{set\+\_\+row}} (const size\+\_\+t \&n, const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Set a row of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a34307cea63ad628011a2e82f602e317d}{set\+\_\+column}} (const size\+\_\+t \&n, const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Set a column of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_adf82974e0924829b8fb93f4a2390287b}{set\+\_\+cell}} (const size\+\_\+t \&row, const size\+\_\+t \&col, const T \&val)
+\begin{DoxyCompactList}\small\item\em Set a cell of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a03cf147efe0e0642bf4e31c8d693be66}{set\+\_\+diag}} (const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Set the diagonal of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a7197a96a81f8cc920f7bdd97c4c67f62}{insert\+\_\+row}} (const size\+\_\+t \&pos, const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Insert a column in the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_aa38db9639415363455d48cab1be0a253}{insert\+\_\+column}} (const size\+\_\+t \&pos, const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Insert a row in the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a65d220edf6f5ca2eab34d94477afa826}{push\+\_\+row\+\_\+front}} (const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Push a row in the front of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_ab66903c4ed2ebd6957e9149e96bcb07e}{push\+\_\+row\+\_\+back}} (const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Push a row in the back of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_add89b01da658da557ca8ccd15375129e}{push\+\_\+col\+\_\+front}} (const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Push a column in the front of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a4aa7f5e61d48d761968a732d5cf2fb95}{push\+\_\+col\+\_\+back}} (const std\+::vector$<$ T $>$ \&val)
+\begin{DoxyCompactList}\small\item\em Push a column in the back of the matrix. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcmatrix_a5d0ec712500fcec28bb3f9963ab7f120}{find\+\_\+row}} (const std\+::function$<$ bool(std\+::vector$<$ T $>$)$>$ \&f) const
+\item 
+int \mbox{\hyperlink{classcmatrix_a836a2ada7ca93ec9fdc569c309371266}{find\+\_\+row}} (const std\+::vector$<$ T $>$ \&val) const
+\begin{DoxyCompactList}\small\item\em Find the first row matching the given row. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcmatrix_a48370e130446b1fa949c121ac949072f}{find\+\_\+column}} (const std\+::function$<$ bool(std\+::vector$<$ T $>$)$>$ \&f) const
+\begin{DoxyCompactList}\small\item\em Find the first column matching the condition. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcmatrix_a3f95c6473de06bf3e05202fb9f6b560f}{find\+\_\+column}} (const std\+::vector$<$ T $>$ \&val) const
+\begin{DoxyCompactList}\small\item\em Find the first column matching the given column. \end{DoxyCompactList}\item 
+std\+::tuple$<$ int, int $>$ \mbox{\hyperlink{classcmatrix_aaa137c74b74786feaf099387b68c85d7}{find}} (const std\+::function$<$ bool(T)$>$ \&f) const
+\begin{DoxyCompactList}\small\item\em Find the first cell matching the condition. \end{DoxyCompactList}\item 
+std\+::tuple$<$ int, int $>$ \mbox{\hyperlink{classcmatrix_abc019c1a9385c01d8549d6892a70252a}{find}} (const T \&val) const
+\begin{DoxyCompactList}\small\item\em Find the first cell matching the given cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a08d679330da1629a2f742ba58262132e}{remove\+\_\+row}} (const size\+\_\+t \&n)
+\begin{DoxyCompactList}\small\item\em Remove a row of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_ab85773fe1e9b38d7ad76a3612d5535d5}{remove\+\_\+column}} (const size\+\_\+t \&n)
+\begin{DoxyCompactList}\small\item\em Remove a column of the matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_affc2a1e81d350c25e5779afe1aab8da8}{is\+\_\+empty}} () const
+\begin{DoxyCompactList}\small\item\em Check if the matrix is empty. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_aef41d2fe33a969498b7c3fb3c58404fe}{is\+\_\+square}} () const
+\begin{DoxyCompactList}\small\item\em Check if the matrix is a square matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a13dbea9de0c151a9a166f5574a4051ed}{is\+\_\+diag}} () const
+\begin{DoxyCompactList}\small\item\em Check if the matrix is a diagonal matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a54e28932a02aa0b6e1afa386f7b8d862}{is\+\_\+identity}} () const
+\begin{DoxyCompactList}\small\item\em Check if the matrix is the identity matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a1931e131bdcbb2c60fc590d43819e45b}{is\+\_\+symetric}} () const
+\begin{DoxyCompactList}\small\item\em Check if the matrix is a symmetric matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a5b4e6176e32373a4469176dfe47395c5}{is\+\_\+triangular\+\_\+up}} () const
+\begin{DoxyCompactList}\small\item\em Check if the matrix is an upper triangular matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_ae8a562b5206d07705f63b045c785f3df}{is\+\_\+triangular\+\_\+low}} () const
+\begin{DoxyCompactList}\small\item\em Check if the matrix is a lower triangular matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a038bb07f84a685d96432069b22c54a4b}{all}} (const std\+::function$<$ bool(T)$>$ \&f) const
+\begin{DoxyCompactList}\small\item\em Check if all the cells of the matrix satisfy a condition. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a612f4e71b55d4a877dd2f2cbb02feef5}{all}} (const T \&val) const
+\begin{DoxyCompactList}\small\item\em Check if all the cells of the matrix are equal to a value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a4d5d0b0bfa1aa1c88c307ef77582d4a5}{any}} (const std\+::function$<$ bool(T)$>$ \&f) const
+\begin{DoxyCompactList}\small\item\em Check if at least one cell of the matrix satisfy a condition. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a34480288ea74528d4cc9edc1127b0755}{any}} (const T \&val) const
+\begin{DoxyCompactList}\small\item\em Check if at least one cell of the matrix is equal to a value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_ae9938af2836a38a1ce92931761f28bd1}{check\+\_\+dim}} (const std\+::tuple$<$ size\+\_\+t, size\+\_\+t $>$ \&\mbox{\hyperlink{classcmatrix_a2bf47c5ff5995b37b282edea524e263d}{dim}}) const
+\begin{DoxyCompactList}\small\item\em Check if dimensions are equals to the dimensions of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_abe81ed6d34cd62c48307ee52c2f5f224}{check\+\_\+dim}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m) const
+\begin{DoxyCompactList}\small\item\em Check if dimensions are equals to the dimensions of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a5e629f6f593f4c033be7cf0af0a4ae41}{check\+\_\+valid\+\_\+row}} (const std\+::vector$<$ T $>$ \&row) const
+\begin{DoxyCompactList}\small\item\em Check if the vector is a valid row of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a9cd60c00a168a221023a443b38a3e03b}{check\+\_\+valid\+\_\+col}} (const std\+::vector$<$ T $>$ \&col) const
+\begin{DoxyCompactList}\small\item\em Check if the vector is a valid column of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a32c7753039690064f4add5d732abb471}{check\+\_\+valid\+\_\+diag}} (const std\+::vector$<$ T $>$ \&\mbox{\hyperlink{classcmatrix_aa81bdefe0a9fb42d756bf5f0ed3dc13f}{diag}}) const
+\begin{DoxyCompactList}\small\item\em Check if the diagonal is a valid diagonal of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a881b5363edb1837074fcb77db888aa64}{check\+\_\+valid\+\_\+row\+\_\+id}} (const size\+\_\+t \&n) const
+\begin{DoxyCompactList}\small\item\em Check if the row is a valid row index of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a6c5e30bf1ce1e521de73ceb4a8941f7f}{check\+\_\+valid\+\_\+col\+\_\+id}} (const size\+\_\+t \&n) const
+\begin{DoxyCompactList}\small\item\em Check if the column is a valid column index of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a23ed75b6b8696b6623c825c3f6a1c3d6}{check\+\_\+expected\+\_\+id}} (const size\+\_\+t \&n, const size\+\_\+t \&expected) const
+\begin{DoxyCompactList}\small\item\em Check if the index is expected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_ab9eac978cc396e75413eeb87109a5f70}{check\+\_\+expected\+\_\+id}} (const size\+\_\+t \&n, const size\+\_\+t \&expected\+Begin, const size\+\_\+t \&exepected\+End) const
+\begin{DoxyCompactList}\small\item\em Check if the index is expected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a0dd6598a5bea25c9e3bfc74327209170}{check\+\_\+valid\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Check if the type of the matrix is valid. List of types not supported\+: bool. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a3c8279aee30a6f9d45c796c2f4902142}{min}} (const unsigned int \&axis=0) const
+\begin{DoxyCompactList}\small\item\em Get the minimum value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a3f9384e591534cdb81d8671d5e2d8b85}{max}} (const unsigned int \&axis=0) const
+\begin{DoxyCompactList}\small\item\em Get the maximum value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a2d88b49033aeb45479fcf602e9598a12}{sum}} (const unsigned int \&axis=0, const T \&zero=T()) const
+\begin{DoxyCompactList}\small\item\em Get the sum of the matrix for each row (axis\+: 0) or column (axis\+: 1) of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ float $>$ \mbox{\hyperlink{classcmatrix_a36aeafd654daf1dea7e3f6db5eae4c62}{mean}} (const unsigned int \&axis=0) const
+\begin{DoxyCompactList}\small\item\em Get the mean value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ float $>$ \mbox{\hyperlink{classcmatrix_a9a5e05c5fb874e9cebcfe689277016c9}{std}} (const unsigned int \&axis=0) const
+\begin{DoxyCompactList}\small\item\em Get the standard deviation value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a30526abba0a7d993cf12bd9847eb9ce0}{median}} (const unsigned int \&axis=0) const
+\begin{DoxyCompactList}\small\item\em Get the median value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a0a4525e6c737050e759f753c00001666}{print}} () const
+\begin{DoxyCompactList}\small\item\em Print the matrix in the standard output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a1766cb6d6c5f9c0f593aafd056b59d52}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clear the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_adabfe43fa749744cf8ee5ad12a3f13cf}{copy}} () const
+\begin{DoxyCompactList}\small\item\em Copy the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_aaa4ca3ea57ca8b7c41d2fc90c1913099}{apply}} (const std\+::function$<$ T(T, size\+\_\+t $\ast$, size\+\_\+t $\ast$)$>$ \&f, size\+\_\+t $\ast$col=nullptr, size\+\_\+t $\ast$row=nullptr)
+\begin{DoxyCompactList}\small\item\em Apply a function to each cell of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_ad65689b82797403b62c13d7d4eeee6b1}{apply}} (const std\+::function$<$ T(T)$>$ \&f)
+\begin{DoxyCompactList}\small\item\em Apply a function to each cell of the matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a2caab6666627a6fdf4d31f14716d5f08}{map}} (const std\+::function$<$ T(T, size\+\_\+t $\ast$, size\+\_\+t $\ast$)$>$ \&f, size\+\_\+t $\ast$col=nullptr, size\+\_\+t $\ast$row=nullptr) const
+\begin{DoxyCompactList}\small\item\em Apply a function to each cell of the matrix and return the result. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_aec11f70e818f918e023fd091306204ba}{map}} (const std\+::function$<$ T(T)$>$ \&f) const
+\begin{DoxyCompactList}\small\item\em Apply a function to each cell of the matrix and return the result. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcmatrix_a70ed516d04d245c16f3bda79284f000b}{fill}} (const T \&val)
+\begin{DoxyCompactList}\small\item\em Fill the matrix with a value. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{classcmatrix_a632bae1f8b175c072f8641c46ec9ff1f}{to\+\_\+vector}} () const
+\begin{DoxyCompactList}\small\item\em Convert the matrix to a vector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class U $>$ }\\\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ U $>$ \mbox{\hyperlink{classcmatrix_a1e8370d047a279c67ca8727a80d8bfd1}{cast}} () const
+\begin{DoxyCompactList}\small\item\em Convert the matrix to a matrix of another type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_ad5602f092d4a29ff7a658f8deae842f2}{operator=}} (const std\+::initializer\+\_\+list$<$ std\+::initializer\+\_\+list$<$ T $>$$>$ \&m)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_a2ba4179e76358649640f200557dc5fdd}{operator=}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_a753ea3b2926b3e56e96c6976ad0986b8}{operator==}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m) const
+\begin{DoxyCompactList}\small\item\em The equality operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcmatrix_ad96fe7397082bf6663ff696760b8b427}{operator!=}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m) const
+\begin{DoxyCompactList}\small\item\em The inequality operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix_a6588010507da10c54d2cd842d9dba04e}{operator==}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The equality operator comparing the matrix with a value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix_a9ccb564da5f7a36986b8ad9bf0a16e82}{operator!=}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The inequality operator comparing the matrix with a value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix_a1aff6fb5ecfbcd0a0599a859bc08be17}{operator$<$}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The strictly less than operator comparing the matrix with a value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix_ab98cd083af62c7e24902297168a07f6b}{operator$<$=}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The less than operator comparing the matrix with a value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix_a7e1e523c1c1076c3e99277df617e791f}{operator$>$}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The strictly greater than operator comparing the matrix with a value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix_aae08ad609f0e4f7d2fa8f537ebfb3873}{operator$>$=}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The greater than operator comparing the matrix with a value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a09333fa02a60b3027acd956b3d5e6cfb}{operator+}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m) const
+\begin{DoxyCompactList}\small\item\em The addition operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a5fc856b4301b58f6e35ccb0781acae64}{operator+}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The addition operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a052bc5538cb8c686505e09c2a243b6f7}{operator-\/}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m) const
+\begin{DoxyCompactList}\small\item\em The subtraction operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a715fa7b609ad3292acdcc61683a32207}{operator-\/}} (const T \&val) const
+\begin{DoxyCompactList}\small\item\em The subtraction operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_aaea4c724f5a18c4021919007cce133ad}{operator$\ast$}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m) const
+\begin{DoxyCompactList}\small\item\em The multiplication operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a5c183ea42da70d2c2f406f5d92f6b6df}{operator$\ast$}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The multiplication operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_a95a5b75198349687f8c7bef9482f2684}{operator/}} (const T \&n) const
+\begin{DoxyCompactList}\small\item\em The division operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix_ab9c7d4c8f8b9736333309c786bb20606}{operator$^\wedge$}} (const unsigned int \&m) const
+\begin{DoxyCompactList}\small\item\em The power operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_a00d022f9702e1d35b6e89d06fd1da7c5}{operator+=}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m)
+\begin{DoxyCompactList}\small\item\em The addition assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_aa72bb4e820e69e62d81e25402eb4aace}{operator+=}} (const T \&n)
+\begin{DoxyCompactList}\small\item\em The addition assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_ac5f5919d4a255dc3ae0ea9405bdf5ad6}{operator-\/=}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m)
+\begin{DoxyCompactList}\small\item\em The subtraction assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_abe87d7acb78480726882065f7bbc50ce}{operator-\/=}} (const T \&n)
+\begin{DoxyCompactList}\small\item\em The subtraction assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_a475554fb38a955bebb111e0b2be8541f}{operator$\ast$=}} (const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&m)
+\begin{DoxyCompactList}\small\item\em The multiplication assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_ad5e8ed21d52c5251e287f210de4f7aa8}{operator$\ast$=}} (const T \&n)
+\begin{DoxyCompactList}\small\item\em The multiplication assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_afa0384704492f7a22fc67863ade82469}{operator/=}} (const T \&n)
+\begin{DoxyCompactList}\small\item\em The division assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix_a7a6ae7a2937f9ec599e14e4bcfbcb9c6}{operator$^\wedge$=}} (const unsigned int \&m)
+\begin{DoxyCompactList}\small\item\em The power assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix_a68100a6e0887d417b25c09298e1bd682}{randint}} (const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}{dim\+\_\+v}}, const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}{dim\+\_\+h}}, const int \&\mbox{\hyperlink{classcmatrix_a3c8279aee30a6f9d45c796c2f4902142}{min}}, const int \&\mbox{\hyperlink{classcmatrix_a3f9384e591534cdb81d8671d5e2d8b85}{max}}, const int \&seed)
+\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix_a36a34028ba6a94832270797e47b87c51}{zeros}} (const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}{dim\+\_\+h}}, const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}{dim\+\_\+v}})
+\item 
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix_a6d27a8af98d3034c56f7829e8892e456}{identity}} (const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a2bf47c5ff5995b37b282edea524e263d}{dim}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classcmatrix_a7198413962160f4f862d3c2dbbf7ebeb}{is\+\_\+matrix}} (const std\+::initializer\+\_\+list$<$ std\+::initializer\+\_\+list$<$ T $>$$>$ \&m)
+\begin{DoxyCompactList}\small\item\em Check if a nested vector is a matrix. To be a matrix, all the rows and columns must have the same length. \end{DoxyCompactList}\item 
+static std\+::vector$<$ T $>$ \mbox{\hyperlink{classcmatrix_adfe0fb6f26993a26a361d8663673865b}{flatten\+\_\+vector}} (const std\+::vector$<$ std\+::vector$<$ T $>$$>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Flatten a nested vector. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix_abd1f040eca612660113a96308d8a9ccc}{randint}} (const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}{dim\+\_\+v}}, const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}{dim\+\_\+h}}, const int \&\mbox{\hyperlink{classcmatrix_a3c8279aee30a6f9d45c796c2f4902142}{min}}, const int \&\mbox{\hyperlink{classcmatrix_a3f9384e591534cdb81d8671d5e2d8b85}{max}}, const int \&seed=time(nullptr))
+\begin{DoxyCompactList}\small\item\em Generate a random matrix of integers. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix_a96c97c592e9f8a1892b474a74b27dc40}{zeros}} (const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}{dim\+\_\+h}}, const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}{dim\+\_\+v}})
+\begin{DoxyCompactList}\small\item\em Generate a matrix of zeros. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix_a919d94470dcdde36abf23379aa01af34}{identity}} (const size\+\_\+t \&\mbox{\hyperlink{classcmatrix_a2bf47c5ff5995b37b282edea524e263d}{dim}})
+\begin{DoxyCompactList}\small\item\em Generate the identity matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class U $>$ }\\std\+::ostream \& \mbox{\hyperlink{classcmatrix_a3e881cfef7557e928a0e9eb62b7d7772}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ U $>$ \&m)
+\begin{DoxyCompactList}\small\item\em The output operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class cmatrix$<$ T $>$}
+
+The main template class that can work with any data type except bool. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of elements in the cmatrix. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcmatrix_aac0edd8caac8b0ff2f9f02cddd3f9428}\label{classcmatrix_aac0edd8caac8b0ff2f9f02cddd3f9428}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cmatrix@{cmatrix}}
+\index{cmatrix@{cmatrix}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cmatrix()}{cmatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::\mbox{\hyperlink{classcmatrix}{cmatrix}} (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ std\+::initializer\+\_\+list$<$ T $>$$>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Construct a new cmatrix object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to copy. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the initializer list is not a matrix. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the type is bool. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a40154e7ad0df15f5f01cc1c7fff3df86}\label{classcmatrix_a40154e7ad0df15f5f01cc1c7fff3df86}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cmatrix@{cmatrix}}
+\index{cmatrix@{cmatrix}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cmatrix()}{cmatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::\mbox{\hyperlink{classcmatrix}{cmatrix}}}
+
+
+
+Construct a new cmatrix object. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the type is bool. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_adc7b866d102dc4bd8b9539fdd5dfc640}\label{classcmatrix_adc7b866d102dc4bd8b9539fdd5dfc640}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cmatrix@{cmatrix}}
+\index{cmatrix@{cmatrix}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cmatrix()}{cmatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::\mbox{\hyperlink{classcmatrix}{cmatrix}} (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{dim\+\_\+v,  }\item[{const size\+\_\+t \&}]{dim\+\_\+h }\end{DoxyParamCaption})}
+
+
+
+Construct a new cmatrix object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim\+\_\+v} & The number of rows. \\
+\hline
+{\em dim\+\_\+h} & The number of columns. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the type is bool. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a39c7266a95655c8c7e7047e1806be52d}\label{classcmatrix_a39c7266a95655c8c7e7047e1806be52d}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cmatrix@{cmatrix}}
+\index{cmatrix@{cmatrix}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cmatrix()}{cmatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::\mbox{\hyperlink{classcmatrix}{cmatrix}} (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{dim\+\_\+v,  }\item[{const size\+\_\+t \&}]{dim\+\_\+h,  }\item[{const T \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Construct a new cmatrix object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim\+\_\+v} & The number of rows. \\
+\hline
+{\em dim\+\_\+h} & The number of columns. \\
+\hline
+{\em val} & The value to fill the matrix. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the type is bool. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a4548d3427fe2306c3bdb8977a4e23224}\label{classcmatrix_a4548d3427fe2306c3bdb8977a4e23224}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cmatrix@{cmatrix}}
+\index{cmatrix@{cmatrix}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cmatrix()}{cmatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+template$<$class U $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::\mbox{\hyperlink{classcmatrix}{cmatrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ U $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Cast a matrix to another type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to copy. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of the matrix to copy. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the type is bool. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_ac3e4aa1707d00d1ad31fef4cfea264c1}\label{classcmatrix_ac3e4aa1707d00d1ad31fef4cfea264c1}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!````~cmatrix@{$\sim$cmatrix}}
+\index{````~cmatrix@{$\sim$cmatrix}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$cmatrix()}{~cmatrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classcmatrix}{cmatrix}}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcmatrix_a038bb07f84a685d96432069b22c54a4b}\label{classcmatrix_a038bb07f84a685d96432069b22c54a4b}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!all@{all}}
+\index{all@{all}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{all()}{all()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::all (\begin{DoxyParamCaption}\item[{const std\+::function$<$ bool(T)$>$ \&}]{f }\end{DoxyParamCaption}) const}
+
+
+
+Check if all the cells of the matrix satisfy a condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The condition to satisfy. f(\+T value) -\/$>$ bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If all the cells satisfy the condition. 
+
+false If at least one cell does not satisfy the condition.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The empty matrix always return true. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a612f4e71b55d4a877dd2f2cbb02feef5}\label{classcmatrix_a612f4e71b55d4a877dd2f2cbb02feef5}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!all@{all}}
+\index{all@{all}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{all()}{all()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::all (\begin{DoxyParamCaption}\item[{const T \&}]{val }\end{DoxyParamCaption}) const}
+
+
+
+Check if all the cells of the matrix are equal to a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If all the cells are equal to the value. 
+
+false If at least one cell is not equal to the value.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The empty matrix always return true. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a4d5d0b0bfa1aa1c88c307ef77582d4a5}\label{classcmatrix_a4d5d0b0bfa1aa1c88c307ef77582d4a5}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!any@{any}}
+\index{any@{any}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{any()}{any()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::any (\begin{DoxyParamCaption}\item[{const std\+::function$<$ bool(T)$>$ \&}]{f }\end{DoxyParamCaption}) const}
+
+
+
+Check if at least one cell of the matrix satisfy a condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The condition to satisfy. f(\+T value) -\/$>$ bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If at least one cell satisfy the condition. 
+
+false If all the cells does not satisfy the condition.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The empty matrix always return false. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a34480288ea74528d4cc9edc1127b0755}\label{classcmatrix_a34480288ea74528d4cc9edc1127b0755}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!any@{any}}
+\index{any@{any}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{any()}{any()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::any (\begin{DoxyParamCaption}\item[{const T \&}]{val }\end{DoxyParamCaption}) const}
+
+
+
+Check if at least one cell of the matrix is equal to a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If at least one cell is equal to the value. 
+
+false If all the cells are not equal to the value.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The empty matrix always return false. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_ad65689b82797403b62c13d7d4eeee6b1}\label{classcmatrix_ad65689b82797403b62c13d7d4eeee6b1}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!apply@{apply}}
+\index{apply@{apply}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::apply (\begin{DoxyParamCaption}\item[{const std\+::function$<$ T(T)$>$ \&}]{f }\end{DoxyParamCaption})}
+
+
+
+Apply a function to each cell of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The function to apply. f(\+T value) -\/$>$ T \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcmatrix_aaa4ca3ea57ca8b7c41d2fc90c1913099}\label{classcmatrix_aaa4ca3ea57ca8b7c41d2fc90c1913099}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!apply@{apply}}
+\index{apply@{apply}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::apply (\begin{DoxyParamCaption}\item[{const std\+::function$<$ T(T, size\+\_\+t $\ast$, size\+\_\+t $\ast$)$>$ \&}]{f,  }\item[{size\+\_\+t $\ast$}]{col = {\ttfamily nullptr},  }\item[{size\+\_\+t $\ast$}]{row = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Apply a function to each cell of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The function to apply. f(\+T value, size\+\_\+t $\ast$id\+\_\+col, size\+\_\+t $\ast$id\+\_\+row) -\/$>$ T \\
+\hline
+{\em col} & The pointer to the column index. (default\+: nullptr) \\
+\hline
+{\em row} & The pointer to the row index. (default\+: nullptr) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcmatrix_a1e8370d047a279c67ca8727a80d8bfd1}\label{classcmatrix_a1e8370d047a279c67ca8727a80d8bfd1}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cast@{cast}}
+\index{cast@{cast}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cast()}{cast()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+template$<$class U $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ U $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::cast}
+
+
+
+Convert the matrix to a matrix of another type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of the matrix. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+cmatrix\uline{ The matrix of another type. }
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & \uline{If the type T is not convertible to the type U. }\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a62b2c0ff0ee5c36e056d9c414e546097}\label{classcmatrix_a62b2c0ff0ee5c36e056d9c414e546097}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cell@{cell}}
+\index{cell@{cell}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cell()}{cell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::cell (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{row,  }\item[{const size\+\_\+t \&}]{col }\end{DoxyParamCaption})}
+
+
+
+Get the reference to a cell of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row of the cell to get. \\
+\hline
+{\em col} & The column of the cell to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T The reference of the cell. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a7af0450ebbed50469426663cb980e468}\label{classcmatrix_a7af0450ebbed50469426663cb980e468}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cell@{cell}}
+\index{cell@{cell}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cell()}{cell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::cell (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{row,  }\item[{const size\+\_\+t \&}]{col }\end{DoxyParamCaption}) const}
+
+
+
+Get a cell of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row of the cell to get. \\
+\hline
+{\em col} & The column of the cell to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T The cell. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_ac4d1db23d0917d2c24959fda156f2d3d}\label{classcmatrix_ac4d1db23d0917d2c24959fda156f2d3d}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cells@{cells}}
+\index{cells@{cells}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cells()}{cells()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::cells (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{row,  }\item[{const size\+\_\+t \&}]{col }\end{DoxyParamCaption}) const}
+
+
+
+Get the cells of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row of the cell to get. \\
+\hline
+{\em col} & The column of the cell to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The cells of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a05a084faf17f2bbe7d6e8c93ab9122cd}\label{classcmatrix_a05a084faf17f2bbe7d6e8c93ab9122cd}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!cells@{cells}}
+\index{cells@{cells}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cells()}{cells()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::cells (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$$>$ \&}]{ids }\end{DoxyParamCaption}) const}
+
+
+
+Get the cells of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & The indexes of the cells to get. (row, column) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The cells of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_abe81ed6d34cd62c48307ee52c2f5f224}\label{classcmatrix_abe81ed6d34cd62c48307ee52c2f5f224}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_dim@{check\_dim}}
+\index{check\_dim@{check\_dim}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_dim()}{check\_dim()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+dim (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption}) const}
+
+
+
+Check if dimensions are equals to the dimensions of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the dimensions are not equals to the dimensions of the matrix. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_ae9938af2836a38a1ce92931761f28bd1}\label{classcmatrix_ae9938af2836a38a1ce92931761f28bd1}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_dim@{check\_dim}}
+\index{check\_dim@{check\_dim}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_dim()}{check\_dim()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+dim (\begin{DoxyParamCaption}\item[{const std\+::tuple$<$ size\+\_\+t, size\+\_\+t $>$ \&}]{dim }\end{DoxyParamCaption}) const}
+
+
+
+Check if dimensions are equals to the dimensions of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & The vertical and horizontal dimensions. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the dimensions are not equals to the dimensions of the matrix. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a23ed75b6b8696b6623c825c3f6a1c3d6}\label{classcmatrix_a23ed75b6b8696b6623c825c3f6a1c3d6}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_expected\_id@{check\_expected\_id}}
+\index{check\_expected\_id@{check\_expected\_id}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_expected\_id()}{check\_expected\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+expected\+\_\+id (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n,  }\item[{const size\+\_\+t \&}]{expected }\end{DoxyParamCaption}) const}
+
+
+
+Check if the index is expected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The index to check. \\
+\hline
+{\em expected} & The expected index. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the index is not the expected index. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_ab9eac978cc396e75413eeb87109a5f70}\label{classcmatrix_ab9eac978cc396e75413eeb87109a5f70}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_expected\_id@{check\_expected\_id}}
+\index{check\_expected\_id@{check\_expected\_id}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_expected\_id()}{check\_expected\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+expected\+\_\+id (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n,  }\item[{const size\+\_\+t \&}]{expected\+Begin,  }\item[{const size\+\_\+t \&}]{exepected\+End }\end{DoxyParamCaption}) const}
+
+
+
+Check if the index is expected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The index to check. \\
+\hline
+{\em expected\+Begin} & The expected begin index inclusive. \\
+\hline
+{\em exepected\+End} & The expected end index inlusive. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the index is not the expected index. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a9cd60c00a168a221023a443b38a3e03b}\label{classcmatrix_a9cd60c00a168a221023a443b38a3e03b}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_valid\_col@{check\_valid\_col}}
+\index{check\_valid\_col@{check\_valid\_col}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_valid\_col()}{check\_valid\_col()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+valid\+\_\+col (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{col }\end{DoxyParamCaption}) const}
+
+
+
+Check if the vector is a valid column of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & The column to check. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the vector is not a valid column of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The column must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a6c5e30bf1ce1e521de73ceb4a8941f7f}\label{classcmatrix_a6c5e30bf1ce1e521de73ceb4a8941f7f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_valid\_col\_id@{check\_valid\_col\_id}}
+\index{check\_valid\_col\_id@{check\_valid\_col\_id}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_valid\_col\_id()}{check\_valid\_col\_id()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+valid\+\_\+col\+\_\+id (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Check if the column is a valid column index of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & The column index to check. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the column is not a valid column index of the matrix. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a32c7753039690064f4add5d732abb471}\label{classcmatrix_a32c7753039690064f4add5d732abb471}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_valid\_diag@{check\_valid\_diag}}
+\index{check\_valid\_diag@{check\_valid\_diag}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_valid\_diag()}{check\_valid\_diag()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+valid\+\_\+diag (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{diag }\end{DoxyParamCaption}) const}
+
+
+
+Check if the diagonal is a valid diagonal of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em diag} & The diagonal to check. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the vector is not a valid diagonal of the matrix. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a5e629f6f593f4c033be7cf0af0a4ae41}\label{classcmatrix_a5e629f6f593f4c033be7cf0af0a4ae41}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_valid\_row@{check\_valid\_row}}
+\index{check\_valid\_row@{check\_valid\_row}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_valid\_row()}{check\_valid\_row()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+valid\+\_\+row (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{row }\end{DoxyParamCaption}) const}
+
+
+
+Check if the vector is a valid row of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row to check. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the vector is not a valid row of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The row must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a881b5363edb1837074fcb77db888aa64}\label{classcmatrix_a881b5363edb1837074fcb77db888aa64}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_valid\_row\_id@{check\_valid\_row\_id}}
+\index{check\_valid\_row\_id@{check\_valid\_row\_id}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_valid\_row\_id()}{check\_valid\_row\_id()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+valid\+\_\+row\+\_\+id (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Check if the row is a valid row index of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index to check. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the row is not a valid row index of the matrix. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a0dd6598a5bea25c9e3bfc74327209170}\label{classcmatrix_a0dd6598a5bea25c9e3bfc74327209170}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!check\_valid\_type@{check\_valid\_type}}
+\index{check\_valid\_type@{check\_valid\_type}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_valid\_type()}{check\_valid\_type()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::check\+\_\+valid\+\_\+type}
+
+
+
+Check if the type of the matrix is valid. List of types not supported\+: bool. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the type is invalid. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a1766cb6d6c5f9c0f593aafd056b59d52}\label{classcmatrix_a1766cb6d6c5f9c0f593aafd056b59d52}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!clear@{clear}}
+\index{clear@{clear}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::clear}
+
+
+
+Clear the matrix. 
+
+\mbox{\Hypertarget{classcmatrix_a526f1027d8c2457f8d2ee041c3542261}\label{classcmatrix_a526f1027d8c2457f8d2ee041c3542261}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!columns@{columns}}
+\index{columns@{columns}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{columns()}{columns()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::columns (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{ids }\end{DoxyParamCaption}) const}
+
+
+
+Get the columns of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & The indexes of the columns to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The columns of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a78b573432e56057130fca42c7deea53f}\label{classcmatrix_a78b573432e56057130fca42c7deea53f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!columns@{columns}}
+\index{columns@{columns}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{columns()}{columns()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::columns (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ size\+\_\+t $>$ \&}]{ids }\end{DoxyParamCaption}) const}
+
+
+
+Get the columns of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & The indexes of the columns to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The columns of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a58925821c0eec27a19624434974ad7e9}\label{classcmatrix_a58925821c0eec27a19624434974ad7e9}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!columns\_vec@{columns\_vec}}
+\index{columns\_vec@{columns\_vec}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{columns\_vec()}{columns\_vec()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::columns\+\_\+vec (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Get a column of the matrix as a flattened vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The index of the column to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ The column as a flattened vector. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000002}{Deprecated}}]Use {\ttfamily columns} instead. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classcmatrix_adabfe43fa749744cf8ee5ad12a3f13cf}\label{classcmatrix_adabfe43fa749744cf8ee5ad12a3f13cf}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!copy@{copy}}
+\index{copy@{copy}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::copy}
+
+
+
+Copy the matrix. 
+
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The copied matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_aa81bdefe0a9fb42d756bf5f0ed3dc13f}\label{classcmatrix_aa81bdefe0a9fb42d756bf5f0ed3dc13f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!diag@{diag}}
+\index{diag@{diag}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{diag()}{diag()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::diag}
+
+
+
+Get the diagonal of the matrix. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ The diagonal of the matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a2bf47c5ff5995b37b282edea524e263d}\label{classcmatrix_a2bf47c5ff5995b37b282edea524e263d}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!dim@{dim}}
+\index{dim@{dim}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dim()}{dim()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::tuple$<$ size\+\_\+t, size\+\_\+t $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::dim}
+
+
+
+The dimensions of the matrix. 
+
+\begin{DoxyReturn}{Returns}
+std\+::tuple$<$size\+\_\+t, size\+\_\+t$>$ The number of rows and columns. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}\label{classcmatrix_a16147aad3ce464f611834ce2dc4d302c}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!dim\_h@{dim\_h}}
+\index{dim\_h@{dim\_h}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dim\_h()}{dim\_h()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::dim\+\_\+h}
+
+
+
+The number of columns of the matrix. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of columns. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}\label{classcmatrix_a2b5c25d8a931cb75cf41a1799c9379a3}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!dim\_v@{dim\_v}}
+\index{dim\_v@{dim\_v}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dim\_v()}{dim\_v()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::dim\+\_\+v}
+
+
+
+The number of rows of the matrix. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of rows. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a70ed516d04d245c16f3bda79284f000b}\label{classcmatrix_a70ed516d04d245c16f3bda79284f000b}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!fill@{fill}}
+\index{fill@{fill}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::fill (\begin{DoxyParamCaption}\item[{const T \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Fill the matrix with a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to fill the matrix. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcmatrix_aaa137c74b74786feaf099387b68c85d7}\label{classcmatrix_aaa137c74b74786feaf099387b68c85d7}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!find@{find}}
+\index{find@{find}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::tuple$<$ int, int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{const std\+::function$<$ bool(T)$>$ \&}]{f }\end{DoxyParamCaption}) const}
+
+
+
+Find the first cell matching the condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The condition to satisfy. f(\+T value) -\/$>$ bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::tuple$<$int, int$>$ The first index of the cell. (-\/1, -\/1) if not found.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The empty matrix always return (-\/1, -\/1). 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_abc019c1a9385c01d8549d6892a70252a}\label{classcmatrix_abc019c1a9385c01d8549d6892a70252a}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!find@{find}}
+\index{find@{find}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::tuple$<$ int, int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{const T \&}]{val }\end{DoxyParamCaption}) const}
+
+
+
+Find the first cell matching the given cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The cell to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::tuple$<$int, int$>$ The first index of the cell. (-\/1, -\/1) if not found.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The cell must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a48370e130446b1fa949c121ac949072f}\label{classcmatrix_a48370e130446b1fa949c121ac949072f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!find\_column@{find\_column}}
+\index{find\_column@{find\_column}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find\_column()}{find\_column()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::find\+\_\+column (\begin{DoxyParamCaption}\item[{const std\+::function$<$ bool(std\+::vector$<$ T $>$)$>$ \&}]{f }\end{DoxyParamCaption}) const}
+
+
+
+Find the first column matching the condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The condition to satisfy. f(std\+::vector$<$\+T$>$ col) -\/$>$ bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The first index of the column. -\/1 if not found.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The empty matrix always return -\/1. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a3f95c6473de06bf3e05202fb9f6b560f}\label{classcmatrix_a3f95c6473de06bf3e05202fb9f6b560f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!find\_column@{find\_column}}
+\index{find\_column@{find\_column}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find\_column()}{find\_column()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::find\+\_\+column (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption}) const}
+
+
+
+Find the first column matching the given column. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The column to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The first index of the row. -\/1 if not found.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The column must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a5d0ec712500fcec28bb3f9963ab7f120}\label{classcmatrix_a5d0ec712500fcec28bb3f9963ab7f120}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!find\_row@{find\_row}}
+\index{find\_row@{find\_row}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find\_row()}{find\_row()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::find\+\_\+row (\begin{DoxyParamCaption}\item[{const std\+::function$<$ bool(std\+::vector$<$ T $>$)$>$ \&}]{f }\end{DoxyParamCaption}) const}
+
+@bried Find the first row matching the condition.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The condition to satisfy. f(std\+::vector$<$\+T$>$ row) -\/$>$ bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The first index of the row. -\/1 if not found.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The empty matrix always return -\/1. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a836a2ada7ca93ec9fdc569c309371266}\label{classcmatrix_a836a2ada7ca93ec9fdc569c309371266}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!find\_row@{find\_row}}
+\index{find\_row@{find\_row}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find\_row()}{find\_row()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::find\+\_\+row (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption}) const}
+
+
+
+Find the first row matching the given row. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The row to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The first index of the row. -\/1 if not found.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The row must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_adfe0fb6f26993a26a361d8663673865b}\label{classcmatrix_adfe0fb6f26993a26a361d8663673865b}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!flatten\_vector@{flatten\_vector}}
+\index{flatten\_vector@{flatten\_vector}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{flatten\_vector()}{flatten\_vector()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::flatten\+\_\+vector (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ T $>$$>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Flatten a nested vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The nested vector to flatten. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ The flattened vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a6d27a8af98d3034c56f7829e8892e456}\label{classcmatrix_a6d27a8af98d3034c56f7829e8892e456}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!identity@{identity}}
+\index{identity@{identity}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{identity()}{identity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$\+::identity (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{dim }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcmatrix_a919d94470dcdde36abf23379aa01af34}\label{classcmatrix_a919d94470dcdde36abf23379aa01af34}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!identity@{identity}}
+\index{identity@{identity}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{identity()}{identity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+static \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$int$>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::identity (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{dim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate the identity matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & The number of rows and columns. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$int$>$ The identity matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_aa38db9639415363455d48cab1be0a253}\label{classcmatrix_aa38db9639415363455d48cab1be0a253}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!insert\_column@{insert\_column}}
+\index{insert\_column@{insert\_column}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert\_column()}{insert\_column()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::insert\+\_\+column (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{pos,  }\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Insert a row in the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The index of the row to insert. \\
+\hline
+{\em val} & The value to insert. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the number of columns of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The row must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a7197a96a81f8cc920f7bdd97c4c67f62}\label{classcmatrix_a7197a96a81f8cc920f7bdd97c4c67f62}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!insert\_row@{insert\_row}}
+\index{insert\_row@{insert\_row}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert\_row()}{insert\_row()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::insert\+\_\+row (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{pos,  }\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Insert a column in the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The index of the column to insert. \\
+\hline
+{\em val} & The value to insert. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the number of rows of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The column must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a13dbea9de0c151a9a166f5574a4051ed}\label{classcmatrix_a13dbea9de0c151a9a166f5574a4051ed}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!is\_diag@{is\_diag}}
+\index{is\_diag@{is\_diag}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_diag()}{is\_diag()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::is\+\_\+diag}
+
+
+
+Check if the matrix is a diagonal matrix. 
+
+\begin{DoxyReturn}{Returns}
+true If the matrix is a diagonal matrix. 
+
+false If the matrix is not a diagonal matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_affc2a1e81d350c25e5779afe1aab8da8}\label{classcmatrix_affc2a1e81d350c25e5779afe1aab8da8}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::is\+\_\+empty}
+
+
+
+Check if the matrix is empty. 
+
+\begin{DoxyReturn}{Returns}
+true If the matrix is empty. 
+
+false If the matrix is not empty. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a54e28932a02aa0b6e1afa386f7b8d862}\label{classcmatrix_a54e28932a02aa0b6e1afa386f7b8d862}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!is\_identity@{is\_identity}}
+\index{is\_identity@{is\_identity}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_identity()}{is\_identity()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::is\+\_\+identity}
+
+
+
+Check if the matrix is the identity matrix. 
+
+\begin{DoxyReturn}{Returns}
+true If the matrix is the identity matrix. 
+
+false If the matrix is not the identity matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a7198413962160f4f862d3c2dbbf7ebeb}\label{classcmatrix_a7198413962160f4f862d3c2dbbf7ebeb}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!is\_matrix@{is\_matrix}}
+\index{is\_matrix@{is\_matrix}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_matrix()}{is\_matrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::is\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ std\+::initializer\+\_\+list$<$ T $>$$>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check if a nested vector is a matrix. To be a matrix, all the rows and columns must have the same length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The nested vector to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the nested vector is a matrix. 
+
+false If the nested vector is not a matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_aef41d2fe33a969498b7c3fb3c58404fe}\label{classcmatrix_aef41d2fe33a969498b7c3fb3c58404fe}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!is\_square@{is\_square}}
+\index{is\_square@{is\_square}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_square()}{is\_square()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::is\+\_\+square}
+
+
+
+Check if the matrix is a square matrix. 
+
+\begin{DoxyReturn}{Returns}
+true If the matrix is a square matrix. 
+
+false If the matrix is not a square matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a1931e131bdcbb2c60fc590d43819e45b}\label{classcmatrix_a1931e131bdcbb2c60fc590d43819e45b}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!is\_symetric@{is\_symetric}}
+\index{is\_symetric@{is\_symetric}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_symetric()}{is\_symetric()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::is\+\_\+symetric}
+
+
+
+Check if the matrix is a symmetric matrix. 
+
+\begin{DoxyReturn}{Returns}
+true If the matrix is a symmetric matrix. 
+
+false If the matrix is not a symmetric matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_ae8a562b5206d07705f63b045c785f3df}\label{classcmatrix_ae8a562b5206d07705f63b045c785f3df}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!is\_triangular\_low@{is\_triangular\_low}}
+\index{is\_triangular\_low@{is\_triangular\_low}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_triangular\_low()}{is\_triangular\_low()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::is\+\_\+triangular\+\_\+low}
+
+
+
+Check if the matrix is a lower triangular matrix. 
+
+\begin{DoxyReturn}{Returns}
+true If the matrix is a lower triangular matrix. 
+
+false If the matrix is not a lower triangular matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a5b4e6176e32373a4469176dfe47395c5}\label{classcmatrix_a5b4e6176e32373a4469176dfe47395c5}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!is\_triangular\_up@{is\_triangular\_up}}
+\index{is\_triangular\_up@{is\_triangular\_up}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_triangular\_up()}{is\_triangular\_up()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::is\+\_\+triangular\+\_\+up}
+
+
+
+Check if the matrix is an upper triangular matrix. 
+
+\begin{DoxyReturn}{Returns}
+true If the matrix is an upper triangular matrix. 
+
+false If the matrix is not an upper triangular matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_aec11f70e818f918e023fd091306204ba}\label{classcmatrix_aec11f70e818f918e023fd091306204ba}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!map@{map}}
+\index{map@{map}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::map (\begin{DoxyParamCaption}\item[{const std\+::function$<$ T(T)$>$ \&}]{f }\end{DoxyParamCaption}) const}
+
+
+
+Apply a function to each cell of the matrix and return the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The function to apply. f(\+T value) -\/$>$ T \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The result of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a2caab6666627a6fdf4d31f14716d5f08}\label{classcmatrix_a2caab6666627a6fdf4d31f14716d5f08}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!map@{map}}
+\index{map@{map}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::map (\begin{DoxyParamCaption}\item[{const std\+::function$<$ T(T, size\+\_\+t $\ast$, size\+\_\+t $\ast$)$>$ \&}]{f,  }\item[{size\+\_\+t $\ast$}]{col = {\ttfamily nullptr},  }\item[{size\+\_\+t $\ast$}]{row = {\ttfamily nullptr} }\end{DoxyParamCaption}) const}
+
+
+
+Apply a function to each cell of the matrix and return the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The function to apply. f(\+T value, size\+\_\+t $\ast$id\+\_\+col, size\+\_\+t $\ast$id\+\_\+row) -\/$>$ T \\
+\hline
+{\em col} & The pointer to the column index. (default\+: nullptr) \\
+\hline
+{\em row} & The pointer to the row index. (default\+: nullptr) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The result of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a3f9384e591534cdb81d8671d5e2d8b85}\label{classcmatrix_a3f9384e591534cdb81d8671d5e2d8b85}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!max@{max}}
+\index{max@{max}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::max (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{axis = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Get the maximum value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis to get the maximum value. 0 for the rows, 1 for the columns. (default\+: 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The maximum value for each row or column of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the axis is not 0 or 1.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The type of the matrix must implement the operator $>$. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a36aeafd654daf1dea7e3f6db5eae4c62}\label{classcmatrix_a36aeafd654daf1dea7e3f6db5eae4c62}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!mean@{mean}}
+\index{mean@{mean}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mean()}{mean()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ float $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::mean (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{axis = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Get the mean value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis to get the mean value. 0 for the rows, 1 for the columns. (default\+: 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$float$>$ The mean value for each row or column of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the axis is not 0 or 1. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the matrix is not arithmetic.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The matrix must be of arithmetic type. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a30526abba0a7d993cf12bd9847eb9ce0}\label{classcmatrix_a30526abba0a7d993cf12bd9847eb9ce0}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!median@{median}}
+\index{median@{median}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{median()}{median()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::median (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{axis = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Get the median value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis to get the median value. 0 for the rows, 1 for the columns. (default\+: 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The median value of the matrix for each row or column of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the axis is not 0 or 1.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The matrix must implement the operator $<$. 
+
+If the number of elements is even, the median is the smallest value of the two middle values. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a3c8279aee30a6f9d45c796c2f4902142}\label{classcmatrix_a3c8279aee30a6f9d45c796c2f4902142}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!min@{min}}
+\index{min@{min}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::min (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{axis = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Get the minimum value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis to get the minimum value. 0 for the rows, 1 for the columns. (default\+: 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The minimum value for each row or column of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the axis is not 0 or 1.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The type of the matrix must implement the operator $<$. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_ad96fe7397082bf6663ff696760b8b427}\label{classcmatrix_ad96fe7397082bf6663ff696760b8b427}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption}) const}
+
+
+
+The inequality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the matrices are not equal. 
+
+false If the matrices are equal.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a9ccb564da5f7a36986b8ad9bf0a16e82}\label{classcmatrix_a9ccb564da5f7a36986b8ad9bf0a16e82}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The inequality operator comparing the matrix with a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$short unsigned int$>$ The matrix of booleans. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_aaea4c724f5a18c4021919007cce133ad}\label{classcmatrix_aaea4c724f5a18c4021919007cce133ad}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption}) const}
+
+
+
+The multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The product of the matrices.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a5c183ea42da70d2c2f406f5d92f6b6df}\label{classcmatrix_a5c183ea42da70d2c2f406f5d92f6b6df}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The value to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The product of the matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a475554fb38a955bebb111e0b2be8541f}\label{classcmatrix_a475554fb38a955bebb111e0b2be8541f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+The multiplication assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The product of the matrices.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_ad5e8ed21d52c5251e287f210de4f7aa8}\label{classcmatrix_ad5e8ed21d52c5251e287f210de4f7aa8}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption})}
+
+
+
+The multiplication assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The value to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The product of the matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a09333fa02a60b3027acd956b3d5e6cfb}\label{classcmatrix_a09333fa02a60b3027acd956b3d5e6cfb}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption}) const}
+
+
+
+The addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The sum of the matrices.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a5fc856b4301b58f6e35ccb0781acae64}\label{classcmatrix_a5fc856b4301b58f6e35ccb0781acae64}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The value to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The sum of the matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a00d022f9702e1d35b6e89d06fd1da7c5}\label{classcmatrix_a00d022f9702e1d35b6e89d06fd1da7c5}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+The addition assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The sum of the matrices.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_aa72bb4e820e69e62d81e25402eb4aace}\label{classcmatrix_aa72bb4e820e69e62d81e25402eb4aace}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption})}
+
+
+
+The addition assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The value to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The sum of the matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a052bc5538cb8c686505e09c2a243b6f7}\label{classcmatrix_a052bc5538cb8c686505e09c2a243b6f7}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption}) const}
+
+
+
+The subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The difference of the matrices.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a715fa7b609ad3292acdcc61683a32207}\label{classcmatrix_a715fa7b609ad3292acdcc61683a32207}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const T \&}]{val }\end{DoxyParamCaption}) const}
+
+
+
+The subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The value to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The difference of the matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_ac5f5919d4a255dc3ae0ea9405bdf5ad6}\label{classcmatrix_ac5f5919d4a255dc3ae0ea9405bdf5ad6}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+The subtraction assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The difference of the matrices.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_abe87d7acb78480726882065f7bbc50ce}\label{classcmatrix_abe87d7acb78480726882065f7bbc50ce}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption})}
+
+
+
+The subtraction assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The value to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The difference of the matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a95a5b75198349687f8c7bef9482f2684}\label{classcmatrix_a95a5b75198349687f8c7bef9482f2684}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator/ (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The division operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The value to divide. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The quotient of the matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_afa0384704492f7a22fc67863ade82469}\label{classcmatrix_afa0384704492f7a22fc67863ade82469}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption})}
+
+
+
+The division assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The value to divide. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The quotient of the matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a1aff6fb5ecfbcd0a0599a859bc08be17}\label{classcmatrix_a1aff6fb5ecfbcd0a0599a859bc08be17}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The strictly less than operator comparing the matrix with a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$short unsigned int$>$ The matrix of booleans. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_ab98cd083af62c7e24902297168a07f6b}\label{classcmatrix_ab98cd083af62c7e24902297168a07f6b}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$<$= (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The less than operator comparing the matrix with a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$short unsigned int$>$ The matrix of booleans. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a2ba4179e76358649640f200557dc5fdd}\label{classcmatrix_a2ba4179e76358649640f200557dc5fdd}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+The assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The copied matrix.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_ad5602f092d4a29ff7a658f8deae842f2}\label{classcmatrix_ad5602f092d4a29ff7a658f8deae842f2}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ std\+::initializer\+\_\+list$<$ T $>$$>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+The assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The copied matrix.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a753ea3b2926b3e56e96c6976ad0986b8}\label{classcmatrix_a753ea3b2926b3e56e96c6976ad0986b8}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption}) const}
+
+
+
+The equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the matrices are equal. 
+
+false If the matrices are not equal.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The matrix must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a6588010507da10c54d2cd842d9dba04e}\label{classcmatrix_a6588010507da10c54d2cd842d9dba04e}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The equality operator comparing the matrix with a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$short unsigned int$>$ The matrix of booleans. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a7e1e523c1c1076c3e99277df617e791f}\label{classcmatrix_a7e1e523c1c1076c3e99277df617e791f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$>$ (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The strictly greater than operator comparing the matrix with a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$short unsigned int$>$ The matrix of booleans. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_aae08ad609f0e4f7d2fa8f537ebfb3873}\label{classcmatrix_aae08ad609f0e4f7d2fa8f537ebfb3873}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ short unsigned int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$>$= (\begin{DoxyParamCaption}\item[{const T \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+The greater than operator comparing the matrix with a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$short unsigned int$>$ The matrix of booleans. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_ab9c7d4c8f8b9736333309c786bb20606}\label{classcmatrix_ab9c7d4c8f8b9736333309c786bb20606}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$^\wedge$@{operator$^\wedge$}}
+\index{operator$^\wedge$@{operator$^\wedge$}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$^\wedge$()}{operator^()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$^\wedge$ (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{m }\end{DoxyParamCaption}) const}
+
+
+
+The power operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The power. Must be a positive integer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The powered matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the matrix is not a square matrix. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a7a6ae7a2937f9ec599e14e4bcfbcb9c6}\label{classcmatrix_a7a6ae7a2937f9ec599e14e4bcfbcb9c6}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$^\wedge$=@{operator$^\wedge$=}}
+\index{operator$^\wedge$=@{operator$^\wedge$=}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$^\wedge$=()}{operator^=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \& \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::operator$^\wedge$= (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{m }\end{DoxyParamCaption})}
+
+
+
+The power assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The power. Must be a positive integer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$\& The powered matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the matrix is not a square matrix. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a0a4525e6c737050e759f753c00001666}\label{classcmatrix_a0a4525e6c737050e759f753c00001666}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!print@{print}}
+\index{print@{print}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::print}
+
+
+
+Print the matrix in the standard output. 
+
+\mbox{\Hypertarget{classcmatrix_a4aa7f5e61d48d761968a732d5cf2fb95}\label{classcmatrix_a4aa7f5e61d48d761968a732d5cf2fb95}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!push\_col\_back@{push\_col\_back}}
+\index{push\_col\_back@{push\_col\_back}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push\_col\_back()}{push\_col\_back()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::push\+\_\+col\+\_\+back (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Push a column in the back of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The column to push. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the number of rows of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The column must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_add89b01da658da557ca8ccd15375129e}\label{classcmatrix_add89b01da658da557ca8ccd15375129e}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!push\_col\_front@{push\_col\_front}}
+\index{push\_col\_front@{push\_col\_front}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push\_col\_front()}{push\_col\_front()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::push\+\_\+col\+\_\+front (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Push a column in the front of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The column to push. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the number of rows of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The column must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_ab66903c4ed2ebd6957e9149e96bcb07e}\label{classcmatrix_ab66903c4ed2ebd6957e9149e96bcb07e}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!push\_row\_back@{push\_row\_back}}
+\index{push\_row\_back@{push\_row\_back}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push\_row\_back()}{push\_row\_back()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::push\+\_\+row\+\_\+back (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Push a row in the back of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The row to push. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the number of columns of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The row must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a65d220edf6f5ca2eab34d94477afa826}\label{classcmatrix_a65d220edf6f5ca2eab34d94477afa826}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!push\_row\_front@{push\_row\_front}}
+\index{push\_row\_front@{push\_row\_front}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push\_row\_front()}{push\_row\_front()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::push\+\_\+row\+\_\+front (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Push a row in the front of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The row to push. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the number of columns of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The row must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a68100a6e0887d417b25c09298e1bd682}\label{classcmatrix_a68100a6e0887d417b25c09298e1bd682}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!randint@{randint}}
+\index{randint@{randint}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{randint()}{randint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$\+::randint (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{dim\+\_\+v,  }\item[{const size\+\_\+t \&}]{dim\+\_\+h,  }\item[{const int \&}]{min,  }\item[{const int \&}]{max,  }\item[{const int \&}]{seed }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcmatrix_abd1f040eca612660113a96308d8a9ccc}\label{classcmatrix_abd1f040eca612660113a96308d8a9ccc}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!randint@{randint}}
+\index{randint@{randint}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{randint()}{randint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+static \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$int$>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::randint (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{dim\+\_\+v,  }\item[{const size\+\_\+t \&}]{dim\+\_\+h,  }\item[{const int \&}]{min,  }\item[{const int \&}]{max,  }\item[{const int \&}]{seed = {\ttfamily time(nullptr)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a random matrix of integers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim\+\_\+h} & The number of rows. \\
+\hline
+{\em dim\+\_\+v} & The number of columns. \\
+\hline
+{\em min} & The minimum value of the matrix. \\
+\hline
+{\em max} & The maximum value of the matrix. \\
+\hline
+{\em seed} & The seed of the random generator. (default\+: time(nullptr))\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$int$>$ The random matrix of integers. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_ab85773fe1e9b38d7ad76a3612d5535d5}\label{classcmatrix_ab85773fe1e9b38d7ad76a3612d5535d5}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!remove\_column@{remove\_column}}
+\index{remove\_column@{remove\_column}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove\_column()}{remove\_column()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::remove\+\_\+column (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Remove a column of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The index of the column to remove. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the matrix is empty. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a08d679330da1629a2f742ba58262132e}\label{classcmatrix_a08d679330da1629a2f742ba58262132e}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!remove\_row@{remove\_row}}
+\index{remove\_row@{remove\_row}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove\_row()}{remove\_row()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::remove\+\_\+row (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Remove a row of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The index of the row to remove. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the matrix is empty. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a9b20cd286afd659056cf947e177437dd}\label{classcmatrix_a9b20cd286afd659056cf947e177437dd}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!rows@{rows}}
+\index{rows@{rows}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rows()}{rows()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::rows (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{ids }\end{DoxyParamCaption}) const}
+
+
+
+Get the rows of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & The indexes of the rows to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The rows of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_ae167e74efe10f452e59573b49fd9c8d2}\label{classcmatrix_ae167e74efe10f452e59573b49fd9c8d2}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!rows@{rows}}
+\index{rows@{rows}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rows()}{rows()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::rows (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ size\+\_\+t $>$ \&}]{ids }\end{DoxyParamCaption}) const}
+
+
+
+Get the rows of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & The indexes of the rows to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The rows of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a120f3aadc600c12d27f7f1ff9318ef9f}\label{classcmatrix_a120f3aadc600c12d27f7f1ff9318ef9f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!rows\_vec@{rows\_vec}}
+\index{rows\_vec@{rows\_vec}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rows\_vec()}{rows\_vec()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::rows\+\_\+vec (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Get a row of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The index of the row to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ The row. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]Use {\ttfamily rows} instead. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classcmatrix_adf82974e0924829b8fb93f4a2390287b}\label{classcmatrix_adf82974e0924829b8fb93f4a2390287b}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!set\_cell@{set\_cell}}
+\index{set\_cell@{set\_cell}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_cell()}{set\_cell()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::set\+\_\+cell (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{row,  }\item[{const size\+\_\+t \&}]{col,  }\item[{const T \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Set a cell of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row of the cell to set. \\
+\hline
+{\em col} & The column of the cell to set. \\
+\hline
+{\em val} & The value to set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The cell must be of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a34307cea63ad628011a2e82f602e317d}\label{classcmatrix_a34307cea63ad628011a2e82f602e317d}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!set\_column@{set\_column}}
+\index{set\_column@{set\_column}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_column()}{set\_column()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::set\+\_\+column (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n,  }\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Set a column of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The index of the column to set. \\
+\hline
+{\em val} & The value to set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the number of rows of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The column must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a03cf147efe0e0642bf4e31c8d693be66}\label{classcmatrix_a03cf147efe0e0642bf4e31c8d693be66}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!set\_diag@{set\_diag}}
+\index{set\_diag@{set\_diag}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_diag()}{set\_diag()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::set\+\_\+diag (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Set the diagonal of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The diagonal to set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the minimum of the number of rows and columns of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The diagonal must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a596d8caaf1cfa941f219165d4785c5b6}\label{classcmatrix_a596d8caaf1cfa941f219165d4785c5b6}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!set\_row@{set\_row}}
+\index{set\_row@{set\_row}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_row()}{set\_row()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::set\+\_\+row (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n,  }\item[{const std\+::vector$<$ T $>$ \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Set a row of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The index of the row to set. \\
+\hline
+{\em val} & The value to set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the index is out of range. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the size of the vector {\ttfamily val} is not equal to the number of columns of the matrix.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The row must be a vector of the same type of the matrix. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a9a5e05c5fb874e9cebcfe689277016c9}\label{classcmatrix_a9a5e05c5fb874e9cebcfe689277016c9}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!std@{std}}
+\index{std@{std}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{std()}{std()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ float $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::std (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{axis = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Get the standard deviation value for each row (axis\+: 0) or column (axis\+: 1) of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis to get the standard deviation. 0 for the rows, 1 for the columns. (default\+: 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$float$>$ The standard deviation for each row or column of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the axis is not 0 or 1. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the matrix is not arithmetic. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the number of elements is less than 2 for the axis.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The matrix must be of arithmetic type. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classcmatrix_a2d88b49033aeb45479fcf602e9598a12}\label{classcmatrix_a2d88b49033aeb45479fcf602e9598a12}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!sum@{sum}}
+\index{sum@{sum}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::sum (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{axis = {\ttfamily 0},  }\item[{const T \&}]{zero = {\ttfamily T()} }\end{DoxyParamCaption}) const}
+
+
+
+Get the sum of the matrix for each row (axis\+: 0) or column (axis\+: 1) of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis to get the sum. 0 for the rows, 1 for the columns. (default\+: 0) \\
+\hline
+{\em zero} & The zero value of the sum. (default\+: the value of the default constructor of the type T) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The sum of the matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the axis is not 0 or 1. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classcmatrix_a632bae1f8b175c072f8641c46ec9ff1f}\label{classcmatrix_a632bae1f8b175c072f8641c46ec9ff1f}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!to\_vector@{to\_vector}}
+\index{to\_vector@{to\_vector}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{to\_vector()}{to\_vector()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::to\+\_\+vector}
+
+
+
+Convert the matrix to a vector. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ The vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_aa65881168e99756c64bf3bb312bee473}\label{classcmatrix_aa65881168e99756c64bf3bb312bee473}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!transpose@{transpose}}
+\index{transpose@{transpose}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::transpose}
+
+
+
+Get the transpose of the matrix. 
+
+\begin{DoxyReturn}{Returns}
+cmatrix$<$\+T$>$ The transpose of the matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmatrix_a36a34028ba6a94832270797e47b87c51}\label{classcmatrix_a36a34028ba6a94832270797e47b87c51}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!zeros@{zeros}}
+\index{zeros@{zeros}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{zeros()}{zeros()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ int $>$\+::zeros (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{dim\+\_\+h,  }\item[{const size\+\_\+t \&}]{dim\+\_\+v }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcmatrix_a96c97c592e9f8a1892b474a74b27dc40}\label{classcmatrix_a96c97c592e9f8a1892b474a74b27dc40}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!zeros@{zeros}}
+\index{zeros@{zeros}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{zeros()}{zeros()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+static \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$int$>$ \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ T $>$\+::zeros (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{dim\+\_\+h,  }\item[{const size\+\_\+t \&}]{dim\+\_\+v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a matrix of zeros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim\+\_\+h} & The number of columns. \\
+\hline
+{\em dim\+\_\+v} & The number of rows. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cmatrix$<$int$>$ The matrix of zeros. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classcmatrix_a3e881cfef7557e928a0e9eb62b7d7772}\label{classcmatrix_a3e881cfef7557e928a0e9eb62b7d7772}} 
+\index{cmatrix$<$ T $>$@{cmatrix$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!cmatrix$<$ T $>$@{cmatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+template$<$class U $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{classcmatrix}{cmatrix}}$<$ U $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The output operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The output stream. \\
+\hline
+{\em m} & The matrix to print. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& The output stream. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{CMatrix_8hpp}{C\+Matrix.\+hpp}}\item 
+src/\mbox{\hyperlink{CMatrix_8tpp}{C\+Matrix.\+tpp}}\item 
+src/\mbox{\hyperlink{CMatrixCheck_8tpp}{C\+Matrix\+Check.\+tpp}}\item 
+src/\mbox{\hyperlink{CMatrixConstructor_8tpp}{C\+Matrix\+Constructor.\+tpp}}\item 
+src/\mbox{\hyperlink{CMatrixGetter_8tpp}{C\+Matrix\+Getter.\+tpp}}\item 
+src/\mbox{\hyperlink{CMatrixManipulation_8tpp}{C\+Matrix\+Manipulation.\+tpp}}\item 
+src/\mbox{\hyperlink{CMatrixOperator_8tpp}{C\+Matrix\+Operator.\+tpp}}\item 
+src/\mbox{\hyperlink{CMatrixSetter_8tpp}{C\+Matrix\+Setter.\+tpp}}\item 
+src/\mbox{\hyperlink{CMatrixStatic_8tpp}{C\+Matrix\+Static.\+tpp}}\item 
+src/\mbox{\hyperlink{CMatrixStatistics_8tpp}{C\+Matrix\+Statistics.\+tpp}}\end{DoxyCompactItemize}

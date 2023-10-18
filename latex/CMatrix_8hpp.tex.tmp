@@ -1,0 +1,41 @@
+\hypertarget{CMatrix_8hpp}{}\doxysection{include/\+C\+Matrix.hpp File Reference}
+\label{CMatrix_8hpp}\index{include/CMatrix.hpp@{include/CMatrix.hpp}}
+
+
+File containing the main template class of the \textquotesingle{}cmatrix\textquotesingle{} library.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix.\+tpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix\+Check.\+tpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix\+Constructor.\+tpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix\+Getter.\+tpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix\+Manipulation.\+tpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix\+Operator.\+tpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix\+Setter.\+tpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix\+Static.\+tpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+Matrix\+Statistics.\+tpp\char`\"{}}\newline
+Include dependency graph for C\+Matrix.\+hpp\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcmatrix}{cmatrix$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em The main template class that can work with any data type except bool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File containing the main template class of the \textquotesingle{}cmatrix\textquotesingle{} library. 
+
+\begin{DoxyAuthor}{Author}
+Manitas Bahri \href{https://github.com/b-manitas}{\texttt{ https\+://github.\+com/b-\/manitas}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023 @license M\+IT License 
+\end{DoxyDate}
