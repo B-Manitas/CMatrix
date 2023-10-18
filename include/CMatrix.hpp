@@ -14,7 +14,7 @@
 #include <functional>
 #include <iostream>
 #include <numeric>
-#include <tuple>
+#include <utility>
 #include <vector>
 
 /**
@@ -232,9 +232,9 @@ public:
     /**
      * @brief The dimensions of the matrix.
      *
-     * @return std::tuple<size_t, size_t> The number of rows and columns.
+     * @return std::pair<size_t, size_t> The number of rows and columns.
      */
-    std::tuple<size_t, size_t> dim() const;
+    std::pair<size_t, size_t> dim() const;
 
     /**
      * @brief Get the transpose of the matrix.

@@ -259,19 +259,19 @@ TEST(MatrixTest, dim)
 {
     // 3x3 MATRIX
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    EXPECT_EQ(m.dim(), std::make_tuple(3, 3));
+    EXPECT_EQ(m.dim(), (std::pair<size_t, size_t>(3, 3)));
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}};
-    EXPECT_EQ(m_2.dim(), std::make_tuple(1, 3));
+    EXPECT_EQ(m_2.dim(), (std::pair<size_t, size_t>(1, 3)));
 
     // 3x1 MATRIX
     cmatrix<int> m_3 = {{1}, {2}, {3}};
-    EXPECT_EQ(m_3.dim(), std::make_tuple(3, 1));
+    EXPECT_EQ(m_3.dim(), (std::pair<size_t, size_t>(3, 1)));
 
     // EMPTY MATRIX
     cmatrix<std::string> m_4;
-    EXPECT_EQ(m_4.dim(), std::make_tuple(0, 0));
+    EXPECT_EQ(m_4.dim(), (std::pair<size_t, size_t>(0, 0)));
 }
 
 /** Test transpose method of cmatrix class */

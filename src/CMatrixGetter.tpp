@@ -126,9 +126,9 @@ size_t cmatrix<T>::dim_v() const
 }
 
 template <class T>
-std::tuple<size_t, size_t> cmatrix<T>::dim() const
+std::pair<size_t, size_t> cmatrix<T>::dim() const
 {
-    return std::tuple<size_t, size_t>(dim_v(), dim_h());
+    return std::pair<size_t, size_t>(dim_v(), dim_h());
 }
 
 // ==================================================
