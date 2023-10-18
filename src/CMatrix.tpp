@@ -1,6 +1,7 @@
 /**
  * @file cmatrix.tpp
- * @brief This file contains the implementation of global methods of the cmatrix class.
+ * @brief This file contains the implementation of general methods of the class.
+ *
  * @see cmatrix
  */
 

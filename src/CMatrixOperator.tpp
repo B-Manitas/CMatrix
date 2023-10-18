@@ -1,6 +1,7 @@
 /**
  * @file MatrixOperator.tpp
- * @brief This file contains the implementation of operator methods of the cmatrix class.
+ * @brief This file contains the implementation of operators.
+ *
  * @see cmatrix
  */
 

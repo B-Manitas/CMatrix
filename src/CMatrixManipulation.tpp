@@ -1,6 +1,7 @@
 /**
  * @file MatrixManipulation.tpp
- * @brief This file contains the implementation of manipulation methods of the cmatrix class.
+ * @brief This file contains the implementation of methods to find elements and to perform manipulations on the matrix.
+ *
  * @see cmatrix
  */
 

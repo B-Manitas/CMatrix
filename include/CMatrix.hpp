@@ -1,3 +1,12 @@
+/**
+ * @file CMatrix.hpp
+ * @brief File containing the main template class of the 'cmatrix' library.
+ *
+ * @author Manitas Bahri <https://github.com/b-manitas>
+ * @date 2023
+ * @license MIT License
+ */
+
 #pragma once
 
 #include <algorithm>
@@ -9,7 +18,7 @@
 #include <vector>
 
 /**
- * @brief cmatrix class.
+ * @brief The main template class that can work with any data type except bool.
  *
  * @tparam T The type of elements in the cmatrix.
  */

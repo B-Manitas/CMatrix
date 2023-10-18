@@ -1,3 +1,9 @@
+/**
+ * Unit tests for CMatrix class
+ * @file CMatrixTest.cpp
+ * @see CMatrix.hpp
+ */
+
 #include <gtest/gtest.h>
 #include "CMatrix.hpp"
 

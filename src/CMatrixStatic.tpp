@@ -1,6 +1,7 @@
 /**
  * @file MatrixStatic.tpp
- * @brief This file contains the implementation of static methods of the cmatrix class.
+ * @brief This file contains the implementation of static methods of the class.
+ * 
  * @see cmatrix
  */
 

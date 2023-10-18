@@ -1,6 +1,7 @@
 /**
  * @file MatrixSetter.tpp
- * @brief This file contains the implementation of setter methods of the cmatrix class.
+ * @brief This file contains the implementation of methods to set values in the matrix.
+ * 
  * @see cmatrix
  */
 

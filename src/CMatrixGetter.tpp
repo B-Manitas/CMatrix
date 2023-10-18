@@ -1,6 +1,7 @@
 /**
  * @file MatrixGetter.tpp
- * @brief This file contains the implementation of getter methods of the cmatrix class.
+ * @brief This file contains the implementation of methods to retrieve information from the matrix and get its elements.
+ *
  * @see cmatrix
  */
 

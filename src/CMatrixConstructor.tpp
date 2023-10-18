@@ -1,6 +1,7 @@
 /**
  * @file MatrixConstructor.tpp
- * @brief This file contains the implementation of constructor methods of the cmatrix class.
+ * @brief This file contains the implementation of constructors and destructors.
+ *
  * @see cmatrix
  */
 

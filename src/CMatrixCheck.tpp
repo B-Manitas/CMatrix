@@ -1,6 +1,7 @@
 /**
  * @file MatrixCheck.tpp
- * @brief This file contains the implementation of check methods of the cmatrix class.
+ * @brief This file contains the implementation of methods to verify matrix conditions 
+ * and perform checks before operations to prevent errors.
  * @see cmatrix
  */
 

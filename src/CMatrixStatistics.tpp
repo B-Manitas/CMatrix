@@ -1,3 +1,10 @@
+/**
+ * @file CMatrixStatistics.tpp
+ * @brief This file contains the implementation of methods to perform statistical operations on the matrix.
+ *
+ * @see cmatrix
+ */
+
 template <class T>
 cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
 {
