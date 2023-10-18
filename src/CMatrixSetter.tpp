@@ -27,7 +27,7 @@ void cmatrix<T>::set_column(const size_t &n, const std::vector<T> &val)
 }
 
 template <class T>
-void cmatrix<T>::set_cell(const size_t &col, const size_t &row, const T &val)
+void cmatrix<T>::set_cell(const size_t &row, const size_t &col, const T &val)
 {
     check_valid_row_id(row);
     check_valid_col_id(col);

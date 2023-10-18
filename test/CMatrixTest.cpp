@@ -379,12 +379,12 @@ TEST(MatrixTest, set_cell)
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}};
-    m_2.set_cell(1, 0, 10);
+    m_2.set_cell(0, 1, 10);
     EXPECT_EQ(m_2.cell(0, 1), 10);
 
     // 3x1 MATRIX
     cmatrix<int> m_3 = {{1}, {2}, {3}};
-    m_3.set_cell(0, 1, 10);
+    m_3.set_cell(1, 0, 10);
     EXPECT_EQ(m_3.cell(1, 0), 10);
 
     // EMPTY MATRIX
@@ -392,10 +392,10 @@ TEST(MatrixTest, set_cell)
     EXPECT_THROW(m_4.set_cell(0, 0, "a"), std::out_of_range);
 
     // OUT OF RANGE - ROW
-    EXPECT_THROW(m.set_cell(3, 0, 10), std::out_of_range);
+    EXPECT_THROW(m.set_cell(0, 3, 10), std::out_of_range);
 
     // OUT OF RANGE - COLUMN
-    EXPECT_THROW(m.set_cell(0, 3, 10), std::out_of_range);
+    EXPECT_THROW(m.set_cell(3, 0, 10), std::out_of_range);
 }
 
 /** Test set_diag method of cmatrix class */

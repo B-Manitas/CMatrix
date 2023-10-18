@@ -98,7 +98,7 @@ cmatrix<U> cmatrix<T>::cast() const
         // Set the casted value for each cell
         for (size_t r = 0; r < dim_v(); r++)
             for (size_t c = 0; c < dim_h(); c++)
-                m.set_cell(c, r, static_cast<U>(cell(r, c)));
+                m.set_cell(r, c, static_cast<U>(cell(r, c)));
 
         return m;
     }

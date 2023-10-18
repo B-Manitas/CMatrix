@@ -266,14 +266,14 @@ public:
     /**
      * @brief Set a cell of the matrix.
      *
-     * @param col The column of the cell to set.
      * @param row The row of the cell to set.
+     * @param col The column of the cell to set.
      * @param val The value to set.
      * @throw std::out_of_range If the index is out of range.
      *
      * @note The cell must be of the same type of the matrix.
      */
-    void set_cell(const size_t &col, const size_t &row, const T &val);
+    void set_cell(const size_t &row, const size_t &col, const T &val);
     /**
      * @brief Set the diagonal of the matrix.
      *
