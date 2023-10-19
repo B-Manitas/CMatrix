@@ -43,4 +43,7 @@ clean : clean_obj clean_exe
 
 docs :
 	doxygen doxygen.conf
+	cd latex && make pdf
+	cd ..
+	mv latex/refman.pdf cmatrix.pdf
 	clear

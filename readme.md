@@ -77,7 +77,7 @@ CMatrix is structured as follows:
 
 ## Documentation
 
-For detailed information on how to use CMatrix, consult the [documentation](functions.html).
+For detailed information on how to use CMatrix, consult the [documentation](cmatrix.pdf).
 
 ## License
 
