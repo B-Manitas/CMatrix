@@ -5,7 +5,8 @@ var indexSectionsWithContent =
   2: "cr",
   3: "acdfimoprstz~",
   4: "o",
-  5: "cd"
+  5: "c",
+  6: "cd"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "related",
-  5: "pages"
+  5: "groups",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Files",
   3: "Functions",
   4: "Friends",
-  5: "Pages"
+  5: "Modules",
+  6: "Pages"
 };
 

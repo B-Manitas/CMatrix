@@ -1,5 +1,6 @@
 /**
- * @file MatrixOperator.tpp
+ * @defgroup operator CMatrixOperator
+ * @file CMatrixOperator.tpp
  * @brief This file contains the implementation of operators.
  *
  * @see cmatrix

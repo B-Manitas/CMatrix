@@ -1,5 +1,6 @@
 /**
- * @file MatrixCheck.tpp
+ * @defgroup check CMatrixCheck
+ * @file CMatrixCheck.tpp
  * @brief This file contains the implementation of methods to verify matrix conditions 
  * and perform checks before operations to prevent errors.
  * @see cmatrix

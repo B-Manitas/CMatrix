@@ -1,5 +1,6 @@
 /**
- * @file MatrixConstructor.tpp
+ * @defgroup contructor CMatrixConstructor
+ * @file CMatrixConstructor.tpp
  * @brief This file contains the implementation of constructors and destructors.
  *
  * @see cmatrix

@@ -1,5 +1,6 @@
 /**
- * @file MatrixManipulation.tpp
+ * @defgroup manipulation CMatrixManipulation
+ * @file CMatrixManipulation.tpp
  * @brief This file contains the implementation of methods to find elements and to perform manipulations on the matrix.
  *
  * @see cmatrix

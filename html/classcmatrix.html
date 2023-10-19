@@ -132,9 +132,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2b5c25d8a931cb75cf41a1799c9379a3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a> () const</td></tr>
 <tr class="memdesc:a2b5c25d8a931cb75cf41a1799c9379a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of rows of the matrix.  <a href="classcmatrix.html#a2b5c25d8a931cb75cf41a1799c9379a3">More...</a><br /></td></tr>
 <tr class="separator:a2b5c25d8a931cb75cf41a1799c9379a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bf47c5ff5995b37b282edea524e263d"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a2bf47c5ff5995b37b282edea524e263d">dim</a> () const</td></tr>
-<tr class="memdesc:a2bf47c5ff5995b37b282edea524e263d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dimensions of the matrix.  <a href="classcmatrix.html#a2bf47c5ff5995b37b282edea524e263d">More...</a><br /></td></tr>
-<tr class="separator:a2bf47c5ff5995b37b282edea524e263d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5e66e4f804d2e39efee0cce42044b46"><td class="memItemLeft" align="right" valign="top">std::pair&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#ae5e66e4f804d2e39efee0cce42044b46">dim</a> () const</td></tr>
+<tr class="memdesc:ae5e66e4f804d2e39efee0cce42044b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dimensions of the matrix.  <a href="classcmatrix.html#ae5e66e4f804d2e39efee0cce42044b46">More...</a><br /></td></tr>
+<tr class="separator:ae5e66e4f804d2e39efee0cce42044b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa65881168e99756c64bf3bb312bee473"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#aa65881168e99756c64bf3bb312bee473">transpose</a> () const</td></tr>
 <tr class="memdesc:aa65881168e99756c64bf3bb312bee473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the transpose of the matrix.  <a href="classcmatrix.html#aa65881168e99756c64bf3bb312bee473">More...</a><br /></td></tr>
 <tr class="separator:aa65881168e99756c64bf3bb312bee473"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,159 +153,159 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a03cf147efe0e0642bf4e31c8d693be66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a03cf147efe0e0642bf4e31c8d693be66">set_diag</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
 <tr class="memdesc:a03cf147efe0e0642bf4e31c8d693be66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the diagonal of the matrix.  <a href="classcmatrix.html#a03cf147efe0e0642bf4e31c8d693be66">More...</a><br /></td></tr>
 <tr class="separator:a03cf147efe0e0642bf4e31c8d693be66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7197a96a81f8cc920f7bdd97c4c67f62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a7197a96a81f8cc920f7bdd97c4c67f62">insert_row</a> (const size_t &amp;pos, const std::vector&lt; T &gt; &amp;val)</td></tr>
-<tr class="memdesc:a7197a96a81f8cc920f7bdd97c4c67f62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a column in the matrix.  <a href="classcmatrix.html#a7197a96a81f8cc920f7bdd97c4c67f62">More...</a><br /></td></tr>
-<tr class="separator:a7197a96a81f8cc920f7bdd97c4c67f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa38db9639415363455d48cab1be0a253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#aa38db9639415363455d48cab1be0a253">insert_column</a> (const size_t &amp;pos, const std::vector&lt; T &gt; &amp;val)</td></tr>
-<tr class="memdesc:aa38db9639415363455d48cab1be0a253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a row in the matrix.  <a href="classcmatrix.html#aa38db9639415363455d48cab1be0a253">More...</a><br /></td></tr>
-<tr class="separator:aa38db9639415363455d48cab1be0a253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65d220edf6f5ca2eab34d94477afa826"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a65d220edf6f5ca2eab34d94477afa826">push_row_front</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
-<tr class="memdesc:a65d220edf6f5ca2eab34d94477afa826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a row in the front of the matrix.  <a href="classcmatrix.html#a65d220edf6f5ca2eab34d94477afa826">More...</a><br /></td></tr>
-<tr class="separator:a65d220edf6f5ca2eab34d94477afa826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab66903c4ed2ebd6957e9149e96bcb07e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#ab66903c4ed2ebd6957e9149e96bcb07e">push_row_back</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
-<tr class="memdesc:ab66903c4ed2ebd6957e9149e96bcb07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a row in the back of the matrix.  <a href="classcmatrix.html#ab66903c4ed2ebd6957e9149e96bcb07e">More...</a><br /></td></tr>
-<tr class="separator:ab66903c4ed2ebd6957e9149e96bcb07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add89b01da658da557ca8ccd15375129e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#add89b01da658da557ca8ccd15375129e">push_col_front</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
-<tr class="memdesc:add89b01da658da557ca8ccd15375129e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a column in the front of the matrix.  <a href="classcmatrix.html#add89b01da658da557ca8ccd15375129e">More...</a><br /></td></tr>
-<tr class="separator:add89b01da658da557ca8ccd15375129e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aa7f5e61d48d761968a732d5cf2fb95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a4aa7f5e61d48d761968a732d5cf2fb95">push_col_back</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
-<tr class="memdesc:a4aa7f5e61d48d761968a732d5cf2fb95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a column in the back of the matrix.  <a href="classcmatrix.html#a4aa7f5e61d48d761968a732d5cf2fb95">More...</a><br /></td></tr>
-<tr class="separator:a4aa7f5e61d48d761968a732d5cf2fb95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d0ec712500fcec28bb3f9963ab7f120"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a5d0ec712500fcec28bb3f9963ab7f120">find_row</a> (const std::function&lt; bool(std::vector&lt; T &gt;)&gt; &amp;f) const</td></tr>
-<tr class="separator:a5d0ec712500fcec28bb3f9963ab7f120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a836a2ada7ca93ec9fdc569c309371266"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a836a2ada7ca93ec9fdc569c309371266">find_row</a> (const std::vector&lt; T &gt; &amp;val) const</td></tr>
-<tr class="memdesc:a836a2ada7ca93ec9fdc569c309371266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first row matching the given row.  <a href="classcmatrix.html#a836a2ada7ca93ec9fdc569c309371266">More...</a><br /></td></tr>
-<tr class="separator:a836a2ada7ca93ec9fdc569c309371266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48370e130446b1fa949c121ac949072f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a48370e130446b1fa949c121ac949072f">find_column</a> (const std::function&lt; bool(std::vector&lt; T &gt;)&gt; &amp;f) const</td></tr>
-<tr class="memdesc:a48370e130446b1fa949c121ac949072f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first column matching the condition.  <a href="classcmatrix.html#a48370e130446b1fa949c121ac949072f">More...</a><br /></td></tr>
-<tr class="separator:a48370e130446b1fa949c121ac949072f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f95c6473de06bf3e05202fb9f6b560f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a3f95c6473de06bf3e05202fb9f6b560f">find_column</a> (const std::vector&lt; T &gt; &amp;val) const</td></tr>
-<tr class="memdesc:a3f95c6473de06bf3e05202fb9f6b560f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first column matching the given column.  <a href="classcmatrix.html#a3f95c6473de06bf3e05202fb9f6b560f">More...</a><br /></td></tr>
-<tr class="separator:a3f95c6473de06bf3e05202fb9f6b560f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa137c74b74786feaf099387b68c85d7"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#aaa137c74b74786feaf099387b68c85d7">find</a> (const std::function&lt; bool(T)&gt; &amp;f) const</td></tr>
-<tr class="memdesc:aaa137c74b74786feaf099387b68c85d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first cell matching the condition.  <a href="classcmatrix.html#aaa137c74b74786feaf099387b68c85d7">More...</a><br /></td></tr>
-<tr class="separator:aaa137c74b74786feaf099387b68c85d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc019c1a9385c01d8549d6892a70252a"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#abc019c1a9385c01d8549d6892a70252a">find</a> (const T &amp;val) const</td></tr>
-<tr class="memdesc:abc019c1a9385c01d8549d6892a70252a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first cell matching the given cell.  <a href="classcmatrix.html#abc019c1a9385c01d8549d6892a70252a">More...</a><br /></td></tr>
-<tr class="separator:abc019c1a9385c01d8549d6892a70252a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08d679330da1629a2f742ba58262132e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a08d679330da1629a2f742ba58262132e">remove_row</a> (const size_t &amp;n)</td></tr>
-<tr class="memdesc:a08d679330da1629a2f742ba58262132e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a row of the matrix.  <a href="classcmatrix.html#a08d679330da1629a2f742ba58262132e">More...</a><br /></td></tr>
-<tr class="separator:a08d679330da1629a2f742ba58262132e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab85773fe1e9b38d7ad76a3612d5535d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#ab85773fe1e9b38d7ad76a3612d5535d5">remove_column</a> (const size_t &amp;n)</td></tr>
-<tr class="memdesc:ab85773fe1e9b38d7ad76a3612d5535d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a column of the matrix.  <a href="classcmatrix.html#ab85773fe1e9b38d7ad76a3612d5535d5">More...</a><br /></td></tr>
-<tr class="separator:ab85773fe1e9b38d7ad76a3612d5535d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affc2a1e81d350c25e5779afe1aab8da8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#affc2a1e81d350c25e5779afe1aab8da8">is_empty</a> () const</td></tr>
-<tr class="memdesc:affc2a1e81d350c25e5779afe1aab8da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is empty.  <a href="classcmatrix.html#affc2a1e81d350c25e5779afe1aab8da8">More...</a><br /></td></tr>
-<tr class="separator:affc2a1e81d350c25e5779afe1aab8da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef41d2fe33a969498b7c3fb3c58404fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#aef41d2fe33a969498b7c3fb3c58404fe">is_square</a> () const</td></tr>
-<tr class="memdesc:aef41d2fe33a969498b7c3fb3c58404fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is a square matrix.  <a href="classcmatrix.html#aef41d2fe33a969498b7c3fb3c58404fe">More...</a><br /></td></tr>
-<tr class="separator:aef41d2fe33a969498b7c3fb3c58404fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13dbea9de0c151a9a166f5574a4051ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a13dbea9de0c151a9a166f5574a4051ed">is_diag</a> () const</td></tr>
-<tr class="memdesc:a13dbea9de0c151a9a166f5574a4051ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is a diagonal matrix.  <a href="classcmatrix.html#a13dbea9de0c151a9a166f5574a4051ed">More...</a><br /></td></tr>
-<tr class="separator:a13dbea9de0c151a9a166f5574a4051ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54e28932a02aa0b6e1afa386f7b8d862"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a54e28932a02aa0b6e1afa386f7b8d862">is_identity</a> () const</td></tr>
-<tr class="memdesc:a54e28932a02aa0b6e1afa386f7b8d862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is the identity matrix.  <a href="classcmatrix.html#a54e28932a02aa0b6e1afa386f7b8d862">More...</a><br /></td></tr>
-<tr class="separator:a54e28932a02aa0b6e1afa386f7b8d862"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1931e131bdcbb2c60fc590d43819e45b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a1931e131bdcbb2c60fc590d43819e45b">is_symetric</a> () const</td></tr>
-<tr class="memdesc:a1931e131bdcbb2c60fc590d43819e45b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is a symmetric matrix.  <a href="classcmatrix.html#a1931e131bdcbb2c60fc590d43819e45b">More...</a><br /></td></tr>
-<tr class="separator:a1931e131bdcbb2c60fc590d43819e45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b4e6176e32373a4469176dfe47395c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a5b4e6176e32373a4469176dfe47395c5">is_triangular_up</a> () const</td></tr>
-<tr class="memdesc:a5b4e6176e32373a4469176dfe47395c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is an upper triangular matrix.  <a href="classcmatrix.html#a5b4e6176e32373a4469176dfe47395c5">More...</a><br /></td></tr>
-<tr class="separator:a5b4e6176e32373a4469176dfe47395c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8a562b5206d07705f63b045c785f3df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#ae8a562b5206d07705f63b045c785f3df">is_triangular_low</a> () const</td></tr>
-<tr class="memdesc:ae8a562b5206d07705f63b045c785f3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is a lower triangular matrix.  <a href="classcmatrix.html#ae8a562b5206d07705f63b045c785f3df">More...</a><br /></td></tr>
-<tr class="separator:ae8a562b5206d07705f63b045c785f3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a038bb07f84a685d96432069b22c54a4b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a038bb07f84a685d96432069b22c54a4b">all</a> (const std::function&lt; bool(T)&gt; &amp;f) const</td></tr>
-<tr class="memdesc:a038bb07f84a685d96432069b22c54a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if all the cells of the matrix satisfy a condition.  <a href="classcmatrix.html#a038bb07f84a685d96432069b22c54a4b">More...</a><br /></td></tr>
-<tr class="separator:a038bb07f84a685d96432069b22c54a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a612f4e71b55d4a877dd2f2cbb02feef5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a612f4e71b55d4a877dd2f2cbb02feef5">all</a> (const T &amp;val) const</td></tr>
-<tr class="memdesc:a612f4e71b55d4a877dd2f2cbb02feef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if all the cells of the matrix are equal to a value.  <a href="classcmatrix.html#a612f4e71b55d4a877dd2f2cbb02feef5">More...</a><br /></td></tr>
-<tr class="separator:a612f4e71b55d4a877dd2f2cbb02feef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d5d0b0bfa1aa1c88c307ef77582d4a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a4d5d0b0bfa1aa1c88c307ef77582d4a5">any</a> (const std::function&lt; bool(T)&gt; &amp;f) const</td></tr>
-<tr class="memdesc:a4d5d0b0bfa1aa1c88c307ef77582d4a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if at least one cell of the matrix satisfy a condition.  <a href="classcmatrix.html#a4d5d0b0bfa1aa1c88c307ef77582d4a5">More...</a><br /></td></tr>
-<tr class="separator:a4d5d0b0bfa1aa1c88c307ef77582d4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34480288ea74528d4cc9edc1127b0755"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a34480288ea74528d4cc9edc1127b0755">any</a> (const T &amp;val) const</td></tr>
-<tr class="memdesc:a34480288ea74528d4cc9edc1127b0755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if at least one cell of the matrix is equal to a value.  <a href="classcmatrix.html#a34480288ea74528d4cc9edc1127b0755">More...</a><br /></td></tr>
-<tr class="separator:a34480288ea74528d4cc9edc1127b0755"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9938af2836a38a1ce92931761f28bd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#ae9938af2836a38a1ce92931761f28bd1">check_dim</a> (const std::tuple&lt; size_t, size_t &gt; &amp;<a class="el" href="classcmatrix.html#a2bf47c5ff5995b37b282edea524e263d">dim</a>) const</td></tr>
-<tr class="memdesc:ae9938af2836a38a1ce92931761f28bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if dimensions are equals to the dimensions of the matrix.  <a href="classcmatrix.html#ae9938af2836a38a1ce92931761f28bd1">More...</a><br /></td></tr>
-<tr class="separator:ae9938af2836a38a1ce92931761f28bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe81ed6d34cd62c48307ee52c2f5f224"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#abe81ed6d34cd62c48307ee52c2f5f224">check_dim</a> (const <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;m) const</td></tr>
-<tr class="memdesc:abe81ed6d34cd62c48307ee52c2f5f224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if dimensions are equals to the dimensions of the matrix.  <a href="classcmatrix.html#abe81ed6d34cd62c48307ee52c2f5f224">More...</a><br /></td></tr>
-<tr class="separator:abe81ed6d34cd62c48307ee52c2f5f224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e629f6f593f4c033be7cf0af0a4ae41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a5e629f6f593f4c033be7cf0af0a4ae41">check_valid_row</a> (const std::vector&lt; T &gt; &amp;row) const</td></tr>
-<tr class="memdesc:a5e629f6f593f4c033be7cf0af0a4ae41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the vector is a valid row of the matrix.  <a href="classcmatrix.html#a5e629f6f593f4c033be7cf0af0a4ae41">More...</a><br /></td></tr>
-<tr class="separator:a5e629f6f593f4c033be7cf0af0a4ae41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cd60c00a168a221023a443b38a3e03b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a9cd60c00a168a221023a443b38a3e03b">check_valid_col</a> (const std::vector&lt; T &gt; &amp;col) const</td></tr>
-<tr class="memdesc:a9cd60c00a168a221023a443b38a3e03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the vector is a valid column of the matrix.  <a href="classcmatrix.html#a9cd60c00a168a221023a443b38a3e03b">More...</a><br /></td></tr>
-<tr class="separator:a9cd60c00a168a221023a443b38a3e03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32c7753039690064f4add5d732abb471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a32c7753039690064f4add5d732abb471">check_valid_diag</a> (const std::vector&lt; T &gt; &amp;<a class="el" href="classcmatrix.html#aa81bdefe0a9fb42d756bf5f0ed3dc13f">diag</a>) const</td></tr>
-<tr class="memdesc:a32c7753039690064f4add5d732abb471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the diagonal is a valid diagonal of the matrix.  <a href="classcmatrix.html#a32c7753039690064f4add5d732abb471">More...</a><br /></td></tr>
-<tr class="separator:a32c7753039690064f4add5d732abb471"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a881b5363edb1837074fcb77db888aa64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a881b5363edb1837074fcb77db888aa64">check_valid_row_id</a> (const size_t &amp;n) const</td></tr>
-<tr class="memdesc:a881b5363edb1837074fcb77db888aa64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the row is a valid row index of the matrix.  <a href="classcmatrix.html#a881b5363edb1837074fcb77db888aa64">More...</a><br /></td></tr>
-<tr class="separator:a881b5363edb1837074fcb77db888aa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c5e30bf1ce1e521de73ceb4a8941f7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a6c5e30bf1ce1e521de73ceb4a8941f7f">check_valid_col_id</a> (const size_t &amp;n) const</td></tr>
-<tr class="memdesc:a6c5e30bf1ce1e521de73ceb4a8941f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the column is a valid column index of the matrix.  <a href="classcmatrix.html#a6c5e30bf1ce1e521de73ceb4a8941f7f">More...</a><br /></td></tr>
-<tr class="separator:a6c5e30bf1ce1e521de73ceb4a8941f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23ed75b6b8696b6623c825c3f6a1c3d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a23ed75b6b8696b6623c825c3f6a1c3d6">check_expected_id</a> (const size_t &amp;n, const size_t &amp;expected) const</td></tr>
-<tr class="memdesc:a23ed75b6b8696b6623c825c3f6a1c3d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the index is expected.  <a href="classcmatrix.html#a23ed75b6b8696b6623c825c3f6a1c3d6">More...</a><br /></td></tr>
-<tr class="separator:a23ed75b6b8696b6623c825c3f6a1c3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9eac978cc396e75413eeb87109a5f70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#ab9eac978cc396e75413eeb87109a5f70">check_expected_id</a> (const size_t &amp;n, const size_t &amp;expectedBegin, const size_t &amp;exepectedEnd) const</td></tr>
-<tr class="memdesc:ab9eac978cc396e75413eeb87109a5f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the index is expected.  <a href="classcmatrix.html#ab9eac978cc396e75413eeb87109a5f70">More...</a><br /></td></tr>
-<tr class="separator:ab9eac978cc396e75413eeb87109a5f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dd6598a5bea25c9e3bfc74327209170"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a0dd6598a5bea25c9e3bfc74327209170">check_valid_type</a> () const</td></tr>
-<tr class="memdesc:a0dd6598a5bea25c9e3bfc74327209170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the type of the matrix is valid. List of types not supported: bool.  <a href="classcmatrix.html#a0dd6598a5bea25c9e3bfc74327209170">More...</a><br /></td></tr>
-<tr class="separator:a0dd6598a5bea25c9e3bfc74327209170"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c8279aee30a6f9d45c796c2f4902142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a3c8279aee30a6f9d45c796c2f4902142">min</a> (const unsigned int &amp;axis=0) const</td></tr>
-<tr class="memdesc:a3c8279aee30a6f9d45c796c2f4902142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the minimum value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="classcmatrix.html#a3c8279aee30a6f9d45c796c2f4902142">More...</a><br /></td></tr>
-<tr class="separator:a3c8279aee30a6f9d45c796c2f4902142"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f9384e591534cdb81d8671d5e2d8b85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a3f9384e591534cdb81d8671d5e2d8b85">max</a> (const unsigned int &amp;axis=0) const</td></tr>
-<tr class="memdesc:a3f9384e591534cdb81d8671d5e2d8b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the maximum value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="classcmatrix.html#a3f9384e591534cdb81d8671d5e2d8b85">More...</a><br /></td></tr>
-<tr class="separator:a3f9384e591534cdb81d8671d5e2d8b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d88b49033aeb45479fcf602e9598a12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a2d88b49033aeb45479fcf602e9598a12">sum</a> (const unsigned int &amp;axis=0, const T &amp;zero=T()) const</td></tr>
-<tr class="memdesc:a2d88b49033aeb45479fcf602e9598a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the sum of the matrix for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="classcmatrix.html#a2d88b49033aeb45479fcf602e9598a12">More...</a><br /></td></tr>
-<tr class="separator:a2d88b49033aeb45479fcf602e9598a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36aeafd654daf1dea7e3f6db5eae4c62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a36aeafd654daf1dea7e3f6db5eae4c62">mean</a> (const unsigned int &amp;axis=0) const</td></tr>
-<tr class="memdesc:a36aeafd654daf1dea7e3f6db5eae4c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the mean value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="classcmatrix.html#a36aeafd654daf1dea7e3f6db5eae4c62">More...</a><br /></td></tr>
-<tr class="separator:a36aeafd654daf1dea7e3f6db5eae4c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a5e05c5fb874e9cebcfe689277016c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a9a5e05c5fb874e9cebcfe689277016c9">std</a> (const unsigned int &amp;axis=0) const</td></tr>
-<tr class="memdesc:a9a5e05c5fb874e9cebcfe689277016c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the standard deviation value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="classcmatrix.html#a9a5e05c5fb874e9cebcfe689277016c9">More...</a><br /></td></tr>
-<tr class="separator:a9a5e05c5fb874e9cebcfe689277016c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30526abba0a7d993cf12bd9847eb9ce0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a30526abba0a7d993cf12bd9847eb9ce0">median</a> (const unsigned int &amp;axis=0) const</td></tr>
-<tr class="memdesc:a30526abba0a7d993cf12bd9847eb9ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the median value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="classcmatrix.html#a30526abba0a7d993cf12bd9847eb9ce0">More...</a><br /></td></tr>
-<tr class="separator:a30526abba0a7d993cf12bd9847eb9ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a4525e6c737050e759f753c00001666"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a0a4525e6c737050e759f753c00001666">print</a> () const</td></tr>
-<tr class="memdesc:a0a4525e6c737050e759f753c00001666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the matrix in the standard output.  <a href="classcmatrix.html#a0a4525e6c737050e759f753c00001666">More...</a><br /></td></tr>
-<tr class="separator:a0a4525e6c737050e759f753c00001666"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1766cb6d6c5f9c0f593aafd056b59d52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a1766cb6d6c5f9c0f593aafd056b59d52">clear</a> ()</td></tr>
-<tr class="memdesc:a1766cb6d6c5f9c0f593aafd056b59d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the matrix.  <a href="classcmatrix.html#a1766cb6d6c5f9c0f593aafd056b59d52">More...</a><br /></td></tr>
-<tr class="separator:a1766cb6d6c5f9c0f593aafd056b59d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adabfe43fa749744cf8ee5ad12a3f13cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#adabfe43fa749744cf8ee5ad12a3f13cf">copy</a> () const</td></tr>
-<tr class="memdesc:adabfe43fa749744cf8ee5ad12a3f13cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the matrix.  <a href="classcmatrix.html#adabfe43fa749744cf8ee5ad12a3f13cf">More...</a><br /></td></tr>
-<tr class="separator:adabfe43fa749744cf8ee5ad12a3f13cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa4ca3ea57ca8b7c41d2fc90c1913099"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#aaa4ca3ea57ca8b7c41d2fc90c1913099">apply</a> (const std::function&lt; T(T, size_t *, size_t *)&gt; &amp;f, size_t *col=nullptr, size_t *row=nullptr)</td></tr>
-<tr class="memdesc:aaa4ca3ea57ca8b7c41d2fc90c1913099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix.  <a href="classcmatrix.html#aaa4ca3ea57ca8b7c41d2fc90c1913099">More...</a><br /></td></tr>
-<tr class="separator:aaa4ca3ea57ca8b7c41d2fc90c1913099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad65689b82797403b62c13d7d4eeee6b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#ad65689b82797403b62c13d7d4eeee6b1">apply</a> (const std::function&lt; T(T)&gt; &amp;f)</td></tr>
-<tr class="memdesc:ad65689b82797403b62c13d7d4eeee6b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix.  <a href="classcmatrix.html#ad65689b82797403b62c13d7d4eeee6b1">More...</a><br /></td></tr>
-<tr class="separator:ad65689b82797403b62c13d7d4eeee6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2caab6666627a6fdf4d31f14716d5f08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a2caab6666627a6fdf4d31f14716d5f08">map</a> (const std::function&lt; T(T, size_t *, size_t *)&gt; &amp;f, size_t *col=nullptr, size_t *row=nullptr) const</td></tr>
-<tr class="memdesc:a2caab6666627a6fdf4d31f14716d5f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix and return the result.  <a href="classcmatrix.html#a2caab6666627a6fdf4d31f14716d5f08">More...</a><br /></td></tr>
-<tr class="separator:a2caab6666627a6fdf4d31f14716d5f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec11f70e818f918e023fd091306204ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#aec11f70e818f918e023fd091306204ba">map</a> (const std::function&lt; T(T)&gt; &amp;f) const</td></tr>
-<tr class="memdesc:aec11f70e818f918e023fd091306204ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix and return the result.  <a href="classcmatrix.html#aec11f70e818f918e023fd091306204ba">More...</a><br /></td></tr>
-<tr class="separator:aec11f70e818f918e023fd091306204ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70ed516d04d245c16f3bda79284f000b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a70ed516d04d245c16f3bda79284f000b">fill</a> (const T &amp;val)</td></tr>
-<tr class="memdesc:a70ed516d04d245c16f3bda79284f000b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the matrix with a value.  <a href="classcmatrix.html#a70ed516d04d245c16f3bda79284f000b">More...</a><br /></td></tr>
-<tr class="separator:a70ed516d04d245c16f3bda79284f000b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a632bae1f8b175c072f8641c46ec9ff1f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a632bae1f8b175c072f8641c46ec9ff1f">to_vector</a> () const</td></tr>
-<tr class="memdesc:a632bae1f8b175c072f8641c46ec9ff1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a vector.  <a href="classcmatrix.html#a632bae1f8b175c072f8641c46ec9ff1f">More...</a><br /></td></tr>
-<tr class="separator:a632bae1f8b175c072f8641c46ec9ff1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e8370d047a279c67ca8727a80d8bfd1"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
-<tr class="memitem:a1e8370d047a279c67ca8727a80d8bfd1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a1e8370d047a279c67ca8727a80d8bfd1">cast</a> () const</td></tr>
-<tr class="memdesc:a1e8370d047a279c67ca8727a80d8bfd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a matrix of another type.  <a href="classcmatrix.html#a1e8370d047a279c67ca8727a80d8bfd1">More...</a><br /></td></tr>
-<tr class="separator:a1e8370d047a279c67ca8727a80d8bfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7197a96a81f8cc920f7bdd97c4c67f62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#ga7197a96a81f8cc920f7bdd97c4c67f62">insert_row</a> (const size_t &amp;pos, const std::vector&lt; T &gt; &amp;val)</td></tr>
+<tr class="memdesc:ga7197a96a81f8cc920f7bdd97c4c67f62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a column in the matrix.  <a href="group__manipulation.html#ga7197a96a81f8cc920f7bdd97c4c67f62">More...</a><br /></td></tr>
+<tr class="separator:ga7197a96a81f8cc920f7bdd97c4c67f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa38db9639415363455d48cab1be0a253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#gaa38db9639415363455d48cab1be0a253">insert_column</a> (const size_t &amp;pos, const std::vector&lt; T &gt; &amp;val)</td></tr>
+<tr class="memdesc:gaa38db9639415363455d48cab1be0a253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a row in the matrix.  <a href="group__manipulation.html#gaa38db9639415363455d48cab1be0a253">More...</a><br /></td></tr>
+<tr class="separator:gaa38db9639415363455d48cab1be0a253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga65d220edf6f5ca2eab34d94477afa826"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#ga65d220edf6f5ca2eab34d94477afa826">push_row_front</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
+<tr class="memdesc:ga65d220edf6f5ca2eab34d94477afa826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a row in the front of the matrix.  <a href="group__manipulation.html#ga65d220edf6f5ca2eab34d94477afa826">More...</a><br /></td></tr>
+<tr class="separator:ga65d220edf6f5ca2eab34d94477afa826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab66903c4ed2ebd6957e9149e96bcb07e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#gab66903c4ed2ebd6957e9149e96bcb07e">push_row_back</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
+<tr class="memdesc:gab66903c4ed2ebd6957e9149e96bcb07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a row in the back of the matrix.  <a href="group__manipulation.html#gab66903c4ed2ebd6957e9149e96bcb07e">More...</a><br /></td></tr>
+<tr class="separator:gab66903c4ed2ebd6957e9149e96bcb07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd89b01da658da557ca8ccd15375129e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#gadd89b01da658da557ca8ccd15375129e">push_col_front</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
+<tr class="memdesc:gadd89b01da658da557ca8ccd15375129e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a column in the front of the matrix.  <a href="group__manipulation.html#gadd89b01da658da557ca8ccd15375129e">More...</a><br /></td></tr>
+<tr class="separator:gadd89b01da658da557ca8ccd15375129e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4aa7f5e61d48d761968a732d5cf2fb95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#ga4aa7f5e61d48d761968a732d5cf2fb95">push_col_back</a> (const std::vector&lt; T &gt; &amp;val)</td></tr>
+<tr class="memdesc:ga4aa7f5e61d48d761968a732d5cf2fb95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a column in the back of the matrix.  <a href="group__manipulation.html#ga4aa7f5e61d48d761968a732d5cf2fb95">More...</a><br /></td></tr>
+<tr class="separator:ga4aa7f5e61d48d761968a732d5cf2fb95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d0ec712500fcec28bb3f9963ab7f120"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#ga5d0ec712500fcec28bb3f9963ab7f120">find_row</a> (const std::function&lt; bool(std::vector&lt; T &gt;)&gt; &amp;f) const</td></tr>
+<tr class="separator:ga5d0ec712500fcec28bb3f9963ab7f120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga836a2ada7ca93ec9fdc569c309371266"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#ga836a2ada7ca93ec9fdc569c309371266">find_row</a> (const std::vector&lt; T &gt; &amp;val) const</td></tr>
+<tr class="memdesc:ga836a2ada7ca93ec9fdc569c309371266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first row matching the given row.  <a href="group__manipulation.html#ga836a2ada7ca93ec9fdc569c309371266">More...</a><br /></td></tr>
+<tr class="separator:ga836a2ada7ca93ec9fdc569c309371266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga48370e130446b1fa949c121ac949072f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#ga48370e130446b1fa949c121ac949072f">find_column</a> (const std::function&lt; bool(std::vector&lt; T &gt;)&gt; &amp;f) const</td></tr>
+<tr class="memdesc:ga48370e130446b1fa949c121ac949072f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first column matching the condition.  <a href="group__manipulation.html#ga48370e130446b1fa949c121ac949072f">More...</a><br /></td></tr>
+<tr class="separator:ga48370e130446b1fa949c121ac949072f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f95c6473de06bf3e05202fb9f6b560f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#ga3f95c6473de06bf3e05202fb9f6b560f">find_column</a> (const std::vector&lt; T &gt; &amp;val) const</td></tr>
+<tr class="memdesc:ga3f95c6473de06bf3e05202fb9f6b560f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first column matching the given column.  <a href="group__manipulation.html#ga3f95c6473de06bf3e05202fb9f6b560f">More...</a><br /></td></tr>
+<tr class="separator:ga3f95c6473de06bf3e05202fb9f6b560f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa137c74b74786feaf099387b68c85d7"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#gaaa137c74b74786feaf099387b68c85d7">find</a> (const std::function&lt; bool(T)&gt; &amp;f) const</td></tr>
+<tr class="memdesc:gaaa137c74b74786feaf099387b68c85d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first cell matching the condition.  <a href="group__manipulation.html#gaaa137c74b74786feaf099387b68c85d7">More...</a><br /></td></tr>
+<tr class="separator:gaaa137c74b74786feaf099387b68c85d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc019c1a9385c01d8549d6892a70252a"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#gabc019c1a9385c01d8549d6892a70252a">find</a> (const T &amp;val) const</td></tr>
+<tr class="memdesc:gabc019c1a9385c01d8549d6892a70252a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the first cell matching the given cell.  <a href="group__manipulation.html#gabc019c1a9385c01d8549d6892a70252a">More...</a><br /></td></tr>
+<tr class="separator:gabc019c1a9385c01d8549d6892a70252a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga08d679330da1629a2f742ba58262132e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#ga08d679330da1629a2f742ba58262132e">remove_row</a> (const size_t &amp;n)</td></tr>
+<tr class="memdesc:ga08d679330da1629a2f742ba58262132e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a row of the matrix.  <a href="group__manipulation.html#ga08d679330da1629a2f742ba58262132e">More...</a><br /></td></tr>
+<tr class="separator:ga08d679330da1629a2f742ba58262132e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__manipulation.html#gab85773fe1e9b38d7ad76a3612d5535d5">remove_column</a> (const size_t &amp;n)</td></tr>
+<tr class="memdesc:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a column of the matrix.  <a href="group__manipulation.html#gab85773fe1e9b38d7ad76a3612d5535d5">More...</a><br /></td></tr>
+<tr class="separator:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffc2a1e81d350c25e5779afe1aab8da8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#gaffc2a1e81d350c25e5779afe1aab8da8">is_empty</a> () const</td></tr>
+<tr class="memdesc:gaffc2a1e81d350c25e5779afe1aab8da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is empty.  <a href="group__check.html#gaffc2a1e81d350c25e5779afe1aab8da8">More...</a><br /></td></tr>
+<tr class="separator:gaffc2a1e81d350c25e5779afe1aab8da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef41d2fe33a969498b7c3fb3c58404fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#gaef41d2fe33a969498b7c3fb3c58404fe">is_square</a> () const</td></tr>
+<tr class="memdesc:gaef41d2fe33a969498b7c3fb3c58404fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is a square matrix.  <a href="group__check.html#gaef41d2fe33a969498b7c3fb3c58404fe">More...</a><br /></td></tr>
+<tr class="separator:gaef41d2fe33a969498b7c3fb3c58404fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13dbea9de0c151a9a166f5574a4051ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga13dbea9de0c151a9a166f5574a4051ed">is_diag</a> () const</td></tr>
+<tr class="memdesc:ga13dbea9de0c151a9a166f5574a4051ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is a diagonal matrix.  <a href="group__check.html#ga13dbea9de0c151a9a166f5574a4051ed">More...</a><br /></td></tr>
+<tr class="separator:ga13dbea9de0c151a9a166f5574a4051ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54e28932a02aa0b6e1afa386f7b8d862"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga54e28932a02aa0b6e1afa386f7b8d862">is_identity</a> () const</td></tr>
+<tr class="memdesc:ga54e28932a02aa0b6e1afa386f7b8d862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is the identity matrix.  <a href="group__check.html#ga54e28932a02aa0b6e1afa386f7b8d862">More...</a><br /></td></tr>
+<tr class="separator:ga54e28932a02aa0b6e1afa386f7b8d862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1931e131bdcbb2c60fc590d43819e45b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga1931e131bdcbb2c60fc590d43819e45b">is_symetric</a> () const</td></tr>
+<tr class="memdesc:ga1931e131bdcbb2c60fc590d43819e45b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is a symmetric matrix.  <a href="group__check.html#ga1931e131bdcbb2c60fc590d43819e45b">More...</a><br /></td></tr>
+<tr class="separator:ga1931e131bdcbb2c60fc590d43819e45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b4e6176e32373a4469176dfe47395c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga5b4e6176e32373a4469176dfe47395c5">is_triangular_up</a> () const</td></tr>
+<tr class="memdesc:ga5b4e6176e32373a4469176dfe47395c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is an upper triangular matrix.  <a href="group__check.html#ga5b4e6176e32373a4469176dfe47395c5">More...</a><br /></td></tr>
+<tr class="separator:ga5b4e6176e32373a4469176dfe47395c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8a562b5206d07705f63b045c785f3df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#gae8a562b5206d07705f63b045c785f3df">is_triangular_low</a> () const</td></tr>
+<tr class="memdesc:gae8a562b5206d07705f63b045c785f3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is a lower triangular matrix.  <a href="group__check.html#gae8a562b5206d07705f63b045c785f3df">More...</a><br /></td></tr>
+<tr class="separator:gae8a562b5206d07705f63b045c785f3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga038bb07f84a685d96432069b22c54a4b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga038bb07f84a685d96432069b22c54a4b">all</a> (const std::function&lt; bool(T)&gt; &amp;f) const</td></tr>
+<tr class="memdesc:ga038bb07f84a685d96432069b22c54a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if all the cells of the matrix satisfy a condition.  <a href="group__check.html#ga038bb07f84a685d96432069b22c54a4b">More...</a><br /></td></tr>
+<tr class="separator:ga038bb07f84a685d96432069b22c54a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga612f4e71b55d4a877dd2f2cbb02feef5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga612f4e71b55d4a877dd2f2cbb02feef5">all</a> (const T &amp;val) const</td></tr>
+<tr class="memdesc:ga612f4e71b55d4a877dd2f2cbb02feef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if all the cells of the matrix are equal to a value.  <a href="group__check.html#ga612f4e71b55d4a877dd2f2cbb02feef5">More...</a><br /></td></tr>
+<tr class="separator:ga612f4e71b55d4a877dd2f2cbb02feef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d5d0b0bfa1aa1c88c307ef77582d4a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga4d5d0b0bfa1aa1c88c307ef77582d4a5">any</a> (const std::function&lt; bool(T)&gt; &amp;f) const</td></tr>
+<tr class="memdesc:ga4d5d0b0bfa1aa1c88c307ef77582d4a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if at least one cell of the matrix satisfy a condition.  <a href="group__check.html#ga4d5d0b0bfa1aa1c88c307ef77582d4a5">More...</a><br /></td></tr>
+<tr class="separator:ga4d5d0b0bfa1aa1c88c307ef77582d4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34480288ea74528d4cc9edc1127b0755"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga34480288ea74528d4cc9edc1127b0755">any</a> (const T &amp;val) const</td></tr>
+<tr class="memdesc:ga34480288ea74528d4cc9edc1127b0755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if at least one cell of the matrix is equal to a value.  <a href="group__check.html#ga34480288ea74528d4cc9edc1127b0755">More...</a><br /></td></tr>
+<tr class="separator:ga34480288ea74528d4cc9edc1127b0755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9938af2836a38a1ce92931761f28bd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#gae9938af2836a38a1ce92931761f28bd1">check_dim</a> (const std::tuple&lt; size_t, size_t &gt; &amp;<a class="el" href="classcmatrix.html#ae5e66e4f804d2e39efee0cce42044b46">dim</a>) const</td></tr>
+<tr class="memdesc:gae9938af2836a38a1ce92931761f28bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if dimensions are equals to the dimensions of the matrix.  <a href="group__check.html#gae9938af2836a38a1ce92931761f28bd1">More...</a><br /></td></tr>
+<tr class="separator:gae9938af2836a38a1ce92931761f28bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe81ed6d34cd62c48307ee52c2f5f224"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#gabe81ed6d34cd62c48307ee52c2f5f224">check_dim</a> (const <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;m) const</td></tr>
+<tr class="memdesc:gabe81ed6d34cd62c48307ee52c2f5f224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if dimensions are equals to the dimensions of the matrix.  <a href="group__check.html#gabe81ed6d34cd62c48307ee52c2f5f224">More...</a><br /></td></tr>
+<tr class="separator:gabe81ed6d34cd62c48307ee52c2f5f224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e629f6f593f4c033be7cf0af0a4ae41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga5e629f6f593f4c033be7cf0af0a4ae41">check_valid_row</a> (const std::vector&lt; T &gt; &amp;row) const</td></tr>
+<tr class="memdesc:ga5e629f6f593f4c033be7cf0af0a4ae41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the vector is a valid row of the matrix.  <a href="group__check.html#ga5e629f6f593f4c033be7cf0af0a4ae41">More...</a><br /></td></tr>
+<tr class="separator:ga5e629f6f593f4c033be7cf0af0a4ae41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9cd60c00a168a221023a443b38a3e03b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga9cd60c00a168a221023a443b38a3e03b">check_valid_col</a> (const std::vector&lt; T &gt; &amp;col) const</td></tr>
+<tr class="memdesc:ga9cd60c00a168a221023a443b38a3e03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the vector is a valid column of the matrix.  <a href="group__check.html#ga9cd60c00a168a221023a443b38a3e03b">More...</a><br /></td></tr>
+<tr class="separator:ga9cd60c00a168a221023a443b38a3e03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32c7753039690064f4add5d732abb471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga32c7753039690064f4add5d732abb471">check_valid_diag</a> (const std::vector&lt; T &gt; &amp;<a class="el" href="classcmatrix.html#aa81bdefe0a9fb42d756bf5f0ed3dc13f">diag</a>) const</td></tr>
+<tr class="memdesc:ga32c7753039690064f4add5d732abb471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the diagonal is a valid diagonal of the matrix.  <a href="group__check.html#ga32c7753039690064f4add5d732abb471">More...</a><br /></td></tr>
+<tr class="separator:ga32c7753039690064f4add5d732abb471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga881b5363edb1837074fcb77db888aa64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga881b5363edb1837074fcb77db888aa64">check_valid_row_id</a> (const size_t &amp;n) const</td></tr>
+<tr class="memdesc:ga881b5363edb1837074fcb77db888aa64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the row is a valid row index of the matrix.  <a href="group__check.html#ga881b5363edb1837074fcb77db888aa64">More...</a><br /></td></tr>
+<tr class="separator:ga881b5363edb1837074fcb77db888aa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c5e30bf1ce1e521de73ceb4a8941f7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga6c5e30bf1ce1e521de73ceb4a8941f7f">check_valid_col_id</a> (const size_t &amp;n) const</td></tr>
+<tr class="memdesc:ga6c5e30bf1ce1e521de73ceb4a8941f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the column is a valid column index of the matrix.  <a href="group__check.html#ga6c5e30bf1ce1e521de73ceb4a8941f7f">More...</a><br /></td></tr>
+<tr class="separator:ga6c5e30bf1ce1e521de73ceb4a8941f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23ed75b6b8696b6623c825c3f6a1c3d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga23ed75b6b8696b6623c825c3f6a1c3d6">check_expected_id</a> (const size_t &amp;n, const size_t &amp;expected) const</td></tr>
+<tr class="memdesc:ga23ed75b6b8696b6623c825c3f6a1c3d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the index is expected.  <a href="group__check.html#ga23ed75b6b8696b6623c825c3f6a1c3d6">More...</a><br /></td></tr>
+<tr class="separator:ga23ed75b6b8696b6623c825c3f6a1c3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab9eac978cc396e75413eeb87109a5f70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#gab9eac978cc396e75413eeb87109a5f70">check_expected_id</a> (const size_t &amp;n, const size_t &amp;expectedBegin, const size_t &amp;exepectedEnd) const</td></tr>
+<tr class="memdesc:gab9eac978cc396e75413eeb87109a5f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the index is expected.  <a href="group__check.html#gab9eac978cc396e75413eeb87109a5f70">More...</a><br /></td></tr>
+<tr class="separator:gab9eac978cc396e75413eeb87109a5f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0dd6598a5bea25c9e3bfc74327209170"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__check.html#ga0dd6598a5bea25c9e3bfc74327209170">check_valid_type</a> () const</td></tr>
+<tr class="memdesc:ga0dd6598a5bea25c9e3bfc74327209170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the type of the matrix is valid. List of types not supported: bool.  <a href="group__check.html#ga0dd6598a5bea25c9e3bfc74327209170">More...</a><br /></td></tr>
+<tr class="separator:ga0dd6598a5bea25c9e3bfc74327209170"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c8279aee30a6f9d45c796c2f4902142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__statistics.html#ga3c8279aee30a6f9d45c796c2f4902142">min</a> (const unsigned int &amp;axis=0) const</td></tr>
+<tr class="memdesc:ga3c8279aee30a6f9d45c796c2f4902142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the minimum value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="group__statistics.html#ga3c8279aee30a6f9d45c796c2f4902142">More...</a><br /></td></tr>
+<tr class="separator:ga3c8279aee30a6f9d45c796c2f4902142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f9384e591534cdb81d8671d5e2d8b85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__statistics.html#ga3f9384e591534cdb81d8671d5e2d8b85">max</a> (const unsigned int &amp;axis=0) const</td></tr>
+<tr class="memdesc:ga3f9384e591534cdb81d8671d5e2d8b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the maximum value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="group__statistics.html#ga3f9384e591534cdb81d8671d5e2d8b85">More...</a><br /></td></tr>
+<tr class="separator:ga3f9384e591534cdb81d8671d5e2d8b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d88b49033aeb45479fcf602e9598a12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__statistics.html#ga2d88b49033aeb45479fcf602e9598a12">sum</a> (const unsigned int &amp;axis=0, const T &amp;zero=T()) const</td></tr>
+<tr class="memdesc:ga2d88b49033aeb45479fcf602e9598a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the sum of the matrix for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="group__statistics.html#ga2d88b49033aeb45479fcf602e9598a12">More...</a><br /></td></tr>
+<tr class="separator:ga2d88b49033aeb45479fcf602e9598a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga36aeafd654daf1dea7e3f6db5eae4c62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__statistics.html#ga36aeafd654daf1dea7e3f6db5eae4c62">mean</a> (const unsigned int &amp;axis=0) const</td></tr>
+<tr class="memdesc:ga36aeafd654daf1dea7e3f6db5eae4c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the mean value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="group__statistics.html#ga36aeafd654daf1dea7e3f6db5eae4c62">More...</a><br /></td></tr>
+<tr class="separator:ga36aeafd654daf1dea7e3f6db5eae4c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a5e05c5fb874e9cebcfe689277016c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__statistics.html#ga9a5e05c5fb874e9cebcfe689277016c9">std</a> (const unsigned int &amp;axis=0) const</td></tr>
+<tr class="memdesc:ga9a5e05c5fb874e9cebcfe689277016c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the standard deviation value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="group__statistics.html#ga9a5e05c5fb874e9cebcfe689277016c9">More...</a><br /></td></tr>
+<tr class="separator:ga9a5e05c5fb874e9cebcfe689277016c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30526abba0a7d993cf12bd9847eb9ce0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__statistics.html#ga30526abba0a7d993cf12bd9847eb9ce0">median</a> (const unsigned int &amp;axis=0) const</td></tr>
+<tr class="memdesc:ga30526abba0a7d993cf12bd9847eb9ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the median value for each row (axis: 0) or column (axis: 1) of the matrix.  <a href="group__statistics.html#ga30526abba0a7d993cf12bd9847eb9ce0">More...</a><br /></td></tr>
+<tr class="separator:ga30526abba0a7d993cf12bd9847eb9ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a4525e6c737050e759f753c00001666"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#ga0a4525e6c737050e759f753c00001666">print</a> () const</td></tr>
+<tr class="memdesc:ga0a4525e6c737050e759f753c00001666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the matrix in the standard output.  <a href="group__general.html#ga0a4525e6c737050e759f753c00001666">More...</a><br /></td></tr>
+<tr class="separator:ga0a4525e6c737050e759f753c00001666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1766cb6d6c5f9c0f593aafd056b59d52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#ga1766cb6d6c5f9c0f593aafd056b59d52">clear</a> ()</td></tr>
+<tr class="memdesc:ga1766cb6d6c5f9c0f593aafd056b59d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the matrix.  <a href="group__general.html#ga1766cb6d6c5f9c0f593aafd056b59d52">More...</a><br /></td></tr>
+<tr class="separator:ga1766cb6d6c5f9c0f593aafd056b59d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadabfe43fa749744cf8ee5ad12a3f13cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#gadabfe43fa749744cf8ee5ad12a3f13cf">copy</a> () const</td></tr>
+<tr class="memdesc:gadabfe43fa749744cf8ee5ad12a3f13cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the matrix.  <a href="group__general.html#gadabfe43fa749744cf8ee5ad12a3f13cf">More...</a><br /></td></tr>
+<tr class="separator:gadabfe43fa749744cf8ee5ad12a3f13cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa4ca3ea57ca8b7c41d2fc90c1913099"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#gaaa4ca3ea57ca8b7c41d2fc90c1913099">apply</a> (const std::function&lt; T(T, size_t *, size_t *)&gt; &amp;f, size_t *col=nullptr, size_t *row=nullptr)</td></tr>
+<tr class="memdesc:gaaa4ca3ea57ca8b7c41d2fc90c1913099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix.  <a href="group__general.html#gaaa4ca3ea57ca8b7c41d2fc90c1913099">More...</a><br /></td></tr>
+<tr class="separator:gaaa4ca3ea57ca8b7c41d2fc90c1913099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad65689b82797403b62c13d7d4eeee6b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#gad65689b82797403b62c13d7d4eeee6b1">apply</a> (const std::function&lt; T(T)&gt; &amp;f)</td></tr>
+<tr class="memdesc:gad65689b82797403b62c13d7d4eeee6b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix.  <a href="group__general.html#gad65689b82797403b62c13d7d4eeee6b1">More...</a><br /></td></tr>
+<tr class="separator:gad65689b82797403b62c13d7d4eeee6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2caab6666627a6fdf4d31f14716d5f08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#ga2caab6666627a6fdf4d31f14716d5f08">map</a> (const std::function&lt; T(T, size_t *, size_t *)&gt; &amp;f, size_t *col=nullptr, size_t *row=nullptr) const</td></tr>
+<tr class="memdesc:ga2caab6666627a6fdf4d31f14716d5f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix and return the result.  <a href="group__general.html#ga2caab6666627a6fdf4d31f14716d5f08">More...</a><br /></td></tr>
+<tr class="separator:ga2caab6666627a6fdf4d31f14716d5f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec11f70e818f918e023fd091306204ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#gaec11f70e818f918e023fd091306204ba">map</a> (const std::function&lt; T(T)&gt; &amp;f) const</td></tr>
+<tr class="memdesc:gaec11f70e818f918e023fd091306204ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix and return the result.  <a href="group__general.html#gaec11f70e818f918e023fd091306204ba">More...</a><br /></td></tr>
+<tr class="separator:gaec11f70e818f918e023fd091306204ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70ed516d04d245c16f3bda79284f000b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#ga70ed516d04d245c16f3bda79284f000b">fill</a> (const T &amp;val)</td></tr>
+<tr class="memdesc:ga70ed516d04d245c16f3bda79284f000b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the matrix with a value.  <a href="group__general.html#ga70ed516d04d245c16f3bda79284f000b">More...</a><br /></td></tr>
+<tr class="separator:ga70ed516d04d245c16f3bda79284f000b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga632bae1f8b175c072f8641c46ec9ff1f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__general.html#ga632bae1f8b175c072f8641c46ec9ff1f">to_vector</a> () const</td></tr>
+<tr class="memdesc:ga632bae1f8b175c072f8641c46ec9ff1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a vector.  <a href="group__general.html#ga632bae1f8b175c072f8641c46ec9ff1f">More...</a><br /></td></tr>
+<tr class="separator:ga632bae1f8b175c072f8641c46ec9ff1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e8370d047a279c67ca8727a80d8bfd1"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:ga1e8370d047a279c67ca8727a80d8bfd1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__general.html#ga1e8370d047a279c67ca8727a80d8bfd1">cast</a> () const</td></tr>
+<tr class="memdesc:ga1e8370d047a279c67ca8727a80d8bfd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a matrix of another type.  <a href="group__general.html#ga1e8370d047a279c67ca8727a80d8bfd1">More...</a><br /></td></tr>
+<tr class="separator:ga1e8370d047a279c67ca8727a80d8bfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5602f092d4a29ff7a658f8deae842f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#ad5602f092d4a29ff7a658f8deae842f2">operator=</a> (const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;m)</td></tr>
 <tr class="memdesc:ad5602f092d4a29ff7a658f8deae842f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The assignment operator.  <a href="classcmatrix.html#ad5602f092d4a29ff7a658f8deae842f2">More...</a><br /></td></tr>
 <tr class="separator:ad5602f092d4a29ff7a658f8deae842f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -384,30 +384,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a6ae7a2937f9ec599e14e4bcfbcb9c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a7a6ae7a2937f9ec599e14e4bcfbcb9c6">operator^=</a> (const unsigned int &amp;m)</td></tr>
 <tr class="memdesc:a7a6ae7a2937f9ec599e14e4bcfbcb9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The power assignment operator.  <a href="classcmatrix.html#a7a6ae7a2937f9ec599e14e4bcfbcb9c6">More...</a><br /></td></tr>
 <tr class="separator:a7a6ae7a2937f9ec599e14e4bcfbcb9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68100a6e0887d417b25c09298e1bd682"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a68100a6e0887d417b25c09298e1bd682">randint</a> (const size_t &amp;<a class="el" href="classcmatrix.html#a2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>, const size_t &amp;<a class="el" href="classcmatrix.html#a16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const int &amp;<a class="el" href="classcmatrix.html#a3c8279aee30a6f9d45c796c2f4902142">min</a>, const int &amp;<a class="el" href="classcmatrix.html#a3f9384e591534cdb81d8671d5e2d8b85">max</a>, const int &amp;seed)</td></tr>
+<tr class="memitem:a68100a6e0887d417b25c09298e1bd682"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a68100a6e0887d417b25c09298e1bd682">randint</a> (const size_t &amp;<a class="el" href="classcmatrix.html#a2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>, const size_t &amp;<a class="el" href="classcmatrix.html#a16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const int &amp;<a class="el" href="group__statistics.html#ga3c8279aee30a6f9d45c796c2f4902142">min</a>, const int &amp;<a class="el" href="group__statistics.html#ga3f9384e591534cdb81d8671d5e2d8b85">max</a>, const int &amp;seed)</td></tr>
 <tr class="separator:a68100a6e0887d417b25c09298e1bd682"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36a34028ba6a94832270797e47b87c51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a36a34028ba6a94832270797e47b87c51">zeros</a> (const size_t &amp;<a class="el" href="classcmatrix.html#a16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const size_t &amp;<a class="el" href="classcmatrix.html#a2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>)</td></tr>
 <tr class="separator:a36a34028ba6a94832270797e47b87c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d27a8af98d3034c56f7829e8892e456"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a6d27a8af98d3034c56f7829e8892e456">identity</a> (const size_t &amp;<a class="el" href="classcmatrix.html#a2bf47c5ff5995b37b282edea524e263d">dim</a>)</td></tr>
+<tr class="memitem:a6d27a8af98d3034c56f7829e8892e456"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a6d27a8af98d3034c56f7829e8892e456">identity</a> (const size_t &amp;<a class="el" href="classcmatrix.html#ae5e66e4f804d2e39efee0cce42044b46">dim</a>)</td></tr>
 <tr class="separator:a6d27a8af98d3034c56f7829e8892e456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7198413962160f4f862d3c2dbbf7ebeb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a7198413962160f4f862d3c2dbbf7ebeb">is_matrix</a> (const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;m)</td></tr>
-<tr class="memdesc:a7198413962160f4f862d3c2dbbf7ebeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a nested vector is a matrix. To be a matrix, all the rows and columns must have the same length.  <a href="classcmatrix.html#a7198413962160f4f862d3c2dbbf7ebeb">More...</a><br /></td></tr>
-<tr class="separator:a7198413962160f4f862d3c2dbbf7ebeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfe0fb6f26993a26a361d8663673865b"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#adfe0fb6f26993a26a361d8663673865b">flatten_vector</a> (const std::vector&lt; std::vector&lt; T &gt;&gt; &amp;vec)</td></tr>
-<tr class="memdesc:adfe0fb6f26993a26a361d8663673865b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flatten a nested vector.  <a href="classcmatrix.html#adfe0fb6f26993a26a361d8663673865b">More...</a><br /></td></tr>
-<tr class="separator:adfe0fb6f26993a26a361d8663673865b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd1f040eca612660113a96308d8a9ccc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#abd1f040eca612660113a96308d8a9ccc">randint</a> (const size_t &amp;<a class="el" href="classcmatrix.html#a2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>, const size_t &amp;<a class="el" href="classcmatrix.html#a16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const int &amp;<a class="el" href="classcmatrix.html#a3c8279aee30a6f9d45c796c2f4902142">min</a>, const int &amp;<a class="el" href="classcmatrix.html#a3f9384e591534cdb81d8671d5e2d8b85">max</a>, const int &amp;seed=time(nullptr))</td></tr>
-<tr class="memdesc:abd1f040eca612660113a96308d8a9ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random matrix of integers.  <a href="classcmatrix.html#abd1f040eca612660113a96308d8a9ccc">More...</a><br /></td></tr>
-<tr class="separator:abd1f040eca612660113a96308d8a9ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7198413962160f4f862d3c2dbbf7ebeb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__static.html#ga7198413962160f4f862d3c2dbbf7ebeb">is_matrix</a> (const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;m)</td></tr>
+<tr class="memdesc:ga7198413962160f4f862d3c2dbbf7ebeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a nested vector is a matrix. To be a matrix, all the rows and columns must have the same length.  <a href="group__static.html#ga7198413962160f4f862d3c2dbbf7ebeb">More...</a><br /></td></tr>
+<tr class="separator:ga7198413962160f4f862d3c2dbbf7ebeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadfe0fb6f26993a26a361d8663673865b"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__static.html#gadfe0fb6f26993a26a361d8663673865b">flatten_vector</a> (const std::vector&lt; std::vector&lt; T &gt;&gt; &amp;vec)</td></tr>
+<tr class="memdesc:gadfe0fb6f26993a26a361d8663673865b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flatten a nested vector.  <a href="group__static.html#gadfe0fb6f26993a26a361d8663673865b">More...</a><br /></td></tr>
+<tr class="separator:gadfe0fb6f26993a26a361d8663673865b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd1f040eca612660113a96308d8a9ccc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__static.html#gabd1f040eca612660113a96308d8a9ccc">randint</a> (const size_t &amp;<a class="el" href="classcmatrix.html#a2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>, const size_t &amp;<a class="el" href="classcmatrix.html#a16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const int &amp;<a class="el" href="group__statistics.html#ga3c8279aee30a6f9d45c796c2f4902142">min</a>, const int &amp;<a class="el" href="group__statistics.html#ga3f9384e591534cdb81d8671d5e2d8b85">max</a>, const int &amp;seed=time(nullptr))</td></tr>
+<tr class="memdesc:gabd1f040eca612660113a96308d8a9ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random matrix of integers.  <a href="group__static.html#gabd1f040eca612660113a96308d8a9ccc">More...</a><br /></td></tr>
+<tr class="separator:gabd1f040eca612660113a96308d8a9ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96c97c592e9f8a1892b474a74b27dc40"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a96c97c592e9f8a1892b474a74b27dc40">zeros</a> (const size_t &amp;<a class="el" href="classcmatrix.html#a16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const size_t &amp;<a class="el" href="classcmatrix.html#a2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>)</td></tr>
 <tr class="memdesc:a96c97c592e9f8a1892b474a74b27dc40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a matrix of zeros.  <a href="classcmatrix.html#a96c97c592e9f8a1892b474a74b27dc40">More...</a><br /></td></tr>
 <tr class="separator:a96c97c592e9f8a1892b474a74b27dc40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a919d94470dcdde36abf23379aa01af34"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmatrix.html#a919d94470dcdde36abf23379aa01af34">identity</a> (const size_t &amp;<a class="el" href="classcmatrix.html#a2bf47c5ff5995b37b282edea524e263d">dim</a>)</td></tr>
-<tr class="memdesc:a919d94470dcdde36abf23379aa01af34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the identity matrix.  <a href="classcmatrix.html#a919d94470dcdde36abf23379aa01af34">More...</a><br /></td></tr>
-<tr class="separator:a919d94470dcdde36abf23379aa01af34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga919d94470dcdde36abf23379aa01af34"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__static.html#ga919d94470dcdde36abf23379aa01af34">identity</a> (const size_t &amp;<a class="el" href="classcmatrix.html#ae5e66e4f804d2e39efee0cce42044b46">dim</a>)</td></tr>
+<tr class="memdesc:ga919d94470dcdde36abf23379aa01af34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the identity matrix.  <a href="group__static.html#ga919d94470dcdde36abf23379aa01af34">More...</a><br /></td></tr>
+<tr class="separator:ga919d94470dcdde36abf23379aa01af34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -643,241 +643,6 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a038bb07f84a685d96432069b22c54a4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a038bb07f84a685d96432069b22c54a4b">&#9670;&nbsp;</a></span>all() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::all </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; bool(T)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if all the cells of the matrix satisfy a condition. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The condition to satisfy. f(T value) -&gt; bool </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true If all the cells satisfy the condition. </dd>
-<dd>
-false If at least one cell does not satisfy the condition.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The empty matrix always return true. </dd></dl>
-
-</div>
-</div>
-<a id="a612f4e71b55d4a877dd2f2cbb02feef5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a612f4e71b55d4a877dd2f2cbb02feef5">&#9670;&nbsp;</a></span>all() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::all </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if all the cells of the matrix are equal to a value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The value to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true If all the cells are equal to the value. </dd>
-<dd>
-false If at least one cell is not equal to the value.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The empty matrix always return true. </dd></dl>
-
-</div>
-</div>
-<a id="a4d5d0b0bfa1aa1c88c307ef77582d4a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d5d0b0bfa1aa1c88c307ef77582d4a5">&#9670;&nbsp;</a></span>any() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::any </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; bool(T)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if at least one cell of the matrix satisfy a condition. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The condition to satisfy. f(T value) -&gt; bool </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true If at least one cell satisfy the condition. </dd>
-<dd>
-false If all the cells does not satisfy the condition.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The empty matrix always return false. </dd></dl>
-
-</div>
-</div>
-<a id="a34480288ea74528d4cc9edc1127b0755"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34480288ea74528d4cc9edc1127b0755">&#9670;&nbsp;</a></span>any() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::any </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if at least one cell of the matrix is equal to a value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The value to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true If at least one cell is equal to the value. </dd>
-<dd>
-false If all the cells are not equal to the value.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The empty matrix always return false. </dd></dl>
-
-</div>
-</div>
-<a id="ad65689b82797403b62c13d7d4eeee6b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad65689b82797403b62c13d7d4eeee6b1">&#9670;&nbsp;</a></span>apply() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::apply </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; T(T)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Apply a function to each cell of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to apply. f(T value) -&gt; T </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aaa4ca3ea57ca8b7c41d2fc90c1913099"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa4ca3ea57ca8b7c41d2fc90c1913099">&#9670;&nbsp;</a></span>apply() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::apply </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; T(T, size_t *, size_t *)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>col</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>row</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Apply a function to each cell of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to apply. f(T value, size_t *id_col, size_t *id_row) -&gt; T </td></tr>
-    <tr><td class="paramname">col</td><td>The pointer to the column index. (default: nullptr) </td></tr>
-    <tr><td class="paramname">row</td><td>The pointer to the row index. (default: nullptr) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a1e8370d047a279c67ca8727a80d8bfd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e8370d047a279c67ca8727a80d8bfd1">&#9670;&nbsp;</a></span>cast()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<div class="memtemplate">
-template&lt;class U &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; U &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::cast</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert the matrix to a matrix of another type. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">U</td><td>The type of the matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix<u> The matrix of another type. </u></dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td><u>If the type T is not convertible to the type U. </u></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a62b2c0ff0ee5c36e056d9c414e546097"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62b2c0ff0ee5c36e056d9c414e546097">&#9670;&nbsp;</a></span>cell() <span class="overload">[1/2]</span></h2>
 
@@ -1051,385 +816,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="abe81ed6d34cd62c48307ee52c2f5f224"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe81ed6d34cd62c48307ee52c2f5f224">&#9670;&nbsp;</a></span>check_dim() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_dim </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if dimensions are equals to the dimensions of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>The matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the dimensions are not equals to the dimensions of the matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae9938af2836a38a1ce92931761f28bd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9938af2836a38a1ce92931761f28bd1">&#9670;&nbsp;</a></span>check_dim() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_dim </td>
-          <td>(</td>
-          <td class="paramtype">const std::tuple&lt; size_t, size_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dim</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if dimensions are equals to the dimensions of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dim</td><td>The vertical and horizontal dimensions. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the dimensions are not equals to the dimensions of the matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a23ed75b6b8696b6623c825c3f6a1c3d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23ed75b6b8696b6623c825c3f6a1c3d6">&#9670;&nbsp;</a></span>check_expected_id() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_expected_id </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>expected</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the index is expected. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td>The index to check. </td></tr>
-    <tr><td class="paramname">expected</td><td>The expected index. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the index is not the expected index. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab9eac978cc396e75413eeb87109a5f70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9eac978cc396e75413eeb87109a5f70">&#9670;&nbsp;</a></span>check_expected_id() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_expected_id </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>expectedBegin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>exepectedEnd</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the index is expected. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td>The index to check. </td></tr>
-    <tr><td class="paramname">expectedBegin</td><td>The expected begin index inclusive. </td></tr>
-    <tr><td class="paramname">exepectedEnd</td><td>The expected end index inlusive. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the index is not the expected index. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a9cd60c00a168a221023a443b38a3e03b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cd60c00a168a221023a443b38a3e03b">&#9670;&nbsp;</a></span>check_valid_col()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_valid_col </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>col</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the vector is a valid column of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">col</td><td>The column to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the vector is not a valid column of the matrix.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The column must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a6c5e30bf1ce1e521de73ceb4a8941f7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c5e30bf1ce1e521de73ceb4a8941f7f">&#9670;&nbsp;</a></span>check_valid_col_id()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_valid_col_id </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the column is a valid column index of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">col</td><td>The column index to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the column is not a valid column index of the matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a32c7753039690064f4add5d732abb471"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32c7753039690064f4add5d732abb471">&#9670;&nbsp;</a></span>check_valid_diag()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_valid_diag </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>diag</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the diagonal is a valid diagonal of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">diag</td><td>The diagonal to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the vector is not a valid diagonal of the matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a5e629f6f593f4c033be7cf0af0a4ae41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e629f6f593f4c033be7cf0af0a4ae41">&#9670;&nbsp;</a></span>check_valid_row()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_valid_row </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>row</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the vector is a valid row of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">row</td><td>The row to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the vector is not a valid row of the matrix.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The row must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a881b5363edb1837074fcb77db888aa64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a881b5363edb1837074fcb77db888aa64">&#9670;&nbsp;</a></span>check_valid_row_id()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_valid_row_id </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the row is a valid row index of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">row</td><td>The row index to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the row is not a valid row index of the matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0dd6598a5bea25c9e3bfc74327209170"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0dd6598a5bea25c9e3bfc74327209170">&#9670;&nbsp;</a></span>check_valid_type()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::check_valid_type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the type of the matrix is valid. List of types not supported: bool. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the type is invalid. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a1766cb6d6c5f9c0f593aafd056b59d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1766cb6d6c5f9c0f593aafd056b59d52">&#9670;&nbsp;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::clear</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Clear the matrix. </p>
-
-</div>
-</div>
 <a id="a526f1027d8c2457f8d2ee041c3542261"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a526f1027d8c2457f8d2ee041c3542261">&#9670;&nbsp;</a></span>columns() <span class="overload">[1/2]</span></h2>
 
@@ -1532,26 +918,7 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>Use <code>columns</code> instead. </dd></dl>
-
-</div>
-</div>
-<a id="adabfe43fa749744cf8ee5ad12a3f13cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adabfe43fa749744cf8ee5ad12a3f13cf">&#9670;&nbsp;</a></span>copy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::copy</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Copy the matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;T&gt; The copied matrix. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>Use <code>columns</code> instead.</dd></dl>
 
 </div>
 </div>
@@ -1574,8 +941,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a2bf47c5ff5995b37b282edea524e263d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bf47c5ff5995b37b282edea524e263d">&#9670;&nbsp;</a></span>dim()</h2>
+<a id="ae5e66e4f804d2e39efee0cce42044b46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5e66e4f804d2e39efee0cce42044b46">&#9670;&nbsp;</a></span>dim()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1583,13 +950,13 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::tuple&lt; size_t, size_t &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::dim</td>
+          <td class="memname">std::pair&lt; size_t, size_t &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::dim</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>The dimensions of the matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::tuple&lt;size_t, size_t&gt; The number of rows and columns. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::pair&lt;size_t, size_t&gt; The number of rows and columns. </dd></dl>
 
 </div>
 </div>
@@ -1631,252 +998,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a70ed516d04d245c16f3bda79284f000b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70ed516d04d245c16f3bda79284f000b">&#9670;&nbsp;</a></span>fill()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::fill </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fill the matrix with a value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The value to fill the matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aaa137c74b74786feaf099387b68c85d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa137c74b74786feaf099387b68c85d7">&#9670;&nbsp;</a></span>find() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::tuple&lt; int, int &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::find </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; bool(T)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the first cell matching the condition. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The condition to satisfy. f(T value) -&gt; bool </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::tuple&lt;int, int&gt; The first index of the cell. (-1, -1) if not found.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The empty matrix always return (-1, -1). </dd></dl>
-
-</div>
-</div>
-<a id="abc019c1a9385c01d8549d6892a70252a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc019c1a9385c01d8549d6892a70252a">&#9670;&nbsp;</a></span>find() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::tuple&lt; int, int &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::find </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the first cell matching the given cell. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The cell to find. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::tuple&lt;int, int&gt; The first index of the cell. (-1, -1) if not found.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The cell must be of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a48370e130446b1fa949c121ac949072f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48370e130446b1fa949c121ac949072f">&#9670;&nbsp;</a></span>find_column() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::find_column </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; bool(std::vector&lt; T &gt;)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the first column matching the condition. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The condition to satisfy. f(std::vector&lt;T&gt; col) -&gt; bool </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int The first index of the column. -1 if not found.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The empty matrix always return -1. </dd></dl>
-
-</div>
-</div>
-<a id="a3f95c6473de06bf3e05202fb9f6b560f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f95c6473de06bf3e05202fb9f6b560f">&#9670;&nbsp;</a></span>find_column() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::find_column </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the first column matching the given column. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The column to find. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int The first index of the row. -1 if not found.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The column must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a5d0ec712500fcec28bb3f9963ab7f120"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d0ec712500fcec28bb3f9963ab7f120">&#9670;&nbsp;</a></span>find_row() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::find_row </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; bool(std::vector&lt; T &gt;)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>@bried Find the first row matching the condition.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The condition to satisfy. f(std::vector&lt;T&gt; row) -&gt; bool </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int The first index of the row. -1 if not found.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The empty matrix always return -1. </dd></dl>
-
-</div>
-</div>
-<a id="a836a2ada7ca93ec9fdc569c309371266"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a836a2ada7ca93ec9fdc569c309371266">&#9670;&nbsp;</a></span>find_row() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::find_row </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the first row matching the given row. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The row to find. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int The first index of the row. -1 if not found.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The row must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="adfe0fb6f26993a26a361d8663673865b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfe0fb6f26993a26a361d8663673865b">&#9670;&nbsp;</a></span>flatten_vector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; T &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::flatten_vector </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::vector&lt; T &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Flatten a nested vector. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">vec</td><td>The nested vector to flatten. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;T&gt; The flattened vector. </dd></dl>
-
-</div>
-</div>
 <a id="a6d27a8af98d3034c56f7829e8892e456"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d27a8af98d3034c56f7829e8892e456">&#9670;&nbsp;</a></span>identity() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d27a8af98d3034c56f7829e8892e456">&#9670;&nbsp;</a></span>identity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1890,546 +1013,6 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a919d94470dcdde36abf23379aa01af34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a919d94470dcdde36abf23379aa01af34">&#9670;&nbsp;</a></span>identity() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="classcmatrix.html">cmatrix</a>&lt;int&gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::identity </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>dim</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate the identity matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dim</td><td>The number of rows and columns. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;int&gt; The identity matrix. </dd></dl>
-
-</div>
-</div>
-<a id="aa38db9639415363455d48cab1be0a253"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa38db9639415363455d48cab1be0a253">&#9670;&nbsp;</a></span>insert_column()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::insert_column </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Insert a row in the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>The index of the row to insert. </td></tr>
-    <tr><td class="paramname">val</td><td>The value to insert. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::out_of_range</td><td>If the index is out of range. </td></tr>
-    <tr><td class="paramname">std::invalid_argument</td><td>If the size of the vector <code>val</code> is not equal to the number of columns of the matrix.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The row must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a7197a96a81f8cc920f7bdd97c4c67f62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7197a96a81f8cc920f7bdd97c4c67f62">&#9670;&nbsp;</a></span>insert_row()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::insert_row </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Insert a column in the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>The index of the column to insert. </td></tr>
-    <tr><td class="paramname">val</td><td>The value to insert. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::out_of_range</td><td>If the index is out of range. </td></tr>
-    <tr><td class="paramname">std::invalid_argument</td><td>If the size of the vector <code>val</code> is not equal to the number of rows of the matrix.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The column must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a13dbea9de0c151a9a166f5574a4051ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13dbea9de0c151a9a166f5574a4051ed">&#9670;&nbsp;</a></span>is_diag()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::is_diag</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the matrix is a diagonal matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>true If the matrix is a diagonal matrix. </dd>
-<dd>
-false If the matrix is not a diagonal matrix. </dd></dl>
-
-</div>
-</div>
-<a id="affc2a1e81d350c25e5779afe1aab8da8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affc2a1e81d350c25e5779afe1aab8da8">&#9670;&nbsp;</a></span>is_empty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::is_empty</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the matrix is empty. </p>
-<dl class="section return"><dt>Returns</dt><dd>true If the matrix is empty. </dd>
-<dd>
-false If the matrix is not empty. </dd></dl>
-
-</div>
-</div>
-<a id="a54e28932a02aa0b6e1afa386f7b8d862"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54e28932a02aa0b6e1afa386f7b8d862">&#9670;&nbsp;</a></span>is_identity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::is_identity</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the matrix is the identity matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>true If the matrix is the identity matrix. </dd>
-<dd>
-false If the matrix is not the identity matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a7198413962160f4f862d3c2dbbf7ebeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7198413962160f4f862d3c2dbbf7ebeb">&#9670;&nbsp;</a></span>is_matrix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::is_matrix </td>
-          <td>(</td>
-          <td class="paramtype">const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if a nested vector is a matrix. To be a matrix, all the rows and columns must have the same length. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>The nested vector to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true If the nested vector is a matrix. </dd>
-<dd>
-false If the nested vector is not a matrix. </dd></dl>
-
-</div>
-</div>
-<a id="aef41d2fe33a969498b7c3fb3c58404fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef41d2fe33a969498b7c3fb3c58404fe">&#9670;&nbsp;</a></span>is_square()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::is_square</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the matrix is a square matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>true If the matrix is a square matrix. </dd>
-<dd>
-false If the matrix is not a square matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a1931e131bdcbb2c60fc590d43819e45b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1931e131bdcbb2c60fc590d43819e45b">&#9670;&nbsp;</a></span>is_symetric()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::is_symetric</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the matrix is a symmetric matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>true If the matrix is a symmetric matrix. </dd>
-<dd>
-false If the matrix is not a symmetric matrix. </dd></dl>
-
-</div>
-</div>
-<a id="ae8a562b5206d07705f63b045c785f3df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8a562b5206d07705f63b045c785f3df">&#9670;&nbsp;</a></span>is_triangular_low()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::is_triangular_low</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the matrix is a lower triangular matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>true If the matrix is a lower triangular matrix. </dd>
-<dd>
-false If the matrix is not a lower triangular matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a5b4e6176e32373a4469176dfe47395c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b4e6176e32373a4469176dfe47395c5">&#9670;&nbsp;</a></span>is_triangular_up()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::is_triangular_up</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the matrix is an upper triangular matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>true If the matrix is an upper triangular matrix. </dd>
-<dd>
-false If the matrix is not an upper triangular matrix. </dd></dl>
-
-</div>
-</div>
-<a id="aec11f70e818f918e023fd091306204ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec11f70e818f918e023fd091306204ba">&#9670;&nbsp;</a></span>map() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::map </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; T(T)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Apply a function to each cell of the matrix and return the result. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to apply. f(T value) -&gt; T </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;T&gt; The result of the function. </dd></dl>
-
-</div>
-</div>
-<a id="a2caab6666627a6fdf4d31f14716d5f08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2caab6666627a6fdf4d31f14716d5f08">&#9670;&nbsp;</a></span>map() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::map </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; T(T, size_t *, size_t *)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>col</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>row</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Apply a function to each cell of the matrix and return the result. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to apply. f(T value, size_t *id_col, size_t *id_row) -&gt; T </td></tr>
-    <tr><td class="paramname">col</td><td>The pointer to the column index. (default: nullptr) </td></tr>
-    <tr><td class="paramname">row</td><td>The pointer to the row index. (default: nullptr) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;T&gt; The result of the function. </dd></dl>
-
-</div>
-</div>
-<a id="a3f9384e591534cdb81d8671d5e2d8b85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f9384e591534cdb81d8671d5e2d8b85">&#9670;&nbsp;</a></span>max()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::max </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>axis</em> = <code>0</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the maximum value for each row (axis: 0) or column (axis: 1) of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axis</td><td>The axis to get the maximum value. 0 for the rows, 1 for the columns. (default: 0) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;T&gt; The maximum value for each row or column of the matrix. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the axis is not 0 or 1.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The type of the matrix must implement the operator &gt;. </dd></dl>
-
-</div>
-</div>
-<a id="a36aeafd654daf1dea7e3f6db5eae4c62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36aeafd654daf1dea7e3f6db5eae4c62">&#9670;&nbsp;</a></span>mean()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; float &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::mean </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>axis</em> = <code>0</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the mean value for each row (axis: 0) or column (axis: 1) of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axis</td><td>The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;float&gt; The mean value for each row or column of the matrix. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the axis is not 0 or 1. </td></tr>
-    <tr><td class="paramname">std::invalid_argument</td><td>If the matrix is not arithmetic.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The matrix must be of arithmetic type. </dd></dl>
-
-</div>
-</div>
-<a id="a30526abba0a7d993cf12bd9847eb9ce0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30526abba0a7d993cf12bd9847eb9ce0">&#9670;&nbsp;</a></span>median()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::median </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>axis</em> = <code>0</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the median value for each row (axis: 0) or column (axis: 1) of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axis</td><td>The axis to get the median value. 0 for the rows, 1 for the columns. (default: 0) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;T&gt; The median value of the matrix for each row or column of the matrix. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the axis is not 0 or 1.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The matrix must implement the operator &lt;. </dd>
-<dd>
-If the number of elements is even, the median is the smallest value of the two middle values. </dd></dl>
-
-</div>
-</div>
-<a id="a3c8279aee30a6f9d45c796c2f4902142"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c8279aee30a6f9d45c796c2f4902142">&#9670;&nbsp;</a></span>min()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::min </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>axis</em> = <code>0</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the minimum value for each row (axis: 0) or column (axis: 1) of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axis</td><td>The axis to get the minimum value. 0 for the rows, 1 for the columns. (default: 0) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;T&gt; The minimum value for each row or column of the matrix. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the axis is not 0 or 1.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The type of the matrix must implement the operator &lt;. </dd></dl>
 
 </div>
 </div>
@@ -3213,166 +1796,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a0a4525e6c737050e759f753c00001666"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a4525e6c737050e759f753c00001666">&#9670;&nbsp;</a></span>print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::print</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the matrix in the standard output. </p>
-
-</div>
-</div>
-<a id="a4aa7f5e61d48d761968a732d5cf2fb95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4aa7f5e61d48d761968a732d5cf2fb95">&#9670;&nbsp;</a></span>push_col_back()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::push_col_back </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Push a column in the back of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The column to push. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the size of the vector <code>val</code> is not equal to the number of rows of the matrix.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The column must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="add89b01da658da557ca8ccd15375129e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add89b01da658da557ca8ccd15375129e">&#9670;&nbsp;</a></span>push_col_front()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::push_col_front </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Push a column in the front of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The column to push. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the size of the vector <code>val</code> is not equal to the number of rows of the matrix.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The column must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="ab66903c4ed2ebd6957e9149e96bcb07e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab66903c4ed2ebd6957e9149e96bcb07e">&#9670;&nbsp;</a></span>push_row_back()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::push_row_back </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Push a row in the back of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The row to push. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the size of the vector <code>val</code> is not equal to the number of columns of the matrix.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The row must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a65d220edf6f5ca2eab34d94477afa826"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65d220edf6f5ca2eab34d94477afa826">&#9670;&nbsp;</a></span>push_row_front()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::push_row_front </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Push a row in the front of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">val</td><td>The row to push. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the size of the vector <code>val</code> is not equal to the number of columns of the matrix.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The row must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
 <a id="a68100a6e0887d417b25c09298e1bd682"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68100a6e0887d417b25c09298e1bd682">&#9670;&nbsp;</a></span>randint() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a68100a6e0887d417b25c09298e1bd682">&#9670;&nbsp;</a></span>randint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3414,145 +1839,6 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="abd1f040eca612660113a96308d8a9ccc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd1f040eca612660113a96308d8a9ccc">&#9670;&nbsp;</a></span>randint() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="classcmatrix.html">cmatrix</a>&lt;int&gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::randint </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>dim_v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>dim_h</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>min</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>max</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>seed</em> = <code>time(nullptr)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate a random matrix of integers. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dim_h</td><td>The number of rows. </td></tr>
-    <tr><td class="paramname">dim_v</td><td>The number of columns. </td></tr>
-    <tr><td class="paramname">min</td><td>The minimum value of the matrix. </td></tr>
-    <tr><td class="paramname">max</td><td>The maximum value of the matrix. </td></tr>
-    <tr><td class="paramname">seed</td><td>The seed of the random generator. (default: time(nullptr))</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;int&gt; The random matrix of integers. </dd></dl>
-
-</div>
-</div>
-<a id="ab85773fe1e9b38d7ad76a3612d5535d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab85773fe1e9b38d7ad76a3612d5535d5">&#9670;&nbsp;</a></span>remove_column()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::remove_column </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Remove a column of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td>The index of the column to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::out_of_range</td><td>If the index is out of range. </td></tr>
-    <tr><td class="paramname">std::invalid_argument</td><td>If the matrix is empty. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a08d679330da1629a2f742ba58262132e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08d679330da1629a2f742ba58262132e">&#9670;&nbsp;</a></span>remove_row()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::remove_row </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Remove a row of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td>The index of the row to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::out_of_range</td><td>If the index is out of range. </td></tr>
-    <tr><td class="paramname">std::invalid_argument</td><td>If the matrix is empty. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -3658,7 +1944,7 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Use <code>rows</code> instead. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Use <code>rows</code> instead.</dd></dl>
 
 </div>
 </div>
@@ -3841,109 +2127,6 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The row must be a vector of the same type of the matrix. </dd></dl>
-
-</div>
-</div>
-<a id="a9a5e05c5fb874e9cebcfe689277016c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a5e05c5fb874e9cebcfe689277016c9">&#9670;&nbsp;</a></span>std()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; float &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::std </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>axis</em> = <code>0</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the standard deviation value for each row (axis: 0) or column (axis: 1) of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axis</td><td>The axis to get the standard deviation. 0 for the rows, 1 for the columns. (default: 0) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;float&gt; The standard deviation for each row or column of the matrix. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the axis is not 0 or 1. </td></tr>
-    <tr><td class="paramname">std::invalid_argument</td><td>If the matrix is not arithmetic. </td></tr>
-    <tr><td class="paramname">std::invalid_argument</td><td>If the number of elements is less than 2 for the axis.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The matrix must be of arithmetic type. </dd></dl>
-
-</div>
-</div>
-<a id="a2d88b49033aeb45479fcf602e9598a12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d88b49033aeb45479fcf602e9598a12">&#9670;&nbsp;</a></span>sum()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::sum </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>axis</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>zero</em> = <code>T()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the sum of the matrix for each row (axis: 0) or column (axis: 1) of the matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axis</td><td>The axis to get the sum. 0 for the rows, 1 for the columns. (default: 0) </td></tr>
-    <tr><td class="paramname">zero</td><td>The zero value of the sum. (default: the value of the default constructor of the type T) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;T&gt; The sum of the matrix. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>If the axis is not 0 or 1. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a632bae1f8b175c072f8641c46ec9ff1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a632bae1f8b175c072f8641c46ec9ff1f">&#9670;&nbsp;</a></span>to_vector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; std::vector&lt; T &gt; &gt; <a class="el" href="classcmatrix.html">cmatrix</a>&lt; T &gt;::to_vector</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert the matrix to a vector. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;T&gt; The vector. </dd></dl>
 
 </div>
 </div>

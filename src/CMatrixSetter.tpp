@@ -1,5 +1,6 @@
 /**
- * @file MatrixSetter.tpp
+ * @defgroup setter CMatrixSetter
+ * @file CMatrixSetter.tpp
  * @brief This file contains the implementation of methods to set values in the matrix.
  * 
  * @see cmatrix

@@ -1,4 +1,5 @@
 /**
+ * @defgroup statistics CMatrixStatistics
  * @file CMatrixStatistics.tpp
  * @brief This file contains the implementation of methods to perform statistical operations on the matrix.
  *

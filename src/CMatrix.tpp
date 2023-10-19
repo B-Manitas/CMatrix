@@ -1,5 +1,6 @@
 /**
- * @file cmatrix.tpp
+ * @defgroup general CMatrix
+ * @file CMatrix.tpp
  * @brief This file contains the implementation of general methods of the class.
  *
  * @see cmatrix
