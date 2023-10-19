@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__static" kind="group">
+    <compoundname>static</compoundname>
+    <title>CMatrixStatic</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__static_1ga7198413962160f4f862d3c2dbbf7ebeb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool cmatrix&lt; T &gt;::is_matrix</definition>
+        <argsstring>(const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;m)</argsstring>
+        <name>is_matrix</name>
+        <param>
+          <type>const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Check if a nested vector is a matrix. To be a matrix, all the rows and columns must have the same length. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The nested vector to check. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true If the nested vector is a matrix. </para>
+</simplesect>
+<simplesect kind="return"><para>false If the nested vector is not a matrix. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CMatrix.hpp" line="872" column="17" bodyfile="src/CMatrixStatic.tpp" bodystart="51" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="group__static_1gadfe0fb6f26993a26a361d8663673865b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt; T &gt; cmatrix&lt; T &gt;::flatten_vector</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; T &gt;&gt; &amp;vec)</argsstring>
+        <name>flatten_vector</name>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; T &gt;&gt; &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+<para>Flatten a nested vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The nested vector to flatten. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;T&gt; The flattened vector. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CMatrix.hpp" line="881" column="24" bodyfile="src/CMatrixStatic.tpp" bodystart="71" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="group__static_1gabd1f040eca612660113a96308d8a9ccc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcmatrix" kindref="compound">cmatrix</ref>&lt; int &gt;</type>
+        <definition>static cmatrix&lt;int&gt; cmatrix&lt; T &gt;::randint</definition>
+        <argsstring>(const size_t &amp;dim_v, const size_t &amp;dim_h, const int &amp;min, const int &amp;max, const int &amp;seed=time(nullptr))</argsstring>
+        <name>randint</name>
+        <param>
+          <type>const size_t &amp;</type>
+          <declname>dim_v</declname>
+        </param>
+        <param>
+          <type>const size_t &amp;</type>
+          <declname>dim_h</declname>
+        </param>
+        <param>
+          <type>const int &amp;</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>const int &amp;</type>
+          <declname>max</declname>
+        </param>
+        <param>
+          <type>const int &amp;</type>
+          <declname>seed</declname>
+          <defval>time(nullptr)</defval>
+        </param>
+        <briefdescription>
+<para>Generate a random matrix of integers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dim_h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of rows. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dim_v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of columns. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum value of the matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum value of the matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>seed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The seed of the random generator. (default: time(nullptr))</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>cmatrix&lt;int&gt; The random matrix of integers. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CMatrix.hpp" line="895" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="group__static_1ga919d94470dcdde36abf23379aa01af34" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcmatrix" kindref="compound">cmatrix</ref>&lt; int &gt;</type>
+        <definition>static cmatrix&lt;int&gt; cmatrix&lt; T &gt;::identity</definition>
+        <argsstring>(const size_t &amp;dim)</argsstring>
+        <name>identity</name>
+        <param>
+          <type>const size_t &amp;</type>
+          <declname>dim</declname>
+        </param>
+        <briefdescription>
+<para>Generate the identity matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of rows and columns. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>cmatrix&lt;int&gt; The identity matrix. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CMatrix.hpp" line="912" column="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

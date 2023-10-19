@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classcmatrix" kind="class"><name>cmatrix</name>
+    <member refid="classcmatrix_1a7e0f2a5a18601d9d5f9fc7c6ca80bf02" kind="variable"><name>matrix</name></member>
+    <member refid="group__statistics_1gab9ff2abcabe6974a3412789c31c58d6e" kind="function"><name>__mean</name></member>
+    <member refid="group__statistics_1gab428ffa20b11d80e8b5cdea9bf7c92d1" kind="function"><name>__mean</name></member>
+    <member refid="group__statistics_1ga05dfe44daa6c03a8bac52dbc2a6656f8" kind="function"><name>__std</name></member>
+    <member refid="group__statistics_1ga423f15c24af04cdafd322f6243ff0dcd" kind="function"><name>__std</name></member>
+    <member refid="classcmatrix_1a7a27f3def1551cb1220a7edc15e136a2" kind="function"><name>__map_op_arithmetic</name></member>
+    <member refid="classcmatrix_1a91ecd6a81bd2678c0553d321df0c3573" kind="function"><name>__map_op_comparaison_val</name></member>
+    <member refid="classcmatrix_1aac0edd8caac8b0ff2f9f02cddd3f9428" kind="function"><name>cmatrix</name></member>
+    <member refid="classcmatrix_1a40154e7ad0df15f5f01cc1c7fff3df86" kind="function"><name>cmatrix</name></member>
+    <member refid="classcmatrix_1adc7b866d102dc4bd8b9539fdd5dfc640" kind="function"><name>cmatrix</name></member>
+    <member refid="classcmatrix_1a39c7266a95655c8c7e7047e1806be52d" kind="function"><name>cmatrix</name></member>
+    <member refid="classcmatrix_1a4548d3427fe2306c3bdb8977a4e23224" kind="function"><name>cmatrix</name></member>
+    <member refid="classcmatrix_1ac3e4aa1707d00d1ad31fef4cfea264c1" kind="function"><name>~cmatrix</name></member>
+    <member refid="classcmatrix_1a120f3aadc600c12d27f7f1ff9318ef9f" kind="function"><name>rows_vec</name></member>
+    <member refid="classcmatrix_1a58925821c0eec27a19624434974ad7e9" kind="function"><name>columns_vec</name></member>
+    <member refid="classcmatrix_1a9b20cd286afd659056cf947e177437dd" kind="function"><name>rows</name></member>
+    <member refid="classcmatrix_1ae167e74efe10f452e59573b49fd9c8d2" kind="function"><name>rows</name></member>
+    <member refid="classcmatrix_1a526f1027d8c2457f8d2ee041c3542261" kind="function"><name>columns</name></member>
+    <member refid="classcmatrix_1a78b573432e56057130fca42c7deea53f" kind="function"><name>columns</name></member>
+    <member refid="classcmatrix_1ac4d1db23d0917d2c24959fda156f2d3d" kind="function"><name>cells</name></member>
+    <member refid="classcmatrix_1a05a084faf17f2bbe7d6e8c93ab9122cd" kind="function"><name>cells</name></member>
+    <member refid="classcmatrix_1a62b2c0ff0ee5c36e056d9c414e546097" kind="function"><name>cell</name></member>
+    <member refid="classcmatrix_1a7af0450ebbed50469426663cb980e468" kind="function"><name>cell</name></member>
+    <member refid="classcmatrix_1a16147aad3ce464f611834ce2dc4d302c" kind="function"><name>dim_h</name></member>
+    <member refid="classcmatrix_1a2b5c25d8a931cb75cf41a1799c9379a3" kind="function"><name>dim_v</name></member>
+    <member refid="classcmatrix_1ae5e66e4f804d2e39efee0cce42044b46" kind="function"><name>dim</name></member>
+    <member refid="classcmatrix_1aa65881168e99756c64bf3bb312bee473" kind="function"><name>transpose</name></member>
+    <member refid="classcmatrix_1aa81bdefe0a9fb42d756bf5f0ed3dc13f" kind="function"><name>diag</name></member>
+    <member refid="classcmatrix_1a596d8caaf1cfa941f219165d4785c5b6" kind="function"><name>set_row</name></member>
+    <member refid="classcmatrix_1a34307cea63ad628011a2e82f602e317d" kind="function"><name>set_column</name></member>
+    <member refid="classcmatrix_1adf82974e0924829b8fb93f4a2390287b" kind="function"><name>set_cell</name></member>
+    <member refid="classcmatrix_1a03cf147efe0e0642bf4e31c8d693be66" kind="function"><name>set_diag</name></member>
+    <member refid="group__manipulation_1ga7197a96a81f8cc920f7bdd97c4c67f62" kind="function"><name>insert_row</name></member>
+    <member refid="group__manipulation_1gaa38db9639415363455d48cab1be0a253" kind="function"><name>insert_column</name></member>
+    <member refid="group__manipulation_1ga65d220edf6f5ca2eab34d94477afa826" kind="function"><name>push_row_front</name></member>
+    <member refid="group__manipulation_1gab66903c4ed2ebd6957e9149e96bcb07e" kind="function"><name>push_row_back</name></member>
+    <member refid="group__manipulation_1gadd89b01da658da557ca8ccd15375129e" kind="function"><name>push_col_front</name></member>
+    <member refid="group__manipulation_1ga4aa7f5e61d48d761968a732d5cf2fb95" kind="function"><name>push_col_back</name></member>
+    <member refid="group__manipulation_1ga5d0ec712500fcec28bb3f9963ab7f120" kind="function"><name>find_row</name></member>
+    <member refid="group__manipulation_1ga836a2ada7ca93ec9fdc569c309371266" kind="function"><name>find_row</name></member>
+    <member refid="group__manipulation_1ga48370e130446b1fa949c121ac949072f" kind="function"><name>find_column</name></member>
+    <member refid="group__manipulation_1ga3f95c6473de06bf3e05202fb9f6b560f" kind="function"><name>find_column</name></member>
+    <member refid="group__manipulation_1gaaa137c74b74786feaf099387b68c85d7" kind="function"><name>find</name></member>
+    <member refid="group__manipulation_1gabc019c1a9385c01d8549d6892a70252a" kind="function"><name>find</name></member>
+    <member refid="group__manipulation_1ga08d679330da1629a2f742ba58262132e" kind="function"><name>remove_row</name></member>
+    <member refid="group__manipulation_1gab85773fe1e9b38d7ad76a3612d5535d5" kind="function"><name>remove_column</name></member>
+    <member refid="group__check_1gaffc2a1e81d350c25e5779afe1aab8da8" kind="function"><name>is_empty</name></member>
+    <member refid="group__check_1gaef41d2fe33a969498b7c3fb3c58404fe" kind="function"><name>is_square</name></member>
+    <member refid="group__check_1ga13dbea9de0c151a9a166f5574a4051ed" kind="function"><name>is_diag</name></member>
+    <member refid="group__check_1ga54e28932a02aa0b6e1afa386f7b8d862" kind="function"><name>is_identity</name></member>
+    <member refid="group__check_1ga1931e131bdcbb2c60fc590d43819e45b" kind="function"><name>is_symetric</name></member>
+    <member refid="group__check_1ga5b4e6176e32373a4469176dfe47395c5" kind="function"><name>is_triangular_up</name></member>
+    <member refid="group__check_1gae8a562b5206d07705f63b045c785f3df" kind="function"><name>is_triangular_low</name></member>
+    <member refid="group__check_1ga038bb07f84a685d96432069b22c54a4b" kind="function"><name>all</name></member>
+    <member refid="group__check_1ga612f4e71b55d4a877dd2f2cbb02feef5" kind="function"><name>all</name></member>
+    <member refid="group__check_1ga4d5d0b0bfa1aa1c88c307ef77582d4a5" kind="function"><name>any</name></member>
+    <member refid="group__check_1ga34480288ea74528d4cc9edc1127b0755" kind="function"><name>any</name></member>
+    <member refid="group__check_1gae9938af2836a38a1ce92931761f28bd1" kind="function"><name>check_dim</name></member>
+    <member refid="group__check_1gabe81ed6d34cd62c48307ee52c2f5f224" kind="function"><name>check_dim</name></member>
+    <member refid="group__check_1ga5e629f6f593f4c033be7cf0af0a4ae41" kind="function"><name>check_valid_row</name></member>
+    <member refid="group__check_1ga9cd60c00a168a221023a443b38a3e03b" kind="function"><name>check_valid_col</name></member>
+    <member refid="group__check_1ga32c7753039690064f4add5d732abb471" kind="function"><name>check_valid_diag</name></member>
+    <member refid="group__check_1ga881b5363edb1837074fcb77db888aa64" kind="function"><name>check_valid_row_id</name></member>
+    <member refid="group__check_1ga6c5e30bf1ce1e521de73ceb4a8941f7f" kind="function"><name>check_valid_col_id</name></member>
+    <member refid="group__check_1ga23ed75b6b8696b6623c825c3f6a1c3d6" kind="function"><name>check_expected_id</name></member>
+    <member refid="group__check_1gab9eac978cc396e75413eeb87109a5f70" kind="function"><name>check_expected_id</name></member>
+    <member refid="group__check_1ga0dd6598a5bea25c9e3bfc74327209170" kind="function"><name>check_valid_type</name></member>
+    <member refid="group__statistics_1ga3c8279aee30a6f9d45c796c2f4902142" kind="function"><name>min</name></member>
+    <member refid="group__statistics_1ga3f9384e591534cdb81d8671d5e2d8b85" kind="function"><name>max</name></member>
+    <member refid="group__statistics_1ga2d88b49033aeb45479fcf602e9598a12" kind="function"><name>sum</name></member>
+    <member refid="group__statistics_1ga36aeafd654daf1dea7e3f6db5eae4c62" kind="function"><name>mean</name></member>
+    <member refid="group__statistics_1ga9a5e05c5fb874e9cebcfe689277016c9" kind="function"><name>std</name></member>
+    <member refid="group__statistics_1ga30526abba0a7d993cf12bd9847eb9ce0" kind="function"><name>median</name></member>
+    <member refid="group__general_1ga0a4525e6c737050e759f753c00001666" kind="function"><name>print</name></member>
+    <member refid="group__general_1ga1766cb6d6c5f9c0f593aafd056b59d52" kind="function"><name>clear</name></member>
+    <member refid="group__general_1gadabfe43fa749744cf8ee5ad12a3f13cf" kind="function"><name>copy</name></member>
+    <member refid="group__general_1gaaa4ca3ea57ca8b7c41d2fc90c1913099" kind="function"><name>apply</name></member>
+    <member refid="group__general_1gad65689b82797403b62c13d7d4eeee6b1" kind="function"><name>apply</name></member>
+    <member refid="group__general_1ga2caab6666627a6fdf4d31f14716d5f08" kind="function"><name>map</name></member>
+    <member refid="group__general_1gaec11f70e818f918e023fd091306204ba" kind="function"><name>map</name></member>
+    <member refid="group__general_1ga70ed516d04d245c16f3bda79284f000b" kind="function"><name>fill</name></member>
+    <member refid="group__general_1ga632bae1f8b175c072f8641c46ec9ff1f" kind="function"><name>to_vector</name></member>
+    <member refid="group__general_1ga1e8370d047a279c67ca8727a80d8bfd1" kind="function"><name>cast</name></member>
+    <member refid="classcmatrix_1ad5602f092d4a29ff7a658f8deae842f2" kind="function"><name>operator=</name></member>
+    <member refid="classcmatrix_1a2ba4179e76358649640f200557dc5fdd" kind="function"><name>operator=</name></member>
+    <member refid="classcmatrix_1a753ea3b2926b3e56e96c6976ad0986b8" kind="function"><name>operator==</name></member>
+    <member refid="classcmatrix_1ad96fe7397082bf6663ff696760b8b427" kind="function"><name>operator!=</name></member>
+    <member refid="classcmatrix_1a6588010507da10c54d2cd842d9dba04e" kind="function"><name>operator==</name></member>
+    <member refid="classcmatrix_1a9ccb564da5f7a36986b8ad9bf0a16e82" kind="function"><name>operator!=</name></member>
+    <member refid="classcmatrix_1a1aff6fb5ecfbcd0a0599a859bc08be17" kind="function"><name>operator&lt;</name></member>
+    <member refid="classcmatrix_1ab98cd083af62c7e24902297168a07f6b" kind="function"><name>operator&lt;=</name></member>
+    <member refid="classcmatrix_1a7e1e523c1c1076c3e99277df617e791f" kind="function"><name>operator&gt;</name></member>
+    <member refid="classcmatrix_1aae08ad609f0e4f7d2fa8f537ebfb3873" kind="function"><name>operator&gt;=</name></member>
+    <member refid="classcmatrix_1a09333fa02a60b3027acd956b3d5e6cfb" kind="function"><name>operator+</name></member>
+    <member refid="classcmatrix_1a5fc856b4301b58f6e35ccb0781acae64" kind="function"><name>operator+</name></member>
+    <member refid="classcmatrix_1a052bc5538cb8c686505e09c2a243b6f7" kind="function"><name>operator-</name></member>
+    <member refid="classcmatrix_1a715fa7b609ad3292acdcc61683a32207" kind="function"><name>operator-</name></member>
+    <member refid="classcmatrix_1aaea4c724f5a18c4021919007cce133ad" kind="function"><name>operator*</name></member>
+    <member refid="classcmatrix_1a5c183ea42da70d2c2f406f5d92f6b6df" kind="function"><name>operator*</name></member>
+    <member refid="classcmatrix_1a95a5b75198349687f8c7bef9482f2684" kind="function"><name>operator/</name></member>
+    <member refid="classcmatrix_1ab9c7d4c8f8b9736333309c786bb20606" kind="function"><name>operator^</name></member>
+    <member refid="classcmatrix_1a00d022f9702e1d35b6e89d06fd1da7c5" kind="function"><name>operator+=</name></member>
+    <member refid="classcmatrix_1aa72bb4e820e69e62d81e25402eb4aace" kind="function"><name>operator+=</name></member>
+    <member refid="classcmatrix_1ac5f5919d4a255dc3ae0ea9405bdf5ad6" kind="function"><name>operator-=</name></member>
+    <member refid="classcmatrix_1abe87d7acb78480726882065f7bbc50ce" kind="function"><name>operator-=</name></member>
+    <member refid="classcmatrix_1a475554fb38a955bebb111e0b2be8541f" kind="function"><name>operator*=</name></member>
+    <member refid="classcmatrix_1ad5e8ed21d52c5251e287f210de4f7aa8" kind="function"><name>operator*=</name></member>
+    <member refid="classcmatrix_1afa0384704492f7a22fc67863ade82469" kind="function"><name>operator/=</name></member>
+    <member refid="classcmatrix_1a7a6ae7a2937f9ec599e14e4bcfbcb9c6" kind="function"><name>operator^=</name></member>
+    <member refid="classcmatrix_1a68100a6e0887d417b25c09298e1bd682" kind="function"><name>randint</name></member>
+    <member refid="classcmatrix_1a36a34028ba6a94832270797e47b87c51" kind="function"><name>zeros</name></member>
+    <member refid="classcmatrix_1a6d27a8af98d3034c56f7829e8892e456" kind="function"><name>identity</name></member>
+    <member refid="group__static_1ga7198413962160f4f862d3c2dbbf7ebeb" kind="function"><name>is_matrix</name></member>
+    <member refid="group__static_1gadfe0fb6f26993a26a361d8663673865b" kind="function"><name>flatten_vector</name></member>
+    <member refid="group__static_1gabd1f040eca612660113a96308d8a9ccc" kind="function"><name>randint</name></member>
+    <member refid="classcmatrix_1a96c97c592e9f8a1892b474a74b27dc40" kind="function"><name>zeros</name></member>
+    <member refid="group__static_1ga919d94470dcdde36abf23379aa01af34" kind="function"><name>identity</name></member>
+    <member refid="classcmatrix_1a3e881cfef7557e928a0e9eb62b7d7772" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="CMatrix_8hpp" kind="file"><name>CMatrix.hpp</name>
+  </compound>
+  <compound refid="readme_8md" kind="file"><name>readme.md</name>
+  </compound>
+  <compound refid="CMatrix_8tpp" kind="file"><name>CMatrix.tpp</name>
+  </compound>
+  <compound refid="CMatrixCheck_8tpp" kind="file"><name>CMatrixCheck.tpp</name>
+  </compound>
+  <compound refid="CMatrixConstructor_8tpp" kind="file"><name>CMatrixConstructor.tpp</name>
+  </compound>
+  <compound refid="CMatrixGetter_8tpp" kind="file"><name>CMatrixGetter.tpp</name>
+  </compound>
+  <compound refid="CMatrixManipulation_8tpp" kind="file"><name>CMatrixManipulation.tpp</name>
+  </compound>
+  <compound refid="CMatrixOperator_8tpp" kind="file"><name>CMatrixOperator.tpp</name>
+    <member refid="CMatrixOperator_8tpp_1a3074ea83a143efdda919ad1f5a1b2099" kind="function"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="CMatrixSetter_8tpp" kind="file"><name>CMatrixSetter.tpp</name>
+  </compound>
+  <compound refid="CMatrixStatic_8tpp" kind="file"><name>CMatrixStatic.tpp</name>
+  </compound>
+  <compound refid="CMatrixStatistics_8tpp" kind="file"><name>CMatrixStatistics.tpp</name>
+  </compound>
+  <compound refid="group__general" kind="group"><name>general</name>
+    <member refid="group__general_1ga0a4525e6c737050e759f753c00001666" kind="function"><name>print</name></member>
+    <member refid="group__general_1ga1766cb6d6c5f9c0f593aafd056b59d52" kind="function"><name>clear</name></member>
+    <member refid="group__general_1gadabfe43fa749744cf8ee5ad12a3f13cf" kind="function"><name>copy</name></member>
+    <member refid="group__general_1gaaa4ca3ea57ca8b7c41d2fc90c1913099" kind="function"><name>apply</name></member>
+    <member refid="group__general_1gad65689b82797403b62c13d7d4eeee6b1" kind="function"><name>apply</name></member>
+    <member refid="group__general_1ga2caab6666627a6fdf4d31f14716d5f08" kind="function"><name>map</name></member>
+    <member refid="group__general_1gaec11f70e818f918e023fd091306204ba" kind="function"><name>map</name></member>
+    <member refid="group__general_1ga70ed516d04d245c16f3bda79284f000b" kind="function"><name>fill</name></member>
+    <member refid="group__general_1ga632bae1f8b175c072f8641c46ec9ff1f" kind="function"><name>to_vector</name></member>
+    <member refid="group__general_1ga1e8370d047a279c67ca8727a80d8bfd1" kind="function"><name>cast</name></member>
+  </compound>
+  <compound refid="group__check" kind="group"><name>check</name>
+    <member refid="group__check_1gaffc2a1e81d350c25e5779afe1aab8da8" kind="function"><name>is_empty</name></member>
+    <member refid="group__check_1gaef41d2fe33a969498b7c3fb3c58404fe" kind="function"><name>is_square</name></member>
+    <member refid="group__check_1ga13dbea9de0c151a9a166f5574a4051ed" kind="function"><name>is_diag</name></member>
+    <member refid="group__check_1ga54e28932a02aa0b6e1afa386f7b8d862" kind="function"><name>is_identity</name></member>
+    <member refid="group__check_1ga1931e131bdcbb2c60fc590d43819e45b" kind="function"><name>is_symetric</name></member>
+    <member refid="group__check_1ga5b4e6176e32373a4469176dfe47395c5" kind="function"><name>is_triangular_up</name></member>
+    <member refid="group__check_1gae8a562b5206d07705f63b045c785f3df" kind="function"><name>is_triangular_low</name></member>
+    <member refid="group__check_1ga038bb07f84a685d96432069b22c54a4b" kind="function"><name>all</name></member>
+    <member refid="group__check_1ga612f4e71b55d4a877dd2f2cbb02feef5" kind="function"><name>all</name></member>
+    <member refid="group__check_1ga4d5d0b0bfa1aa1c88c307ef77582d4a5" kind="function"><name>any</name></member>
+    <member refid="group__check_1ga34480288ea74528d4cc9edc1127b0755" kind="function"><name>any</name></member>
+    <member refid="group__check_1gae9938af2836a38a1ce92931761f28bd1" kind="function"><name>check_dim</name></member>
+    <member refid="group__check_1gabe81ed6d34cd62c48307ee52c2f5f224" kind="function"><name>check_dim</name></member>
+    <member refid="group__check_1ga5e629f6f593f4c033be7cf0af0a4ae41" kind="function"><name>check_valid_row</name></member>
+    <member refid="group__check_1ga9cd60c00a168a221023a443b38a3e03b" kind="function"><name>check_valid_col</name></member>
+    <member refid="group__check_1ga32c7753039690064f4add5d732abb471" kind="function"><name>check_valid_diag</name></member>
+    <member refid="group__check_1ga881b5363edb1837074fcb77db888aa64" kind="function"><name>check_valid_row_id</name></member>
+    <member refid="group__check_1ga6c5e30bf1ce1e521de73ceb4a8941f7f" kind="function"><name>check_valid_col_id</name></member>
+    <member refid="group__check_1ga23ed75b6b8696b6623c825c3f6a1c3d6" kind="function"><name>check_expected_id</name></member>
+    <member refid="group__check_1gab9eac978cc396e75413eeb87109a5f70" kind="function"><name>check_expected_id</name></member>
+    <member refid="group__check_1ga0dd6598a5bea25c9e3bfc74327209170" kind="function"><name>check_valid_type</name></member>
+  </compound>
+  <compound refid="group__contructor" kind="group"><name>contructor</name>
+  </compound>
+  <compound refid="group__getter" kind="group"><name>getter</name>
+  </compound>
+  <compound refid="group__manipulation" kind="group"><name>manipulation</name>
+    <member refid="group__manipulation_1ga7197a96a81f8cc920f7bdd97c4c67f62" kind="function"><name>insert_row</name></member>
+    <member refid="group__manipulation_1gaa38db9639415363455d48cab1be0a253" kind="function"><name>insert_column</name></member>
+    <member refid="group__manipulation_1ga65d220edf6f5ca2eab34d94477afa826" kind="function"><name>push_row_front</name></member>
+    <member refid="group__manipulation_1gab66903c4ed2ebd6957e9149e96bcb07e" kind="function"><name>push_row_back</name></member>
+    <member refid="group__manipulation_1gadd89b01da658da557ca8ccd15375129e" kind="function"><name>push_col_front</name></member>
+    <member refid="group__manipulation_1ga4aa7f5e61d48d761968a732d5cf2fb95" kind="function"><name>push_col_back</name></member>
+    <member refid="group__manipulation_1ga5d0ec712500fcec28bb3f9963ab7f120" kind="function"><name>find_row</name></member>
+    <member refid="group__manipulation_1ga836a2ada7ca93ec9fdc569c309371266" kind="function"><name>find_row</name></member>
+    <member refid="group__manipulation_1ga48370e130446b1fa949c121ac949072f" kind="function"><name>find_column</name></member>
+    <member refid="group__manipulation_1ga3f95c6473de06bf3e05202fb9f6b560f" kind="function"><name>find_column</name></member>
+    <member refid="group__manipulation_1gaaa137c74b74786feaf099387b68c85d7" kind="function"><name>find</name></member>
+    <member refid="group__manipulation_1gabc019c1a9385c01d8549d6892a70252a" kind="function"><name>find</name></member>
+    <member refid="group__manipulation_1ga08d679330da1629a2f742ba58262132e" kind="function"><name>remove_row</name></member>
+    <member refid="group__manipulation_1gab85773fe1e9b38d7ad76a3612d5535d5" kind="function"><name>remove_column</name></member>
+  </compound>
+  <compound refid="group__operator" kind="group"><name>operator</name>
+  </compound>
+  <compound refid="group__setter" kind="group"><name>setter</name>
+  </compound>
+  <compound refid="group__static" kind="group"><name>static</name>
+    <member refid="group__static_1ga7198413962160f4f862d3c2dbbf7ebeb" kind="function"><name>is_matrix</name></member>
+    <member refid="group__static_1gadfe0fb6f26993a26a361d8663673865b" kind="function"><name>flatten_vector</name></member>
+    <member refid="group__static_1gabd1f040eca612660113a96308d8a9ccc" kind="function"><name>randint</name></member>
+    <member refid="group__static_1ga919d94470dcdde36abf23379aa01af34" kind="function"><name>identity</name></member>
+  </compound>
+  <compound refid="group__statistics" kind="group"><name>statistics</name>
+    <member refid="group__statistics_1gab9ff2abcabe6974a3412789c31c58d6e" kind="function"><name>__mean</name></member>
+    <member refid="group__statistics_1gab428ffa20b11d80e8b5cdea9bf7c92d1" kind="function"><name>__mean</name></member>
+    <member refid="group__statistics_1ga05dfe44daa6c03a8bac52dbc2a6656f8" kind="function"><name>__std</name></member>
+    <member refid="group__statistics_1ga423f15c24af04cdafd322f6243ff0dcd" kind="function"><name>__std</name></member>
+    <member refid="group__statistics_1ga3c8279aee30a6f9d45c796c2f4902142" kind="function"><name>min</name></member>
+    <member refid="group__statistics_1ga3f9384e591534cdb81d8671d5e2d8b85" kind="function"><name>max</name></member>
+    <member refid="group__statistics_1ga2d88b49033aeb45479fcf602e9598a12" kind="function"><name>sum</name></member>
+    <member refid="group__statistics_1ga36aeafd654daf1dea7e3f6db5eae4c62" kind="function"><name>mean</name></member>
+    <member refid="group__statistics_1ga9a5e05c5fb874e9cebcfe689277016c9" kind="function"><name>std</name></member>
+    <member refid="group__statistics_1ga30526abba0a7d993cf12bd9847eb9ce0" kind="function"><name>median</name></member>
+  </compound>
+  <compound refid="deprecated" kind="page"><name>deprecated</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

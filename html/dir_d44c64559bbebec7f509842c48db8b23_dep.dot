@@ -1,4 +1,5 @@
 digraph "include" {
+  bgcolor=transparent;
   compound=true
   node [ fontsize="10", fontname="Helvetica"];
   edge [ labelfontsize="10", labelfontname="Helvetica"];

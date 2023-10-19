@@ -1,0 +1,20 @@
+var NAVTREEINDEX1 =
+{
+"md_doxygen-awesome-css_docs_tricks.html#autotoc_md12":[2,3,0],
+"md_doxygen-awesome-css_docs_tricks.html#autotoc_md13":[2,3,1],
+"md_doxygen-awesome-css_docs_tricks.html#tricks-darkmode":[2,1],
+"md_doxygen-awesome-css_docs_tricks.html#tricks-graphviz":[2,0],
+"md_doxygen-awesome-css_docs_tricks.html#tricks-sidebar":[2,2],
+"md_doxygen-awesome-css_docs_tricks.html#tricks-tables":[2,3],
+"modules.html":[7],
+"namespaceMyLibrary.html":[9,0,0],
+"namespaceMyLibrary.html":[8,0,0],
+"namespacemembers.html":[8,1,0],
+"namespacemembers_enum.html":[8,1,1],
+"namespacemembers_eval.html":[8,1,2],
+"namespaces.html":[8,0],
+"pages.html":[],
+"subclass-example_8hpp.html":[10,0,0,1,0,1],
+"subclass-example_8hpp_source.html":[10,0,0,1,0,1],
+"todo.html":[4]
+};

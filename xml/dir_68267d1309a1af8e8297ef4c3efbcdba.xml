@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="CMatrix_8tpp">CMatrix.tpp</innerfile>
+    <innerfile refid="CMatrixCheck_8tpp">CMatrixCheck.tpp</innerfile>
+    <innerfile refid="CMatrixConstructor_8tpp">CMatrixConstructor.tpp</innerfile>
+    <innerfile refid="CMatrixGetter_8tpp">CMatrixGetter.tpp</innerfile>
+    <innerfile refid="CMatrixManipulation_8tpp">CMatrixManipulation.tpp</innerfile>
+    <innerfile refid="CMatrixOperator_8tpp">CMatrixOperator.tpp</innerfile>
+    <innerfile refid="CMatrixSetter_8tpp">CMatrixSetter.tpp</innerfile>
+    <innerfile refid="CMatrixStatic_8tpp">CMatrixStatic.tpp</innerfile>
+    <innerfile refid="CMatrixStatistics_8tpp">CMatrixStatistics.tpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>
