@@ -43,7 +43,10 @@ clean : clean_obj clean_exe
 
 docs :
 	doxygen doxygen.conf
-	cd latex && make pdf
-	cd ..
-	mv latex/refman.pdf cmatrix.pdf
+	cd docs/latex && make pdf
+	cd ../..
+	mv docs/latex/refman.pdf cmatrix.pdf
+	mv cmatrix.pdf docs/html
 	clear
+
+.PHONY : all test main clean_obj clean_exe clean docs
