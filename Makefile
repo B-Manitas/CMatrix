@@ -40,3 +40,7 @@ clean_exe :
 	clear
 
 clean : clean_obj clean_exe
+
+docs :
+	doxygen doxygen.conf
+	clear
