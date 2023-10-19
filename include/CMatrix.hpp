@@ -37,7 +37,7 @@ private:
      * @return cmatrix<float> The mean value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * 
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<float> __mean(const unsigned int &axis, std::true_type) const;
     /**
@@ -48,7 +48,7 @@ private:
      * @param false_type The type of the matrix is not arithmetic.
      * @throw std::invalid_argument If the matrix is not arithmetic.
      * 
-     * @ingroup statistics
+     * @ingroup statistic
      *
      */
     cmatrix<float> __mean(const unsigned int &axis, std::false_type) const;
@@ -61,7 +61,7 @@ private:
      * @return cmatrix<float> The std value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * 
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<float> __std(const unsigned int &axis, std::true_type) const;
     /**
@@ -72,7 +72,7 @@ private:
      * @param false_type The type of the matrix is not arithmetic.
      * @throw std::invalid_argument If the matrix is not arithmetic.
      * 
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<float> __std(const unsigned int &axis, std::false_type) const;
     /**
@@ -82,7 +82,7 @@ private:
      * @param m The matrix to apply.
      * @return cmatrix<T> The result of the operator.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const cmatrix<T> &m) const;
     /**
@@ -92,7 +92,7 @@ private:
      * @param n The number to compare.
      * @return cmatrix<short unsigned int> The result of the comparison.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<short unsigned int> __map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const;
 
@@ -104,16 +104,12 @@ public:
      * @param m The matrix to copy.
      * @throw std::invalid_argument If the initializer list is not a matrix.
      * @throw std::invalid_argument If the type is bool.
-     * 
-     * @ingroup constructors
      */
     cmatrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief Construct a new cmatrix object.
      *
      * @throw std::invalid_argument If the type is bool.
-     * 
-     * @ingroup constructors
      */
     cmatrix();
     /**
@@ -122,8 +118,6 @@ public:
      * @param dim_v The number of rows.
      * @param dim_h The number of columns.
      * @throw std::invalid_argument If the type is bool.
-     * 
-     * @ingroup constructors
      */
     cmatrix(const size_t &dim_v, const size_t &dim_h);
     /**
@@ -133,8 +127,6 @@ public:
      * @param dim_h The number of columns.
      * @param val The value to fill the matrix.
      * @throw std::invalid_argument If the type is bool.
-     * 
-     * @ingroup constructors
      */
     cmatrix(const size_t &dim_v, const size_t &dim_h, const T &val);
     /**
@@ -143,8 +135,6 @@ public:
      * @param m The matrix to copy.
      * @tparam U The type of the matrix to copy.
      * @throw std::invalid_argument If the type is bool.
-     * 
-     * @ingroup constructors
      */
     template <class U>
     cmatrix(const cmatrix<U> &m);
@@ -159,7 +149,7 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @deprecated Use `rows` instead.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     std::vector<T> rows_vec(const size_t &n) const;
     /**
@@ -170,7 +160,7 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @deprecated Use `columns` instead.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     std::vector<T> columns_vec(const size_t &n) const;
 
@@ -181,7 +171,7 @@ public:
      * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     cmatrix<T> rows(const size_t &ids) const;
     /**
@@ -191,7 +181,7 @@ public:
      * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     cmatrix<T> rows(const std::initializer_list<size_t> &ids) const;
     /**
@@ -201,7 +191,7 @@ public:
      * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     cmatrix<T> columns(const size_t &ids) const;
     /**
@@ -211,7 +201,7 @@ public:
      * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     cmatrix<T> columns(const std::initializer_list<size_t> &ids) const;
     /**
@@ -222,7 +212,7 @@ public:
      * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     cmatrix<T> cells(const size_t &row, const size_t &col) const;
     /**
@@ -232,7 +222,7 @@ public:
      * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     cmatrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const;
     /**
@@ -243,7 +233,7 @@ public:
      * @return T The reference of the cell.
      * @throw std::out_of_range If the index is out of range.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     T &cell(const size_t &row, const size_t &col);
     /**
@@ -254,7 +244,7 @@ public:
      * @return T The cell.
      * @throw std::out_of_range If the index is out of range.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     T cell(const size_t &row, const size_t &col) const;
 
@@ -263,7 +253,7 @@ public:
      *
      * @return size_t The number of columns.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     size_t dim_h() const;
     /**
@@ -271,7 +261,7 @@ public:
      *
      * @return size_t The number of rows.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     size_t dim_v() const;
     /**
@@ -279,7 +269,7 @@ public:
      *
      * @return std::pair<size_t, size_t> The number of rows and columns.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     std::pair<size_t, size_t> dim() const;
 
@@ -288,7 +278,7 @@ public:
      *
      * @return cmatrix<T> The transpose of the matrix.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     cmatrix<T> transpose() const;
     /**
@@ -296,7 +286,7 @@ public:
      *
      * @return std::vector<T> The diagonal of the matrix.
      * 
-     * @ingroup getters
+     * @ingroup getter
      */
     std::vector<T> diag() const;
 
@@ -310,7 +300,7 @@ public:
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of columns of the matrix.
      *
      * @note The row must be a vector of the same type of the matrix.
-     * @ingroup setters
+     * @ingroup setter
      */
     void set_row(const size_t &n, const std::vector<T> &val);
     /**
@@ -322,7 +312,7 @@ public:
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of rows of the matrix.
      *
      * @note The column must be a vector of the same type of the matrix.
-     * @ingroup setters
+     * @ingroup setter
      */
     void set_column(const size_t &n, const std::vector<T> &val);
     /**
@@ -334,7 +324,7 @@ public:
      * @throw std::out_of_range If the index is out of range.
      *
      * @note The cell must be of the same type of the matrix.
-     * @ingroup setters
+     * @ingroup setter
      */
     void set_cell(const size_t &row, const size_t &col, const T &val);
     /**
@@ -344,7 +334,7 @@ public:
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the minimum of the number of rows and columns of the matrix.
      *
      * @note The diagonal must be a vector of the same type of the matrix.
-     * @ingroup setters
+     * @ingroup setter
      */
     void set_diag(const std::vector<T> &val);
 
@@ -709,7 +699,7 @@ public:
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The type of the matrix must implement the operator <.
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<T> min(const unsigned int &axis = 0) const;
     /**
@@ -720,7 +710,7 @@ public:
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The type of the matrix must implement the operator >.
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<T> max(const unsigned int &axis = 0) const;
     /**
@@ -731,7 +721,7 @@ public:
      * @return cmatrix<T> The sum of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * 
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
     /**
@@ -743,7 +733,7 @@ public:
      * @throw std::invalid_argument If the matrix is not arithmetic.
      *
      * @note The matrix must be of arithmetic type.
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<float> mean(const unsigned int &axis = 0) const;
     /**
@@ -756,7 +746,7 @@ public:
      * @throw std::invalid_argument If the number of elements is less than 2 for the axis.
      *
      * @note The matrix must be of arithmetic type.
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<float> std(const unsigned int &axis = 0) const;
     /**
@@ -768,7 +758,7 @@ public:
      *
      * @note The matrix must implement the operator <.
      * @note If the number of elements is even, the median is the smallest value of the two middle values.
-     * @ingroup statistics
+     * @ingroup statistic
      */
     cmatrix<T> median(const unsigned int &axis = 0) const;
 
@@ -919,7 +909,7 @@ public:
      * @return cmatrix<T>& The copied matrix.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator=(const std::initializer_list<std::initializer_list<T>> &m);
     /**
@@ -929,7 +919,7 @@ public:
      * @return cmatrix<T>& The copied matrix.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator=(const cmatrix<T> &m);
     /**
@@ -940,7 +930,7 @@ public:
      * @return false If the matrices are not equal.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     bool operator==(const cmatrix<T> &m) const;
     /**
@@ -951,7 +941,7 @@ public:
      * @return false If the matrices are equal.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     bool operator!=(const cmatrix<T> &m) const;
     /**
@@ -960,7 +950,7 @@ public:
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<short unsigned int> operator==(const T &n) const;
     /**
@@ -969,7 +959,7 @@ public:
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<short unsigned int> operator!=(const T &n) const;
     /**
@@ -978,7 +968,7 @@ public:
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<short unsigned int> operator<(const T &n) const;
     /**
@@ -987,7 +977,7 @@ public:
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<short unsigned int> operator<=(const T &n) const;
     /**
@@ -996,7 +986,7 @@ public:
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<short unsigned int> operator>(const T &n) const;
     /**
@@ -1005,7 +995,7 @@ public:
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<short unsigned int> operator>=(const T &n) const;
 
@@ -1016,7 +1006,7 @@ public:
      * @param m The matrix to print.
      * @return std::ostream& The output stream.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     template <class U>
     friend std::ostream &operator<<(std::ostream &out, const cmatrix<U> &m);
@@ -1027,7 +1017,7 @@ public:
      * @return cmatrix<T> The sum of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> operator+(const cmatrix<T> &m) const;
     /**
@@ -1036,7 +1026,7 @@ public:
      * @param n The value to add.
      * @return cmatrix<T> The sum of the matrices.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> operator+(const T &n) const;
     /**
@@ -1046,7 +1036,7 @@ public:
      * @return cmatrix<T> The difference of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> operator-(const cmatrix<T> &m) const;
     /**
@@ -1055,7 +1045,7 @@ public:
      * @param n The value to subtract.
      * @return cmatrix<T> The difference of the matrices.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> operator-(const T &val) const;
     /**
@@ -1065,7 +1055,7 @@ public:
      * @return cmatrix<T> The product of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> operator*(const cmatrix<T> &m) const;
     /**
@@ -1074,7 +1064,7 @@ public:
      * @param n The value to multiply.
      * @return cmatrix<T> The product of the matrices.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> operator*(const T &n) const;
     /**
@@ -1083,7 +1073,7 @@ public:
      * @param n The value to divide.
      * @return cmatrix<T> The quotient of the matrices.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> operator/(const T &n) const;
     /**
@@ -1093,7 +1083,7 @@ public:
      * @return cmatrix<T> The powered matrix.
      * @throw std::invalid_argument If the matrix is not a square matrix.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> operator^(const unsigned int &m) const;
     /**
@@ -1103,7 +1093,7 @@ public:
      * @return cmatrix<T>& The sum of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator+=(const cmatrix<T> &m);
     /**
@@ -1112,7 +1102,7 @@ public:
      * @param n The value to add.
      * @return cmatrix<T>& The sum of the matrices.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator+=(const T &n);
     /**
@@ -1122,7 +1112,7 @@ public:
      * @return cmatrix<T>& The difference of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator-=(const cmatrix<T> &m);
     /**
@@ -1131,7 +1121,7 @@ public:
      * @param n The value to subtract.
      * @return cmatrix<T>& The difference of the matrices.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator-=(const T &n);
     /**
@@ -1141,7 +1131,7 @@ public:
      * @return cmatrix<T>& The product of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator*=(const cmatrix<T> &m);
     /**
@@ -1150,7 +1140,7 @@ public:
      * @param n The value to multiply.
      * @return cmatrix<T>& The product of the matrices.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator*=(const T &n);
     /**
@@ -1159,7 +1149,7 @@ public:
      * @param n The value to divide.
      * @return cmatrix<T>& The quotient of the matrices.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator/=(const T &n);
     /**
@@ -1169,7 +1159,7 @@ public:
      * @return cmatrix<T>& The powered matrix.
      * @throw std::invalid_argument If the matrix is not a square matrix.
      * 
-     * @ingroup operators
+     * @ingroup operator
      */
     cmatrix<T> &operator^=(const unsigned int &m);
 };
