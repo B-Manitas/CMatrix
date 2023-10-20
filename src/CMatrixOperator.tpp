@@ -129,6 +129,12 @@ cmatrix<T> operator-(const T &n, const cmatrix<T> &m)
 }
 
 template <class T>
+cmatrix<T> operator-(const cmatrix<T> &m)
+{
+    return m * (-1);
+}
+
+template <class T>
 cmatrix<T> cmatrix<T>::operator*(const cmatrix<T> &m) const
 {
     // Check if the number of columns of the first matrix

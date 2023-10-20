@@ -1070,6 +1070,17 @@ public:
      */
     template <class U>
     friend cmatrix<U> operator-(const U &n, const cmatrix<U> &m);
+    /**
+     * @brief The negation operator.
+     * 
+     * @param m The matrix to negate.
+     * @return cmatrix<T> The negated matrix.
+     * 
+     * @ingroup operator
+     */
+    template <class U>
+    friend cmatrix<U> operator-(const cmatrix<U> &m);
+    /**
      * @brief The multiplication operator.
      *
      * @param m The matrix to multiply.
