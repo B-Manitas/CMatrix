@@ -26,5 +26,9 @@ var group__operator =
     [ "operator>=", "group__operator.html#gaae08ad609f0e4f7d2fa8f537ebfb3873", null ],
     [ "operator^", "group__operator.html#gab9c7d4c8f8b9736333309c786bb20606", null ],
     [ "operator^=", "group__operator.html#ga7a6ae7a2937f9ec599e14e4bcfbcb9c6", null ],
+    [ "operator*", "group__operator.html#gaefe1bd0f0e7e7e5202658d23ce4e1a41", null ],
+    [ "operator+", "group__operator.html#gaf58ed59492d5f609fedc1ec2362ca653", null ],
+    [ "operator-", "group__operator.html#ga694149b2419a974380c99cb15f212897", null ],
+    [ "operator-", "group__operator.html#gaddc55cb52ffbf5ff56092b491107b383", null ],
     [ "operator<<", "group__operator.html#ga3e881cfef7557e928a0e9eb62b7d7772", null ]
 ];

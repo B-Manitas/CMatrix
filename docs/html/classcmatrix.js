@@ -105,5 +105,9 @@ var classcmatrix =
     [ "to_vector", "group__general.html#ga632bae1f8b175c072f8641c46ec9ff1f", null ],
     [ "transpose", "group__getter.html#gaa65881168e99756c64bf3bb312bee473", null ],
     [ "zeros", "classcmatrix.html#a36a34028ba6a94832270797e47b87c51", null ],
+    [ "operator*", "group__operator.html#gaefe1bd0f0e7e7e5202658d23ce4e1a41", null ],
+    [ "operator+", "group__operator.html#gaf58ed59492d5f609fedc1ec2362ca653", null ],
+    [ "operator-", "group__operator.html#ga694149b2419a974380c99cb15f212897", null ],
+    [ "operator-", "group__operator.html#gaddc55cb52ffbf5ff56092b491107b383", null ],
     [ "operator<<", "group__operator.html#ga3e881cfef7557e928a0e9eb62b7d7772", null ]
 ];
