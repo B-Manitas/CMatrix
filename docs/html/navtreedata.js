@@ -54,8 +54,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"CMatrixCheck_8tpp.html",
-"group__statistic.html#ga9a5e05c5fb874e9cebcfe689277016c9"
+"CMatrixCheck_8tpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
