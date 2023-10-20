@@ -169,8 +169,8 @@ TEST(MatrixTest, cells)
 {
     // 3x3 MATRIX
     cmatrix<int> m = {{1, 2, 3},
-                     {4, 5, 6},
-                     {7, 8, 9}};
+                      {4, 5, 6},
+                      {7, 8, 9}};
     cmatrix<int> expected = {{1, 2, 5}};
     EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}).dim_h(), 3);
     EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}).dim_v(), 1);
@@ -559,7 +559,7 @@ TEST(MatrixTest, find_row)
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     EXPECT_EQ(m.find_row({4, 5, 6}), 1);
     EXPECT_EQ(m.find_row([](std::vector<int> row)
-                        { return row.at(0) == row.at(1) - 1 && row.at(1) == row.at(2) - 1; }),
+                         { return row.at(0) == row.at(1) - 1 && row.at(1) == row.at(2) - 1; }),
               0);
 
     // 3x3 MATRIX - NOT FIND
@@ -570,7 +570,7 @@ TEST(MatrixTest, find_row)
     cmatrix<int> m_2 = {{1}, {2}, {3}};
     EXPECT_EQ(m_2.find_row({2}), 1);
     EXPECT_EQ(m_2.find_row([](std::vector<int> row)
-                         { return row.at(0) == 2; }),
+                           { return row.at(0) == 2; }),
               1);
 
     // 3x1 MATRIX - NOT FIND
@@ -580,7 +580,7 @@ TEST(MatrixTest, find_row)
     cmatrix<int> m_3 = {{1, 2, 3}};
     EXPECT_EQ(m_3.find_row({1, 2, 3}), 0);
     EXPECT_EQ(m_3.find_row([](std::vector<int> row)
-                         { return row.at(2) == 3; }),
+                           { return row.at(2) == 3; }),
               0);
 
     // 1x3 MATRIX - NOT FIND
@@ -839,31 +839,31 @@ TEST(MatrixTest, all)
     // EMPTY MATRIX
     cmatrix<int> m_1;
     EXPECT_TRUE(m_1.all([](int x)
-                         { return x == 0; }));
+                        { return x == 0; }));
 
     // 3x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}, {2, 5, 6}, {3, 6, 9}};
     EXPECT_FALSE(m_2.all(0));
     EXPECT_FALSE(m_2.all([](int x)
-                          { return x == 0; }));
+                         { return x == 0; }));
     EXPECT_TRUE(m_2.all([](int x)
-                         { return x > 0; }));
+                        { return x > 0; }));
 
     // 1x3 MATRIX
     cmatrix<int> m_3 = {{1, 2, 3}};
     EXPECT_FALSE(m_3.all([](int x)
-                          { return x == 0; }));
+                         { return x == 0; }));
 
     EXPECT_TRUE(m_3.all([](int x)
-                         { return x > 0; }));
+                        { return x > 0; }));
 
     // 3x1 MATRIX
     cmatrix<int> m_4 = {{1}, {2}, {3}};
     EXPECT_FALSE(m_4.all([](int x)
-                          { return x == 0; }));
+                         { return x == 0; }));
 
     EXPECT_TRUE(m_4.all([](int x)
-                         { return x > 0; }));
+                        { return x > 0; }));
 
     // FILL MATRIX WITH 4
     cmatrix<int> m_5(3, 3, 4);
@@ -877,36 +877,36 @@ TEST(MatrixTest, any)
     // EMPTY MATRIX
     cmatrix<int> m_1;
     EXPECT_FALSE(m_1.any([](int x)
-                          { return x == 0; }));
+                         { return x == 0; }));
 
     // 3x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}, {2, 5, 6}, {3, 6, 9}};
     EXPECT_FALSE(m_2.any([](int x)
-                          { return x == 0; }));
+                         { return x == 0; }));
 
     EXPECT_TRUE(m_2.any(1));
     EXPECT_TRUE(m_2.any([](int x)
-                         { return x == 5; }));
+                        { return x == 5; }));
 
     // 1x3 MATRIX
     cmatrix<int> m_3 = {{1, 2, 3}};
     EXPECT_FALSE(m_3.any(5));
     EXPECT_FALSE(m_3.any([](int x)
-                          { return x == 0; }));
+                         { return x == 0; }));
 
     EXPECT_TRUE(m_3.any(3));
     EXPECT_TRUE(m_3.any([](int x)
-                         { return x == 2; }));
+                        { return x == 2; }));
 
     // 3x1 MATRIX
     cmatrix<int> m_4 = {{1}, {2}, {3}};
     EXPECT_FALSE(m_3.any(5));
     EXPECT_FALSE(m_4.any([](int x)
-                          { return x == 0; }));
+                         { return x == 0; }));
 
     EXPECT_TRUE(m_3.any(2));
     EXPECT_TRUE(m_4.any([](int x)
-                         { return x == 2; }));
+                        { return x == 2; }));
 }
 
 /** Test check_dim method of cmatrix class */
@@ -1279,10 +1279,10 @@ TEST(MatrixTest, apply)
     cmatrix<int> m1Copy = m_1.copy();
     cmatrix<int> expected = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
     m_1.apply([](int x, size_t *i, size_t *j)
-             { return x * 2; });
+              { return x * 2; });
     EXPECT_EQ(m_1, expected);
     m_1.apply([](int x)
-             { return x / 2; });
+              { return x / 2; });
     EXPECT_EQ(m_1, m1Copy);
 
     // 1x3 MATRIX
@@ -1290,10 +1290,10 @@ TEST(MatrixTest, apply)
     cmatrix<int> m2Copy = m_2.copy();
     cmatrix<int> expected2 = {{2, 3, 4}};
     m_2.apply([](int x, size_t *i, size_t *j)
-             { return x + 1; });
+              { return x + 1; });
     EXPECT_EQ(m_2, expected2);
     m_2.apply([](int x)
-             { return x - 1; });
+              { return x - 1; });
     EXPECT_EQ(m_2, m2Copy);
 
     // 3x1 MATRIX
@@ -1301,10 +1301,10 @@ TEST(MatrixTest, apply)
     cmatrix<int> m3Copy = m_3.copy();
     cmatrix<int> expected3 = {{2}, {3}, {4}};
     m_3.apply([](int x, size_t *i, size_t *j)
-             { return x + 1; });
+              { return x + 1; });
     EXPECT_EQ(m_3, expected3);
     m_3.apply([](int x)
-             { return x - 1; });
+              { return x - 1; });
     EXPECT_EQ(m_3, m3Copy);
 }
 
@@ -1315,20 +1315,20 @@ TEST(MatrixTest, map)
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> expected = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
     cmatrix<int> m_2 = m_1.map([](int x, size_t *i, size_t *j)
-                            { return x * 2; });
+                               { return x * 2; });
     EXPECT_EQ(m_2, expected);
     m_2 = m_1.map([](int x)
-                { return x * 2; });
+                  { return x * 2; });
     EXPECT_EQ(m_2, expected);
 
     // 1x3 MATRIX
     cmatrix<int> m_3 = {{1, 2, 3}};
     cmatrix<int> expected2 = {{2, 3, 4}};
     cmatrix<int> m_4 = m_3.map([](int x, size_t *i, size_t *j)
-                            { return x + 1; });
+                               { return x + 1; });
     EXPECT_EQ(m_4, expected2);
     m_4 = m_3.map([](int x)
-                { return x + 1; });
+                  { return x + 1; });
     EXPECT_EQ(m_4, expected2);
 }
 
