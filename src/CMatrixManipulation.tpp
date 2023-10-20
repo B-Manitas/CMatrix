@@ -15,14 +15,14 @@ void cmatrix<T>::insert_row(const size_t &pos, const std::vector<T> &val)
     // If the matrix is empty, we can insert the row of any size
     // However, the position must be 0
     if (is_empty())
-        check_expected_id(pos, 0);
+        __check_expected_id(pos, 0);
 
     // Otherwise, we can only insert a row of the same size as the others
     // The position must be between 0 and the number of rows
     else
     {
-        check_expected_id(pos, 0, dim_v());
-        check_valid_row(val);
+        __check_expected_id(pos, 0, dim_v());
+        __check_valid_row(val);
     }
 
     matrix.insert(matrix.begin() + pos, val);
@@ -35,7 +35,7 @@ void cmatrix<T>::insert_column(const size_t &pos, const std::vector<T> &val)
     if (is_empty())
     {
         // The position must be 0
-        check_expected_id(pos, 0);
+        __check_expected_id(pos, 0);
 
         // Insert the column
         for (size_t i = 0; i < val.size(); i++)
@@ -45,8 +45,8 @@ void cmatrix<T>::insert_column(const size_t &pos, const std::vector<T> &val)
     // Otherwise, we can only insert a column of the same size as the others
     else
     {
-        check_expected_id(pos, 0, dim_h());
-        check_valid_col(val);
+        __check_expected_id(pos, 0, dim_h());
+        __check_valid_col(val);
 
         // For each row, insert the value at the given position
         for (size_t i = 0; i < dim_v(); i++)
@@ -145,14 +145,14 @@ std::tuple<int, int> cmatrix<T>::find(const T &val) const
 template <class T>
 void cmatrix<T>::remove_row(const size_t &pos)
 {
-    check_valid_row_id(pos);
+    __check_valid_row_id(pos);
     matrix.erase(matrix.begin() + pos);
 }
 
 template <class T>
 void cmatrix<T>::remove_column(const size_t &pos)
 {
-    check_valid_col_id(pos);
+    __check_valid_col_id(pos);
 
     // If the matrix has only one column, we can clear it
     // To prevent matrix = [[]]

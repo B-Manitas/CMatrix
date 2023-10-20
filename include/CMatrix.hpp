@@ -28,6 +28,104 @@ class cmatrix
 private:
     std::vector<std::vector<T>> matrix = std::vector<std::vector<T>>();
 
+    // CHECK METHODS
+    /**
+     * @brief Check if dimensions are equals to the dimensions of the matrix.
+     *
+     * @param dim The vertical and horizontal dimensions.
+     * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
+     *
+     * @ingroup check
+     */
+    void __check_dim(const std::tuple<size_t, size_t> &dim) const;
+    /**
+     * @brief Check if dimensions are equals to the dimensions of the matrix.
+     *
+     * @param m The matrix.
+     * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
+     *
+     * @ingroup check
+     */
+    void __check_dim(const cmatrix<T> &m) const;
+    /**
+     * @brief Check if the vector is a valid row of the matrix.
+     *
+     * @param row The row to check.
+     * @throw std::invalid_argument If the vector is not a valid row of the matrix.
+     *
+     * @note The row must be a vector of the same type of the matrix.
+     * @ingroup check
+     */
+    void __check_valid_row(const std::vector<T> &row) const;
+    /**
+     * @brief Check if the vector is a valid column of the matrix.
+
+     * @param col The column to check.
+     * @throw std::invalid_argument If the vector is not a valid column of the matrix.
+     *
+     * @note The column must be a vector of the same type of the matrix.
+     * @ingroup check
+     */
+    void __check_valid_col(const std::vector<T> &col) const;
+    /**
+     * @brief Check if the diagonal is a valid diagonal of the matrix.
+     *
+     * @param diag The diagonal to check.
+     * @throw std::invalid_argument If the vector is not a valid diagonal of the matrix.
+     *
+     * @ingroup check
+     */
+    void __check_valid_diag(const std::vector<T> &diag) const;
+    /**
+     * @brief Check if the row is a valid row index of the matrix.
+     *
+     * @param row The row index to check.
+     * @throw std::invalid_argument If the row is not a valid row index of the matrix.
+     *
+     * @ingroup check
+     */
+    void __check_valid_row_id(const size_t &n) const;
+    /**
+     * @brief Check if the column is a valid column index of the matrix.
+     *
+     * @param col The column index to check.
+     * @throw std::invalid_argument If the column is not a valid column index of the matrix.
+     *
+     * @ingroup check
+     */
+    void __check_valid_col_id(const size_t &n) const;
+    /**
+     * @brief Check if the index is expected.
+     *
+     * @param n The index to check.
+     * @param expected The expected index.
+     * @throw std::invalid_argument If the index is not the expected index.
+     *
+     * @ingroup check
+     */
+    void __check_expected_id(const size_t &n, const size_t &expected) const;
+    /**
+     * @brief Check if the index is expected.
+     *
+     * @param n The index to check.
+     * @param expectedBegin The expected begin index inclusive.
+     * @param exepectedEnd The expected end index inlusive.
+     * @throw std::invalid_argument If the index is not the expected index.
+     *
+     * @ingroup check
+     */
+    void __check_expected_id(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const;
+    /**
+     * @brief Check if the type of the matrix is valid.
+     * List of types not supported: bool.
+     *
+     * @throw std::invalid_argument If the type is invalid.
+     *
+     * @ingroup check
+     */
+    void __check_valid_type() const;
+
+    // STATISTIC METHODS
     /**
      * @brief Compute the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
      * This method is used when the type of the matrix is arithmetic.
@@ -36,7 +134,7 @@ private:
      * @param true_type The type of the matrix is arithmetic.
      * @return cmatrix<float> The mean value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
-     * 
+     *
      * @ingroup statistic
      */
     cmatrix<float> __mean(const unsigned int &axis, std::true_type) const;
@@ -47,7 +145,7 @@ private:
      * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
      * @param false_type The type of the matrix is not arithmetic.
      * @throw std::invalid_argument If the matrix is not arithmetic.
-     * 
+     *
      * @ingroup statistic
      *
      */
@@ -60,7 +158,7 @@ private:
      * @param true_type The type of the matrix is arithmetic.
      * @return cmatrix<float> The std value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
-     * 
+     *
      * @ingroup statistic
      */
     cmatrix<float> __std(const unsigned int &axis, std::true_type) const;
@@ -71,7 +169,7 @@ private:
      * @param axis The axis to get the std value. 0 for the rows, 1 for the columns. (default: 0)
      * @param false_type The type of the matrix is not arithmetic.
      * @throw std::invalid_argument If the matrix is not arithmetic.
-     * 
+     *
      * @ingroup statistic
      */
     cmatrix<float> __std(const unsigned int &axis, std::false_type) const;
@@ -81,7 +179,7 @@ private:
      * @param f The operator to apply. f(T value, T value) -> T
      * @param m The matrix to apply.
      * @return cmatrix<T> The result of the operator.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const cmatrix<T> &m) const;
@@ -91,7 +189,7 @@ private:
      * @param f The comparison operator to apply. f(T value, T value) -> bool
      * @param n The number to compare.
      * @return cmatrix<short unsigned int> The result of the comparison.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<short unsigned int> __map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const;
@@ -148,7 +246,7 @@ public:
      * @return std::vector<T> The row.
      * @throw std::out_of_range If the index is out of range.
      * @deprecated Use `rows` instead.
-     * 
+     *
      * @ingroup getter
      */
     std::vector<T> rows_vec(const size_t &n) const;
@@ -159,7 +257,7 @@ public:
      * @return std::vector<T> The column as a flattened vector.
      * @throw std::out_of_range If the index is out of range.
      * @deprecated Use `columns` instead.
-     * 
+     *
      * @ingroup getter
      */
     std::vector<T> columns_vec(const size_t &n) const;
@@ -170,7 +268,7 @@ public:
      * @param ids The indexes of the rows to get.
      * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> rows(const size_t &ids) const;
@@ -180,7 +278,7 @@ public:
      * @param ids The indexes of the rows to get.
      * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> rows(const std::initializer_list<size_t> &ids) const;
@@ -190,7 +288,7 @@ public:
      * @param ids The indexes of the columns to get.
      * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> columns(const size_t &ids) const;
@@ -200,7 +298,7 @@ public:
      * @param ids The indexes of the columns to get.
      * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> columns(const std::initializer_list<size_t> &ids) const;
@@ -211,7 +309,7 @@ public:
      * @param col The column of the cell to get.
      * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> cells(const size_t &row, const size_t &col) const;
@@ -221,7 +319,7 @@ public:
      * @param ids The indexes of the cells to get. (row, column)
      * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const;
@@ -232,7 +330,7 @@ public:
      * @param col The column of the cell to get.
      * @return T The reference of the cell.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     T &cell(const size_t &row, const size_t &col);
@@ -243,7 +341,7 @@ public:
      * @param col The column of the cell to get.
      * @return T The cell.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     T cell(const size_t &row, const size_t &col) const;
@@ -252,7 +350,7 @@ public:
      * @brief The number of columns of the matrix.
      *
      * @return size_t The number of columns.
-     * 
+     *
      * @ingroup getter
      */
     size_t dim_h() const;
@@ -260,7 +358,7 @@ public:
      * @brief The number of rows of the matrix.
      *
      * @return size_t The number of rows.
-     * 
+     *
      * @ingroup getter
      */
     size_t dim_v() const;
@@ -268,7 +366,7 @@ public:
      * @brief The dimensions of the matrix.
      *
      * @return std::pair<size_t, size_t> The number of rows and columns.
-     * 
+     *
      * @ingroup getter
      */
     std::pair<size_t, size_t> dim() const;
@@ -277,7 +375,7 @@ public:
      * @brief Get the transpose of the matrix.
      *
      * @return cmatrix<T> The transpose of the matrix.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> transpose() const;
@@ -285,7 +383,7 @@ public:
      * @brief Get the diagonal of the matrix.
      *
      * @return std::vector<T> The diagonal of the matrix.
-     * 
+     *
      * @ingroup getter
      */
     std::vector<T> diag() const;
@@ -491,7 +589,7 @@ public:
      *
      * @return true If the matrix is empty.
      * @return false If the matrix is not empty.
-     * 
+     *
      * @ingroup check
      */
     bool is_empty() const;
@@ -500,7 +598,7 @@ public:
      *
      * @return true If the matrix is a square matrix.
      * @return false If the matrix is not a square matrix.
-     * 
+     *
      * @ingroup check
      */
     bool is_square() const;
@@ -509,7 +607,7 @@ public:
      *
      * @return true If the matrix is a diagonal matrix.
      * @return false If the matrix is not a diagonal matrix.
-     * 
+     *
      * @ingroup check
      */
     bool is_diag() const;
@@ -518,7 +616,7 @@ public:
      *
      * @return true If the matrix is the identity matrix.
      * @return false If the matrix is not the identity matrix.
-     * 
+     *
      * @ingroup check
      */
     bool is_identity() const;
@@ -527,7 +625,7 @@ public:
      *
      * @return true If the matrix is a symmetric matrix.
      * @return false If the matrix is not a symmetric matrix.
-     * 
+     *
      * @ingroup check
      */
     bool is_symetric() const;
@@ -536,7 +634,7 @@ public:
      *
      * @return true If the matrix is an upper triangular matrix.
      * @return false If the matrix is not an upper triangular matrix.
-     * 
+     *
      * @ingroup check
      */
     bool is_triangular_up() const;
@@ -545,7 +643,7 @@ public:
      *
      * @return true If the matrix is a lower triangular matrix.
      * @return false If the matrix is not a lower triangular matrix.
-     * 
+     *
      * @ingroup check
      */
     bool is_triangular_low() const;
@@ -594,102 +692,6 @@ public:
      */
     bool any(const T &val) const;
 
-    /**
-     * @brief Check if dimensions are equals to the dimensions of the matrix.
-     *
-     * @param dim The vertical and horizontal dimensions.
-     * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
-     * 
-     * @ingroup check
-     */
-    void check_dim(const std::tuple<size_t, size_t> &dim) const;
-    /**
-     * @brief Check if dimensions are equals to the dimensions of the matrix.
-     *
-     * @param m The matrix.
-     * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
-     * 
-     * @ingroup check
-     */
-    void check_dim(const cmatrix<T> &m) const;
-    /**
-     * @brief Check if the vector is a valid row of the matrix.
-     *
-     * @param row The row to check.
-     * @throw std::invalid_argument If the vector is not a valid row of the matrix.
-     *
-     * @note The row must be a vector of the same type of the matrix.
-     * @ingroup check
-     */
-    void check_valid_row(const std::vector<T> &row) const;
-    /**
-     * @brief Check if the vector is a valid column of the matrix.
-
-     * @param col The column to check.
-     * @throw std::invalid_argument If the vector is not a valid column of the matrix.
-     *
-     * @note The column must be a vector of the same type of the matrix.
-     * @ingroup check
-     */
-    void check_valid_col(const std::vector<T> &col) const;
-    /**
-     * @brief Check if the diagonal is a valid diagonal of the matrix.
-     *
-     * @param diag The diagonal to check.
-     * @throw std::invalid_argument If the vector is not a valid diagonal of the matrix.
-     * 
-     * @ingroup check
-     */
-    void check_valid_diag(const std::vector<T> &diag) const;
-    /**
-     * @brief Check if the row is a valid row index of the matrix.
-     *
-     * @param row The row index to check.
-     * @throw std::invalid_argument If the row is not a valid row index of the matrix.
-     * 
-     * @ingroup check
-     */
-    void check_valid_row_id(const size_t &n) const;
-    /**
-     * @brief Check if the column is a valid column index of the matrix.
-     *
-     * @param col The column index to check.
-     * @throw std::invalid_argument If the column is not a valid column index of the matrix.
-     * 
-     * @ingroup check
-     */
-    void check_valid_col_id(const size_t &n) const;
-    /**
-     * @brief Check if the index is expected.
-     *
-     * @param n The index to check.
-     * @param expected The expected index.
-     * @throw std::invalid_argument If the index is not the expected index.
-     * 
-     * @ingroup check
-     */
-    void check_expected_id(const size_t &n, const size_t &expected) const;
-    /**
-     * @brief Check if the index is expected.
-     *
-     * @param n The index to check.
-     * @param expectedBegin The expected begin index inclusive.
-     * @param exepectedEnd The expected end index inlusive.
-     * @throw std::invalid_argument If the index is not the expected index.
-     * 
-     * @ingroup check
-     */
-    void check_expected_id(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const;
-    /**
-     * @brief Check if the type of the matrix is valid.
-     * List of types not supported: bool.
-     *
-     * @throw std::invalid_argument If the type is invalid.
-     * 
-     * @ingroup check
-     */
-    void check_valid_type() const;
-
     // STATISTICS METHODS
     /**
      * @brief Get the minimum value for each row (axis: 0) or column (axis: 1) of the matrix.
@@ -720,7 +722,7 @@ public:
      * @param zero The zero value of the sum. (default: the value of the default constructor of the type T)
      * @return cmatrix<T> The sum of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
-     * 
+     *
      * @ingroup statistic
      */
     cmatrix<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
@@ -765,13 +767,13 @@ public:
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.
-     * 
+     *
      * @ingroup general
      */
     void print() const;
     /**
      * @brief Clear the matrix.
-     * 
+     *
      * @ingroup general
      */
     void clear();
@@ -779,7 +781,7 @@ public:
      * @brief Copy the matrix.
      *
      * @return cmatrix<T> The copied matrix.
-     * 
+     *
      * @ingroup general
      */
     cmatrix<T> copy() const;
@@ -789,7 +791,7 @@ public:
      * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
      * @param col The pointer to the column index. (default: nullptr)
      * @param row The pointer to the row index. (default: nullptr)
-     * 
+     *
      * @ingroup general
      */
     void apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr);
@@ -797,7 +799,7 @@ public:
      * @brief Apply a function to each cell of the matrix.
      *
      * @param f The function to apply. f(T value) -> T
-     * 
+     *
      * @ingroup general
      */
     void apply(const std::function<T(T)> &f);
@@ -808,7 +810,7 @@ public:
      * @param col The pointer to the column index. (default: nullptr)
      * @param row The pointer to the row index. (default: nullptr)
      * @return cmatrix<T> The result of the function.
-     * 
+     *
      * @ingroup general
      */
     cmatrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
@@ -817,7 +819,7 @@ public:
      *
      * @param f The function to apply. f(T value) -> T
      * @return cmatrix<T> The result of the function.
-     * 
+     *
      * @ingroup general
      */
     cmatrix<T> map(const std::function<T(T)> &f) const;
@@ -825,7 +827,7 @@ public:
      * @brief Fill the matrix with a value.
      *
      * @param val The value to fill the matrix.
-     * 
+     *
      * @ingroup general
      */
     void fill(const T &val);
@@ -833,7 +835,7 @@ public:
      * @brief Convert the matrix to a vector.
      *
      * @return std::vector<T> The vector.
-     * 
+     *
      * @ingroup general
      */
     std::vector<std::vector<T>> to_vector() const;
@@ -843,7 +845,7 @@ public:
      * @tparam U The type of the matrix.
      * @return cmatrix<U> The matrix of another type.
      * @throw std::invalid_argument If the type T is not convertible to the type U.
-     * 
+     *
      * @ingroup general
      */
     template <class U>
@@ -856,7 +858,7 @@ public:
      * @param m The nested vector to check.
      * @return true If the nested vector is a matrix.
      * @return false If the nested vector is not a matrix.
-     * 
+     *
      * @ingroup static
      */
     static bool is_matrix(const std::initializer_list<std::initializer_list<T>> &m);
@@ -865,7 +867,7 @@ public:
      *
      * @param vec The nested vector to flatten.
      * @return std::vector<T> The flattened vector.
-     * 
+     *
      * @ingroup static
      */
     static std::vector<T> flatten_vector(const std::vector<std::vector<T>> &vec);
@@ -879,7 +881,7 @@ public:
      * @param seed The seed of the random generator. (default: time(nullptr))
      *
      * @return cmatrix<int> The random matrix of integers.
-     * 
+     *
      * @ingroup static
      */
     static cmatrix<int> randint(const size_t &dim_v, const size_t &dim_h, const int &min, const int &max, const int &seed = time(nullptr));
@@ -896,7 +898,7 @@ public:
      *
      * @param dim The number of rows and columns.
      * @return cmatrix<int> The identity matrix.
-     * 
+     *
      * @ingroup static
      */
     static cmatrix<int> identity(const size_t &dim);
@@ -949,7 +951,7 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<short unsigned int> operator==(const T &n) const;
@@ -958,7 +960,7 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<short unsigned int> operator!=(const T &n) const;
@@ -967,7 +969,7 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<short unsigned int> operator<(const T &n) const;
@@ -976,7 +978,7 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<short unsigned int> operator<=(const T &n) const;
@@ -985,7 +987,7 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<short unsigned int> operator>(const T &n) const;
@@ -994,7 +996,7 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<short unsigned int> The matrix of booleans.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<short unsigned int> operator>=(const T &n) const;
@@ -1005,7 +1007,7 @@ public:
      * @param out The output stream.
      * @param m The matrix to print.
      * @return std::ostream& The output stream.
-     * 
+     *
      * @ingroup operator
      */
     template <class U>
@@ -1025,7 +1027,7 @@ public:
      *
      * @param n The value to add.
      * @return cmatrix<T> The sum of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> operator+(const T &n) const;
@@ -1035,7 +1037,7 @@ public:
      * @param n The value to add.
      * @param m The matrix to add.
      * @return cmatrix<T> The sum of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     template <class U>
@@ -1055,7 +1057,7 @@ public:
      *
      * @param n The value to subtract.
      * @return cmatrix<T> The difference of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> operator-(const T &val) const;
@@ -1065,17 +1067,17 @@ public:
      * @param n The value to subtract.
      * @param m The matrix to subtract.
      * @return cmatrix<T> The difference of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     template <class U>
     friend cmatrix<U> operator-(const U &n, const cmatrix<U> &m);
     /**
      * @brief The negation operator.
-     * 
+     *
      * @param m The matrix to negate.
      * @return cmatrix<T> The negated matrix.
-     * 
+     *
      * @ingroup operator
      */
     template <class U>
@@ -1095,7 +1097,7 @@ public:
      *
      * @param n The value to multiply.
      * @return cmatrix<T> The product of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> operator*(const T &n) const;
@@ -1105,7 +1107,7 @@ public:
      * @param n The value to multiply.
      * @param m The matrix to multiply.
      * @return cmatrix<T> The product of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     template <class U>
@@ -1115,7 +1117,7 @@ public:
      *
      * @param n The value to divide.
      * @return cmatrix<T> The quotient of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> operator/(const T &n) const;
@@ -1125,7 +1127,7 @@ public:
      * @param m The power. Must be a positive integer.
      * @return cmatrix<T> The powered matrix.
      * @throw std::invalid_argument If the matrix is not a square matrix.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> operator^(const unsigned int &m) const;
@@ -1144,7 +1146,7 @@ public:
      *
      * @param n The value to add.
      * @return cmatrix<T>& The sum of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> &operator+=(const T &n);
@@ -1163,7 +1165,7 @@ public:
      *
      * @param n The value to subtract.
      * @return cmatrix<T>& The difference of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> &operator-=(const T &n);
@@ -1182,7 +1184,7 @@ public:
      *
      * @param n The value to multiply.
      * @return cmatrix<T>& The product of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> &operator*=(const T &n);
@@ -1191,7 +1193,7 @@ public:
      *
      * @param n The value to divide.
      * @return cmatrix<T>& The quotient of the matrices.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> &operator/=(const T &n);
@@ -1201,7 +1203,7 @@ public:
      * @param m The power. Must be a positive integer.
      * @return cmatrix<T>& The powered matrix.
      * @throw std::invalid_argument If the matrix is not a square matrix.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> &operator^=(const unsigned int &m);

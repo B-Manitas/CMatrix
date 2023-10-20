@@ -305,7 +305,7 @@ std::ostream &operator<<(std::ostream &out, const cmatrix<T> &m)
 template <class T>
 cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, const cmatrix<T> &m) const
 {
-    check_dim(m);
+    __check_dim(m);
 
     // Initialize variables to store the coordinates of the current cell.
     size_t col = -1, row = -1;

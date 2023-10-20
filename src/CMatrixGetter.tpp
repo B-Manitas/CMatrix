@@ -12,14 +12,14 @@
 template <class T>
 std::vector<T> cmatrix<T>::rows_vec(const size_t &n) const
 {
-    check_valid_row_id(n);
+    __check_valid_row_id(n);
     return matrix.at(n);
 }
 
 template <class T>
 std::vector<T> cmatrix<T>::columns_vec(const size_t &n) const
 {
-    check_valid_col_id(n);
+    __check_valid_col_id(n);
     std::vector<T> col;
 
     for (auto &&row : matrix)
@@ -44,7 +44,7 @@ cmatrix<T> cmatrix<T>::rows(const std::initializer_list<size_t> &ids) const
 
     for (const size_t &id : ids)
     {
-        check_valid_row_id(id);
+        __check_valid_row_id(id);
         m.push_row_back(matrix.at(id));
     }
 
@@ -64,7 +64,7 @@ cmatrix<T> cmatrix<T>::columns(const std::initializer_list<size_t> &ids) const
 
     for (const size_t &id : ids)
     {
-        check_valid_col_id(id);
+        __check_valid_col_id(id);
         std::vector<T> col;
 
         // Get the id-th column
@@ -98,16 +98,16 @@ cmatrix<T> cmatrix<T>::cells(const std::initializer_list<std::pair<size_t, size_
 template <class T>
 T &cmatrix<T>::cell(const size_t &row, const size_t &col)
 {
-    check_valid_row_id(row);
-    check_valid_col_id(col);
+    __check_valid_row_id(row);
+    __check_valid_col_id(col);
     return matrix.at(row).at(col);
 }
 
 template <class T>
 T cmatrix<T>::cell(const size_t &row, const size_t &col) const
 {
-    check_valid_row_id(row);
-    check_valid_col_id(col);
+    __check_valid_row_id(row);
+    __check_valid_col_id(col);
     return matrix.at(row).at(col);
 }
 

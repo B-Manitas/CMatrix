@@ -12,16 +12,16 @@
 template <class T>
 void cmatrix<T>::set_row(const size_t &n, const std::vector<T> &val)
 {
-    check_valid_row_id(n);
-    check_valid_row(val);
+    __check_valid_row_id(n);
+    __check_valid_row(val);
     matrix.at(n) = val;
 }
 
 template <class T>
 void cmatrix<T>::set_column(const size_t &n, const std::vector<T> &val)
 {
-    check_valid_col_id(n);
-    check_valid_col(val);
+    __check_valid_col_id(n);
+    __check_valid_col(val);
 
     // For each row, set the value at the given position
     for (size_t i = 0; i < dim_v(); i++)
@@ -31,15 +31,15 @@ void cmatrix<T>::set_column(const size_t &n, const std::vector<T> &val)
 template <class T>
 void cmatrix<T>::set_cell(const size_t &row, const size_t &col, const T &val)
 {
-    check_valid_row_id(row);
-    check_valid_col_id(col);
+    __check_valid_row_id(row);
+    __check_valid_col_id(col);
     matrix.at(row).at(col) = val;
 }
 
 template <class T>
 void cmatrix<T>::set_diag(const std::vector<T> &val)
 {
-    check_valid_diag(val);
+    __check_valid_diag(val);
 
     // Iterate over the diagonal
     for (size_t i = 0; i < std::min(dim_h(), dim_v()); i++)
