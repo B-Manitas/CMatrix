@@ -1,6 +1,6 @@
 # Compiler, flags, and libraries
 CC = g++
-CFLAGS = -std=c++11 -Wall -I./include -I./src -I./test
+CFLAGS = -std=c++11 -Wall -I./include -I./test
 LIBS_TEST = -lgtest -lpthread
 
 # Files

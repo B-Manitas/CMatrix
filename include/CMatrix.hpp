@@ -1209,12 +1209,12 @@ public:
     cmatrix<T> &operator^=(const unsigned int &m);
 };
 
-#include "CMatrix.tpp"
-#include "CMatrixCheck.tpp"
-#include "CMatrixConstructor.tpp"
-#include "CMatrixGetter.tpp"
-#include "CMatrixManipulation.tpp"
-#include "CMatrixOperator.tpp"
-#include "CMatrixSetter.tpp"
-#include "CMatrixStatic.tpp"
-#include "CMatrixStatistics.tpp"
+#include "../src/CMatrix.tpp"
+#include "../src/CMatrixCheck.tpp"
+#include "../src/CMatrixConstructor.tpp"
+#include "../src/CMatrixGetter.tpp"
+#include "../src/CMatrixManipulation.tpp"
+#include "../src/CMatrixOperator.tpp"
+#include "../src/CMatrixSetter.tpp"
+#include "../src/CMatrixStatic.tpp"
+#include "../src/CMatrixStatistics.tpp"
