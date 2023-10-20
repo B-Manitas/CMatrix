@@ -1030,6 +1030,17 @@ public:
      */
     cmatrix<T> operator+(const T &n) const;
     /**
+     * @brief The addition operator.
+     *
+     * @param n The value to add.
+     * @param m The matrix to add.
+     * @return cmatrix<T> The sum of the matrices.
+     * 
+     * @ingroup operator
+     */
+    template <class U>
+    friend cmatrix<U> operator+(const U &n, const cmatrix<U> &m);
+    /**
      * @brief The subtraction operator.
      *
      * @param m The matrix to subtract.
@@ -1049,6 +1060,16 @@ public:
      */
     cmatrix<T> operator-(const T &val) const;
     /**
+     * @brief The subtraction operator.
+     *
+     * @param n The value to subtract.
+     * @param m The matrix to subtract.
+     * @return cmatrix<T> The difference of the matrices.
+     * 
+     * @ingroup operator
+     */
+    template <class U>
+    friend cmatrix<U> operator-(const U &n, const cmatrix<U> &m);
      * @brief The multiplication operator.
      *
      * @param m The matrix to multiply.
@@ -1067,6 +1088,17 @@ public:
      * @ingroup operator
      */
     cmatrix<T> operator*(const T &n) const;
+    /**
+     * @brief The multiplication operator.
+     *
+     * @param n The value to multiply.
+     * @param m The matrix to multiply.
+     * @return cmatrix<T> The product of the matrices.
+     * 
+     * @ingroup operator
+     */
+    template <class U>
+    friend cmatrix<U> operator*(const U &n, const cmatrix<U> &m);
     /**
      * @brief The division operator.
      *

@@ -1681,6 +1681,7 @@ TEST(MatrixTest, op_sum)
     cmatrix<int> m_3_bis = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}};
     EXPECT_EQ(m_1 + m_2, m_3);
     EXPECT_EQ(m_1 + 1, m_3_bis);
+    EXPECT_EQ(1 + m_1, m_3_bis);
 
     // 1x3 MATRICES
     cmatrix<int> m_4 = {{1, 2, 3}};
@@ -1689,6 +1690,7 @@ TEST(MatrixTest, op_sum)
     cmatrix<int> m_6_bis = {{11, 12, 13}};
     EXPECT_EQ(m_4 + m_5, m_6);
     EXPECT_EQ(m_4 + 10, m_6_bis);
+    EXPECT_EQ(10 + m_4, m_6_bis);
 
     // 3x1 MATRICES
     cmatrix<int> m_7 = {{1}, {2}, {3}};
@@ -1697,6 +1699,7 @@ TEST(MatrixTest, op_sum)
     cmatrix<int> m_9_coeff = {{11}, {12}, {13}};
     EXPECT_EQ(m_7 + m_8, m_9);
     EXPECT_EQ(m_7 + 10, m_9_coeff);
+    EXPECT_EQ(10 + m_7, m_9_coeff);
 
     // EMPTY MATRICES
     cmatrix<int> m_10;
@@ -1704,6 +1707,7 @@ TEST(MatrixTest, op_sum)
     cmatrix<int> m_12;
     EXPECT_EQ(m_10 + m_11, m_12);
     EXPECT_EQ(m_10 + 10, m_12);
+    EXPECT_EQ(10 + m_10, m_12);
 
     // NOT EQUAL DIMENSIONS
     cmatrix<int> m_13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -1721,6 +1725,7 @@ TEST(MatrixTest, op_sub)
     cmatrix<int> m_3_bis = {{1, 3, 5}, {7, 9, 11}, {13, 15, 17}};
     EXPECT_EQ(m_1 - m_2, m_3);
     EXPECT_EQ(m_1 - 1, m_3_bis);
+    EXPECT_EQ(1 - m_1, -m_3_bis);
 
     // 1x3 MATRICES
     cmatrix<int> m_4 = {{5, 7, 9}};
@@ -1728,7 +1733,7 @@ TEST(MatrixTest, op_sub)
     cmatrix<int> m_6 = {{4, 5, 6}};
     cmatrix<int> m_6_bis = {{-5, -3, -1}};
     EXPECT_EQ(m_4 - m_5, m_6);
-    EXPECT_EQ(m_4 - 10, m_6_bis);
+    EXPECT_EQ(10 - m_4, -m_6_bis);
 
     // 3x1 MATRICES
     cmatrix<int> m_7 = {{5}, {7}, {9}};
@@ -1736,7 +1741,7 @@ TEST(MatrixTest, op_sub)
     cmatrix<int> m_9 = {{4}, {5}, {6}};
     cmatrix<int> m_9_coeff = {{-5}, {-3}, {-1}};
     EXPECT_EQ(m_7 - m_8, m_9);
-    EXPECT_EQ(m_7 - 10, m_9_coeff);
+    EXPECT_EQ(10 - m_7, -m_9_coeff);
 
     // EMPTY MATRICES
     cmatrix<int> m_10;
@@ -1744,6 +1749,7 @@ TEST(MatrixTest, op_sub)
     cmatrix<int> m_12;
     EXPECT_EQ(m_10 - m_11, m_12);
     EXPECT_EQ(m_10 - 10, m_12);
+    EXPECT_EQ(10 - m_10, -m_12);
 
     // NOT EQUAL DIMENSIONS
     cmatrix<int> m_13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -1761,6 +1767,7 @@ TEST(MatrixTest, op_mul)
     cmatrix<int> m_3_bis = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
     EXPECT_EQ(m_1 * m_2, m_3);
     EXPECT_EQ(m_1 * 2, m_3_bis);
+    EXPECT_EQ(2 * m_1, m_3_bis);
 
     // 1x3 MATRICES
     cmatrix<int> m_4 = {{5, 7, 9}};
@@ -1769,6 +1776,7 @@ TEST(MatrixTest, op_mul)
     cmatrix<int> m_6_bis = {{50, 70, 90}};
     EXPECT_EQ(m_4 * m_5, m_6);
     EXPECT_EQ(m_4 * 10, m_6_bis);
+    EXPECT_EQ(10 * m_4, m_6_bis);
 
     // 3x1 MATRICES
     cmatrix<int> m_7 = {{1}, {2}, {3}};
@@ -1777,6 +1785,7 @@ TEST(MatrixTest, op_mul)
     cmatrix<int> m_9_coeff = {{2}, {4}, {6}};
     EXPECT_EQ(m_7 * m_8, m_9);
     EXPECT_EQ(m_7 * 2, m_9_coeff);
+    EXPECT_EQ(2 * m_7, m_9_coeff);
 
     // EMPTY MATRICES
     cmatrix<int> m_10;
@@ -1784,6 +1793,7 @@ TEST(MatrixTest, op_mul)
     cmatrix<int> m_12;
     EXPECT_EQ(m_10 * m_11, m_12);
     EXPECT_EQ(m_10 * 10, m_12);
+    EXPECT_EQ(10 * m_10, m_12);
 
     // NOT EQUAL DIMENSIONS
     cmatrix<int> m_13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};

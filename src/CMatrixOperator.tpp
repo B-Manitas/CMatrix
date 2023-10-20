@@ -104,6 +104,12 @@ cmatrix<T> cmatrix<T>::operator+(const T &n) const
 }
 
 template <class T>
+cmatrix<T> operator+(const T &n, const cmatrix<T> &m)
+{
+    return m + n;
+}
+
+template <class T>
 cmatrix<T> cmatrix<T>::operator-(const cmatrix<T> &m) const
 {
     return __map_op_arithmetic(std::minus<T>(), m);
@@ -114,6 +120,12 @@ cmatrix<T> cmatrix<T>::operator-(const T &n) const
 {
     return map([n](T value)
                { return value - n; });
+}
+
+template <class T>
+cmatrix<T> operator-(const T &n, const cmatrix<T> &m)
+{
+    return (-1)*m + n;
 }
 
 template <class T>
@@ -153,6 +165,12 @@ cmatrix<T> cmatrix<T>::operator*(const T &n) const
 {
     return map([n](T value)
                { return value * n; });
+}
+
+template <class T>
+cmatrix<T> operator*(const T &n, const cmatrix<T> &m)
+{
+    return m * n;
 }
 
 template <class T>
