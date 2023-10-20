@@ -31,7 +31,7 @@ var NAVTREE =
       [ "Documentation", "index.html#autotoc_md5", null ],
       [ "License", "index.html#autotoc_md6", null ]
     ] ],
-    [ "Deprecated List", "deprecated.html", null ],
+    [ "Deprecated List", "da/d58/deprecated.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -39,6 +39,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -54,7 +55,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"CMatrixCheck_8tpp.html"
+"annotated.html",
+"dc/ddb/group__statistic.html#gab428ffa20b11d80e8b5cdea9bf7c92d1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

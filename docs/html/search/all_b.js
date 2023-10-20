@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zeros_93',['zeros',['../classcmatrix.html#a96c97c592e9f8a1892b474a74b27dc40',1,'cmatrix::zeros(const size_t &amp;dim_h, const size_t &amp;dim_v)'],['../classcmatrix.html#a36a34028ba6a94832270797e47b87c51',1,'cmatrix::zeros(const size_t &amp;dim_h, const size_t &amp;dim_v)']]]
+  ['to_5fvector_104',['to_vector',['../d1/da8/group__general.html#ga632bae1f8b175c072f8641c46ec9ff1f',1,'cmatrix']]],
+  ['transpose_105',['transpose',['../d1/de1/group__getter.html#gaa65881168e99756c64bf3bb312bee473',1,'cmatrix']]]
 ];

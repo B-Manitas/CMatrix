@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "cmatrix", "classcmatrix.html", "classcmatrix" ]
+    [ "cmatrix", "dc/d5f/classcmatrix.html", "dc/d5f/classcmatrix" ]
 ];

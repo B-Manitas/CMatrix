@@ -1,30 +1,6 @@
 var searchData=
 [
-  ['cast_3',['cast',['../group__general.html#ga1e8370d047a279c67ca8727a80d8bfd1',1,'cmatrix']]],
-  ['cell_4',['cell',['../group__getter.html#ga62b2c0ff0ee5c36e056d9c414e546097',1,'cmatrix::cell(const size_t &amp;row, const size_t &amp;col)'],['../group__getter.html#ga7af0450ebbed50469426663cb980e468',1,'cmatrix::cell(const size_t &amp;row, const size_t &amp;col) const']]],
-  ['cells_5',['cells',['../group__getter.html#gac4d1db23d0917d2c24959fda156f2d3d',1,'cmatrix::cells(const size_t &amp;row, const size_t &amp;col) const'],['../group__getter.html#ga05a084faf17f2bbe7d6e8c93ab9122cd',1,'cmatrix::cells(const std::initializer_list&lt; std::pair&lt; size_t, size_t &gt;&gt; &amp;ids) const']]],
-  ['cmatrixcheck_6',['CMatrixCheck',['../group__check.html',1,'']]],
-  ['clear_7',['clear',['../group__general.html#ga1766cb6d6c5f9c0f593aafd056b59d52',1,'cmatrix']]],
-  ['cmatrix_8',['cmatrix',['../classcmatrix.html',1,'cmatrix&lt; T &gt;'],['../classcmatrix.html#aac0edd8caac8b0ff2f9f02cddd3f9428',1,'cmatrix::cmatrix(const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;m)'],['../classcmatrix.html#a40154e7ad0df15f5f01cc1c7fff3df86',1,'cmatrix::cmatrix()'],['../classcmatrix.html#adc7b866d102dc4bd8b9539fdd5dfc640',1,'cmatrix::cmatrix(const size_t &amp;dim_v, const size_t &amp;dim_h)'],['../classcmatrix.html#a39c7266a95655c8c7e7047e1806be52d',1,'cmatrix::cmatrix(const size_t &amp;dim_v, const size_t &amp;dim_h, const T &amp;val)'],['../classcmatrix.html#a4548d3427fe2306c3bdb8977a4e23224',1,'cmatrix::cmatrix(const cmatrix&lt; U &gt; &amp;m)']]],
-  ['cmatrix_2ehpp_9',['CMatrix.hpp',['../CMatrix_8hpp.html',1,'']]],
-  ['cmatrix_2etpp_10',['CMatrix.tpp',['../CMatrix_8tpp.html',1,'']]],
-  ['cmatrixcheck_2etpp_11',['CMatrixCheck.tpp',['../CMatrixCheck_8tpp.html',1,'']]],
-  ['cmatrixconstructor_2etpp_12',['CMatrixConstructor.tpp',['../CMatrixConstructor_8tpp.html',1,'']]],
-  ['cmatrixgetter_2etpp_13',['CMatrixGetter.tpp',['../CMatrixGetter_8tpp.html',1,'']]],
-  ['cmatrixmanipulation_2etpp_14',['CMatrixManipulation.tpp',['../CMatrixManipulation_8tpp.html',1,'']]],
-  ['cmatrixoperator_2etpp_15',['CMatrixOperator.tpp',['../CMatrixOperator_8tpp.html',1,'']]],
-  ['cmatrixsetter_2etpp_16',['CMatrixSetter.tpp',['../CMatrixSetter_8tpp.html',1,'']]],
-  ['cmatrixstatic_2etpp_17',['CMatrixStatic.tpp',['../CMatrixStatic_8tpp.html',1,'']]],
-  ['cmatrixstatistics_2etpp_18',['CMatrixStatistics.tpp',['../CMatrixStatistics_8tpp.html',1,'']]],
-  ['columns_19',['columns',['../group__getter.html#ga526f1027d8c2457f8d2ee041c3542261',1,'cmatrix::columns(const size_t &amp;ids) const'],['../group__getter.html#ga78b573432e56057130fca42c7deea53f',1,'cmatrix::columns(const std::initializer_list&lt; size_t &gt; &amp;ids) const']]],
-  ['columns_5fvec_20',['columns_vec',['../group__getter.html#ga58925821c0eec27a19624434974ad7e9',1,'cmatrix']]],
-  ['copy_21',['copy',['../group__general.html#gadabfe43fa749744cf8ee5ad12a3f13cf',1,'cmatrix']]],
-  ['cmatrix_22',['CMatrix',['../group__general.html',1,'']]],
-  ['cmatrixgetter_23',['CMatrixGetter',['../group__getter.html',1,'']]],
-  ['cmatrix_3a_20a_20powerful_20c_2b_2b_20matrix_20library_24',['CMatrix: A Powerful C++ Matrix Library',['../index.html',1,'']]],
-  ['cmatrixmanipulation_25',['CMatrixManipulation',['../group__manipulation.html',1,'']]],
-  ['cmatrixoperator_26',['CMatrixOperator',['../group__operator.html',1,'']]],
-  ['cmatrixsetter_27',['CMatrixSetter',['../group__setter.html',1,'']]],
-  ['cmatrixstatic_28',['CMatrixStatic',['../group__static.html',1,'']]],
-  ['cmatrixstatistics_29',['CMatrixStatistics',['../group__statistic.html',1,'']]]
+  ['all_12',['all',['../d3/dcd/group__check.html#ga038bb07f84a685d96432069b22c54a4b',1,'cmatrix::all(const std::function&lt; bool(T)&gt; &amp;f) const'],['../d3/dcd/group__check.html#ga612f4e71b55d4a877dd2f2cbb02feef5',1,'cmatrix::all(const T &amp;val) const']]],
+  ['any_13',['any',['../d3/dcd/group__check.html#ga4d5d0b0bfa1aa1c88c307ef77582d4a5',1,'cmatrix::any(const std::function&lt; bool(T)&gt; &amp;f) const'],['../d3/dcd/group__check.html#ga34480288ea74528d4cc9edc1127b0755',1,'cmatrix::any(const T &amp;val) const']]],
+  ['apply_14',['apply',['../d1/da8/group__general.html#gaaa4ca3ea57ca8b7c41d2fc90c1913099',1,'cmatrix::apply(const std::function&lt; T(T, size_t *, size_t *)&gt; &amp;f, size_t *col=nullptr, size_t *row=nullptr)'],['../d1/da8/group__general.html#gad65689b82797403b62c13d7d4eeee6b1',1,'cmatrix::apply(const std::function&lt; T(T)&gt; &amp;f)']]]
 ];
