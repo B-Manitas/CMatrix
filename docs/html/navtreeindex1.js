@@ -1,6 +1,12 @@
 var NAVTREEINDEX1 =
 {
+"dc/ddb/group__statistic.html#ga3f9384e591534cdb81d8671d5e2d8b85":[3,0,0,66],
+"dc/ddb/group__statistic.html#ga423f15c24af04cdafd322f6243ff0dcd":[3,0,0,20],
+"dc/ddb/group__statistic.html#ga423f15c24af04cdafd322f6243ff0dcd":[2,7,2],
+"dc/ddb/group__statistic.html#ga9a5e05c5fb874e9cebcfe689277016c9":[3,0,0,113],
+"dc/ddb/group__statistic.html#ga9a5e05c5fb874e9cebcfe689277016c9":[2,7,8],
 "dc/ddb/group__statistic.html#gab428ffa20b11d80e8b5cdea9bf7c92d1":[3,0,0,18],
+"dc/ddb/group__statistic.html#gab428ffa20b11d80e8b5cdea9bf7c92d1":[2,7,0],
 "dc/ddb/group__statistic.html#gab9ff2abcabe6974a3412789c31c58d6e":[2,7,1],
 "dc/ddb/group__statistic.html#gab9ff2abcabe6974a3412789c31c58d6e":[3,0,0,19],
 "de/de9/CMatrixCheck_8tpp.html":[4,0,1,1],
@@ -20,8 +26,8 @@ var NAVTREEINDEX1 =
 "functions_vars.html":[3,2,2],
 "globals.html":[4,1,0],
 "globals_func.html":[4,1,1],
-"index.html":[],
 "index.html":[0],
+"index.html":[],
 "index.html#autotoc_md1":[0,0],
 "index.html#autotoc_md2":[0,1],
 "index.html#autotoc_md3":[0,2],
