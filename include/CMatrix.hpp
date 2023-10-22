@@ -283,6 +283,16 @@ public:
      */
     cmatrix<T> rows(const std::initializer_list<size_t> &ids) const;
     /**
+     * @brief Get the rows of the matrix.
+     *
+     * @param ids The indexes of the rows to get.
+     * @return cmatrix<T> The rows of the matrix.
+     * @throw std::out_of_range If the index is out of range.
+     *
+     * @ingroup getter
+     */
+    cmatrix<T> rows(const std::vector<size_t> &ids) const;
+    /**
      * @brief Get the columns of the matrix.
      *
      * @param ids The indexes of the columns to get.
@@ -302,6 +312,16 @@ public:
      * @ingroup getter
      */
     cmatrix<T> columns(const std::initializer_list<size_t> &ids) const;
+    /**
+     * @brief Get the columns of the matrix.
+     *
+     * @param ids The indexes of the columns to get.
+     * @return cmatrix<T> The columns of the matrix.
+     * @throw std::out_of_range If the index is out of range.
+     *
+     * @ingroup getter
+     */
+    cmatrix<T> columns(const std::vector<size_t> &ids) const;
     /**
      * @brief Get the cells of the matrix.
      *
@@ -323,6 +343,16 @@ public:
      * @ingroup getter
      */
     cmatrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const;
+    /**
+     * @brief Get the cells of the matrix.
+     *
+     * @param ids The indexes of the cells to get. (row, column)
+     * @return cmatrix<T> The cells of the matrix.
+     * @throw std::out_of_range If the index is out of range.
+     *
+     * @ingroup getter
+     */
+    cmatrix<T> cells(const std::vector<std::pair<size_t, size_t>> &ids) const;
     /**
      * @brief Get the reference to a cell of the matrix.
      *

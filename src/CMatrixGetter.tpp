@@ -40,6 +40,12 @@ cmatrix<T> cmatrix<T>::rows(const size_t &ids) const
 template <class T>
 cmatrix<T> cmatrix<T>::rows(const std::initializer_list<size_t> &ids) const
 {
+    return rows(std::vector<size_t>(ids));
+}
+
+template <class T>
+cmatrix<T> cmatrix<T>::rows(const std::vector<size_t> &ids) const
+{
     cmatrix<T> m;
 
     for (const size_t &id : ids)
@@ -59,6 +65,12 @@ cmatrix<T> cmatrix<T>::columns(const size_t &ids) const
 
 template <class T>
 cmatrix<T> cmatrix<T>::columns(const std::initializer_list<size_t> &ids) const
+{
+    return columns(std::vector<size_t>(ids));
+}
+
+template <class T>
+cmatrix<T> cmatrix<T>::columns(const std::vector<size_t> &ids) const
 {
     cmatrix<T> m;
 
@@ -85,6 +97,12 @@ cmatrix<T> cmatrix<T>::cells(const size_t &row, const size_t &col) const
 
 template <class T>
 cmatrix<T> cmatrix<T>::cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const
+{
+    return cells(std::vector<std::pair<size_t, size_t>>(ids));
+}
+
+template <class T>
+cmatrix<T> cmatrix<T>::cells(const std::vector<std::pair<size_t, size_t>> &ids) const
 {
     cmatrix<T> m;
 
