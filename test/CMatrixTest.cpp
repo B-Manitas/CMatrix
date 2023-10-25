@@ -1246,6 +1246,41 @@ TEST(MatrixTest, map)
     m_4 = m_3.map([](int x)
                   { return x + 1; });
     EXPECT_EQ(m_4, expected2);
+
+    // 3x1 MATRIX
+    cmatrix<int> m_5 = {{1}, {2}, {3}};
+    cmatrix<int> expected3 = {{2}, {3}, {4}};
+    cmatrix<int> m_6 = m_5.map([](int x, size_t *i, size_t *j)
+                               { return x + 1; });
+    EXPECT_EQ(m_6, expected3);
+    m_6 = m_5.map([](int x)
+                  { return x + 1; });
+    EXPECT_EQ(m_6, expected3);
+
+    // WITH TYPE CONVERSION
+    // 3x3 MATRIX
+    cmatrix<float> m_7 = m_1.map<float>([](int x, size_t *i, size_t *j)
+                                        { return x * 2; });
+    EXPECT_EQ(m_7, expected.cast<float>());
+    m_7 = m_1.map<float>([](int x)
+                         { return x * 2; });
+    EXPECT_EQ(m_7, expected.cast<float>());
+
+    // 1x3 MATRIX
+    cmatrix<float> m_8 = m_3.map<float>([](int x, size_t *i, size_t *j)
+                                        { return x + 1; });
+    EXPECT_EQ(m_8, expected2.cast<float>());
+    m_8 = m_3.map<float>([](int x)
+                         { return x + 1; });
+    EXPECT_EQ(m_8, expected2.cast<float>());
+
+    // 3x1 MATRIX
+    cmatrix<float> m_9 = m_5.map<float>([](int x, size_t *i, size_t *j)
+                                        { return x + 1; });
+    EXPECT_EQ(m_9, expected3.cast<float>());
+    m_9 = m_5.map<float>([](int x)
+                         { return x + 1; });
+    EXPECT_EQ(m_9, expected3.cast<float>());
 }
 
 /** Test fill method of cmatrix class */

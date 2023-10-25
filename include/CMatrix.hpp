@@ -844,6 +844,19 @@ public:
      * @ingroup general
      */
     cmatrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
+    template <class U>
+    /**
+     * @brief Apply a function to each cell of the matrix and return the result.
+     *
+     * @tparam U The type of the matrix.
+     * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> U
+     * @param col The pointer to the column index. (default: nullptr)
+     * @param row The pointer to the row index. (default: nullptr)
+     * @return cmatrix<U> The result of the function.
+     *
+     * @ingroup general
+     */
+    cmatrix<U> map(const std::function<U(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
      *
@@ -853,6 +866,17 @@ public:
      * @ingroup general
      */
     cmatrix<T> map(const std::function<T(T)> &f) const;
+    template <class U>
+    /**
+     * @brief Apply a function to each cell of the matrix and return the result.
+     *
+     * @tparam U The type of the matrix.
+     * @param f The function to apply. f(T value) -> U
+     * @return cmatrix<U> The result of the function.
+     *
+     * @ingroup general
+     */
+    cmatrix<U> map(const std::function<U(T)> &f) const;
     /**
      * @brief Fill the matrix with a value.
      *

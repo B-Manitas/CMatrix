@@ -69,10 +69,48 @@ cmatrix<T> cmatrix<T>::map(const std::function<T(T, size_t *, size_t *)> &f, siz
 }
 
 template <class T>
+template <class U>
+cmatrix<U> cmatrix<T>::map(const std::function<U(T, size_t *, size_t *)> &f, size_t *col, size_t *row) const
+{
+    cmatrix<U> m = cmatrix<U>(dim_v(), dim_h());
+
+    for (size_t r = 0; r < dim_v(); r++)
+    {
+        // If the user wants to know the row index
+        if (row != nullptr)
+            row = &r;
+
+        for (size_t c = 0; c < dim_h(); c++)
+        {
+            // If the user wants to know the column index
+            if (col != nullptr)
+                col = &c;
+
+            m.set_cell(r, c, f(cell(r, c), col, row));
+        }
+    }
+
+    return m;
+}
+
+template <class T>
 cmatrix<T> cmatrix<T>::map(const std::function<T(T)> &f) const
 {
     cmatrix<T> m = copy();
     m.apply(f);
+    return m;
+}
+
+template <class T>
+template <class U>
+cmatrix<U> cmatrix<T>::map(const std::function<U(T)> &f) const
+{
+    cmatrix<U> m = cmatrix<U>(dim_v(), dim_h());
+
+    for (size_t r = 0; r < dim_v(); r++)
+        for (size_t c = 0; c < dim_h(); c++)
+            m.set_cell(r, c, f(cell(r, c)));
+
     return m;
 }
 
