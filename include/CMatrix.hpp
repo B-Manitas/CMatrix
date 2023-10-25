@@ -654,6 +654,17 @@ public:
      * @ingroup manipulation
      */
     void remove_column(const size_t &n);
+    /**
+     * @brief Concatenate a matrix to the matrix.
+     *
+     * @param m The matrix to concatenate.
+     * @param axis The axis to concatenate. 0 for the rows, 1 for the columns. (default: 0)
+     * @throw std::invalid_argument If the axis is not 0 or 1.
+     * @throw std::invalid_argument If the dimensions of matrices are not equals.
+     *
+     * @ingroup manipulation
+     */
+    void concatenate(const cmatrix<T> &m, const unsigned int &axis = 0);
 
     // CHECK METHODS
     /**

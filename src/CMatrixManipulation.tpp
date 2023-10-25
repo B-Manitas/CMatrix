@@ -164,3 +164,38 @@ void cmatrix<T>::remove_column(const size_t &pos)
         for (size_t i = 0; i < dim_v(); i++)
             matrix.at(i).erase(matrix.at(i).begin() + pos);
 }
+
+template <class T>
+void cmatrix<T>::concatenate(const cmatrix<T> &m, const unsigned int &axis)
+{
+    // Concatenate the rows
+    if (axis == 0)
+    {
+        if (dim_h() != m.dim_h())
+            throw std::invalid_argument("The matrices must have the same number of columns. Actual: " +
+                                        std::to_string(dim_h()) +
+                                        " and " +
+                                        std::to_string(m.dim_h()));
+
+        // Push the rows of the second matrix
+        for (size_t i = 0; i < m.dim_v(); i++)
+            push_row_back(m.rows_vec(i));
+    }
+
+    // Concatenate the columns
+    else if (axis == 1)
+    {
+        if (dim_v() != m.dim_v())
+            throw std::invalid_argument("The matrices must have the same number of rows. Actual: " +
+                                        std::to_string(dim_v()) +
+                                        " and " +
+                                        std::to_string(m.dim_v()));
+
+        // Push the columns of the second matrix
+        for (size_t i = 0; i < m.dim_h(); i++)
+            push_col_back(m.columns_vec(i));
+    }
+
+    else
+        throw std::invalid_argument("The axis must be 0 or 1. Actual: " + std::to_string(axis));
+}

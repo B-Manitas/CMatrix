@@ -692,6 +692,43 @@ TEST(MatrixTest, remove_column)
     EXPECT_THROW(m_1.remove_column(0), std::out_of_range);
 }
 
+/** Test concatenate method of cmatrix class */
+TEST(MatrixTest, concatenate)
+{
+    // 3x3 MATRIX
+    // CONCATENATE ROWS
+    cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{10, 11, 12}, {13, 14, 15}};
+    cmatrix<int> expected = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}, {13, 14, 15}};
+    m_1.concatenate(m_2);
+    EXPECT_EQ(m_1, expected);
+
+    // CONCATENATE COLUMNS
+    m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_3 = {{10, 11}, {13, 14}, {16, 17}};
+    cmatrix<int> expected_2 = {{1, 2, 3, 10, 11}, {4, 5, 6, 13, 14}, {7, 8, 9, 16, 17}};
+    m_1.concatenate(m_3, 1);
+    EXPECT_EQ(m_1, expected_2);
+
+    // 3x1 MATRIX
+    // CONCATENATE ROWS
+    cmatrix<int> m_4 = {{1}, {2}, {3}};
+    cmatrix<int> m_5 = {{10}, {11}};
+    cmatrix<int> expected_3 = {{1}, {2}, {3}, {10}, {11}};
+    m_4.concatenate(m_5);
+    EXPECT_EQ(m_4, expected_3);
+
+    // CONCATENATE COLUMNS
+    m_4 = {{1}, {2}, {3}};
+    cmatrix<int> m_6 = {{10, 11}, {12, 13}, {14, 15}};
+    cmatrix<int> expected_4 = {{1, 10, 11}, {2, 12, 13}, {3, 14, 15}};
+    m_4.concatenate(m_6, 1);
+    EXPECT_EQ(m_4, expected_4);
+
+    // INVALID SIZE
+    EXPECT_THROW(m_2.concatenate({{1, 2, 3, 4}}), std::invalid_argument);
+}
+
 // ==================================================
 // CHECK METHODS
 /** Test is_empty method of cmatrix class */
