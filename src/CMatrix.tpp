@@ -105,8 +105,10 @@ template <class T>
 template <class U>
 cmatrix<U> cmatrix<T>::map(const std::function<U(T)> &f) const
 {
+    // Create a new matrix with the same dimensions
     cmatrix<U> m = cmatrix<U>(dim_v(), dim_h());
 
+    // Set the mapped value for each cell
     for (size_t r = 0; r < dim_v(); r++)
         for (size_t c = 0; c < dim_h(); c++)
             m.set_cell(r, c, f(cell(r, c)));
@@ -131,6 +133,7 @@ template <class T>
 template <class U>
 cmatrix<U> cmatrix<T>::__cast(std::true_type) const
 {
+    // Create a new matrix with the same dimensions
     cmatrix<U> m(dim_v(), dim_h());
 
     // Set the casted value for each cell

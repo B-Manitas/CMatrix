@@ -1006,6 +1006,8 @@ public:
      * @param dim_h The number of columns.
      * @param dim_v The number of rows.
      * @return cmatrix<int> The matrix of zeros.
+     *
+     * @ingroup static
      */
     static cmatrix<int> zeros(const size_t &dim_h, const size_t &dim_v);
     /**

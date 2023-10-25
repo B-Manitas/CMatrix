@@ -1227,6 +1227,7 @@ TEST(MatrixTest, apply)
 /** Test map method of cmatrix class */
 TEST(MatrixTest, map)
 {
+    // WITHOUT TYPE CONVERSION
     // 3x3 MATRIX
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> expected = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
