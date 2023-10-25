@@ -2,7 +2,7 @@
  * @defgroup static CMatrixStatic
  * @file CMatrixStatic.tpp
  * @brief This file contains the implementation of static methods of the class.
- * 
+ *
  * @see cmatrix
  */
 
@@ -77,4 +77,12 @@ std::vector<T> cmatrix<T>::flatten_vector(const std::vector<std::vector<T>> &vec
             r.push_back(e);
 
     return r;
+}
+
+template <class T>
+cmatrix<T> cmatrix<T>::merge(const cmatrix<T> &m1, const cmatrix<T> &m2, const unsigned int &axis)
+{
+    cmatrix<T> m = m1.copy();
+    m.concatenate(m2, axis);
+    return m;
 }

@@ -1568,6 +1568,42 @@ TEST(MatrixTest, identity)
     EXPECT_EQ(m_2.cell(1, 1), 1);
 }
 
+/** Test merge method of cmatrix class */
+TEST(MatrixTest, merge)
+{
+    // EMPTY MATRICES
+    cmatrix<int> m_1;
+    cmatrix<int> m_2;
+    cmatrix<int> m_3 = cmatrix<int>::merge(m_1, m_2);
+    EXPECT_TRUE(m_3.is_empty());
+
+    // 3x1 MATRIX
+    // MERGE ROWS
+    cmatrix<int> m_4 = {{1, 2, 3}};
+    cmatrix<int> m_5 = {{2, 3, 4}};
+    cmatrix<int> m_6 = cmatrix<int>::merge(m_4, m_5);
+    EXPECT_EQ(m_6, cmatrix<int>({{1, 2, 3}, {2, 3, 4}}));
+
+    // MERGE COLUMNS
+    cmatrix<int> m_7 = {{1}, {2}, {3}};
+    cmatrix<int> m_8 = {{2}, {3}, {4}};
+    cmatrix<int> m_9 = cmatrix<int>::merge(m_7, m_8, 1);
+    EXPECT_EQ(m_9, cmatrix<int>({{1, 2}, {2, 3}, {3, 4}}));
+
+    // 3x3 MATRIX
+    // MERGE ROWS
+    cmatrix<int> m_10 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_11 = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}};
+    cmatrix<int> m_12 = cmatrix<int>::merge(m_10, m_11);
+    EXPECT_EQ(m_12, cmatrix<int>({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {2, 3, 4}, {5, 6, 7}, {8, 9, 10}}));
+
+    // MERGE COLUMNS
+    cmatrix<int> m_13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_14 = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}};
+    cmatrix<int> m_15 = cmatrix<int>::merge(m_13, m_14, 1);
+    EXPECT_EQ(m_15, cmatrix<int>({{1, 2, 3, 2, 3, 4}, {4, 5, 6, 5, 6, 7}, {7, 8, 9, 8, 9, 10}}));
+}
+
 // ==================================================
 // OPERATOR METHODS
 
