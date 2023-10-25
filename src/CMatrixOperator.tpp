@@ -23,7 +23,9 @@ cmatrix<T> &cmatrix<T>::operator=(const cmatrix<T> &m)
 template <class T>
 cmatrix<T> &cmatrix<T>::operator=(const std::initializer_list<std::initializer_list<T>> &m)
 {
-    return cmatrix<T>(m);
+    cmatrix<T> tmp(m);
+    *this = tmp;
+    return *this;
 }
 
 // ==================================================
@@ -125,7 +127,7 @@ cmatrix<T> cmatrix<T>::operator-(const T &n) const
 template <class T>
 cmatrix<T> operator-(const T &n, const cmatrix<T> &m)
 {
-    return (-1)*m + n;
+    return (-1) * m + n;
 }
 
 template <class T>

@@ -1533,6 +1533,45 @@ TEST(MatrixTest, identity)
 
 // ==================================================
 // OPERATOR METHODS
+
+/** Test operatorAssignment method of cmatrix class */
+TEST(MatrixTest, op_assign)
+{
+    // EMPTY MATRIX
+    cmatrix<int> m_1;
+    cmatrix<int> m_2;
+    m_1 = m_2;
+    EXPECT_EQ(m_1, m_2);
+
+    // 3x1 MATRIX
+    cmatrix<int> m_7 = {{1}, {2}, {3}};
+    cmatrix<int> m_8 = {{3}, {2}, {1}};
+    m_7 = m_8;
+    EXPECT_EQ(m_7, m_8);
+
+    // AFTER ASSIGNMENT, CHANGE ORIGINAL MATRIX
+    cmatrix<int> m_9 = {{1, 2, 3}};
+    cmatrix<int> m_10 = {{3, 2, 1}};
+    m_9 = m_10;
+    m_10.set_cell(0, 0, 10);
+    EXPECT_NE(m_9, m_10);
+
+    // ASSIGN MATRIX TO ITSELF
+    cmatrix<int> m_11 = {{1, 2, 3}};
+    m_11 = m_11;
+    EXPECT_EQ(m_11, cmatrix<int>({{1, 2, 3}}));
+
+    // ASSIGN INITIALISER LIST
+    cmatrix<int> m_12 = {{1, 2, 3}};
+    m_12 = {{3, 2, 1}};
+    EXPECT_EQ(m_12, cmatrix<int>({{3, 2, 1}}));
+
+    // ASSIGN NON DECLARED MATRIX
+    cmatrix<int> m_13 = {{1, 2, 3}};
+    m_13 = cmatrix<int>({{3, 2, 1}});
+    EXPECT_EQ(m_13, cmatrix<int>({{3, 2, 1}}));
+}
+
 /** Test operatorEquals method of cmatrix class */
 TEST(MatrixTest, op_equals)
 {
