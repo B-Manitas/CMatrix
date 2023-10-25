@@ -194,6 +194,29 @@ private:
      */
     cmatrix<short unsigned int> __map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const;
 
+    // GENERAL METHODS
+    /**
+     * @brief Convert the matrix to a matrix of another type.
+     *
+     * @tparam U The type of the matrix to convert.
+     * @param true_type The type of the matrix is convertible.
+     * @return cmatrix<U> The converted matrix.
+     *
+     * @ingroup general
+     */
+    template <class U>
+    cmatrix<U> __cast(std::true_type) const;
+    /**
+     * @brief Convert the matrix to a matrix of another type.
+     *
+     * @tparam U The type of the matrix to convert.
+     * @param false_type The type of the matrix is not convertible.
+     * @throw std::invalid_argument The type of the matrix is not convertible.
+     *
+     * @ingroup general
+     */
+    template <class U>
+    cmatrix<U> __cast(std::false_type) const;
 public:
     // CONSTRUCTOR METHODS
     /**

@@ -1344,6 +1344,11 @@ TEST(MatrixTest, cast)
     cmatrix<int> m5Cast = m_5.cast<int>();
     cmatrix<int> expected5 = {{1}, {2}, {3}};
     EXPECT_EQ(m5Cast, expected5);
+
+    // INVALID CAST
+    EXPECT_THROW(m_5.cast<std::string>(), std::invalid_argument);
+    EXPECT_THROW(m_5.cast<std::vector<int>>(), std::invalid_argument);
+}
 }
 
 // ==================================================

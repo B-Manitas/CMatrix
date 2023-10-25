@@ -129,23 +129,32 @@ std::vector<std::vector<T>> cmatrix<T>::to_vector() const
 
 template <class T>
 template <class U>
+cmatrix<U> cmatrix<T>::__cast(std::true_type) const
+{
+    cmatrix<U> m(dim_v(), dim_h());
+
+    // Set the casted value for each cell
+    for (size_t r = 0; r < dim_v(); r++)
+        for (size_t c = 0; c < dim_h(); c++)
+            m.set_cell(r, c, static_cast<U>(cell(r, c)));
+
+    return m;
+}
+
+template <class T>
+template <class U>
+cmatrix<U> cmatrix<T>::__cast(std::false_type) const
+{
+    throw std::invalid_argument("T type" +
+                                std::string(typeid(T).name()) +
+                                " must be convertible into U type " +
+                                std::string(typeid(U).name()) + ".");
+}
+
+template <class T>
+template <class U>
 cmatrix<U> cmatrix<T>::cast() const
 {
-    if (std::is_convertible<T, U>::value)
-    {
-        cmatrix<U> m(dim_v(), dim_h());
-
-        // Set the casted value for each cell
-        for (size_t r = 0; r < dim_v(); r++)
-            for (size_t c = 0; c < dim_h(); c++)
-                m.set_cell(r, c, static_cast<U>(cell(r, c)));
-
-        return m;
-    }
-
-    else
-        throw std::invalid_argument("T type" +
-                                    std::string(typeid(T).name()) +
-                                    " must be convertible into U type " +
-                                    std::string(typeid(U).name()) + ".");
+    return __cast<U>(std::is_convertible<T, U>());
 }
+
