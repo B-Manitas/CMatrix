@@ -1349,6 +1349,63 @@ TEST(MatrixTest, cast)
     EXPECT_THROW(m_5.cast<std::string>(), std::invalid_argument);
     EXPECT_THROW(m_5.cast<std::vector<int>>(), std::invalid_argument);
 }
+
+/** Test to_int method of cmatrix class */
+TEST(MatrixTest, to_int)
+{
+    // EMPTY MATRIX
+    cmatrix<std::string> m_1;
+    cmatrix<int> m1Cast = m_1.to_int();
+    EXPECT_EQ(m1Cast, cmatrix<int>());
+
+    // 3x1 MATRIX STRING TO INT
+    cmatrix<std::string> m_4 = {{"1"}, {"2"}, {"3"}};
+    cmatrix<int> m4Cast = m_4.to_int();
+    cmatrix<int> expected4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m4Cast, expected4);
+
+    // 3x1 MATRIX STRING TO INT
+    cmatrix<std::string> m_5 = {{"1.1"}, {"2.2"}, {"3.3"}};
+    cmatrix<int> m5Cast = m_5.to_int();
+    cmatrix<int> expected5 = {{1}, {2}, {3}};
+    EXPECT_EQ(m5Cast, expected5);
+
+    // 3x1 MATRIX FLOAT TO INT
+    cmatrix<float> m_6 = {{1.1}, {2.2}, {3.3}};
+    cmatrix<int> m6Cast = m_6.to_int();
+    cmatrix<int> expected6 = {{1}, {2}, {3}};
+    EXPECT_EQ(m6Cast, expected6);
+
+    // INVALID CAST
+    EXPECT_THROW(cmatrix<std::vector<int>>().to_int(), std::invalid_argument);
+
+    // NON NUMERIC MATRIX
+    EXPECT_THROW(cmatrix<std::string>(1, 1, "a").to_int(), std::runtime_error);
+}
+
+/** Test to_string method of cmatrix class */
+TEST(MatrixTest, to_string)
+{
+    // EMPTY MATRIX
+    cmatrix<int> m_1;
+    cmatrix<float> m_2;
+    cmatrix<std::string> m_3;
+    EXPECT_EQ(m_1.to_string(), m_3);
+    EXPECT_EQ(m_2.to_string(), m_3);
+
+    // 1x3 MATRIX SHORT INT
+    cmatrix<int> m_4 = {{1, 2, 3}};
+    cmatrix<std::string> expected4 = {{"1", "2", "3"}};
+    EXPECT_EQ(m_4.to_string(), expected4);
+
+    // 1x3 MATRIX FLOAT
+    cmatrix<float> m_5 = {{1.1, 2.2, 3.3}};
+    cmatrix<std::string> expected5 = {{"1.100000", "2.200000", "3.300000"}};
+    EXPECT_EQ(m_5.to_string(), expected5);
+
+    // NOT FUNDAMENTAL TYPE
+    EXPECT_THROW(expected5.to_string(), std::invalid_argument);
+    EXPECT_THROW(cmatrix<std::vector<int>>().to_string(), std::invalid_argument);
 }
 
 // ==================================================

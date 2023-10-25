@@ -217,6 +217,25 @@ private:
      */
     template <class U>
     cmatrix<U> __cast(std::false_type) const;
+    /**
+     * @brief Convert the matrix to a string matrix.
+     *
+     * @param true_type The type of the matrix is convertible.
+     * @return cmatrix<std::string> The converted matrix.
+     *
+     * @ingroup general
+     */
+    cmatrix<std::string> __to_string(std::true_type) const;
+    /**
+     * @brief Convert the matrix to a string matrix.
+     *
+     * @param false_type The type of the matrix is not convertible.
+     * @throw std::invalid_argument The type of the matrix is not convertible.
+     *
+     * @ingroup general
+     */
+    cmatrix<std::string> __to_string(std::false_type) const;
+
 public:
     // CONSTRUCTOR METHODS
     /**
@@ -927,6 +946,25 @@ public:
      */
     template <class U>
     cmatrix<U> cast() const;
+    /**
+     * @brief Convert the matrix to a matrix of integers.
+     *
+     * @return cmatrix<int> The matrix of integers.
+     * @throw std::invalid_argument If the type T is not convertible to the type int.
+     * @throw std::runtime_error If the value is out of range of the type int.
+     *
+     * @ingroup general
+     */
+    cmatrix<int> to_int() const;
+    /**
+     * @brief Convert the matrix to a matrix of strings.
+     *
+     * @return cmatrix<std::string> The matrix of strings.
+     * @throw std::invalid_argument If the type T is not a primitive type.
+     *
+     * @ingroup general
+     */
+    cmatrix<std::string> to_string() const;
 
     // STATIC METHODS
     /**

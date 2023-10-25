@@ -158,3 +158,48 @@ cmatrix<U> cmatrix<T>::cast() const
     return __cast<U>(std::is_convertible<T, U>());
 }
 
+template <class T>
+cmatrix<int> cmatrix<T>::to_int() const
+{
+    return cast<int>();
+}
+
+template <>
+cmatrix<int> cmatrix<int>::to_int() const
+{
+    return *this;
+}
+
+template <>
+cmatrix<int> cmatrix<std::string>::to_int() const
+{
+    try
+    {
+        return map<int>([&](std::string cell)
+                        { return std::stoi(cell); });
+    }
+    catch (const std::invalid_argument &e)
+    {
+        throw std::runtime_error("The string matrix contains non-integer values.");
+    }
+}
+
+template <class T>
+cmatrix<std::string> cmatrix<T>::__to_string(std::true_type) const
+{
+    return map<std::string>([&](T cell)
+                            { return std::to_string(cell); });
+}
+
+template <class T>
+cmatrix<std::string> cmatrix<T>::__to_string(std::false_type) const
+{
+    throw std::invalid_argument("The type should be a primitive type. Actual type: " +
+                                std::string(typeid(T).name()) + ".");
+}
+
+template <class T>
+cmatrix<std::string> cmatrix<T>::to_string() const
+{
+    return __to_string(std::is_fundamental<T>());
+}
