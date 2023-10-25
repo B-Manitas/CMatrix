@@ -132,9 +132,58 @@ Functions</h2></td></tr>
 <tr class="memitem:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d30/group__manipulation.html#gab85773fe1e9b38d7ad76a3612d5535d5">cmatrix&lt; T &gt;::remove_column</a> (const size_t &amp;n)</td></tr>
 <tr class="memdesc:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a column of the matrix.  <a href="../../d5/d30/group__manipulation.html#gab85773fe1e9b38d7ad76a3612d5535d5">More...</a><br /></td></tr>
 <tr class="separator:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee421b23495a5001e277686b2bc27480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d30/group__manipulation.html#gaee421b23495a5001e277686b2bc27480">cmatrix&lt; T &gt;::concatenate</a> (const <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;m, const unsigned int &amp;axis=0)</td></tr>
+<tr class="memdesc:gaee421b23495a5001e277686b2bc27480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenate a matrix to the matrix.  <a href="../../d5/d30/group__manipulation.html#gaee421b23495a5001e277686b2bc27480">More...</a><br /></td></tr>
+<tr class="separator:gaee421b23495a5001e277686b2bc27480"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gaee421b23495a5001e277686b2bc27480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee421b23495a5001e277686b2bc27480">&#9670;&nbsp;</a></span>concatenate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt;::concatenate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>axis</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Concatenate a matrix to the matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>The matrix to concatenate. </td></tr>
+    <tr><td class="paramname">axis</td><td>The axis to concatenate. 0 for the rows, 1 for the columns. (default: 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If the axis is not 0 or 1. </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>If the dimensions of matrices are not equals. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="gaaa137c74b74786feaf099387b68c85d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaaa137c74b74786feaf099387b68c85d7">&#9670;&nbsp;</a></span>find() <span class="overload">[1/2]</span></h2>
 

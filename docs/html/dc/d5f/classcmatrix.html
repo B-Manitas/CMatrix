@@ -226,6 +226,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d30/group__manipulation.html#gab85773fe1e9b38d7ad76a3612d5535d5">remove_column</a> (const size_t &amp;n)</td></tr>
 <tr class="memdesc:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a column of the matrix.  <a href="../../d5/d30/group__manipulation.html#gab85773fe1e9b38d7ad76a3612d5535d5">More...</a><br /></td></tr>
 <tr class="separator:gab85773fe1e9b38d7ad76a3612d5535d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee421b23495a5001e277686b2bc27480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d30/group__manipulation.html#gaee421b23495a5001e277686b2bc27480">concatenate</a> (const <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;m, const unsigned int &amp;axis=0)</td></tr>
+<tr class="memdesc:gaee421b23495a5001e277686b2bc27480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenate a matrix to the matrix.  <a href="../../d5/d30/group__manipulation.html#gaee421b23495a5001e277686b2bc27480">More...</a><br /></td></tr>
+<tr class="separator:gaee421b23495a5001e277686b2bc27480"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaffc2a1e81d350c25e5779afe1aab8da8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dcd/group__check.html#gaffc2a1e81d350c25e5779afe1aab8da8">is_empty</a> () const</td></tr>
 <tr class="memdesc:gaffc2a1e81d350c25e5779afe1aab8da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the matrix is empty.  <a href="../../d3/dcd/group__check.html#gaffc2a1e81d350c25e5779afe1aab8da8">More...</a><br /></td></tr>
 <tr class="separator:gaffc2a1e81d350c25e5779afe1aab8da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -295,9 +298,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga2caab6666627a6fdf4d31f14716d5f08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#ga2caab6666627a6fdf4d31f14716d5f08">map</a> (const std::function&lt; T(T, size_t *, size_t *)&gt; &amp;f, size_t *col=nullptr, size_t *row=nullptr) const</td></tr>
 <tr class="memdesc:ga2caab6666627a6fdf4d31f14716d5f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix and return the result.  <a href="../../d1/da8/group__general.html#ga2caab6666627a6fdf4d31f14716d5f08">More...</a><br /></td></tr>
 <tr class="separator:ga2caab6666627a6fdf4d31f14716d5f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8a373b2e3e1d7c601805faa7218ec0c"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:gab8a373b2e3e1d7c601805faa7218ec0c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#gab8a373b2e3e1d7c601805faa7218ec0c">map</a> (const std::function&lt; U(T, size_t *, size_t *)&gt; &amp;f, size_t *col=nullptr, size_t *row=nullptr) const</td></tr>
+<tr class="memdesc:gab8a373b2e3e1d7c601805faa7218ec0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix and return the result.  <a href="../../d1/da8/group__general.html#gab8a373b2e3e1d7c601805faa7218ec0c">More...</a><br /></td></tr>
+<tr class="separator:gab8a373b2e3e1d7c601805faa7218ec0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaec11f70e818f918e023fd091306204ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#gaec11f70e818f918e023fd091306204ba">map</a> (const std::function&lt; T(T)&gt; &amp;f) const</td></tr>
 <tr class="memdesc:gaec11f70e818f918e023fd091306204ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix and return the result.  <a href="../../d1/da8/group__general.html#gaec11f70e818f918e023fd091306204ba">More...</a><br /></td></tr>
 <tr class="separator:gaec11f70e818f918e023fd091306204ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b9f30bfc7c05c968084e0d2149e0d93"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:ga9b9f30bfc7c05c968084e0d2149e0d93"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#ga9b9f30bfc7c05c968084e0d2149e0d93">map</a> (const std::function&lt; U(T)&gt; &amp;f) const</td></tr>
+<tr class="memdesc:ga9b9f30bfc7c05c968084e0d2149e0d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to each cell of the matrix and return the result.  <a href="../../d1/da8/group__general.html#ga9b9f30bfc7c05c968084e0d2149e0d93">More...</a><br /></td></tr>
+<tr class="separator:ga9b9f30bfc7c05c968084e0d2149e0d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga70ed516d04d245c16f3bda79284f000b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#ga70ed516d04d245c16f3bda79284f000b">fill</a> (const T &amp;val)</td></tr>
 <tr class="memdesc:ga70ed516d04d245c16f3bda79284f000b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the matrix with a value.  <a href="../../d1/da8/group__general.html#ga70ed516d04d245c16f3bda79284f000b">More...</a><br /></td></tr>
 <tr class="separator:ga70ed516d04d245c16f3bda79284f000b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -308,6 +319,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga1e8370d047a279c67ca8727a80d8bfd1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#ga1e8370d047a279c67ca8727a80d8bfd1">cast</a> () const</td></tr>
 <tr class="memdesc:ga1e8370d047a279c67ca8727a80d8bfd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a matrix of another type.  <a href="../../d1/da8/group__general.html#ga1e8370d047a279c67ca8727a80d8bfd1">More...</a><br /></td></tr>
 <tr class="separator:ga1e8370d047a279c67ca8727a80d8bfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c4a72b9c2192b46ea75bd494c2e15e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#ga3c4a72b9c2192b46ea75bd494c2e15e7">to_int</a> () const</td></tr>
+<tr class="memdesc:ga3c4a72b9c2192b46ea75bd494c2e15e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a matrix of integers.  <a href="../../d1/da8/group__general.html#ga3c4a72b9c2192b46ea75bd494c2e15e7">More...</a><br /></td></tr>
+<tr class="separator:ga3c4a72b9c2192b46ea75bd494c2e15e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6c3e803f578e7748b4dd39f034dda4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#gab6c3e803f578e7748b4dd39f034dda4a">to_string</a> () const</td></tr>
+<tr class="memdesc:gab6c3e803f578e7748b4dd39f034dda4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a matrix of strings.  <a href="../../d1/da8/group__general.html#gab6c3e803f578e7748b4dd39f034dda4a">More...</a><br /></td></tr>
+<tr class="separator:gab6c3e803f578e7748b4dd39f034dda4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad5602f092d4a29ff7a658f8deae842f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/group__operator.html#gad5602f092d4a29ff7a658f8deae842f2">operator=</a> (const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;m)</td></tr>
 <tr class="memdesc:gad5602f092d4a29ff7a658f8deae842f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The assignment operator.  <a href="../../d4/d3a/group__operator.html#gad5602f092d4a29ff7a658f8deae842f2">More...</a><br /></td></tr>
 <tr class="separator:gad5602f092d4a29ff7a658f8deae842f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -386,6 +403,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga7a6ae7a2937f9ec599e14e4bcfbcb9c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/group__operator.html#ga7a6ae7a2937f9ec599e14e4bcfbcb9c6">operator^=</a> (const unsigned int &amp;m)</td></tr>
 <tr class="memdesc:ga7a6ae7a2937f9ec599e14e4bcfbcb9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The power assignment operator.  <a href="../../d4/d3a/group__operator.html#ga7a6ae7a2937f9ec599e14e4bcfbcb9c6">More...</a><br /></td></tr>
 <tr class="separator:ga7a6ae7a2937f9ec599e14e4bcfbcb9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace3904a819437068f2770f703dfdcb50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d5f/classcmatrix.html#ace3904a819437068f2770f703dfdcb50">to_int</a> () const</td></tr>
+<tr class="separator:ace3904a819437068f2770f703dfdcb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06fa2fa7dfa39d0844878296f9d642cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d5f/classcmatrix.html#a06fa2fa7dfa39d0844878296f9d642cc">to_int</a> () const</td></tr>
+<tr class="separator:a06fa2fa7dfa39d0844878296f9d642cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68100a6e0887d417b25c09298e1bd682"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d5f/classcmatrix.html#a68100a6e0887d417b25c09298e1bd682">randint</a> (const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>, const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const int &amp;<a class="el" href="../../dc/ddb/group__statistic.html#ga3c8279aee30a6f9d45c796c2f4902142">min</a>, const int &amp;<a class="el" href="../../dc/ddb/group__statistic.html#ga3f9384e591534cdb81d8671d5e2d8b85">max</a>, const int &amp;seed)</td></tr>
 <tr class="separator:a68100a6e0887d417b25c09298e1bd682"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36a34028ba6a94832270797e47b87c51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d5f/classcmatrix.html#a36a34028ba6a94832270797e47b87c51">zeros</a> (const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>)</td></tr>
@@ -404,12 +425,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:gabd1f040eca612660113a96308d8a9ccc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d45/group__static.html#gabd1f040eca612660113a96308d8a9ccc">randint</a> (const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>, const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const int &amp;<a class="el" href="../../dc/ddb/group__statistic.html#ga3c8279aee30a6f9d45c796c2f4902142">min</a>, const int &amp;<a class="el" href="../../dc/ddb/group__statistic.html#ga3f9384e591534cdb81d8671d5e2d8b85">max</a>, const int &amp;seed=time(nullptr))</td></tr>
 <tr class="memdesc:gabd1f040eca612660113a96308d8a9ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random matrix of integers.  <a href="../../dc/d45/group__static.html#gabd1f040eca612660113a96308d8a9ccc">More...</a><br /></td></tr>
 <tr class="separator:gabd1f040eca612660113a96308d8a9ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96c97c592e9f8a1892b474a74b27dc40"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d5f/classcmatrix.html#a96c97c592e9f8a1892b474a74b27dc40">zeros</a> (const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>)</td></tr>
-<tr class="memdesc:a96c97c592e9f8a1892b474a74b27dc40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a matrix of zeros.  <a href="../../dc/d5f/classcmatrix.html#a96c97c592e9f8a1892b474a74b27dc40">More...</a><br /></td></tr>
-<tr class="separator:a96c97c592e9f8a1892b474a74b27dc40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96c97c592e9f8a1892b474a74b27dc40"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d45/group__static.html#ga96c97c592e9f8a1892b474a74b27dc40">zeros</a> (const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga16147aad3ce464f611834ce2dc4d302c">dim_h</a>, const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#ga2b5c25d8a931cb75cf41a1799c9379a3">dim_v</a>)</td></tr>
+<tr class="memdesc:ga96c97c592e9f8a1892b474a74b27dc40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a matrix of zeros.  <a href="../../dc/d45/group__static.html#ga96c97c592e9f8a1892b474a74b27dc40">More...</a><br /></td></tr>
+<tr class="separator:ga96c97c592e9f8a1892b474a74b27dc40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga919d94470dcdde36abf23379aa01af34"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d45/group__static.html#ga919d94470dcdde36abf23379aa01af34">identity</a> (const size_t &amp;<a class="el" href="../../d1/de1/group__getter.html#gae5e66e4f804d2e39efee0cce42044b46">dim</a>)</td></tr>
 <tr class="memdesc:ga919d94470dcdde36abf23379aa01af34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the identity matrix.  <a href="../../dc/d45/group__static.html#ga919d94470dcdde36abf23379aa01af34">More...</a><br /></td></tr>
 <tr class="separator:ga919d94470dcdde36abf23379aa01af34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga264687448091731297041e6cdb0ec7af"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d45/group__static.html#ga264687448091731297041e6cdb0ec7af">merge</a> (const <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;m1, const <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt; &amp;m2, const unsigned int &amp;axis=0)</td></tr>
+<tr class="memdesc:ga264687448091731297041e6cdb0ec7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merge two matrices.  <a href="../../dc/d45/group__static.html#ga264687448091731297041e6cdb0ec7af">More...</a><br /></td></tr>
+<tr class="separator:ga264687448091731297041e6cdb0ec7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35be4ea0400e8ac030a290b0593241e9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d45/group__static.html#ga35be4ea0400e8ac030a290b0593241e9">from_vector</a> (const std::vector&lt; std::vector&lt; T &gt;&gt; &amp;vec)</td></tr>
+<tr class="memdesc:ga35be4ea0400e8ac030a290b0593241e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a matrix from a nested vector.  <a href="../../dc/d45/group__static.html#ga35be4ea0400e8ac030a290b0593241e9">More...</a><br /></td></tr>
+<tr class="separator:ga35be4ea0400e8ac030a290b0593241e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -461,6 +488,20 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ga91ecd6a81bd2678c0553d321df0c3573"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; short unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/group__operator.html#ga91ecd6a81bd2678c0553d321df0c3573">__map_op_comparaison_val</a> (const std::function&lt; T(T, T)&gt; &amp;f, const T &amp;n) const</td></tr>
 <tr class="memdesc:ga91ecd6a81bd2678c0553d321df0c3573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map a comparison operator to each cell of the matrix and return a matrix of boolean.  <a href="../../d4/d3a/group__operator.html#ga91ecd6a81bd2678c0553d321df0c3573">More...</a><br /></td></tr>
 <tr class="separator:ga91ecd6a81bd2678c0553d321df0c3573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79d07de80bf65cb234d8e225fa8ea0a0"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:ga79d07de80bf65cb234d8e225fa8ea0a0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#ga79d07de80bf65cb234d8e225fa8ea0a0">__cast</a> (std::true_type) const</td></tr>
+<tr class="memdesc:ga79d07de80bf65cb234d8e225fa8ea0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a matrix of another type.  <a href="../../d1/da8/group__general.html#ga79d07de80bf65cb234d8e225fa8ea0a0">More...</a><br /></td></tr>
+<tr class="separator:ga79d07de80bf65cb234d8e225fa8ea0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7628a5a9a94bd6499d1c0ce7eb75e3e"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:gac7628a5a9a94bd6499d1c0ce7eb75e3e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#gac7628a5a9a94bd6499d1c0ce7eb75e3e">__cast</a> (std::false_type) const</td></tr>
+<tr class="memdesc:gac7628a5a9a94bd6499d1c0ce7eb75e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a matrix of another type.  <a href="../../d1/da8/group__general.html#gac7628a5a9a94bd6499d1c0ce7eb75e3e">More...</a><br /></td></tr>
+<tr class="separator:gac7628a5a9a94bd6499d1c0ce7eb75e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa073a13dc255f98d9fa3fb6e0ef44487"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#gaa073a13dc255f98d9fa3fb6e0ef44487">__to_string</a> (std::true_type) const</td></tr>
+<tr class="memdesc:gaa073a13dc255f98d9fa3fb6e0ef44487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a string matrix.  <a href="../../d1/da8/group__general.html#gaa073a13dc255f98d9fa3fb6e0ef44487">More...</a><br /></td></tr>
+<tr class="separator:gaa073a13dc255f98d9fa3fb6e0ef44487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaea8e725b8cf4b9badf12a643b85ee4dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da8/group__general.html#gaea8e725b8cf4b9badf12a643b85ee4dd">__to_string</a> (std::false_type) const</td></tr>
+<tr class="memdesc:gaea8e725b8cf4b9badf12a643b85ee4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the matrix to a string matrix.  <a href="../../d1/da8/group__general.html#gaea8e725b8cf4b9badf12a643b85ee4dd">More...</a><br /></td></tr>
+<tr class="separator:gaea8e725b8cf4b9badf12a643b85ee4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -781,8 +822,42 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="ace3904a819437068f2770f703dfdcb50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace3904a819437068f2770f703dfdcb50">&#9670;&nbsp;</a></span>to_int() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt; <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt;::to_int </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06fa2fa7dfa39d0844878296f9d642cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06fa2fa7dfa39d0844878296f9d642cc">&#9670;&nbsp;</a></span>to_int() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; int &gt; <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; std::string &gt;::to_int </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a36a34028ba6a94832270797e47b87c51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36a34028ba6a94832270797e47b87c51">&#9670;&nbsp;</a></span>zeros() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a36a34028ba6a94832270797e47b87c51">&#9670;&nbsp;</a></span>zeros()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -806,54 +881,6 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a96c97c592e9f8a1892b474a74b27dc40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96c97c592e9f8a1892b474a74b27dc40">&#9670;&nbsp;</a></span>zeros() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt;int&gt; <a class="el" href="../../dc/d5f/classcmatrix.html">cmatrix</a>&lt; T &gt;::zeros </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>dim_h</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>dim_v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate a matrix of zeros. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dim_h</td><td>The number of columns. </td></tr>
-    <tr><td class="paramname">dim_v</td><td>The number of rows. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>cmatrix&lt;int&gt; The matrix of zeros. </dd></dl>
 
 </div>
 </div>
