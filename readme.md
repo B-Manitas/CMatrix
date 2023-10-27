@@ -31,7 +31,7 @@ git clone https://github.com/B-Manitas/CMatrix.git
 Here's an example of how to use CMatrix:
 
 ```cpp
-#include "cmatrix.h"
+#include "CMatrix.hpp"
 
 int main()
 {
