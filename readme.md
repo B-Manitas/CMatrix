@@ -10,7 +10,9 @@ CMatrix is a robust C++ matrix library designed to simplify matrix operations an
 1. [Installation](#installation)
 2. [Example of Usage](#exemple-of-usage)
 3. [Hierarchical Structure](#hierarchical-structure)
-4. [Licence](#license)
+4. [Documentation](#documentation)
+5. [See Also](#see-also)
+6. [License](#license)
 
 ## Installation
 
@@ -76,6 +78,10 @@ CMatrix is structured as follows:
 ## Documentation
 
 For detailed information on how to use CMatrix, consult the [documentation](cmatrix.pdf).
+
+## See Also
+
+- [CDataFrame](https://github.com/B-Manitas/CDataFrame): A C++ DataFrame library for Data Science and Machine Learning projects.
 
 ## License
 
