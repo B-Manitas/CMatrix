@@ -3,7 +3,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Active-green.svg)](https://github.com/B-Manitas/CMatrix)
 
-
 CMatrix is a robust C++ matrix library designed to simplify matrix operations and provide extensive functionalities. This library is tailored for Data Science and Machine Learning projects, offering a versatile toolset for working with matrices.
 
 ## Table of Contents
@@ -23,7 +22,7 @@ To install the library, follow these steps:
 git clone https://github.com/B-Manitas/CMatrix.git
 ```
 
-2. Include the [`cmatrix.hpp`](include/CMatrix.hpp) file in your project.
+2. Include the [`CMatrix.hpp`](include/CMatrix.hpp) file in your project.
 
 ## Exemple of Usage
 
@@ -62,7 +61,7 @@ CMatrix is structured as follows:
 | include                                                      |                                                                                             |
 | [`CMatrix.hpp`](include/CMatrix.hpp)                         | The main template class that can work with any data type except bool.                       |
 | src                                                          |                                                                                             |
-| [`CMatrix.tpp`](include/CMatrixExceptions.hpp)               | General methods of the class.                                                               |
+| [`CMatrix.tpp`](include/CMatrix.tpp)                         | General methods of the class.                                                               |
 | [`CMatrixConstructors.hpp`](include/CMatrixConstructors.tpp) | Implementation of class constructors.                                                       |
 | [`CMatrixGetter.hpp`](include/CMatrixGetter.tpp)             | Methods to retrieve information about the matrix and access its elements.                   |
 | [`CMatrixSetter.hpp`](include/CMatrixSetter.tpp)             | Methods to set data in the matrix.                                                          |
@@ -73,7 +72,6 @@ CMatrix is structured as follows:
 | [`CMatrixStatistics.hpp`](include/CMatrixStatistics.tpp)     | Methods to perform statistical operations on the matrix.                                    |
 | test                                                         |                                                                                             |
 | [`CMatrixTest.hpp`](test/CMatrixTest.tpp)                    | Contains the tests for the class.                                                           |
-
 
 ## Documentation
 
