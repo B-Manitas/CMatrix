@@ -1452,19 +1452,19 @@ TEST(MatrixTest, to_string)
 TEST(MatrixTest, is_matrix)
 {
     // EMPTY MATRIX
-    EXPECT_TRUE(cmatrix<int>::is_matrix({}));
+    EXPECT_TRUE(cmatrix<int>::is_matrix(std::vector<std::vector<int>>()));
 
     // 3x3 MATRIX
-    EXPECT_TRUE(cmatrix<int>::is_matrix({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+    EXPECT_TRUE(cmatrix<int>::is_matrix(std::vector<std::vector<int>>({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}})));
 
     // 1x3 MATRIX
-    EXPECT_TRUE(cmatrix<int>::is_matrix({{1, 2, 3}}));
+    EXPECT_TRUE(cmatrix<int>::is_matrix(std::vector<std::vector<int>>({{1, 2, 3}})));
 
     // 3x1 MATRIX
-    EXPECT_TRUE(cmatrix<int>::is_matrix({{1}, {2}, {3}}));
+    EXPECT_TRUE(cmatrix<int>::is_matrix(std::vector<std::vector<int>>({{1}, {2}, {3}})));
 
     // INVALID MATRIX - NOT RECTANGULAR
-    EXPECT_FALSE(cmatrix<int>::is_matrix({{1, 2}, {3, 4, 5}}));
+    EXPECT_FALSE(cmatrix<int>::is_matrix(std::vector<std::vector<int>>({{1, 2}, {3, 4, 5}})));
 }
 
 /** Test flatten_vector method of cmatrix class */

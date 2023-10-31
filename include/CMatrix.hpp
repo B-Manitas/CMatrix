@@ -248,6 +248,14 @@ public:
     cmatrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief Construct a new cmatrix object.
+     * 
+     * @param m The vector matrix.
+     * @throw std::invalid_argument If the vector is not a matrix.
+     * @throw std::invalid_argument If the type is bool.
+     */
+    cmatrix(const std::vector<std::vector<T>> &m);
+    /**
+     * @brief Construct a new cmatrix object.
      *
      * @throw std::invalid_argument If the type is bool.
      */
@@ -987,7 +995,7 @@ public:
      *
      * @ingroup static
      */
-    static bool is_matrix(const std::initializer_list<std::initializer_list<T>> &m);
+    static bool is_matrix(const std::vector<std::vector<T>> &m);
     /**
      * @brief Flatten a nested vector.
      *

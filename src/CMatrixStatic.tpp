@@ -48,12 +48,12 @@ cmatrix<int> cmatrix<int>::identity(const size_t &dim)
 // OTHERS METHODS
 
 template <class T>
-bool cmatrix<T>::is_matrix(const std::initializer_list<std::initializer_list<T>> &m)
+bool cmatrix<T>::is_matrix(const std::vector<std::vector<T>> &m)
 {
     size_t rowSize = 0;
 
     // Check if all the rows have the same size
-    for (const std::initializer_list<T> &row : m)
+    for (const std::vector<T> &row : m)
     {
         // If it's the first row, set the size
         if (rowSize == 0)

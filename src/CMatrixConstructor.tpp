@@ -15,16 +15,18 @@ cmatrix<T>::cmatrix()
 }
 
 template <class T>
-cmatrix<T>::cmatrix(const std::initializer_list<std::initializer_list<T>> &m)
+cmatrix<T>::cmatrix(const std::initializer_list<std::initializer_list<T>> &m) : cmatrix<T>(std::vector<std::vector<T>>(m.begin(), m.end())) {}
+
+template <class T>
+cmatrix<T>::cmatrix(const std::vector<std::vector<T>> &m)
 {
     __check_valid_type();
 
     if (is_matrix(m))
-        for (const std::initializer_list<T> &row : m)
-            matrix.push_back(std::vector<T>(row));
+        matrix = m;
 
     else
-        throw std::invalid_argument("The initializer list must be a matrix.");
+        throw std::invalid_argument("The vector must be a matrix.");
 }
 
 template <class T>
