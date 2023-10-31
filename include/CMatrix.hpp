@@ -1033,6 +1033,20 @@ public:
      */
     static cmatrix<int> randint(const size_t &height, const size_t &width, const int &min, const int &max, const int &seed = time(nullptr));
     /**
+     * @brief Generate a random matrix of floats.
+     *
+     * @param width The number of rows.
+     * @param height The number of columns.
+     * @param min The minimum value of the matrix.
+     * @param max The maximum value of the matrix.
+     * @param seed The seed of the random generator. (default: time(nullptr))
+     *
+     * @return cmatrix<float> The random matrix of floats.
+     *
+     * @ingroup static
+     */
+    static cmatrix<float> randfloat(const size_t &height, const size_t &width, const float &min, const float &max, const int &seed = time(nullptr));
+    /**
      * @brief Generate a matrix of zeros.
      *
      * @param width The number of columns.

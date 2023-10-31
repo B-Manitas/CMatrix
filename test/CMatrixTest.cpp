@@ -1553,6 +1553,46 @@ TEST(MatrixTest, randint)
         }
 }
 
+/** Test randfloat method of cmatrix class */
+TEST(MatrixTest, randfloat)
+{
+    // 3x1 MATRIX
+    cmatrix<float> m_1 = cmatrix<float>::randfloat(3, 1, 0, 10);
+    EXPECT_EQ(m_1.width(), 1);
+    EXPECT_EQ(m_1.height(), 3);
+
+    for (size_t i = 0; i < m_1.width(); i++)
+        for (size_t j = 0; j < m_1.height(); j++)
+        {
+            EXPECT_GE(m_1.cell(j, i), 0);
+            EXPECT_LE(m_1.cell(j, i), 10);
+        }
+
+    // 1x3 MATRIX
+    cmatrix<float> m_2 = cmatrix<float>::randfloat(1, 3, 0, 10);
+    EXPECT_EQ(m_2.width(), 3);
+    EXPECT_EQ(m_2.height(), 1);
+
+    for (size_t i = 0; i < m_2.width(); i++)
+        for (size_t j = 0; j < m_2.height(); j++)
+        {
+            EXPECT_GE(m_2.cell(j, i), 0);
+            EXPECT_LE(m_2.cell(j, i), 10);
+        }
+
+    // 3x3 MATRIX
+    cmatrix<float> m_3 = cmatrix<float>::randfloat(3, 3, 0, 10);
+    EXPECT_EQ(m_3.width(), 3);
+    EXPECT_EQ(m_3.height(), 3);
+
+    for (size_t i = 0; i < m_3.width(); i++)
+        for (size_t j = 0; j < m_3.height(); j++)
+        {
+            EXPECT_GE(m_3.cell(j, i), 0);
+            EXPECT_LE(m_3.cell(j, i), 10);
+        }
+}
+
 /** Test zeros method of cmatrix class */
 TEST(MatrixTest, zeros)
 {
