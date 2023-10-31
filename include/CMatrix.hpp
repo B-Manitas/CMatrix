@@ -1072,16 +1072,6 @@ public:
      * @ingroup static
      */
     static cmatrix<T> merge(const cmatrix<T> &m1, const cmatrix<T> &m2, const unsigned int &axis = 0);
-    /**
-     * @brief Generate a matrix from a nested vector.
-     *
-     * @param vec The nested vector.
-     * @return cmatrix<T> The matrix.
-     * @throw std::invalid_argument If the nested vector is not a matrix.
-     *
-     * @ingroup static
-     */
-    static cmatrix<T> from_vector(const std::vector<std::vector<T>> &vec);
 
     // OPERATOR METHODS
     /**
