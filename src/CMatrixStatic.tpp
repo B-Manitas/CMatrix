@@ -68,18 +68,6 @@ bool cmatrix<T>::is_matrix(const std::vector<std::vector<T>> &m)
 }
 
 template <class T>
-std::vector<T> cmatrix<T>::flatten_vector(const std::vector<std::vector<T>> &vec)
-{
-    std::vector<T> r;
-
-    for (auto &&row : vec)
-        for (auto &&e : row)
-            r.push_back(e);
-
-    return r;
-}
-
-template <class T>
 cmatrix<T> cmatrix<T>::merge(const cmatrix<T> &m1, const cmatrix<T> &m2, const unsigned int &axis)
 {
     cmatrix<T> m = m1.copy();

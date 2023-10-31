@@ -248,7 +248,7 @@ public:
     cmatrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
      * @brief Construct a new cmatrix object.
-     * 
+     *
      * @param m The vector matrix.
      * @throw std::invalid_argument If the vector is not a matrix.
      * @throw std::invalid_argument If the type is bool.
@@ -427,23 +427,23 @@ public:
     T cell(const size_t &row, const size_t &col) const;
     /**
      * @brief Get the rows between two indexes.
-     * 
+     *
      * @param start The start index inclusive.
      * @param end The end index inclusive.
      * @return cmatrix<T> The rows between two indexes.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> slice_rows(const size_t &start, const size_t &end) const;
     /**
      * @brief Get the columns between two indexes.
-     * 
+     *
      * @param start The start index inclusive.
      * @param end The end index inclusive.
      * @return cmatrix<T> The columns between two indexes.
      * @throw std::out_of_range If the index is out of range.
-     * 
+     *
      * @ingroup getter
      */
     cmatrix<T> slice_columns(const size_t &start, const size_t &end) const;
@@ -1018,15 +1018,6 @@ public:
      * @ingroup static
      */
     static bool is_matrix(const std::vector<std::vector<T>> &m);
-    /**
-     * @brief Flatten a nested vector.
-     *
-     * @param vec The nested vector to flatten.
-     * @return std::vector<T> The flattened vector.
-     *
-     * @ingroup static
-     */
-    static std::vector<T> flatten_vector(const std::vector<std::vector<T>> &vec);
     /**
      * @brief Generate a random matrix of integers.
      *

@@ -1513,16 +1513,6 @@ TEST(MatrixTest, is_matrix)
     EXPECT_FALSE(cmatrix<int>::is_matrix(std::vector<std::vector<int>>({{1, 2}, {3, 4, 5}})));
 }
 
-/** Test flatten_vector method of cmatrix class */
-TEST(MatrixTest, flatten_vector)
-{
-    // EMPTY VECTOR
-    EXPECT_EQ(cmatrix<int>::flatten_vector({}), std::vector<int>());
-
-    // 2D VECTOR
-    EXPECT_EQ(cmatrix<int>::flatten_vector({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}), std::vector<int>({1, 2, 3, 4, 5, 6, 7, 8, 9}));
-}
-
 /** Test randint method of cmatrix class */
 TEST(MatrixTest, randint)
 {
