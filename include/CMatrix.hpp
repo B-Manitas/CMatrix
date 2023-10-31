@@ -425,6 +425,28 @@ public:
      * @ingroup getter
      */
     T cell(const size_t &row, const size_t &col) const;
+    /**
+     * @brief Get the rows between two indexes.
+     * 
+     * @param start The start index inclusive.
+     * @param end The end index inclusive.
+     * @return cmatrix<T> The rows between two indexes.
+     * @throw std::out_of_range If the index is out of range.
+     * 
+     * @ingroup getter
+     */
+    cmatrix<T> slice_rows(const size_t &start, const size_t &end) const;
+    /**
+     * @brief Get the columns between two indexes.
+     * 
+     * @param start The start index inclusive.
+     * @param end The end index inclusive.
+     * @return cmatrix<T> The columns between two indexes.
+     * @throw std::out_of_range If the index is out of range.
+     * 
+     * @ingroup getter
+     */
+    cmatrix<T> slice_columns(const size_t &start, const size_t &end) const;
 
     /**
      * @brief The number of columns of the matrix.

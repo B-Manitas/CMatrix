@@ -129,6 +129,26 @@ T cmatrix<T>::cell(const size_t &row, const size_t &col) const
     return matrix.at(row).at(col);
 }
 
+template <class T>
+cmatrix<T> cmatrix<T>::slice_rows(const size_t &start, const size_t &end) const
+{
+    __check_valid_row_id(start);
+    __check_valid_row_id(end);
+    std::vector<std::vector<T>> submatrix(matrix.begin() + start, matrix.begin() + end + 1);
+    return cmatrix<T>(submatrix);
+}
+
+template <class T>
+cmatrix<T> cmatrix<T>::slice_columns(const size_t &start, const size_t &end) const
+{
+    __check_valid_col_id(start);
+    __check_valid_col_id(end);
+
+    std::vector<size_t> ids(end - start + 1);
+    std::iota(ids.begin(), ids.end(), start);
+    return columns(ids);
+}
+
 // ==================================================
 // DIM METHODS
 

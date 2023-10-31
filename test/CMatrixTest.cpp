@@ -214,6 +214,52 @@ TEST(MatrixTest, cell)
     EXPECT_THROW(m.cell(0, 3), std::out_of_range);
 }
 
+/** Test slice_rows method of cmatrix class */
+TEST(MatrixTest, slice_rows)
+{
+    // 3x3 MATRIX
+    cmatrix<int> m = {{1, 2, 3},
+                      {4, 5, 6},
+                      {7, 8, 9}};
+    cmatrix<int> expected = {{4, 5, 6}};
+    EXPECT_EQ(m.slice_rows(1, 1), expected);
+
+    // 1x3 MATRIX
+    cmatrix<int> m_2 = {{1, 2, 3}};
+    EXPECT_EQ(m_2.slice_rows(0, 0), m_2);
+
+    // 3x1 MATRIX
+    cmatrix<int> m_3 = {{1}, {2}, {3}};
+    EXPECT_EQ(m_3.slice_rows(0, 0), cmatrix<int>({{1}}));
+
+    // OUT OF RANGE - ROW
+    EXPECT_THROW(m.slice_rows(0, 3), std::out_of_range);
+}
+
+/** Test slice_columns method of cmatrix class */
+TEST(MatrixTest, slice_columns)
+{
+    // 3x3 MATRIX
+    cmatrix<int> m = {{1, 2, 3},
+                      {4, 5, 6},
+                      {7, 8, 9}};
+    cmatrix<int> expected = {{2, 3},
+                             {5, 6},
+                             {8, 9}};
+    EXPECT_EQ(m.slice_columns(1, 2), expected);
+
+    // 1x3 MATRIX
+    cmatrix<int> m_2 = {{1, 2, 3}};
+    EXPECT_EQ(m_2.slice_columns(0, 2), m_2);
+
+    // 3x1 MATRIX
+    cmatrix<int> m_3 = {{1}, {2}, {3}};
+    EXPECT_EQ(m_3.slice_columns(0, 0), m_3);
+
+    // OUT OF RANGE - COLUMN
+    EXPECT_THROW(m.slice_columns(0, 3), std::out_of_range);
+}
+
 /** Test dim_h method of cmatrix class */
 TEST(MatrixTest, dim_h)
 {
