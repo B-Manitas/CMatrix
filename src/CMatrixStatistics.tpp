@@ -14,13 +14,13 @@ cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
     // Compute the minimum for each row
     if (axis == 0)
     {
-        for (size_t r = 0; r < dim_v(); r++)
+        for (size_t r = 0; r < height(); r++)
         {
             // Push the first element of the row to the result matrix
             result.push_row_back({cell(r, 0)});
 
             // Check if the current element is smaller than the stored one
-            for (size_t c = 0; c < dim_h(); c++)
+            for (size_t c = 0; c < width(); c++)
                 if (cell(r, c) < result.cell(r, 0))
                     result.cell(0, r) = cell(r, c);
         }
@@ -31,13 +31,13 @@ cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
     // Compute the minimum for each column
     else if (axis == 1)
     {
-        for (size_t i = 0; i < dim_h(); i++)
+        for (size_t i = 0; i < width(); i++)
         {
             // Push the first element of the column to the result matrix
             result.push_col_back({cell(0, i)});
 
             // Check if the current element is smaller than the stored one
-            for (size_t j = 0; j < dim_v(); j++)
+            for (size_t j = 0; j < height(); j++)
                 if (cell(j, i) < result.cell(0, i))
                     result.cell(i, 0) = cell(j, i);
         }
@@ -57,13 +57,13 @@ cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
     // Compute the maximum for each row
     if (axis == 0)
     {
-        for (size_t r = 0; r < dim_v(); r++)
+        for (size_t r = 0; r < height(); r++)
         {
             // Push the first element of the row to the result matrix
             result.push_row_back({cell(r, 0)});
 
             // Check if the current element is greater than the stored one
-            for (size_t c = 0; c < dim_h(); c++)
+            for (size_t c = 0; c < width(); c++)
             {
                 T current = cell(r, c);
                 T stored = result.cell(r, 0);
@@ -79,13 +79,13 @@ cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
     // Compute the maximum for each column
     else if (axis == 1)
     {
-        for (size_t c = 0; c < dim_h(); c++)
+        for (size_t c = 0; c < width(); c++)
         {
             // Push the first element of the column to the result matrix
             result.push_col_back({cell(0, c)});
 
             // Check if the current element is greater than the stored one
-            for (size_t r = 0; r < dim_v(); r++)
+            for (size_t r = 0; r < height(); r++)
             {
                 T current = cell(r, c);
                 T stored = result.cell(0, c);
@@ -110,13 +110,13 @@ cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
     // Compute the sum for each row
     if (axis == 0)
     {
-        for (size_t i = 0; i < dim_v(); i++)
+        for (size_t i = 0; i < height(); i++)
         {
             // Initialize the sum to zero
             T sum = zero;
 
             // Sum all the elements of the row
-            for (size_t j = 0; j < dim_h(); j++)
+            for (size_t j = 0; j < width(); j++)
                 sum += cell(i, j);
 
             result.push_row_back({sum});
@@ -128,13 +128,13 @@ cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
     // Compute the sum for each column
     else if (axis == 1)
     {
-        for (size_t i = 0; i < dim_h(); i++)
+        for (size_t i = 0; i < width(); i++)
         {
             // Initialize the sum to zero
             T sum = zero;
 
             // Sum all the elements of the column
-            for (size_t j = 0; j < dim_v(); j++)
+            for (size_t j = 0; j < height(); j++)
                 sum += cell(j, i);
 
             result.push_col_back({sum});
@@ -159,7 +159,7 @@ cmatrix<float> cmatrix<T>::__mean(const unsigned int &axis, std::true_type) cons
 
     // Divide the sum by the dimension of the matrix along the specified axis
     // (rows or columns) to get the mean
-    result /= axis == 0 ? dim_h() : dim_v();
+    result /= axis == 0 ? width() : height();
 
     return result;
 }
@@ -185,24 +185,24 @@ cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
     if (axis == 0)
     {
         // Cannot calculate the standard deviation of a single value
-        if (dim_h() == 1)
+        if (width() == 1)
             throw std::invalid_argument("The matrix must have more than one column.");
 
         // Calculate the mean of each row
         const cmatrix<float> &matrix_mean = this->mean(0);
 
-        for (size_t r = 0; r < dim_v(); r++)
+        for (size_t r = 0; r < height(); r++)
         {
             // Calculate the mean of the row
             const float &mean = matrix_mean.cell(r, 0);
             float sum = 0;
 
             // Calculate the sum of the squares of the differences between the values and the mean
-            for (size_t c = 0; c < dim_h(); c++)
+            for (size_t c = 0; c < width(); c++)
                 sum += std::pow(cell(r, c) - mean, 2);
 
             // Calculate the standard deviation and push it to the result matrix
-            result.push_row_back({std::sqrt(sum / dim_h())});
+            result.push_row_back({std::sqrt(sum / width())});
         }
 
         return result;
@@ -212,24 +212,24 @@ cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
     else if (axis == 1)
     {
         // Cannot calculate the standard deviation of a single value
-        if (dim_v() == 1)
+        if (height() == 1)
             throw std::invalid_argument("The matrix must have more than one row.");
 
         // Calculate the mean of each column
         const cmatrix<float> &matrix_mean = this->mean(1);
 
-        for (size_t c = 0; c < dim_h(); c++)
+        for (size_t c = 0; c < width(); c++)
         {
             // Calculate the mean of the column
             const float &mean = matrix_mean.cell(0, c);
             float sum = 0;
 
             // Calculate the sum of the squares of the differences between the values and the mean
-            for (size_t r = 0; r < dim_v(); r++)
+            for (size_t r = 0; r < height(); r++)
                 sum += std::pow(cell(r, c) - mean, 2);
 
             // Calculate the standard deviation and push it to the result matrix
-            result.push_col_back({std::sqrt(sum / dim_v())});
+            result.push_col_back({std::sqrt(sum / height())});
         }
 
         return result;
@@ -259,7 +259,7 @@ cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
     // Compute the median for each row.
     if (axis == 0)
     {
-        for (size_t i = 0; i < dim_v(); i++)
+        for (size_t i = 0; i < height(); i++)
         {
             // Get the row and sort it.
             std::vector<T> row = rows_vec(i);
@@ -275,7 +275,7 @@ cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
     // Compute the median for each column.
     else if (axis == 1)
     {
-        for (size_t i = 0; i < dim_h(); i++)
+        for (size_t i = 0; i < width(); i++)
         {
             // Get the column and sort it.
             std::vector<T> col = columns_vec(i);

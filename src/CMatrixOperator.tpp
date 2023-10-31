@@ -35,12 +35,12 @@ template <class T>
 bool cmatrix<T>::operator==(const cmatrix<T> &m) const
 {
     // Check if the dimensions are the same
-    if (dim_h() != m.dim_h() or dim_v() != m.dim_v())
+    if (width() != m.width() or height() != m.height())
         return false;
 
     // For each cell, check if the values are the same
-    for (size_t i = 0; i < dim_v(); i++)
-        for (size_t j = 0; j < dim_h(); j++)
+    for (size_t i = 0; i < height(); i++)
+        for (size_t j = 0; j < width(); j++)
             if (cell(i, j) != m.cell(i, j))
                 return false;
 
@@ -141,25 +141,25 @@ cmatrix<T> cmatrix<T>::operator*(const cmatrix<T> &m) const
 {
     // Check if the number of columns of the first matrix
     // is equal to the number of rows of the second matrix
-    if (dim_h() != m.dim_v())
+    if (width() != m.height())
         throw std::invalid_argument("The number of columns of the first matrix must be equal to the number of rows of the second matrix. Expected: " +
-                                    std::to_string(dim_h()) +
+                                    std::to_string(width()) +
                                     ". Actual: " +
-                                    std::to_string(m.dim_v()));
+                                    std::to_string(m.height()));
 
     // Create a new matrix with the same number of rows of the first matrix
     // and the same number of columns of the second matrix
-    cmatrix<T> result(m.dim_h(), dim_v());
+    cmatrix<T> result(m.width(), height());
 
     // For each cell of the new matrix, calculate the sum of the products
-    for (size_t i = 0; i < dim_v(); i++)
-        for (size_t j = 0; j < m.dim_h(); j++)
+    for (size_t i = 0; i < height(); i++)
+        for (size_t j = 0; j < m.width(); j++)
         {
             T sum{};
 
             // For each cell of the first matrix, multiply the value of the cell
             // with the value of the corresponding cell of the second matrix
-            for (size_t k = 0; k < dim_h(); k++)
+            for (size_t k = 0; k < width(); k++)
                 sum += cell(i, k) * m.cell(k, j);
 
             result.cell(i, j) = sum;
@@ -197,13 +197,13 @@ cmatrix<T> cmatrix<T>::operator^(const unsigned int &n) const
     // Check if the matrix is square
     if (not is_square())
         throw std::invalid_argument("The matrix must be square. Expected: " +
-                                    std::to_string(dim_h()) +
+                                    std::to_string(width()) +
                                     ". Actual: " +
-                                    std::to_string(dim_v()));
+                                    std::to_string(height()));
 
     // If the exponent is 0, return the identity matrix
     if (n == 0)
-        return cmatrix<T>::identity(dim_h());
+        return cmatrix<T>::identity(width());
 
     // If the exponent is 1, return a copy of itself
     if (n == 1)
@@ -278,21 +278,21 @@ std::ostream &operator<<(std::ostream &out, const cmatrix<T> &m)
 {
     out << "[";
 
-    for (size_t i = 0; i < m.dim_v(); i++)
+    for (size_t i = 0; i < m.height(); i++)
     {
         out << "[";
 
-        for (size_t j = 0; j < m.dim_h(); j++)
+        for (size_t j = 0; j < m.width(); j++)
         {
             out << m.cell(i, j);
 
-            if (j != m.dim_h() - 1)
+            if (j != m.width() - 1)
                 out << ", ";
         }
 
         out << "]";
 
-        if (i != m.dim_v() - 1)
+        if (i != m.height() - 1)
             out << ", ";
     }
 
@@ -307,7 +307,7 @@ std::ostream &operator<<(std::ostream &out, const cmatrix<T> &m)
 template <class T>
 cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, const cmatrix<T> &m) const
 {
-    __check_dim(m);
+    __check_size(m);
 
     // Initialize variables to store the coordinates of the current cell.
     size_t col = -1, row = -1;
@@ -322,7 +322,7 @@ template <class T>
 cmatrix<short unsigned int> cmatrix<T>::__map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const
 {
     // Initialize a matrix with the same dimensions of the current matrix
-    cmatrix<short unsigned int> result(dim_v(), dim_h(), 0);
+    cmatrix<short unsigned int> result(height(), width(), 0);
 
     // Initialize variables to store the coordinates of the current cell.
     // At the beginning, they are set to -1.

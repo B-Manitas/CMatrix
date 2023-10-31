@@ -14,21 +14,21 @@ TEST(MatrixTest, Constructor)
 {
     // EMPTY MATRIX
     cmatrix<int> m_1;
-    EXPECT_EQ(m_1.dim_h(), 0);
-    EXPECT_EQ(m_1.dim_v(), 0);
+    EXPECT_EQ(m_1.width(), 0);
+    EXPECT_EQ(m_1.height(), 0);
 
     // 3X3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    EXPECT_EQ(m_2.dim_h(), 3);
-    EXPECT_EQ(m_2.dim_v(), 3);
+    EXPECT_EQ(m_2.width(), 3);
+    EXPECT_EQ(m_2.height(), 3);
     EXPECT_EQ(m_2.rows(0), cmatrix<int>({{1, 2, 3}}));
     EXPECT_EQ(m_2.rows(1), cmatrix<int>({{4, 5, 6}}));
     EXPECT_EQ(m_2.rows(2), cmatrix<int>({{7, 8, 9}}));
 
     // 1X3 MATRIX
     cmatrix<int> m_3 = {{1}, {4}, {7}};
-    EXPECT_EQ(m_3.dim_h(), 1);
-    EXPECT_EQ(m_3.dim_v(), 3);
+    EXPECT_EQ(m_3.width(), 1);
+    EXPECT_EQ(m_3.height(), 3);
     EXPECT_EQ(m_3.rows(0), cmatrix<int>({{1}}));
     EXPECT_EQ(m_3.rows(1), cmatrix<int>({{4}}));
     EXPECT_EQ(m_3.rows(2), cmatrix<int>({{7}}));
@@ -36,20 +36,20 @@ TEST(MatrixTest, Constructor)
     // 3X1 MATRIX
     cmatrix<int> m_4 = {{1, 2, 3}};
     EXPECT_EQ(m_4.rows_vec(0), std::vector<int>({1, 2, 3}));
-    EXPECT_EQ(m_4.dim_h(), 3);
-    EXPECT_EQ(m_4.dim_v(), 1);
+    EXPECT_EQ(m_4.width(), 3);
+    EXPECT_EQ(m_4.height(), 1);
 
     // CREATE MATRIX FROM DIMENSIONS
     cmatrix<std::string> m_5(3, 2);
-    EXPECT_EQ(m_5.dim_h(), 2);
-    EXPECT_EQ(m_5.dim_v(), 3);
+    EXPECT_EQ(m_5.width(), 2);
+    EXPECT_EQ(m_5.height(), 3);
 
     // CREATE MATRIX FROM DIMENSIONS AND VALUE
     cmatrix<std::string> m_6(3, 2, "a");
-    EXPECT_EQ(m_6.dim_h(), 2);
-    EXPECT_EQ(m_6.dim_v(), 3);
-    for (size_t r = 0; r < m_6.dim_v(); r++)
-        for (size_t c = 0; c < m_6.dim_h(); c++)
+    EXPECT_EQ(m_6.width(), 2);
+    EXPECT_EQ(m_6.height(), 3);
+    for (size_t r = 0; r < m_6.height(); r++)
+        for (size_t c = 0; c < m_6.width(); c++)
             EXPECT_EQ(m_6.cell(r, c), "a");
 
     // INVALID MATRIX - NOT RECTANGULAR
@@ -58,8 +58,8 @@ TEST(MatrixTest, Constructor)
     // CONVERSION FROM OTHER TYPES
     cmatrix<int> m_7 = {{1, 2, 3}};
     cmatrix<float> m_8(m_7);
-    EXPECT_EQ(m_8.dim_h(), 3);
-    EXPECT_EQ(m_8.dim_v(), 1);
+    EXPECT_EQ(m_8.width(), 3);
+    EXPECT_EQ(m_8.height(), 1);
     EXPECT_EQ(m_8.cell(0, 0), 1.0f);
     EXPECT_EQ(m_8.cell(0, 1), 2.0f);
     EXPECT_EQ(m_8.cell(0, 2), 3.0f);
@@ -118,20 +118,20 @@ TEST(MatrixTest, rows)
     // 3x3 MATRIX
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> expected = {{1, 2, 3}, {7, 8, 9}};
-    EXPECT_EQ(m.rows({0, 2}).dim_h(), 3);
-    EXPECT_EQ(m.rows({0, 2}).dim_v(), 2);
+    EXPECT_EQ(m.rows({0, 2}).width(), 3);
+    EXPECT_EQ(m.rows({0, 2}).height(), 2);
     EXPECT_EQ(m.rows({0, 2}), expected);
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}};
-    EXPECT_EQ(m_2.rows(0).dim_h(), 3);
-    EXPECT_EQ(m_2.rows(0).dim_v(), 1);
+    EXPECT_EQ(m_2.rows(0).width(), 3);
+    EXPECT_EQ(m_2.rows(0).height(), 1);
     EXPECT_EQ(m_2.rows(0), m_2);
 
     // 3x1 MATRIX
     cmatrix<int> m_3 = {{1}, {2}, {3}};
-    EXPECT_EQ(m_3.rows({0, 2}).dim_h(), 1);
-    EXPECT_EQ(m_3.rows({0, 2}).dim_v(), 2);
+    EXPECT_EQ(m_3.rows({0, 2}).width(), 1);
+    EXPECT_EQ(m_3.rows({0, 2}).height(), 2);
     EXPECT_EQ(m_3.rows({0, 2}), cmatrix<int>({{1}, {3}}));
 
     // OUT OF RANGE - ROW
@@ -144,20 +144,20 @@ TEST(MatrixTest, columns)
     // 3x3 MATRIX
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> expected = {{1, 3}, {4, 6}, {7, 9}};
-    EXPECT_EQ(m.columns({0, 2}).dim_h(), 2);
-    EXPECT_EQ(m.columns({0, 2}).dim_v(), 3);
+    EXPECT_EQ(m.columns({0, 2}).width(), 2);
+    EXPECT_EQ(m.columns({0, 2}).height(), 3);
     EXPECT_EQ(m.columns({0, 2}), expected);
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}};
-    EXPECT_EQ(m_2.columns({0, 2}).dim_h(), 2);
-    EXPECT_EQ(m_2.columns({0, 2}).dim_v(), 1);
+    EXPECT_EQ(m_2.columns({0, 2}).width(), 2);
+    EXPECT_EQ(m_2.columns({0, 2}).height(), 1);
     EXPECT_EQ(m_2.columns({0, 2}), cmatrix<int>({{1, 3}}));
 
     // 3x1 MATRIX
     cmatrix<int> m_3 = {{1}, {2}, {3}};
-    EXPECT_EQ(m_3.columns(0).dim_h(), 1);
-    EXPECT_EQ(m_3.columns(0).dim_v(), 3);
+    EXPECT_EQ(m_3.columns(0).width(), 1);
+    EXPECT_EQ(m_3.columns(0).height(), 3);
     EXPECT_EQ(m_3.columns(0), m_3);
 
     // OUT OF RANGE - COLUMN
@@ -172,20 +172,20 @@ TEST(MatrixTest, cells)
                       {4, 5, 6},
                       {7, 8, 9}};
     cmatrix<int> expected = {{1, 2, 5}};
-    EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}).dim_h(), 3);
-    EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}).dim_v(), 1);
+    EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}).width(), 3);
+    EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}).height(), 1);
     EXPECT_EQ(m.cells({{0, 0}, {0, 1}, {1, 1}}), expected);
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}};
-    EXPECT_EQ(m_2.cells({{0, 0}, {0, 1}}).dim_h(), 2);
-    EXPECT_EQ(m_2.cells({{0, 0}, {0, 1}}).dim_v(), 1);
+    EXPECT_EQ(m_2.cells({{0, 0}, {0, 1}}).width(), 2);
+    EXPECT_EQ(m_2.cells({{0, 0}, {0, 1}}).height(), 1);
     EXPECT_EQ(m_2.cells({{0, 0}, {0, 1}}), cmatrix<int>({{1, 2}}));
 
     // 3x1 MATRIX
     cmatrix<int> m_3 = {{1}, {2}, {3}};
-    EXPECT_EQ(m_3.cells({{0, 0}, {1, 0}}).dim_h(), 2);
-    EXPECT_EQ(m_3.cells({{0, 0}, {1, 0}}).dim_v(), 1);
+    EXPECT_EQ(m_3.cells({{0, 0}, {1, 0}}).width(), 2);
+    EXPECT_EQ(m_3.cells({{0, 0}, {1, 0}}).height(), 1);
     EXPECT_EQ(m_3.cells({{0, 0}, {1, 0}}), cmatrix<int>({{1, 2}}));
     EXPECT_EQ(m_3.cells(0, 0), cmatrix<int>({{1}}));
 
@@ -260,64 +260,64 @@ TEST(MatrixTest, slice_columns)
     EXPECT_THROW(m.slice_columns(0, 3), std::out_of_range);
 }
 
-/** Test dim_h method of cmatrix class */
-TEST(MatrixTest, dim_h)
+/** Test width method of cmatrix class */
+TEST(MatrixTest, width)
 {
     // 3x3 MATRIX
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    EXPECT_EQ(m_1.dim_h(), 3);
+    EXPECT_EQ(m_1.width(), 3);
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}};
-    EXPECT_EQ(m_2.dim_h(), 3);
+    EXPECT_EQ(m_2.width(), 3);
 
     // 3x1 MATRIX
     cmatrix<int> m_3 = {{1}, {2}, {3}};
-    EXPECT_EQ(m_1.dim_h(), 3);
+    EXPECT_EQ(m_1.width(), 3);
 
     // EMPTY MATRIX
     cmatrix<std::string> m_4;
-    EXPECT_EQ(m_4.dim_h(), 0);
+    EXPECT_EQ(m_4.width(), 0);
 }
 
-/** Test dim_v method of cmatrix class */
-TEST(MatrixTest, dim_v)
+/** Test height method of cmatrix class */
+TEST(MatrixTest, height)
 {
     // 3x3 MATRIX
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    EXPECT_EQ(m_1.dim_v(), 3);
+    EXPECT_EQ(m_1.height(), 3);
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}};
-    EXPECT_EQ(m_2.dim_v(), 1);
+    EXPECT_EQ(m_2.height(), 1);
 
     // 3x1 MATRIX
     cmatrix<int> m_3 = {{1}, {2}, {3}};
-    EXPECT_EQ(m_3.dim_v(), 3);
+    EXPECT_EQ(m_3.height(), 3);
 
     // EMPTY MATRIX
     cmatrix<std::string> m_4;
-    EXPECT_EQ(m_4.dim_v(), 0);
+    EXPECT_EQ(m_4.height(), 0);
 }
 
-/** Test dim method of cmatrix class */
-TEST(MatrixTest, dim)
+/** Test size method of cmatrix class */
+TEST(MatrixTest, size)
 {
     // 3x3 MATRIX
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    EXPECT_EQ(m.dim(), (std::pair<size_t, size_t>(3, 3)));
+    EXPECT_EQ(m.size(), (std::pair<size_t, size_t>(3, 3)));
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = {{1, 2, 3}};
-    EXPECT_EQ(m_2.dim(), (std::pair<size_t, size_t>(1, 3)));
+    EXPECT_EQ(m_2.size(), (std::pair<size_t, size_t>(1, 3)));
 
     // 3x1 MATRIX
     cmatrix<int> m_3 = {{1}, {2}, {3}};
-    EXPECT_EQ(m_3.dim(), (std::pair<size_t, size_t>(3, 1)));
+    EXPECT_EQ(m_3.size(), (std::pair<size_t, size_t>(3, 1)));
 
     // EMPTY MATRIX
     cmatrix<std::string> m_4;
-    EXPECT_EQ(m_4.dim(), (std::pair<size_t, size_t>(0, 0)));
+    EXPECT_EQ(m_4.size(), (std::pair<size_t, size_t>(0, 0)));
 }
 
 /** Test transpose method of cmatrix class */
@@ -510,8 +510,8 @@ TEST(MatrixTest, insert_column)
     // 3x3 MATRIX
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     m_1.insert_column(1, {10, 11, 12});
-    EXPECT_EQ(m_1.dim_h(), 4);
-    EXPECT_EQ(m_1.dim_v(), 3);
+    EXPECT_EQ(m_1.width(), 4);
+    EXPECT_EQ(m_1.height(), 3);
     EXPECT_EQ(m_1.cell(0, 1), 10);
     EXPECT_EQ(m_1.cell(1, 1), 11);
     EXPECT_EQ(m_1.cell(2, 1), 12);
@@ -519,8 +519,8 @@ TEST(MatrixTest, insert_column)
     // EMPTY MATRIX
     cmatrix<int> m_2;
     m_2.insert_column(0, {10, 11, 12});
-    EXPECT_EQ(m_2.dim_h(), 1);
-    EXPECT_EQ(m_2.dim_v(), 3);
+    EXPECT_EQ(m_2.width(), 1);
+    EXPECT_EQ(m_2.height(), 3);
     EXPECT_EQ(m_2.cell(0, 0), 10);
     EXPECT_EQ(m_2.cell(1, 0), 11);
     EXPECT_EQ(m_2.cell(2, 0), 12);
@@ -715,15 +715,15 @@ TEST(MatrixTest, remove_column)
 
     // REMOVE FIRST COLUMN
     m_1.remove_column(0);
-    EXPECT_EQ(m_1.dim_h(), 2);
-    EXPECT_EQ(m_1.dim_v(), 3);
+    EXPECT_EQ(m_1.width(), 2);
+    EXPECT_EQ(m_1.height(), 3);
     EXPECT_EQ(m_1.columns_vec(0), std::vector<int>({2, 5, 8}));
     EXPECT_EQ(m_1.columns_vec(1), std::vector<int>({3, 6, 9}));
 
     // REMOVE LAST COLUMN
     m_1.remove_column(1);
-    EXPECT_EQ(m_1.dim_h(), 1);
-    EXPECT_EQ(m_1.dim_v(), 3);
+    EXPECT_EQ(m_1.width(), 1);
+    EXPECT_EQ(m_1.height(), 3);
     EXPECT_EQ(m_1.columns_vec(0), std::vector<int>({2, 5, 8}));
 
     // REMOVE ONLY COLUMN
@@ -1518,11 +1518,11 @@ TEST(MatrixTest, randint)
 {
     // 3x1 MATRIX
     cmatrix<int> m_1 = cmatrix<int>::randint(3, 1, 0, 10);
-    EXPECT_EQ(m_1.dim_h(), 1);
-    EXPECT_EQ(m_1.dim_v(), 3);
+    EXPECT_EQ(m_1.width(), 1);
+    EXPECT_EQ(m_1.height(), 3);
 
-    for (size_t i = 0; i < m_1.dim_h(); i++)
-        for (size_t j = 0; j < m_1.dim_v(); j++)
+    for (size_t i = 0; i < m_1.width(); i++)
+        for (size_t j = 0; j < m_1.height(); j++)
         {
             EXPECT_GE(m_1.cell(j, i), 0);
             EXPECT_LE(m_1.cell(j, i), 10);
@@ -1530,11 +1530,11 @@ TEST(MatrixTest, randint)
 
     // 1x3 MATRIX
     cmatrix<int> m_2 = cmatrix<int>::randint(1, 3, 0, 10);
-    EXPECT_EQ(m_2.dim_h(), 3);
-    EXPECT_EQ(m_2.dim_v(), 1);
+    EXPECT_EQ(m_2.width(), 3);
+    EXPECT_EQ(m_2.height(), 1);
 
-    for (size_t i = 0; i < m_2.dim_h(); i++)
-        for (size_t j = 0; j < m_2.dim_v(); j++)
+    for (size_t i = 0; i < m_2.width(); i++)
+        for (size_t j = 0; j < m_2.height(); j++)
         {
             EXPECT_GE(m_2.cell(j, i), 0);
             EXPECT_LE(m_2.cell(j, i), 10);
@@ -1542,11 +1542,11 @@ TEST(MatrixTest, randint)
 
     // 3x3 MATRIX
     cmatrix<int> m_3 = cmatrix<int>::randint(3, 3, 0, 10);
-    EXPECT_EQ(m_3.dim_h(), 3);
-    EXPECT_EQ(m_3.dim_v(), 3);
+    EXPECT_EQ(m_3.width(), 3);
+    EXPECT_EQ(m_3.height(), 3);
 
-    for (size_t i = 0; i < m_3.dim_h(); i++)
-        for (size_t j = 0; j < m_3.dim_v(); j++)
+    for (size_t i = 0; i < m_3.width(); i++)
+        for (size_t j = 0; j < m_3.height(); j++)
         {
             EXPECT_GE(m_3.cell(j, i), 0);
             EXPECT_LE(m_3.cell(j, i), 10);
@@ -1558,26 +1558,26 @@ TEST(MatrixTest, zeros)
 {
     // 1x3 MATRIX
     cmatrix<int> m_1 = cmatrix<int>::zeros(1, 3);
-    EXPECT_EQ(m_1.dim_h(), 1);
-    EXPECT_EQ(m_1.dim_v(), 3);
-    for (size_t i = 0; i < m_1.dim_h(); i++)
-        for (size_t j = 0; j < m_1.dim_v(); j++)
+    EXPECT_EQ(m_1.width(), 1);
+    EXPECT_EQ(m_1.height(), 3);
+    for (size_t i = 0; i < m_1.width(); i++)
+        for (size_t j = 0; j < m_1.height(); j++)
             EXPECT_EQ(m_1.cell(j, i), 0);
 
     // 3x1 MATRIX
     cmatrix<int> m_2 = cmatrix<int>::zeros(3, 1);
-    EXPECT_EQ(m_2.dim_h(), 3);
-    EXPECT_EQ(m_2.dim_v(), 1);
-    for (size_t i = 0; i < m_2.dim_h(); i++)
-        for (size_t j = 0; j < m_2.dim_v(); j++)
+    EXPECT_EQ(m_2.width(), 3);
+    EXPECT_EQ(m_2.height(), 1);
+    for (size_t i = 0; i < m_2.width(); i++)
+        for (size_t j = 0; j < m_2.height(); j++)
             EXPECT_EQ(m_2.cell(j, i), 0);
 
     // 3x3 MATRIX
     cmatrix<int> m_3 = cmatrix<int>::zeros(3, 3);
-    EXPECT_EQ(m_3.dim_h(), 3);
-    EXPECT_EQ(m_3.dim_v(), 3);
-    for (size_t i = 0; i < m_3.dim_h(); i++)
-        for (size_t j = 0; j < m_3.dim_v(); j++)
+    EXPECT_EQ(m_3.width(), 3);
+    EXPECT_EQ(m_3.height(), 3);
+    for (size_t i = 0; i < m_3.width(); i++)
+        for (size_t j = 0; j < m_3.height(); j++)
             EXPECT_EQ(m_3.cell(j, i), 0);
 }
 
@@ -1590,14 +1590,14 @@ TEST(MatrixTest, identity)
 
     // 1x3 MATRIX
     cmatrix<int> m_1 = cmatrix<int>::identity(1);
-    EXPECT_EQ(m_1.dim_h(), 1);
-    EXPECT_EQ(m_1.dim_v(), 1);
+    EXPECT_EQ(m_1.width(), 1);
+    EXPECT_EQ(m_1.height(), 1);
     EXPECT_EQ(m_1.cell(0, 0), 1);
 
     // 2x2 MATRIX
     cmatrix<int> m_2 = cmatrix<int>::identity(2);
-    EXPECT_EQ(m_2.dim_h(), 2);
-    EXPECT_EQ(m_2.dim_v(), 2);
+    EXPECT_EQ(m_2.width(), 2);
+    EXPECT_EQ(m_2.height(), 2);
     EXPECT_EQ(m_2.cell(0, 0), 1);
     EXPECT_EQ(m_2.cell(1, 0), 0);
     EXPECT_EQ(m_2.cell(0, 1), 0);

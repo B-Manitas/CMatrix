@@ -30,19 +30,19 @@ cmatrix<T>::cmatrix(const std::vector<std::vector<T>> &m)
 }
 
 template <class T>
-cmatrix<T>::cmatrix(const size_t &dim_v, const size_t &dim_h)
+cmatrix<T>::cmatrix(const size_t &height, const size_t &width)
 {
     __check_valid_type();
 
-    matrix = std::vector<std::vector<T>>(dim_v, std::vector<T>(dim_h));
+    matrix = std::vector<std::vector<T>>(height, std::vector<T>(width));
 }
 
 template <class T>
-cmatrix<T>::cmatrix(const size_t &dim_v, const size_t &dim_h, const T &value)
+cmatrix<T>::cmatrix(const size_t &height, const size_t &width, const T &value)
 {
     __check_valid_type();
 
-    matrix = std::vector<std::vector<T>>(dim_v, std::vector<T>(dim_h, value));
+    matrix = std::vector<std::vector<T>>(height, std::vector<T>(width, value));
 }
 
 template <class T>

@@ -21,7 +21,7 @@ void cmatrix<T>::insert_row(const size_t &pos, const std::vector<T> &val)
     // The position must be between 0 and the number of rows
     else
     {
-        __check_expected_id(pos, 0, dim_v());
+        __check_expected_id(pos, 0, height());
         __check_valid_row(val);
     }
 
@@ -45,11 +45,11 @@ void cmatrix<T>::insert_column(const size_t &pos, const std::vector<T> &val)
     // Otherwise, we can only insert a column of the same size as the others
     else
     {
-        __check_expected_id(pos, 0, dim_h());
+        __check_expected_id(pos, 0, width());
         __check_valid_col(val);
 
         // For each row, insert the value at the given position
-        for (size_t i = 0; i < dim_v(); i++)
+        for (size_t i = 0; i < height(); i++)
             matrix.at(i).insert(matrix.at(i).begin() + pos, val.at(i));
     }
 }
@@ -66,7 +66,7 @@ void cmatrix<T>::push_row_front(const std::vector<T> &val)
 template <class T>
 void cmatrix<T>::push_row_back(const std::vector<T> &val)
 {
-    insert_row(dim_v(), val);
+    insert_row(height(), val);
 }
 
 template <class T>
@@ -78,7 +78,7 @@ void cmatrix<T>::push_col_front(const std::vector<T> &val)
 template <class T>
 void cmatrix<T>::push_col_back(const std::vector<T> &val)
 {
-    insert_column(dim_h(), val);
+    insert_column(width(), val);
 }
 
 // ==================================================
@@ -88,7 +88,7 @@ template <class T>
 int cmatrix<T>::find_row(const std::function<bool(std::vector<T>)> &f) const
 {
     // For each row, check if the condition is satisfied
-    for (size_t row = 0; row < dim_v(); row++)
+    for (size_t row = 0; row < height(); row++)
         if (f(rows_vec(row)))
             return row;
 
@@ -106,7 +106,7 @@ template <class T>
 int cmatrix<T>::find_column(const std::function<bool(std::vector<T>)> &f) const
 {
     // For each column, check if the condition is satisfied
-    for (size_t col = 0; col < dim_h(); col++)
+    for (size_t col = 0; col < width(); col++)
         if (f(columns_vec(col)))
             return col;
 
@@ -124,8 +124,8 @@ template <class T>
 std::tuple<int, int> cmatrix<T>::find(const std::function<bool(T)> &f) const
 {
     // For each cell, check if the condition is satisfied
-    for (size_t row = 0; row < dim_v(); row++)
-        for (size_t col = 0; col < dim_h(); col++)
+    for (size_t row = 0; row < height(); row++)
+        for (size_t col = 0; col < width(); col++)
             if (f(cell(row, col)))
                 return std::tuple<int, int>(int(col), int(row));
 
@@ -156,12 +156,12 @@ void cmatrix<T>::remove_column(const size_t &pos)
 
     // If the matrix has only one column, we can clear it
     // To prevent matrix = [[]]
-    if (dim_h() == 1)
+    if (width() == 1)
         matrix.clear();
 
     // Otherwise, for each row, remove the value at the given position
     else
-        for (size_t i = 0; i < dim_v(); i++)
+        for (size_t i = 0; i < height(); i++)
             matrix.at(i).erase(matrix.at(i).begin() + pos);
 }
 
@@ -171,28 +171,28 @@ void cmatrix<T>::concatenate(const cmatrix<T> &m, const unsigned int &axis)
     // Concatenate the rows
     if (axis == 0)
     {
-        if (dim_h() != m.dim_h())
+        if (width() != m.width())
             throw std::invalid_argument("The matrices must have the same number of columns. Actual: " +
-                                        std::to_string(dim_h()) +
+                                        std::to_string(width()) +
                                         " and " +
-                                        std::to_string(m.dim_h()));
+                                        std::to_string(m.width()));
 
         // Push the rows of the second matrix
-        for (size_t i = 0; i < m.dim_v(); i++)
+        for (size_t i = 0; i < m.height(); i++)
             push_row_back(m.rows_vec(i));
     }
 
     // Concatenate the columns
     else if (axis == 1)
     {
-        if (dim_v() != m.dim_v())
+        if (height() != m.height())
             throw std::invalid_argument("The matrices must have the same number of rows. Actual: " +
-                                        std::to_string(dim_v()) +
+                                        std::to_string(height()) +
                                         " and " +
-                                        std::to_string(m.dim_v()));
+                                        std::to_string(m.height()));
 
         // Push the columns of the second matrix
-        for (size_t i = 0; i < m.dim_h(); i++)
+        for (size_t i = 0; i < m.width(); i++)
             push_col_back(m.columns_vec(i));
     }
 

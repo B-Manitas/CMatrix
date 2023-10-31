@@ -10,18 +10,18 @@
 // GENERATOR METHODS
 
 template <>
-cmatrix<int> cmatrix<int>::randint(const size_t &dim_v, const size_t &dim_h, const int &min, const int &max, const int &seed)
+cmatrix<int> cmatrix<int>::randint(const size_t &height, const size_t &width, const int &min, const int &max, const int &seed)
 {
     // Set the seed
     std::srand(seed);
     cmatrix<int> m;
 
-    for (size_t r = 0; r < dim_v; r++)
+    for (size_t r = 0; r < height; r++)
     {
         std::vector<int> row;
 
         // Generate a random number for each column
-        for (size_t c = 0; c < dim_h; c++)
+        for (size_t c = 0; c < width; c++)
             row.push_back(rand() % max + min);
 
         m.push_row_back(row);
@@ -31,16 +31,16 @@ cmatrix<int> cmatrix<int>::randint(const size_t &dim_v, const size_t &dim_h, con
 }
 
 template <>
-cmatrix<int> cmatrix<int>::zeros(const size_t &dim_h, const size_t &dim_v)
+cmatrix<int> cmatrix<int>::zeros(const size_t &width, const size_t &height)
 {
-    return cmatrix<int>(dim_v, dim_h, 0);
+    return cmatrix<int>(height, width, 0);
 }
 
 template <>
-cmatrix<int> cmatrix<int>::identity(const size_t &dim)
+cmatrix<int> cmatrix<int>::identity(const size_t &size)
 {
-    cmatrix<int> m = cmatrix<int>::zeros(dim, dim);
-    m.set_diag(std::vector<int>(dim, 1));
+    cmatrix<int> m = cmatrix<int>::zeros(size, size);
+    m.set_diag(std::vector<int>(size, 1));
     return m;
 }
 

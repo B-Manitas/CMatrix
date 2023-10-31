@@ -153,21 +153,21 @@ cmatrix<T> cmatrix<T>::slice_columns(const size_t &start, const size_t &end) con
 // DIM METHODS
 
 template <class T>
-size_t cmatrix<T>::dim_h() const
+size_t cmatrix<T>::width() const
 {
-    return dim_v() == 0 ? 0 : matrix.at(0).size();
+    return height() == 0 ? 0 : matrix.at(0).size();
 }
 
 template <class T>
-size_t cmatrix<T>::dim_v() const
+size_t cmatrix<T>::height() const
 {
     return matrix.size();
 }
 
 template <class T>
-std::pair<size_t, size_t> cmatrix<T>::dim() const
+std::pair<size_t, size_t> cmatrix<T>::size() const
 {
-    return std::pair<size_t, size_t>(dim_v(), dim_h());
+    return std::pair<size_t, size_t>(height(), width());
 }
 
 // ==================================================
@@ -177,11 +177,11 @@ template <class T>
 cmatrix<T> cmatrix<T>::transpose() const
 {
     // Create a new matrix with the inverted dimensions
-    cmatrix<T> m(dim_h(), dim_v());
+    cmatrix<T> m(width(), height());
 
     // Swap the rows and the columns
-    for (size_t r = 0; r < dim_v(); r++)
-        for (size_t c = 0; c < dim_h(); c++)
+    for (size_t r = 0; r < height(); r++)
+        for (size_t c = 0; c < width(); c++)
             m.cell(c, r) = cell(r, c);
 
     return m;
@@ -193,7 +193,7 @@ std::vector<T> cmatrix<T>::diag() const
     std::vector<T> d;
 
     // Iterate over the diagonal of a matrix potentially not square
-    for (size_t i = 0; i < std::min(dim_h(), dim_v()); i++)
+    for (size_t i = 0; i < std::min(width(), height()); i++)
         d.push_back(cell(i, i));
 
     return d;

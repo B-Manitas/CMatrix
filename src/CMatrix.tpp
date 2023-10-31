@@ -24,10 +24,10 @@ void cmatrix<T>::clear()
 template <class T>
 cmatrix<T> cmatrix<T>::copy() const
 {
-    cmatrix<T> m(dim_v(), dim_h());
+    cmatrix<T> m(height(), width());
 
-    for (size_t r = 0; r < dim_v(); r++)
-        for (size_t c = 0; c < dim_h(); c++)
+    for (size_t r = 0; r < height(); r++)
+        for (size_t c = 0; c < width(); c++)
             m.cell(r, c) = cell(r, c);
 
     return m;
@@ -36,13 +36,13 @@ cmatrix<T> cmatrix<T>::copy() const
 template <class T>
 void cmatrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col, size_t *row)
 {
-    for (size_t r = 0; r < dim_v(); r++)
+    for (size_t r = 0; r < height(); r++)
     {
         // If the user wants to know the row index
         if (row != nullptr)
             row = &r;
 
-        for (size_t c = 0; c < dim_h(); c++)
+        for (size_t c = 0; c < width(); c++)
         {
             // If the user wants to know the column index
             if (col != nullptr)
@@ -72,15 +72,15 @@ template <class T>
 template <class U>
 cmatrix<U> cmatrix<T>::map(const std::function<U(T, size_t *, size_t *)> &f, size_t *col, size_t *row) const
 {
-    cmatrix<U> m = cmatrix<U>(dim_v(), dim_h());
+    cmatrix<U> m = cmatrix<U>(height(), width());
 
-    for (size_t r = 0; r < dim_v(); r++)
+    for (size_t r = 0; r < height(); r++)
     {
         // If the user wants to know the row index
         if (row != nullptr)
             row = &r;
 
-        for (size_t c = 0; c < dim_h(); c++)
+        for (size_t c = 0; c < width(); c++)
         {
             // If the user wants to know the column index
             if (col != nullptr)
@@ -106,11 +106,11 @@ template <class U>
 cmatrix<U> cmatrix<T>::map(const std::function<U(T)> &f) const
 {
     // Create a new matrix with the same dimensions
-    cmatrix<U> m = cmatrix<U>(dim_v(), dim_h());
+    cmatrix<U> m = cmatrix<U>(height(), width());
 
     // Set the mapped value for each cell
-    for (size_t r = 0; r < dim_v(); r++)
-        for (size_t c = 0; c < dim_h(); c++)
+    for (size_t r = 0; r < height(); r++)
+        for (size_t c = 0; c < width(); c++)
             m.set_cell(r, c, f(cell(r, c)));
 
     return m;
@@ -134,11 +134,11 @@ template <class U>
 cmatrix<U> cmatrix<T>::__cast(std::true_type) const
 {
     // Create a new matrix with the same dimensions
-    cmatrix<U> m(dim_v(), dim_h());
+    cmatrix<U> m(height(), width());
 
     // Set the casted value for each cell
-    for (size_t r = 0; r < dim_v(); r++)
-        for (size_t c = 0; c < dim_h(); c++)
+    for (size_t r = 0; r < height(); r++)
+        for (size_t c = 0; c < width(); c++)
             m.set_cell(r, c, static_cast<U>(cell(r, c)));
 
     return m;

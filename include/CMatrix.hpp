@@ -32,12 +32,12 @@ private:
     /**
      * @brief Check if dimensions are equals to the dimensions of the matrix.
      *
-     * @param dim The vertical and horizontal dimensions.
+     * @param size The vertical and horizontal dimensions.
      * @throw std::invalid_argument If the dimensions are not equals to the dimensions of the matrix.
      *
      * @ingroup check
      */
-    void __check_dim(const std::tuple<size_t, size_t> &dim) const;
+    void __check_size(const std::tuple<size_t, size_t> &size) const;
     /**
      * @brief Check if dimensions are equals to the dimensions of the matrix.
      *
@@ -46,7 +46,7 @@ private:
      *
      * @ingroup check
      */
-    void __check_dim(const cmatrix<T> &m) const;
+    void __check_size(const cmatrix<T> &m) const;
     /**
      * @brief Check if the vector is a valid row of the matrix.
      *
@@ -263,20 +263,20 @@ public:
     /**
      * @brief Construct a new cmatrix object.
      *
-     * @param dim_v The number of rows.
-     * @param dim_h The number of columns.
+     * @param height The number of rows.
+     * @param width The number of columns.
      * @throw std::invalid_argument If the type is bool.
      */
-    cmatrix(const size_t &dim_v, const size_t &dim_h);
+    cmatrix(const size_t &height, const size_t &width);
     /**
      * @brief Construct a new cmatrix object.
      *
-     * @param dim_v The number of rows.
-     * @param dim_h The number of columns.
+     * @param height The number of rows.
+     * @param width The number of columns.
      * @param val The value to fill the matrix.
      * @throw std::invalid_argument If the type is bool.
      */
-    cmatrix(const size_t &dim_v, const size_t &dim_h, const T &val);
+    cmatrix(const size_t &height, const size_t &width, const T &val);
     /**
      * @brief Cast a matrix to another type.
      *
@@ -455,7 +455,7 @@ public:
      *
      * @ingroup getter
      */
-    size_t dim_h() const;
+    size_t width() const;
     /**
      * @brief The number of rows of the matrix.
      *
@@ -463,7 +463,7 @@ public:
      *
      * @ingroup getter
      */
-    size_t dim_v() const;
+    size_t height() const;
     /**
      * @brief The dimensions of the matrix.
      *
@@ -471,7 +471,7 @@ public:
      *
      * @ingroup getter
      */
-    std::pair<size_t, size_t> dim() const;
+    std::pair<size_t, size_t> size() const;
 
     /**
      * @brief Get the transpose of the matrix.
@@ -1021,8 +1021,8 @@ public:
     /**
      * @brief Generate a random matrix of integers.
      *
-     * @param dim_h The number of rows.
-     * @param dim_v The number of columns.
+     * @param width The number of rows.
+     * @param height The number of columns.
      * @param min The minimum value of the matrix.
      * @param max The maximum value of the matrix.
      * @param seed The seed of the random generator. (default: time(nullptr))
@@ -1031,26 +1031,26 @@ public:
      *
      * @ingroup static
      */
-    static cmatrix<int> randint(const size_t &dim_v, const size_t &dim_h, const int &min, const int &max, const int &seed = time(nullptr));
+    static cmatrix<int> randint(const size_t &height, const size_t &width, const int &min, const int &max, const int &seed = time(nullptr));
     /**
      * @brief Generate a matrix of zeros.
      *
-     * @param dim_h The number of columns.
-     * @param dim_v The number of rows.
+     * @param width The number of columns.
+     * @param height The number of rows.
      * @return cmatrix<int> The matrix of zeros.
      *
      * @ingroup static
      */
-    static cmatrix<int> zeros(const size_t &dim_h, const size_t &dim_v);
+    static cmatrix<int> zeros(const size_t &width, const size_t &height);
     /**
      * @brief Generate the identity matrix.
      *
-     * @param dim The number of rows and columns.
+     * @param size The number of rows and columns.
      * @return cmatrix<int> The identity matrix.
      *
      * @ingroup static
      */
-    static cmatrix<int> identity(const size_t &dim);
+    static cmatrix<int> identity(const size_t &size);
     /**
      * @brief Merge two matrices.
      *
