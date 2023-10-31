@@ -134,7 +134,13 @@ cmatrix<T> cmatrix<T>::slice_rows(const size_t &start, const size_t &end) const
 {
     __check_valid_row_id(start);
     __check_valid_row_id(end);
+
+    if (start > end)
+        throw std::invalid_argument("The start index must be less than or equal to the end index");
+
+    // Create a vector of vectors from start to end containing the rows
     std::vector<std::vector<T>> submatrix(matrix.begin() + start, matrix.begin() + end + 1);
+
     return cmatrix<T>(submatrix);
 }
 
@@ -144,8 +150,13 @@ cmatrix<T> cmatrix<T>::slice_columns(const size_t &start, const size_t &end) con
     __check_valid_col_id(start);
     __check_valid_col_id(end);
 
+    if (start > end)
+        throw std::invalid_argument("The start index must be less than or equal to the end index");
+
+    // Create a vector of ids from start to end
     std::vector<size_t> ids(end - start + 1);
     std::iota(ids.begin(), ids.end(), start);
+
     return columns(ids);
 }
 

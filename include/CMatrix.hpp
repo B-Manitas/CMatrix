@@ -432,6 +432,7 @@ public:
      * @param end The end index inclusive.
      * @return cmatrix<T> The rows between two indexes.
      * @throw std::out_of_range If the index is out of range.
+     * @throw std::invalid_argument If the start index is greater than the end index.
      *
      * @ingroup getter
      */
@@ -443,6 +444,7 @@ public:
      * @param end The end index inclusive.
      * @return cmatrix<T> The columns between two indexes.
      * @throw std::out_of_range If the index is out of range.
+     * @throw std::invalid_argument If the start index is greater than the end index.
      *
      * @ingroup getter
      */

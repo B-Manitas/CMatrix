@@ -234,6 +234,9 @@ TEST(MatrixTest, slice_rows)
 
     // OUT OF RANGE - ROW
     EXPECT_THROW(m.slice_rows(0, 3), std::out_of_range);
+
+    // INVALID RANGE
+    EXPECT_THROW(m.slice_rows(1, 0), std::invalid_argument);
 }
 
 /** Test slice_columns method of cmatrix class */
@@ -258,6 +261,9 @@ TEST(MatrixTest, slice_columns)
 
     // OUT OF RANGE - COLUMN
     EXPECT_THROW(m.slice_columns(0, 3), std::out_of_range);
+
+    // INVALID RANGE
+    EXPECT_THROW(m.slice_columns(1, 0), std::invalid_argument);
 }
 
 /** Test width method of cmatrix class */
