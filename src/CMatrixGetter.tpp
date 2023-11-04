@@ -96,11 +96,11 @@ cmatrix<T> cmatrix<T>::cells(const std::initializer_list<std::pair<size_t, size_
 template <class T>
 cmatrix<T> cmatrix<T>::cells(const std::vector<std::pair<size_t, size_t>> &ids) const
 {
-    cmatrix<T> m;
+    cmatrix<T> m(1, ids.size());
 
-    // Get the id-th cell and push it into the matrix
-    for (const std::pair<size_t, size_t> &id : ids)
-        m.push_col_back({cell(id.first, id.second)});
+    // Iterate over the ids and set the cells
+    for (size_t i = 0; i < ids.size(); i++)
+        m.cell(0, i) = cell(ids[i].first, ids[i].second);
 
     return m;
 }
