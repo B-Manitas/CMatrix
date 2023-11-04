@@ -73,10 +73,10 @@ cmatrix<T> cmatrix<T>::columns(const std::initializer_list<size_t> &ids) const
 template <class T>
 cmatrix<T> cmatrix<T>::columns(const std::vector<size_t> &ids) const
 {
-    cmatrix<T> m;
-
-    for (const size_t &id : ids)
-        m.push_col_back(columns_vec(id));
+    cmatrix<T> m(height(), ids.size());
+    
+    for (size_t i = 0; i < ids.size(); i++)
+        m.set_column(i, columns_vec(ids[i]));
 
     return m;
 }
