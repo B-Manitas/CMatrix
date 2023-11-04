@@ -4,3 +4,7 @@ docs/latex
 docs/html
 doxygen-awesome-css
 main.cpp
+TODO
+benchmark
+benchmark.cpp
+callgrind.out.*
