@@ -13,7 +13,7 @@ template <class T>
 std::vector<T> cmatrix<T>::rows_vec(const size_t &n) const
 {
     __check_valid_row_id(n);
-    return matrix.at(n);
+    return matrix[n];
 }
 
 template <class T>
@@ -21,9 +21,10 @@ std::vector<T> cmatrix<T>::columns_vec(const size_t &n) const
 {
     __check_valid_col_id(n);
     std::vector<T> col;
+    col.reserve(height());
 
-    for (auto &&row : matrix)
-        col.push_back(row.at(n));
+    for (const std::vector<T> &row : matrix)
+        col.push_back(row[n]);
 
     return col;
 }
@@ -51,7 +52,7 @@ cmatrix<T> cmatrix<T>::rows(const std::vector<size_t> &ids) const
     for (const size_t &id : ids)
     {
         __check_valid_row_id(id);
-        m.push_row_back(matrix.at(id));
+        m.push_row_back(matrix[id]);
     }
 
     return m;
@@ -75,16 +76,7 @@ cmatrix<T> cmatrix<T>::columns(const std::vector<size_t> &ids) const
     cmatrix<T> m;
 
     for (const size_t &id : ids)
-    {
-        __check_valid_col_id(id);
-        std::vector<T> col;
-
-        // Get the id-th column
-        for (const std::vector<T> &row : matrix)
-            col.push_back(row.at(id));
-
-        m.push_col_back(col);
-    }
+        m.push_col_back(columns_vec(id));
 
     return m;
 }
@@ -118,7 +110,7 @@ T &cmatrix<T>::cell(const size_t &row, const size_t &col)
 {
     __check_valid_row_id(row);
     __check_valid_col_id(col);
-    return matrix.at(row).at(col);
+    return matrix[row][col];
 }
 
 template <class T>
@@ -126,7 +118,7 @@ T cmatrix<T>::cell(const size_t &row, const size_t &col) const
 {
     __check_valid_row_id(row);
     __check_valid_col_id(col);
-    return matrix.at(row).at(col);
+    return matrix[row][col];
 }
 
 template <class T>
@@ -166,7 +158,7 @@ cmatrix<T> cmatrix<T>::slice_columns(const size_t &start, const size_t &end) con
 template <class T>
 size_t cmatrix<T>::width() const
 {
-    return height() == 0 ? 0 : matrix.at(0).size();
+    return height() == 0 ? 0 : matrix[0].size();
 }
 
 template <class T>
@@ -191,6 +183,7 @@ cmatrix<T> cmatrix<T>::transpose() const
     cmatrix<T> m(width(), height());
 
     // Swap the rows and the columns
+    #pragma omp parallel for collapse(2)
     for (size_t r = 0; r < height(); r++)
         for (size_t c = 0; c < width(); c++)
             m.cell(c, r) = cell(r, c);
@@ -201,11 +194,11 @@ cmatrix<T> cmatrix<T>::transpose() const
 template <class T>
 std::vector<T> cmatrix<T>::diag() const
 {
-    std::vector<T> d;
+    std::vector<T> d(std::min(width(), height()));
 
     // Iterate over the diagonal of a matrix potentially not square
-    for (size_t i = 0; i < std::min(width(), height()); i++)
-        d.push_back(cell(i, i));
+    for (size_t i = 0; i < d.size(); i++)
+        d[i] = cell(i, i);
 
     return d;
 }

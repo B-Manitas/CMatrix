@@ -13,6 +13,7 @@
 #include <cmath>
 #include <functional>
 #include <iostream>
+#include <omp.h>
 #include <numeric>
 #include <utility>
 #include <vector>
