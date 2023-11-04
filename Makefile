@@ -1,6 +1,6 @@
 # Compiler, flags, and libraries
 CC = g++
-CFLAGS = -std=c++11 -Wall -I./include -I./test
+CFLAGS = -std=c++11 -Wall -fopenmp -I./include -I./test
 LIBS_TEST = -lgtest -lpthread
 
 # Files
@@ -31,8 +31,19 @@ main : $(MAIN_OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 	./$@
 
+benchmark: 
+	rm -rf benchmark
+	$(CC) -O3 $(CFLAGS) benchmark.cpp -o benchmark -lbenchmark
+	./benchmark
+
+profiler:
+	rm -rf profiler main.o main callgrind.out.*
+	$(CC) -O3 -g $(CFLAGS) main.cpp -o profiler
+	valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes ./profiler
+	kcachegrind callgrind.out.*
+
 clean_obj :
-	rm -rf $(TEST_OBJ) $(OBJ) $(MAIN_OBJ)
+	rm -rf $(TEST_OBJ) $(OBJ) $(MAIN_OBJ) callgrind.out.* profiler
 	clear
 
 clean_exe :
@@ -49,4 +60,4 @@ docs :
 	mv cmatrix.pdf docs
 	clear
 
-.PHONY : all test main clean_obj clean_exe clean docs
+.PHONY : all test main clean_obj clean_exe clean docs benchmark profiler
