@@ -150,6 +150,7 @@ cmatrix<T> cmatrix<T>::operator*(const cmatrix<T> &m) const
     cmatrix<T> result(m.width(), height());
 
     // For each cell of the new matrix, calculate the sum of the products
+    #pragma omp parallel for collapse(2)
     for (size_t i = 0; i < height(); i++)
         for (size_t j = 0; j < m.width(); j++)
         {
@@ -157,6 +158,7 @@ cmatrix<T> cmatrix<T>::operator*(const cmatrix<T> &m) const
 
             // For each cell of the first matrix, multiply the value of the cell
             // with the value of the corresponding cell of the second matrix
+            #pragma omp parallel for reduction(+:sum)
             for (size_t k = 0; k < width(); k++)
                 sum += cell(i, k) * m.cell(k, j);
 
