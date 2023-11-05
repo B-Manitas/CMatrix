@@ -43,7 +43,7 @@ profiler:
 	kcachegrind callgrind.out.*
 
 clean_obj :
-	rm -rf $(TEST_OBJ) $(OBJ) $(MAIN_OBJ) callgrind.out.* profiler
+	rm -rf $(TEST_OBJ) $(OBJ) $(MAIN_OBJ) callgrind.out.* profiler benchmark
 	clear
 
 clean_exe :
