@@ -9,40 +9,46 @@
 template <class T>
 cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
 {
-    cmatrix<T> result;
-
     // Compute the minimum for each row
     if (axis == 0)
     {
+        // Initialize the result matrix
+        std::vector<std::vector<T>> m(height(), std::vector<T>(1));
+
+        #pragma omp parallel for
         for (size_t r = 0; r < height(); r++)
         {
             // Push the first element of the row to the result matrix
-            result.push_row_back({cell(r, 0)});
+            m[r][0] = cell(r, 0);
 
             // Check if the current element is smaller than the stored one
             for (size_t c = 0; c < width(); c++)
-                if (cell(r, c) < result.cell(r, 0))
-                    result.cell(0, r) = cell(r, c);
+                if (cell(r, c) < m[r][0])
+                    m[r][0] = cell(r, c);
         }
 
-        return result;
+        return cmatrix<T>(m);
     }
 
     // Compute the minimum for each column
     else if (axis == 1)
     {
+        // Initialize the result matrix
+        std::vector<std::vector<T>> m(1, std::vector<T>(width()));
+
+        #pragma omp parallel for
         for (size_t i = 0; i < width(); i++)
         {
             // Push the first element of the column to the result matrix
-            result.push_col_back({cell(0, i)});
+            m[0][i] = cell(0, i);
 
             // Check if the current element is smaller than the stored one
             for (size_t j = 0; j < height(); j++)
-                if (cell(j, i) < result.cell(0, i))
-                    result.cell(i, 0) = cell(j, i);
+                if (cell(j, i) < m[0][i])
+                    m[0][i] = cell(j, i);
         }
 
-        return result;
+        return cmatrix<T>(m);
     }
 
     else
@@ -52,50 +58,46 @@ cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
 template <class T>
 cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
 {
-    cmatrix<T> result;
-
     // Compute the maximum for each row
     if (axis == 0)
     {
+        // Initialize the result matrix
+        std::vector<std::vector<T>> m(height(), std::vector<T>(1));
+
+        #pragma omp parallel for
         for (size_t r = 0; r < height(); r++)
         {
             // Push the first element of the row to the result matrix
-            result.push_row_back({cell(r, 0)});
+            m[r][0] = cell(r, 0);
 
             // Check if the current element is greater than the stored one
             for (size_t c = 0; c < width(); c++)
-            {
-                T current = cell(r, c);
-                T stored = result.cell(r, 0);
-
-                if (current > stored)
-                    result.cell(r, 0) = current;
-            }
+                if (cell(r, c) > m[r][0])
+                    m[r][0] = cell(r, c);
         }
 
-        return result;
+        return cmatrix<T>(m);
     }
 
     // Compute the maximum for each column
     else if (axis == 1)
     {
+        // Initialize the result matrix
+        std::vector<std::vector<T>> m(1, std::vector<T>(width()));
+
+        #pragma omp parallel for
         for (size_t c = 0; c < width(); c++)
         {
             // Push the first element of the column to the result matrix
-            result.push_col_back({cell(0, c)});
+            m[0][c] = cell(0, c);
 
             // Check if the current element is greater than the stored one
             for (size_t r = 0; r < height(); r++)
-            {
-                T current = cell(r, c);
-                T stored = result.cell(0, c);
-
-                if (current > stored)
-                    result.cell(0, c) = current;
-            }
+                if (cell(r, c) > m[0][c])
+                    m[0][c] = cell(r, c);
         }
 
-        return result;
+        return cmatrix<T>(m);
     }
 
     else
@@ -105,11 +107,14 @@ cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
 template <class T>
 cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
 {
-    cmatrix<T> result;
 
     // Compute the sum for each row
     if (axis == 0)
     {
+        // Initialize the result matrix
+        std::vector<std::vector<T>> m(height(), std::vector<T>(1));
+
+        #pragma omp parallel for
         for (size_t i = 0; i < height(); i++)
         {
             // Initialize the sum to zero
@@ -119,15 +124,19 @@ cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
             for (size_t j = 0; j < width(); j++)
                 sum += cell(i, j);
 
-            result.push_row_back({sum});
+            m[i][0] = sum;
         }
 
-        return result;
+        return cmatrix<T>(m);
     }
 
     // Compute the sum for each column
     else if (axis == 1)
     {
+        // Initialize the result matrix
+        std::vector<std::vector<T>> m(1, std::vector<T>(width()));
+
+        #pragma omp parallel for
         for (size_t i = 0; i < width(); i++)
         {
             // Initialize the sum to zero
@@ -137,10 +146,10 @@ cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
             for (size_t j = 0; j < height(); j++)
                 sum += cell(j, i);
 
-            result.push_col_back({sum});
+            m[0][i] = sum;
         }
 
-        return result;
+        return cmatrix<T>(m);
     }
 
     else
@@ -179,8 +188,6 @@ cmatrix<float> cmatrix<T>::mean(const unsigned int &axis) const
 template <class T>
 cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
 {
-    cmatrix<float> result;
-
     // Compute the standard deviation for each row
     if (axis == 0)
     {
@@ -188,9 +195,13 @@ cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
         if (width() == 1)
             throw std::invalid_argument("The matrix must have more than one column.");
 
-        // Calculate the mean of each row
-        const cmatrix<float> &matrix_mean = this->mean(0);
+        // Initialize the result matrix
+        std::vector<std::vector<float>> m(height(), std::vector<float>(1));
 
+        // Calculate the mean of each row
+        const cmatrix<float> &matrix_mean = mean(0);
+
+        #pragma omp parallel for
         for (size_t r = 0; r < height(); r++)
         {
             // Calculate the mean of the row
@@ -202,10 +213,10 @@ cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
                 sum += std::pow(cell(r, c) - mean, 2);
 
             // Calculate the standard deviation and push it to the result matrix
-            result.push_row_back({std::sqrt(sum / width())});
+            m[r][0] = std::sqrt(sum / width());
         }
 
-        return result;
+        return cmatrix<float>(m);
     }
 
     // Compute the standard deviation for each column
@@ -215,9 +226,13 @@ cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
         if (height() == 1)
             throw std::invalid_argument("The matrix must have more than one row.");
 
+        // Initialize the result matrix
+        std::vector<std::vector<float>> m(1, std::vector<float>(width()));
+
         // Calculate the mean of each column
         const cmatrix<float> &matrix_mean = this->mean(1);
 
+        #pragma omp parallel for
         for (size_t c = 0; c < width(); c++)
         {
             // Calculate the mean of the column
@@ -229,10 +244,10 @@ cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
                 sum += std::pow(cell(r, c) - mean, 2);
 
             // Calculate the standard deviation and push it to the result matrix
-            result.push_col_back({std::sqrt(sum / height())});
+            m[0][c] = std::sqrt(sum / height());
         }
 
-        return result;
+        return cmatrix<float>(m);
     }
 
     else
@@ -254,11 +269,13 @@ cmatrix<float> cmatrix<T>::std(const unsigned int &axis) const
 template <class T>
 cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
 {
-    cmatrix<T> result;
-
     // Compute the median for each row.
     if (axis == 0)
     {
+        // Initialize the result matrix.
+        std::vector<std::vector<T>> m(height(), std::vector<T>(1));
+
+        #pragma omp parallel for
         for (size_t i = 0; i < height(); i++)
         {
             // Get the row and sort it.
@@ -266,15 +283,19 @@ cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
             std::sort(row.begin(), row.end());
 
             // Push the median ( middle value -> row.size() / 2 ) to the result matrix.
-            result.push_row_back({row[row.size() / 2]});
+            m[i][0] = row[row.size() / 2];
         }
 
-        return result;
+        return cmatrix<T>(m);
     }
 
     // Compute the median for each column.
     else if (axis == 1)
     {
+        // Initialize the result matrix.
+        std::vector<std::vector<T>> m(1, std::vector<T>(width()));
+
+        #pragma omp parallel for
         for (size_t i = 0; i < width(); i++)
         {
             // Get the column and sort it.
@@ -282,10 +303,10 @@ cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
             std::sort(col.begin(), col.end());
 
             // Push the median ( middle value -> row.size() / 2 ) to the result matrix.
-            result.push_col_back({col[col.size() / 2]});
+            m[0][i] = col[col.size() / 2];
         }
 
-        return result;
+        return cmatrix<T>(m);
     }
 
     else
