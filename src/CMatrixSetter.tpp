@@ -14,7 +14,7 @@ void cmatrix<T>::set_row(const size_t &n, const std::vector<T> &val)
 {
     __check_valid_row_id(n);
     __check_valid_row(val);
-    matrix.at(n) = val;
+    matrix[n] = val;
 }
 
 template <class T>
@@ -25,7 +25,7 @@ void cmatrix<T>::set_column(const size_t &n, const std::vector<T> &val)
 
     // For each row, set the value at the given position
     for (size_t i = 0; i < height(); i++)
-        matrix.at(i).at(n) = val.at(i);
+        matrix[i][n] = val[i];
 }
 
 template <class T>
@@ -33,7 +33,7 @@ void cmatrix<T>::set_cell(const size_t &row, const size_t &col, const T &val)
 {
     __check_valid_row_id(row);
     __check_valid_col_id(col);
-    matrix.at(row).at(col) = val;
+    matrix[row][col] = val;
 }
 
 template <class T>
@@ -43,5 +43,5 @@ void cmatrix<T>::set_diag(const std::vector<T> &val)
 
     // Iterate over the diagonal
     for (size_t i = 0; i < std::min(width(), height()); i++)
-        cell(i, i) = val.at(i);
+        cell(i, i) = val[i];
 }
