@@ -24,13 +24,7 @@ void cmatrix<T>::clear()
 template <class T>
 cmatrix<T> cmatrix<T>::copy() const
 {
-    cmatrix<T> m(height(), width());
-
-    for (size_t r = 0; r < height(); r++)
-        for (size_t c = 0; c < width(); c++)
-            m.cell(r, c) = cell(r, c);
-
-    return m;
+    return *this;
 }
 
 template <class T>
