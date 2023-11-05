@@ -158,7 +158,7 @@ cmatrix<T> cmatrix<T>::operator*(const cmatrix<T> &m) const
 
             // For each cell of the first matrix, multiply the value of the cell
             // with the value of the corresponding cell of the second matrix
-            #pragma omp parallel for reduction(+:sum)
+            #pragma omp parallel for reduction(+ : sum)
             for (size_t k = 0; k < width(); k++)
                 sum += cell(i, k) * m.cell(k, j);
 
@@ -307,13 +307,16 @@ cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, cons
 {
     __check_size(m);
 
-    // Initialize variables to store the coordinates of the current cell.
-    size_t col = -1, row = -1;
+    // Initialize a matrix with the same dimensions of the current matrix
+    cmatrix<T> result = copy();
 
     // Apply the operator to each cell of the matrix
-    return map([&](T value, size_t *col, size_t *row)
-               { return f(value, m.cell(*row, *col)); },
-               &col, &row);
+    #pragma omp parallel for collapse(2)
+    for (size_t r = 0; r < height(); r++)
+        for (size_t c = 0; c < width(); c++)
+            result.cell(r, c) = f(cell(r, c), m.cell(r, c));
+
+    return result;
 }
 
 template <class T>
