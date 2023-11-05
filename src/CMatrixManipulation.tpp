@@ -39,18 +39,23 @@ void cmatrix<T>::insert_column(const size_t &pos, const std::vector<T> &val)
 
         // Insert the column
         for (size_t i = 0; i < val.size(); i++)
-            matrix.push_back(std::vector<T>{val.at(i)});
+            matrix.push_back(std::vector<T>{val[i]});
     }
 
     // Otherwise, we can only insert a column of the same size as the others
     else
     {
+        // Check if the position is valid
         __check_expected_id(pos, 0, width());
         __check_valid_col(val);
+        
+        // Reserve the space for the new column
+        matrix.reserve(height() + val.size());
 
         // For each row, insert the value at the given position
+        #pragma omp parallel for
         for (size_t i = 0; i < height(); i++)
-            matrix.at(i).insert(matrix.at(i).begin() + pos, val.at(i));
+            matrix[i].insert(matrix[i].begin() + pos, val[i]);
     }
 }
 
@@ -162,7 +167,7 @@ void cmatrix<T>::remove_column(const size_t &pos)
     // Otherwise, for each row, remove the value at the given position
     else
         for (size_t i = 0; i < height(); i++)
-            matrix.at(i).erase(matrix.at(i).begin() + pos);
+            matrix[i].erase(matrix[i].begin() + pos);
 }
 
 template <class T>
