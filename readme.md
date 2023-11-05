@@ -11,8 +11,9 @@ CMatrix is a robust C++ matrix library designed to simplify matrix operations an
 2. [Example of Usage](#exemple-of-usage)
 3. [Hierarchical Structure](#hierarchical-structure)
 4. [Documentation](#documentation)
-5. [See Also](#see-also)
-6. [License](#license)
+5. [Libraries Used](#libraries-used)
+6. [See Also](#see-also)
+7. [License](#license)
 
 ## Installation
 
@@ -25,6 +26,12 @@ git clone https://github.com/B-Manitas/CMatrix.git
 ```
 
 2. Include the [`CMatrix.hpp`](include/CMatrix.hpp) file in your project.
+
+3. Compile your project with the following flags:
+
+```bash
+-std=c++11 -fopenmp
+```
 
 ## Exemple of Usage
 
@@ -78,6 +85,13 @@ CMatrix is structured as follows:
 ## Documentation
 
 For detailed information on how to use CMatrix, consult the [documentation](docs/cmatrix.pdf).
+
+## Libraries Used
+
+- [OpenMP](https://www.openmp.org/): An API for parallel programming. _(Required for compile CMatrix)_
+- [GoogleTest](https://github.com/google/googletest): A C++ testing framework.
+- [GoogleBenchmark](https://github.com/google/benchmark): A C++ benchmarking framework.
+- [Doxygen](https://www.doxygen.nl): A documentation generator.
 
 ## See Also
 
