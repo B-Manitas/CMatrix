@@ -101,8 +101,7 @@ cmatrix<T> cmatrix<T>::operator+(const cmatrix<T> &m) const
 template <class T>
 cmatrix<T> cmatrix<T>::operator+(const T &n) const
 {
-    return map([n](T value)
-               { return value + n; });
+    return __map_op_arithmetic(std::plus<T>(), n);
 }
 
 template <class T>
@@ -120,8 +119,7 @@ cmatrix<T> cmatrix<T>::operator-(const cmatrix<T> &m) const
 template <class T>
 cmatrix<T> cmatrix<T>::operator-(const T &n) const
 {
-    return map([n](T value)
-               { return value - n; });
+    return __map_op_arithmetic(std::minus<T>(), n);
 }
 
 template <class T>
@@ -171,8 +169,7 @@ cmatrix<T> cmatrix<T>::operator*(const cmatrix<T> &m) const
 template <class T>
 cmatrix<T> cmatrix<T>::operator*(const T &n) const
 {
-    return map([n](T value)
-               { return value * n; });
+    return __map_op_arithmetic(std::multiplies<T>(), n);
 }
 
 template <class T>
@@ -187,8 +184,7 @@ cmatrix<T> cmatrix<T>::operator/(const T &n) const
     if (n == 0)
         throw std::invalid_argument("The value must be different from 0.");
 
-    return map([n](T value)
-               { return value / n; });
+    return __map_op_arithmetic(std::divides<T>(), n);
 }
 
 template <class T>
@@ -316,6 +312,19 @@ cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, cons
     return map([&](T value, size_t *col, size_t *row)
                { return f(value, m.cell(*row, *col)); },
                &col, &row);
+}
+
+template <class T>
+cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, const T &val) const
+{
+    cmatrix<T> result = copy();
+
+    #pragma omp parallel for collapse(2)
+    for (size_t i = 0; i < height(); i++)
+        for (size_t j = 0; j < width(); j++)
+            result.cell(i, j) = f(cell(i, j), val);
+
+    return result;
 }
 
 template <class T>

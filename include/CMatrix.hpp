@@ -185,6 +185,16 @@ private:
      */
     cmatrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const cmatrix<T> &m) const;
     /**
+     * @brief Apply a operator to each cell of the matrix.
+     *
+     * @param f The operator to apply. f(T value, T value) -> T
+     * @param val The value to apply.
+     * @return cmatrix<T> The result of the operator.
+     *
+     * @ingroup operator
+     */
+    cmatrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const T &val) const;
+    /**
      * @brief Map a comparison operator to each cell of the matrix and return a matrix of boolean.
      *
      * @param f The comparison operator to apply. f(T value, T value) -> bool
