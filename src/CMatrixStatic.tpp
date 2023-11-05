@@ -14,20 +14,14 @@ cmatrix<int> cmatrix<int>::randint(const size_t &height, const size_t &width, co
 {
     // Set the seed
     std::srand(seed);
-    cmatrix<int> m;
+    std::vector<std::vector<int>> m(height, std::vector<int>(width));
 
+    // Generate a random number for each cell
     for (size_t r = 0; r < height; r++)
-    {
-        std::vector<int> row;
-
-        // Generate a random number for each column
         for (size_t c = 0; c < width; c++)
-            row.push_back(rand() % max + min);
+            m[r][c] = rand() % max + min;
 
-        m.push_row_back(row);
-    }
-
-    return m;
+    return cmatrix<int>(m);
 }
 
 template <>
@@ -35,20 +29,14 @@ cmatrix<float> cmatrix<float>::randfloat(const size_t &height, const size_t &wid
 {
     // Set the seed
     std::srand(seed);
-    cmatrix<float> m;
+    std::vector<std::vector<float>> m(height, std::vector<float>(width));
 
+    // Generate a random number for each cell
     for (size_t r = 0; r < height; r++)
-    {
-        std::vector<float> row;
-
-        // Generate a random number for each column
         for (size_t c = 0; c < width; c++)
-            row.push_back((float)rand() / RAND_MAX * (max - min) + min);
+            m[r][c] = (float)rand() / RAND_MAX * (max - min) + min;
 
-        m.push_row_back(row);
-    }
-
-    return m;
+    return cmatrix<float>(m);
 }
 
 template <>
