@@ -50,8 +50,10 @@ void cmatrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t 
 template <class T>
 void cmatrix<T>::apply(const std::function<T(T)> &f)
 {
-    apply([&](T cell, size_t *, size_t *)
-          { return f(cell); });
+    #pragma omp parallel for collapse(2)
+    for (size_t r = 0; r < height(); r++)
+        for (size_t c = 0; c < width(); c++)
+            set_cell(r, c, f(cell(r, c)));
 }
 
 template <class T>
