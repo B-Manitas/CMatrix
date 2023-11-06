@@ -1473,6 +1473,39 @@ TEST(MatrixTest, to_int)
     EXPECT_THROW(cmatrix<std::string>(1, 1, "a").to_int(), std::runtime_error);
 }
 
+/** Test to_float method of cmatrix class */
+TEST(MatrixTest, to_float)
+{
+    // EMPTY MATRIX
+    cmatrix<std::string> m_1;
+    cmatrix<float> m1Cast = m_1.to_float();
+    EXPECT_EQ(m1Cast, cmatrix<float>());
+
+    // 3x1 MATRIX STRING TO FLOAT
+    cmatrix<std::string> m_4 = {{"1"}, {"2"}, {"3"}};
+    cmatrix<float> m4Cast = m_4.to_float();
+    cmatrix<float> expected4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m4Cast, expected4);
+
+    // 3x1 MATRIX STRING TO FLOAT
+    cmatrix<std::string> m_5 = {{"1.1"}, {"2.2"}, {"3.3"}};
+    cmatrix<float> m5Cast = m_5.to_float();
+    cmatrix<float> expected5 = {{1.1}, {2.2}, {3.3}};
+    EXPECT_EQ(m5Cast, expected5);
+
+    // 3x1 MATRIX INT TO FLOAT
+    cmatrix<int> m_6 = {{1}, {2}, {3}};
+    cmatrix<float> m6Cast = m_6.to_float();
+    cmatrix<float> expected6 = {{1}, {2}, {3}};
+    EXPECT_EQ(m6Cast, expected6);
+
+    // INVALID CAST
+    EXPECT_THROW(cmatrix<std::vector<int>>().to_float(), std::invalid_argument);
+
+    // NON NUMERIC MATRIX
+    EXPECT_THROW(cmatrix<std::string>(1, 1, "a").to_float(), std::runtime_error);
+}
+
 /** Test to_string method of cmatrix class */
 TEST(MatrixTest, to_string)
 {

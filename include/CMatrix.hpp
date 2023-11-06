@@ -1011,6 +1011,16 @@ public:
      */
     cmatrix<int> to_int() const;
     /**
+     * @brief Convert the matrix to a matrix of floats.
+     *
+     * @return cmatrix<float> The matrix of floats.
+     * @throw std::invalid_argument If the type T is not convertible to the type float.
+     * @throw std::runtime_error If the value is out of range of the type float.
+     *
+     * @ingroup general
+     */
+    cmatrix<float> to_float() const;
+    /**
      * @brief Convert the matrix to a matrix of strings.
      *
      * @return cmatrix<std::string> The matrix of strings.

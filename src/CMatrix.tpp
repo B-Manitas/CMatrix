@@ -123,6 +123,9 @@ std::vector<std::vector<T>> cmatrix<T>::to_vector() const
     return matrix;
 }
 
+// ==================================================
+// CAST FUNCTIONS
+
 template <class T>
 template <class U>
 cmatrix<U> cmatrix<T>::__cast(std::true_type) const
@@ -155,16 +158,15 @@ cmatrix<U> cmatrix<T>::cast() const
     return __cast<U>(std::is_convertible<T, U>());
 }
 
+// ==================================================
+// TYPE CONVERSION FUNCTIONS
+
+// TO INT
+
 template <class T>
 cmatrix<int> cmatrix<T>::to_int() const
 {
     return cast<int>();
-}
-
-template <>
-cmatrix<int> cmatrix<int>::to_int() const
-{
-    return *this;
 }
 
 template <>
@@ -180,6 +182,30 @@ cmatrix<int> cmatrix<std::string>::to_int() const
         throw std::runtime_error("The string matrix contains non-integer values.");
     }
 }
+
+// TO FLOAT
+
+template <>
+cmatrix<float> cmatrix<std::string>::to_float() const
+{
+    try
+    {
+        return map<float>([&](std::string cell)
+                          { return std::stof(cell); });
+    }
+    catch (const std::invalid_argument &e)
+    {
+        throw std::runtime_error("The string matrix contains non-float values.");
+    }
+}
+
+template <class T>
+cmatrix<float> cmatrix<T>::to_float() const
+{
+    return cast<float>();
+}
+
+// TO STRING
 
 template <class T>
 cmatrix<std::string> cmatrix<T>::__to_string(std::true_type) const
