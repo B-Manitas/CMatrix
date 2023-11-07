@@ -160,6 +160,7 @@ private:
      * @return cmatrix<float> The std value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
      */
     cmatrix<float> __std(const unsigned int &axis, std::true_type) const;
@@ -181,6 +182,7 @@ private:
      * @param m The matrix to apply.
      * @return cmatrix<T> The result of the operator.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const cmatrix<T> &m) const;
@@ -191,6 +193,7 @@ private:
      * @param val The value to apply.
      * @return cmatrix<T> The result of the operator.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const T &val) const;
@@ -201,6 +204,7 @@ private:
      * @param n The number to compare.
      * @return cmatrix<short unsigned int> The result of the comparison.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<short unsigned int> __map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const;
@@ -234,6 +238,7 @@ private:
      * @param true_type The type of the matrix is convertible.
      * @return cmatrix<std::string> The converted matrix.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
     cmatrix<std::string> __to_string(std::true_type) const;
@@ -491,6 +496,7 @@ public:
      *
      * @return cmatrix<T> The transpose of the matrix.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup getter
      */
     cmatrix<T> transpose() const;
@@ -573,6 +579,7 @@ public:
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of columns of the matrix.
      *
      * @note The row must be a vector of the same type of the matrix.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup manipulation
      */
     void insert_column(const size_t &pos, const std::vector<T> &val);
@@ -827,6 +834,7 @@ public:
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The type of the matrix must implement the operator <.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
      */
     cmatrix<T> min(const unsigned int &axis = 0) const;
@@ -838,6 +846,7 @@ public:
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
      * @note The type of the matrix must implement the operator >.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
      */
     cmatrix<T> max(const unsigned int &axis = 0) const;
@@ -849,6 +858,7 @@ public:
      * @return cmatrix<T> The sum of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
      */
     cmatrix<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
@@ -874,6 +884,7 @@ public:
      * @throw std::invalid_argument If the number of elements is less than 2 for the axis.
      *
      * @note The matrix must be of arithmetic type.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
      */
     cmatrix<float> std(const unsigned int &axis = 0) const;
@@ -886,6 +897,7 @@ public:
      *
      * @note The matrix must implement the operator <.
      * @note If the number of elements is even, the median is the smallest value of the two middle values.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
      */
     cmatrix<T> median(const unsigned int &axis = 0) const;
@@ -926,6 +938,7 @@ public:
      *
      * @param f The function to apply. f(T value) -> T
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
     void apply(const std::function<T(T)> &f);
@@ -940,7 +953,6 @@ public:
      * @ingroup general
      */
     cmatrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
-    template <class U>
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
      *
@@ -952,6 +964,7 @@ public:
      *
      * @ingroup general
      */
+    template <class U>
     cmatrix<U> map(const std::function<U(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
@@ -959,10 +972,10 @@ public:
      * @param f The function to apply. f(T value) -> T
      * @return cmatrix<T> The result of the function.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
     cmatrix<T> map(const std::function<T(T)> &f) const;
-    template <class U>
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
      *
@@ -970,8 +983,10 @@ public:
      * @param f The function to apply. f(T value) -> U
      * @return cmatrix<U> The result of the function.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
+    template <class U>
     cmatrix<U> map(const std::function<U(T)> &f) const;
     /**
      * @brief Fill the matrix with a value.
@@ -1007,6 +1022,7 @@ public:
      * @throw std::invalid_argument If the type T is not convertible to the type int.
      * @throw std::runtime_error If the value is out of range of the type int.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
     cmatrix<int> to_int() const;
@@ -1017,6 +1033,7 @@ public:
      * @throw std::invalid_argument If the type T is not convertible to the type float.
      * @throw std::runtime_error If the value is out of range of the type float.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
     cmatrix<float> to_float() const;
@@ -1026,6 +1043,7 @@ public:
      * @return cmatrix<std::string> The matrix of strings.
      * @throw std::invalid_argument If the type T is not a primitive type.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
     cmatrix<std::string> to_string() const;
@@ -1217,6 +1235,7 @@ public:
      * @return cmatrix<T> The sum of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> operator+(const cmatrix<T> &m) const;
@@ -1226,6 +1245,7 @@ public:
      * @param n The value to add.
      * @return cmatrix<T> The sum of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> operator+(const T &n) const;
@@ -1236,6 +1256,7 @@ public:
      * @param m The matrix to add.
      * @return cmatrix<T> The sum of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     template <class U>
@@ -1246,6 +1267,7 @@ public:
      * @param m The matrix to subtract.
      * @return cmatrix<T> The difference of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @note The matrix must be of the same type of the matrix.
      * @ingroup operator
      */
@@ -1256,6 +1278,7 @@ public:
      * @param n The value to subtract.
      * @return cmatrix<T> The difference of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> operator-(const T &val) const;
@@ -1266,6 +1289,7 @@ public:
      * @param m The matrix to subtract.
      * @return cmatrix<T> The difference of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     template <class U>
@@ -1276,6 +1300,7 @@ public:
      * @param m The matrix to negate.
      * @return cmatrix<T> The negated matrix.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     template <class U>
@@ -1287,6 +1312,7 @@ public:
      * @return cmatrix<T> The product of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> operator*(const cmatrix<T> &m) const;
@@ -1316,6 +1342,7 @@ public:
      * @param n The value to divide.
      * @return cmatrix<T> The quotient of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> operator/(const T &n) const;
@@ -1336,6 +1363,7 @@ public:
      * @return cmatrix<T>& The sum of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> &operator+=(const cmatrix<T> &m);
@@ -1345,6 +1373,7 @@ public:
      * @param n The value to add.
      * @return cmatrix<T>& The sum of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> &operator+=(const T &n);
@@ -1355,6 +1384,7 @@ public:
      * @return cmatrix<T>& The difference of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> &operator-=(const cmatrix<T> &m);
@@ -1364,6 +1394,7 @@ public:
      * @param n The value to subtract.
      * @return cmatrix<T>& The difference of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> &operator-=(const T &n);
@@ -1374,6 +1405,7 @@ public:
      * @return cmatrix<T>& The product of the matrices.
      *
      * @note The matrix must be of the same type of the matrix.
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> &operator*=(const cmatrix<T> &m);
@@ -1383,6 +1415,7 @@ public:
      * @param n The value to multiply.
      * @return cmatrix<T>& The product of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> &operator*=(const T &n);
@@ -1392,6 +1425,7 @@ public:
      * @param n The value to divide.
      * @return cmatrix<T>& The quotient of the matrices.
      *
+     * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup operator
      */
     cmatrix<T> &operator/=(const T &n);
