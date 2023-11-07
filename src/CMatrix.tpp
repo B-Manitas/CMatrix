@@ -105,9 +105,10 @@ cmatrix<U> cmatrix<T>::map(const std::function<U(T)> &f) const
     cmatrix<U> m = cmatrix<U>(height(), width());
 
     // Set the mapped value for each cell
+    #pragma omp parallel for collapse(2)
     for (size_t r = 0; r < height(); r++)
         for (size_t c = 0; c < width(); c++)
-            m.set_cell(r, c, f(cell(r, c)));
+            m.cell(r, c) = f(cell(r, c));
 
     return m;
 }
@@ -115,8 +116,7 @@ cmatrix<U> cmatrix<T>::map(const std::function<U(T)> &f) const
 template <class T>
 void cmatrix<T>::fill(const T &value)
 {
-    apply([&](T _)
-          { return value; });
+    *this = cmatrix<T>(height(), width(), value);
 }
 
 template <class T>
@@ -174,15 +174,17 @@ cmatrix<int> cmatrix<T>::to_int() const
 template <>
 cmatrix<int> cmatrix<std::string>::to_int() const
 {
-    try
-    {
-        return map<int>([&](std::string cell)
-                        { return std::stoi(cell); });
-    }
-    catch (const std::invalid_argument &e)
-    {
-        throw std::runtime_error("The string matrix contains non-integer values.");
-    }
+    return map<int>([&](std::string cell)
+                    { 
+                        try
+                        {
+                            return std::stoi(cell);
+                        }
+                        catch(const std::exception& e)
+                        {
+                            #pragma omp critical
+                            throw std::runtime_error("The string matrix contains non-int values.");
+                        } });
 }
 
 // TO FLOAT
@@ -190,15 +192,17 @@ cmatrix<int> cmatrix<std::string>::to_int() const
 template <>
 cmatrix<float> cmatrix<std::string>::to_float() const
 {
-    try
-    {
-        return map<float>([&](std::string cell)
-                          { return std::stof(cell); });
-    }
-    catch (const std::invalid_argument &e)
-    {
-        throw std::runtime_error("The string matrix contains non-float values.");
-    }
+    return map<float>([&](std::string cell)
+                      { 
+                        try
+                        {
+                            return std::stof(cell);
+                        }
+                        catch(const std::exception& e)
+                        {
+                            #pragma omp critical
+                            throw std::runtime_error("The string matrix contains non-float values.");
+                        } });
 }
 
 template <class T>
