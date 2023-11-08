@@ -1195,31 +1195,31 @@ public:
     /**
      * @brief Generate a random matrix of integers.
      *
-     * @param width The number of rows.
-     * @param height The number of columns.
-     * @param min The minimum value of the matrix.
-     * @param max The maximum value of the matrix.
+     * @param height The number of height.
+     * @param width The number of columns.
+     * @param min The minimum value of the matrix (included). (default: 0)
+     * @param max The maximum value of the matrix (included). (default: 100)
      * @param seed The seed of the random generator. (default: time(nullptr))
      *
      * @return cmatrix<int> The random matrix of integers.
      *
      * @ingroup static
      */
-    static cmatrix<int> randint(const size_t &height, const size_t &width, const int &min, const int &max, const int &seed = time(nullptr));
+    static cmatrix<int> randint(const size_t &height, const size_t &width, const int &min = 0, const int &max = 100, const int &seed = time(nullptr));
     /**
      * @brief Generate a random matrix of floats.
      *
-     * @param width The number of rows.
-     * @param height The number of columns.
-     * @param min The minimum value of the matrix.
-     * @param max The maximum value of the matrix.
+     * @param height The number of rows.
+     * @param width The number of columns.
+     * @param min The minimum value of the matrix (included). (default: 0)
+     * @param max The maximum value of the matrix (included). (default: 1)
      * @param seed The seed of the random generator. (default: time(nullptr))
      *
      * @return cmatrix<float> The random matrix of floats.
      *
      * @ingroup static
      */
-    static cmatrix<float> randfloat(const size_t &height, const size_t &width, const float &min, const float &max, const int &seed = time(nullptr));
+    static cmatrix<float> randfloat(const size_t &height, const size_t &width, const float &min = 0, const float &max = 1, const int &seed = time(nullptr));
     /**
      * @brief Generate a matrix of zeros.
      *
