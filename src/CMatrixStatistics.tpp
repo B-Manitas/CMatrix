@@ -156,6 +156,20 @@ cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
         throw std::invalid_argument("The axis must be 0: horizontal, or 1: vertical. Actual: " + std::to_string(axis) + ".");
 }
 
+template <class T>
+T cmatrix<T>::sum_all(const T &zero) const
+{
+    // Initialize the sum to zero
+    T sum = zero;
+
+    // Sum all the elements of the matrix
+    for (size_t i = 0; i < height(); i++)
+        for (size_t j = 0; j < width(); j++)
+            sum += cell(i, j);
+
+    return sum;
+}
+
 template <typename T>
 cmatrix<float> cmatrix<T>::__mean(const unsigned int &axis, std::true_type) const
 {

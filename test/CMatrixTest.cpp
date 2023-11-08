@@ -1128,6 +1128,30 @@ TEST(MatrixTest, sum)
     EXPECT_THROW(m_5.sum(2), std::invalid_argument);
 }
 
+/** Test sum_all method of cmatrix class */
+TEST(MatrixTest, sum_all)
+{
+    // EMPTY MATRIX
+    cmatrix<int> m_1;
+    EXPECT_EQ(m_1.sum_all(), 0);
+
+    // 3x3 MATRIX
+    cmatrix<int> m_2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
+    EXPECT_EQ(m_2.sum_all(), 28);
+
+    // 1x3 MATRIX
+    cmatrix<int> m_3 = {{1, 2, 3}};
+    EXPECT_EQ(m_3.sum_all(), 6);
+
+    // 3x1 MATRIX
+    cmatrix<int> m_4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m_4.sum_all(), 6);
+
+    // 1x3 STRING MATRIX
+    cmatrix<std::string> m_5 = {{"a", "b", "c"}, {"a", "b", "c"}};
+    EXPECT_EQ(m_5.sum_all(), "abcabc");
+}
+
 /** Test mean method of cmatrix class */
 TEST(MatrixTest, mean)
 {

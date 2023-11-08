@@ -863,6 +863,15 @@ public:
      */
     cmatrix<T> sum(const unsigned int &axis = 0, const T &zero = T()) const;
     /**
+     * @brief Get the sum of all the elements of the matrix.
+     *
+     * @param zero The zero value of the sum. (default: the value of the default constructor of the type T)
+     * @return T The sum of all the elements of the matrix.
+     *
+     * @ingroup statistic
+     */
+    T sum_all(const T &zero = T()) const;
+    /**
      * @brief Get the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the mean value. 0 for the rows, 1 for the columns. (default: 0)
