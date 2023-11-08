@@ -1792,6 +1792,197 @@ TEST(MatrixTest, merge)
 }
 
 // ==================================================
+// MATH METHODS
+
+/** Test near method of cmatrix class */
+TEST(MatrixTest, near)
+{
+    // EMPTY MATRICES
+    cmatrix<int> m_1;
+    cmatrix<int> m_2;
+    EXPECT_TRUE(m_1.near(m_2));
+    EXPECT_TRUE(m_1.near(0));
+
+    // 3x3 MATRICES
+    cmatrix<int> m_3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_4 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_TRUE(m_3.near(m_4));
+    EXPECT_TRUE(m_3.near(5, 4));
+
+    // 1x3 MATRICES
+    cmatrix<int> m_5 = {{1, 2, 3}};
+    cmatrix<int> m_6 = {{1, 2, 3}};
+    EXPECT_TRUE(m_5.near(m_6));
+    EXPECT_TRUE(m_5.near(2, 1));
+
+    // 3x1 MATRICES
+    cmatrix<int> m_7 = {{1}, {2}, {3}};
+    cmatrix<int> m_8 = {{1}, {2}, {3}};
+    EXPECT_TRUE(m_7.near(m_8));
+    EXPECT_TRUE(m_7.near(2, 1));
+
+    // NOT NEAR MATRICES
+    cmatrix<int> m_9 = {{1, 2, 3}};
+    cmatrix<int> m_10 = {{1, 2, 4}};
+    EXPECT_TRUE(m_9.nearq(m_10));
+    EXPECT_TRUE(m_9.nearq(2, 0));
+}
+
+/** Test matmul method of cmatrix class */
+TEST(MatrixTest, mat_mul)
+{
+    // 3x3 MATRICES
+    cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+    cmatrix<int> m_3 = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
+    cmatrix<int> m_3_bis = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
+    EXPECT_EQ(m_1.matmul(m_2), m_3);
+
+    // 1x3 MATRICES
+    cmatrix<int> m_4 = {{5, 7, 9}};
+    cmatrix<int> m_5 = {{1}, {2}, {3}};
+    cmatrix<int> m_6 = {{46}};
+    cmatrix<int> m_6_bis = {{50, 70, 90}};
+    EXPECT_EQ(m_4.matmul(m_5), m_6);
+
+    // 3x1 MATRICES
+    cmatrix<int> m_7 = {{1}, {2}, {3}};
+    cmatrix<int> m_8 = {{5, 7, 9}};
+    cmatrix<int> m_9 = {{5, 7, 9}, {10, 14, 18}, {15, 21, 27}};
+    cmatrix<int> m_9_coeff = {{2}, {4}, {6}};
+    EXPECT_EQ(m_7.matmul(m_8), m_9);
+
+    // EMPTY MATRICES
+    cmatrix<int> m_10;
+    cmatrix<int> m_11;
+    cmatrix<int> m_12;
+    EXPECT_EQ(m_10.matmul(m_11), m_12);
+
+    // NOT EQUAL DIMENSIONS
+    cmatrix<int> m_13 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_14 = {{6, 5, 4}, {3, 2, 1}};
+    EXPECT_THROW(m_13.matmul(m_14), std::invalid_argument);
+}
+
+/** Test matpow method of cmatrix class */
+TEST(MatrixTest, matpow)
+{
+    // 3x3 MATRIX
+    cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{30, 36, 42}, {66, 81, 96}, {102, 126, 150}};
+    EXPECT_EQ(m_1.matpow(2), m_2);
+
+    // 1x3 MATRIX
+    cmatrix<int> m_3 = {{1, 2, 3}};
+    EXPECT_THROW(m_3.matpow(2), std::invalid_argument);
+
+    // 3x1 MATRIX
+    cmatrix<int> m_5 = {{1}, {2}, {3}};
+    EXPECT_THROW(m_5.matpow(2), std::invalid_argument);
+
+    // EMPTY MATRIX
+    cmatrix<int> m_7;
+    cmatrix<int> m_8;
+    EXPECT_EQ(m_7.matpow(2), m_8);
+}
+
+/** Test log method of cmatrix class */
+TEST(MatrixTest, log)
+{
+    // 3x3 MATRIX
+    cmatrix<float> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<float> m_2 = {{0, std::log(2), std::log(3)}, {std::log(4), std::log(5), std::log(6)}, {std::log(7), std::log(8), std::log(9)}};
+    EXPECT_EQ(m_1.log(), m_2);
+
+    // 1x3 MATRIX
+    cmatrix<float> m_3 = {{1, 2, 3}};
+    cmatrix<float> m_4 = {{0, std::log(2), std::log(3)}};
+    EXPECT_EQ(m_3.log(), m_4);
+
+    // 3x1 MATRIX
+    cmatrix<float> m_5 = {{1}, {2}, {3}};
+    cmatrix<float> m_6 = {{0}, {std::log(2)}, {std::log(3)}};
+    EXPECT_EQ(m_5.log(), m_6);
+
+    // EMPTY MATRIX
+    cmatrix<float> m_7;
+    cmatrix<float> m_8;
+    EXPECT_EQ(m_7.log(), m_8);
+}
+
+/** Test log2 method of cmatrix class */
+TEST(MatrixTest, log2)
+{
+    // 3x3 MATRIX
+    cmatrix<float> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<float> m_2 = {{0, 1, std::log2(3)}, {std::log2(4), std::log2(5), std::log2(6)}, {std::log2(7), std::log2(8), std::log2(9)}};
+    EXPECT_EQ(m_1.log2(), m_2);
+
+    // 1x3 MATRIX
+    cmatrix<float> m_3 = {{1, 2, 3}};
+    cmatrix<float> m_4 = {{0, 1, std::log2(3)}};
+    EXPECT_EQ(m_3.log2(), m_4);
+
+    // 3x1 MATRIX
+    cmatrix<float> m_5 = {{1}, {2}, {3}};
+    cmatrix<float> m_6 = {{0}, {1}, {std::log2(3)}};
+    EXPECT_EQ(m_5.log2(), m_6);
+
+    // EMPTY MATRIX
+    cmatrix<float> m_7;
+    cmatrix<float> m_8;
+    EXPECT_EQ(m_7.log2(), m_8);
+}
+
+/** Test log10 method of cmatrix class */
+TEST(MatrixTest, log10)
+{
+    // 3x3 MATRIX
+    cmatrix<float> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<float> m_2 = {{std::log(1), std::log10(2), std::log10(3)}, {std::log10(4), std::log10(5), std::log10(6)}, {std::log10(7), std::log10(8), std::log10(9)}};
+    EXPECT_TRUE(m_1.log10().near(m_2));
+
+    // 1x3 MATRIX
+    cmatrix<float> m_3 = {{1, 2, 3}};
+    cmatrix<float> m_4 = {{std::log(1), std::log10(2), std::log10(3)}};
+    EXPECT_TRUE(m_3.log10().near(m_4));
+
+    // 3x1 MATRIX
+    cmatrix<float> m_5 = {{1}, {2}, {3}};
+    cmatrix<float> m_6 = {{std::log(1)}, {std::log10(2)}, {std::log10(3)}};
+    EXPECT_TRUE(m_5.log10().near(m_6));
+
+    // EMPTY MATRIX
+    cmatrix<float> m_7;
+    cmatrix<float> m_8;
+    EXPECT_EQ(m_7.log10(), m_8);
+}
+
+/** Test exp method of cmatrix class */
+TEST(MatrixTest, exp)
+{
+    // 3x3 MATRIX
+    cmatrix<float> m_1 = {{std::log(1), std::log(2), std::log(3)}, {std::log(4), std::log(5), std::log(6)}, {std::log(7), std::log(8), std::log(9)}};
+    cmatrix<float> m_2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_TRUE(m_1.exp().near(m_2));
+
+    // 1x3 MATRIX
+    cmatrix<float> m_3 = {{0, std::log(2), std::log(3)}};
+    cmatrix<float> m_4 = {{1, 2, 3}};
+    EXPECT_TRUE(m_3.exp().near(m_4));
+
+    // 3x1 MATRIX
+    cmatrix<float> m_5 = {{0}, {std::log(2)}, {std::log(3)}};
+    cmatrix<float> m_6 = {{1}, {2}, {3}};
+    EXPECT_TRUE(m_5.exp().near(m_6));
+
+    // EMPTY MATRIX
+    cmatrix<float> m_7;
+    cmatrix<float> m_8;
+    EXPECT_EQ(m_7.exp(), m_8);
+}
+
+// ==================================================
 // OPERATOR METHODS
 
 /** Test operatorAssignment method of cmatrix class */

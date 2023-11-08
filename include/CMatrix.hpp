@@ -931,6 +931,110 @@ public:
      */
     cmatrix<T> median(const unsigned int &axis = 0) const;
 
+    // MATH METHODS
+    /**
+     * @brief Test if the matrix is near another matrix.
+     *
+     * @param val The matrix to test.
+     * @param tolerance The tolerance of the test. (default: 1e-5)
+     * @return true If the matrix is near the matrix `val`.
+     * @return false If the matrix is not near the matrix `val`.
+     *
+     * @ingroup math
+     */
+    bool near(const cmatrix<T> &val, const T &tolerance = 1e-5) const;
+    /**
+     * @brief Test if the matrix is near a value.
+     *
+     * @param val The value to test.
+     * @param tolerance The tolerance of the test. (default: 1e-5)
+     * @return true If the matrix is near the value `val`.
+     * @return false If the matrix is not near the value `val`.
+     *
+     * @ingroup math
+     */
+    bool near(const T &val, const T &tolerance = 1e-5) const;
+    /**
+     * @brief Test if the matrix is not near another matrix.
+     *
+     * @param val The matrix to test.
+     * @param tolerance The tolerance of the test. (default: 1e-5)
+     * @return true If the matrix is not near the matrix `val`.
+     * @return false If the matrix is near the matrix `val`.
+     *
+     * @ingroup math
+     */
+    bool nearq(const cmatrix<T> &val, const T &tolerance = 1e-5) const;
+    /**
+     * @brief Test if the matrix is not near a value.
+     *
+     * @param val The value to test.
+     * @param tolerance The tolerance of the test. (default: 1e-5)
+     * @return true If the matrix is not near the value `val`.
+     * @return false If the matrix is near the value `val`.
+     *
+     * @ingroup math
+     */
+    bool nearq(const T &val, const T &tolerance = 1e-5) const;
+    /**
+     * @brief Get the product with another matrix.
+     *
+     * @param m The matrix to multiply.
+     * @return cmatrix<T> The result of the product.
+     * @throw std::invalid_argument If the number of columns of the matrix is not equal to the number of rows of the matrix `m`.
+     *
+     * @note PARALLELIZED METHOD with OpenMP.
+     * @ingroup math
+     */
+    cmatrix<T> matmul(const cmatrix<T> &m) const;
+    /**
+     * @brief Get the power of the matrix.
+     *
+     * @param n The power.
+     * @return cmatrix<T> The result of the power.
+     * @throw std::invalid_argument If the matrix is not a square matrix.
+     *
+     * @note PARALLELIZED METHOD with OpenMP.
+     * @ingroup math
+     */
+    cmatrix<T> matpow(const unsigned int &n) const;
+    /**
+     * @brief Get the natural logarithm of the matrix.
+     *
+     * @return cmatrix<T> The result of the log.
+     *
+     * @note PARALLELIZED METHOD with OpenMP.
+     * @ingroup math
+     */
+    cmatrix<T> log() const;
+    /**
+     * @brief Get the log2 of the matrix.
+     *
+     * @return cmatrix<T> The result of the log.
+     *
+     * @note PARALLELIZED METHOD with OpenMP.
+     * @ingroup math
+     */
+    cmatrix<T> log2() const;
+    /**
+     * @brief Get the log10 of the matrix.
+     *
+     * @return cmatrix<T> The result of the log.
+     *
+     * @note PARALLELIZED METHOD with OpenMP.
+     * @ingroup math
+     */
+    cmatrix<T> log10() const;
+    /**
+     * @brief Get the exponential of the matrix.
+     *
+     * @return cmatrix<T> The result of the exponential.
+     *
+     * @note PARALLELIZED METHOD with OpenMP.
+     * @ingroup math
+     */
+    cmatrix<T> exp() const;
+
     // OTHER METHODS
     /**
      * @brief Print the matrix in the standard output.
@@ -1335,7 +1439,7 @@ public:
     template <class U>
     friend cmatrix<U> operator-(const cmatrix<U> &m);
     /**
-     * @brief The multiplication operator.
+     * @brief The multiplication operator element-wise.
      *
      * @param m The matrix to multiply.
      * @return cmatrix<T> The product of the matrices.
@@ -1376,7 +1480,7 @@ public:
      */
     cmatrix<T> operator/(const T &n) const;
     /**
-     * @brief The power operator.
+     * @brief The power operator element-wise.
      *
      * @param m The power. Must be a positive integer.
      * @return cmatrix<T> The powered matrix.
@@ -1475,6 +1579,7 @@ public:
 #include "../src/CMatrixConstructor.tpp"
 #include "../src/CMatrixGetter.tpp"
 #include "../src/CMatrixManipulation.tpp"
+#include "../src/CMatrixMath.tpp"
 #include "../src/CMatrixOperator.tpp"
 #include "../src/CMatrixSetter.tpp"
 #include "../src/CMatrixStatic.tpp"
