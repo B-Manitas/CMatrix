@@ -1059,13 +1059,13 @@ public:
     /**
      * @brief Apply a function to each cell of the matrix.
      *
-     * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
-     * @param col The pointer to the column index. (default: nullptr)
+     * @param f The function to apply. f(T value, size_t *id_row, size_t *id_col) -> T
      * @param row The pointer to the row index. (default: nullptr)
+     * @param col The pointer to the column index. (default: nullptr)
      *
      * @ingroup general
      */
-    void apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr);
+    void apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *row = nullptr, size_t *col = nullptr);
     /**
      * @brief Apply a function to each cell of the matrix.
      *
@@ -1078,27 +1078,27 @@ public:
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
      *
-     * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> T
-     * @param col The pointer to the column index. (default: nullptr)
+     * @param f The function to apply. f(T value, size_t *id_row, size_t *id_col) -> T
      * @param row The pointer to the row index. (default: nullptr)
+     * @param col The pointer to the column index. (default: nullptr)
      * @return cmatrix<T> The result of the function.
      *
      * @ingroup general
      */
-    cmatrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
+    cmatrix<T> map(const std::function<T(T, size_t *, size_t *)> &f, size_t *row = nullptr, size_t *col = nullptr) const;
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
      *
      * @tparam U The type of the matrix.
-     * @param f The function to apply. f(T value, size_t *id_col, size_t *id_row) -> U
-     * @param col The pointer to the column index. (default: nullptr)
+     * @param f The function to apply. f(T value, size_t *id_row, size_t *id_col) -> U
      * @param row The pointer to the row index. (default: nullptr)
+     * @param col The pointer to the column index. (default: nullptr)
      * @return cmatrix<U> The result of the function.
      *
      * @ingroup general
      */
     template <class U>
-    cmatrix<U> map(const std::function<U(T, size_t *, size_t *)> &f, size_t *col = nullptr, size_t *row = nullptr) const;
+    cmatrix<U> map(const std::function<U(T, size_t *, size_t *)> &f, size_t *row = nullptr, size_t *col = nullptr) const;
     /**
      * @brief Apply a function to each cell of the matrix and return the result.
      *

@@ -295,9 +295,9 @@ cmatrix<short unsigned int> cmatrix<T>::__map_op_comparaison_val(const std::func
     size_t col = -1, row = -1;
 
     // Check if the value of the cell is less than or equal to the value passed as parameter 'val'.
-    result.apply([&](T _, size_t *col, size_t *row)
+    result.apply([&](T _, size_t *row, size_t *col)
                  { return f(cell(*row, *col), n); },
-                 &col, &row);
+                 &row, &col);
 
     return result;
 }
