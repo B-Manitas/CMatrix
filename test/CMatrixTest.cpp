@@ -2271,29 +2271,29 @@ TEST(MatrixTest, op_mul)
     // 3x3 MATRICES
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> m_2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
-    cmatrix<int> m_3 = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
+    cmatrix<int> m_3 = {{9, 16, 21}, {24, 25, 24}, {21, 16, 9}};
     cmatrix<int> m_3_bis = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
     EXPECT_EQ(m_1 * m_2, m_3);
     EXPECT_EQ(m_1 * 2, m_3_bis);
     EXPECT_EQ(2 * m_1, m_3_bis);
 
     // 1x3 MATRICES
-    cmatrix<int> m_4 = {{5, 7, 9}};
-    cmatrix<int> m_5 = {{1}, {2}, {3}};
-    cmatrix<int> m_6 = {{46}};
-    cmatrix<int> m_6_bis = {{50, 70, 90}};
+    cmatrix<int> m_4 = {{1, 2, 3}};
+    cmatrix<int> m_5 = {{4, 5, 6}};
+    cmatrix<int> m_6 = {{4, 10, 18}};
+    cmatrix<int> m_6_bis = {{10, 20, 30}};
     EXPECT_EQ(m_4 * m_5, m_6);
     EXPECT_EQ(m_4 * 10, m_6_bis);
     EXPECT_EQ(10 * m_4, m_6_bis);
 
     // 3x1 MATRICES
     cmatrix<int> m_7 = {{1}, {2}, {3}};
-    cmatrix<int> m_8 = {{5, 7, 9}};
-    cmatrix<int> m_9 = {{5, 7, 9}, {10, 14, 18}, {15, 21, 27}};
-    cmatrix<int> m_9_coeff = {{2}, {4}, {6}};
+    cmatrix<int> m_8 = {{4}, {5}, {6}};
+    cmatrix<int> m_9 = {{4}, {10}, {18}};
+    cmatrix<int> m_9_bis = {{10}, {20}, {30}};
     EXPECT_EQ(m_7 * m_8, m_9);
-    EXPECT_EQ(m_7 * 2, m_9_coeff);
-    EXPECT_EQ(2 * m_7, m_9_coeff);
+    EXPECT_EQ(m_7 * 10, m_9_bis);
+    EXPECT_EQ(10 * m_7, m_9_bis);
 
     // EMPTY MATRICES
     cmatrix<int> m_10;
@@ -2337,21 +2337,23 @@ TEST(MatrixTest, op_div)
     EXPECT_THROW(m_9 / 0, std::invalid_argument);
 }
 
-/** Test op_power method of cmatrix class */
-TEST(MatrixTest, op_power)
+/** Test op_pow method of cmatrix class */
+TEST(MatrixTest, op_pow)
 {
     // 3x3 MATRIX
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cmatrix<int> m_2 = {{30, 36, 42}, {66, 81, 96}, {102, 126, 150}};
+    cmatrix<int> m_2 = {{1, 4, 9}, {16, 25, 36}, {49, 64, 81}};
     EXPECT_EQ(m_1 ^ 2, m_2);
 
     // 1x3 MATRIX
     cmatrix<int> m_3 = {{1, 2, 3}};
-    EXPECT_THROW(m_3 ^ 2, std::invalid_argument);
+    cmatrix<int> m_4 = {{1, 4, 9}};
+    EXPECT_EQ(m_3 ^ 2, m_4);
 
     // 3x1 MATRIX
     cmatrix<int> m_5 = {{1}, {2}, {3}};
-    EXPECT_THROW(m_5 ^ 2, std::invalid_argument);
+    cmatrix<int> m_6 = {{1}, {4}, {9}};
+    EXPECT_EQ(m_5 ^ 2, m_6);
 
     // EMPTY MATRIX
     cmatrix<int> m_7;
@@ -2439,21 +2441,21 @@ TEST(MatrixTest, op_assign_mul)
     // 3x3 MATRICES
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> m_2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
-    cmatrix<int> m_3 = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
+    cmatrix<int> m_3 = {{9, 16, 21}, {24, 25, 24}, {21, 16, 9}};
     m_1 *= m_2;
     EXPECT_EQ(m_1, m_3);
 
     // 1x3 MATRICES
     cmatrix<int> m_4 = {{5, 7, 9}};
-    cmatrix<int> m_5 = {{1}, {2}, {3}};
-    cmatrix<int> m_6 = {{46}};
+    cmatrix<int> m_5 = {{1, 2, 3}};
+    cmatrix<int> m_6 = {{5, 14, 27}};
     m_4 *= m_5;
     EXPECT_EQ(m_4, m_6);
 
     // 3x1 MATRICES
     cmatrix<int> m_7 = {{1}, {2}, {3}};
-    cmatrix<int> m_8 = {{5, 7, 9}};
-    cmatrix<int> m_9 = {{5, 7, 9}, {10, 14, 18}, {15, 21, 27}};
+    cmatrix<int> m_8 = {{5}, {7}, {9}};
+    cmatrix<int> m_9 = {{5}, {14}, {27}};
     m_7 *= m_8;
     EXPECT_EQ(m_7, m_9);
 
@@ -2507,22 +2509,26 @@ TEST(MatrixTest, op_assign_power)
 {
     // 3x3 MATRIX
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cmatrix<int> m_2 = {{30, 36, 42}, {66, 81, 96}, {102, 126, 150}};
+    cmatrix<int> m_2 = {{1, 4, 9}, {16, 25, 36}, {49, 64, 81}};
     m_1 ^= 2;
     EXPECT_EQ(m_1, m_2);
 
     // 1x3 MATRIX
     cmatrix<int> m_3 = {{1, 2, 3}};
-    EXPECT_THROW(m_3 ^= 2, std::invalid_argument);
+    cmatrix<int> m_4 = {{1, 4, 9}};
+    m_3 ^= 2;
+    EXPECT_EQ(m_3, m_4);
 
     // 3x1 MATRIX
-    cmatrix<int> m_4 = {{1}, {2}, {3}};
-    EXPECT_THROW(m_4 ^= 2, std::invalid_argument);
+    cmatrix<int> m_5 = {{1}, {2}, {3}};
+    cmatrix<int> m_6 = {{1}, {4}, {9}};
+    m_5 ^= 2;
+    EXPECT_EQ(m_5, m_6);
 
     // EMPTY MATRIX
-    cmatrix<int> m_5;
-    m_5 ^= 2;
-    EXPECT_EQ(m_5, cmatrix<int>());
+    cmatrix<int> m_7;
+    m_7 ^= 2;
+    EXPECT_EQ(m_7, cmatrix<int>());
 }
 
 GTEST_API_ int main(int argc, char **argv)

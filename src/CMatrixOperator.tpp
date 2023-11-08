@@ -137,35 +137,7 @@ cmatrix<T> operator-(const cmatrix<T> &m)
 template <class T>
 cmatrix<T> cmatrix<T>::operator*(const cmatrix<T> &m) const
 {
-    // Check if the number of columns of the first matrix
-    // is equal to the number of rows of the second matrix
-    if (width() != m.height())
-        throw std::invalid_argument("The number of columns of the first matrix must be equal to the number of rows of the second matrix. Expected: " +
-                                    std::to_string(width()) +
-                                    ". Actual: " +
-                                    std::to_string(m.height()));
-
-    // Create a new matrix with the same number of rows of the first matrix
-    // and the same number of columns of the second matrix
-    cmatrix<T> result(m.width(), height());
-
-    // For each cell of the new matrix, calculate the sum of the products
-    #pragma omp parallel for collapse(2)
-    for (size_t i = 0; i < height(); i++)
-        for (size_t j = 0; j < m.width(); j++)
-        {
-            T sum{};
-
-            // For each cell of the first matrix, multiply the value of the cell
-            // with the value of the corresponding cell of the second matrix
-            #pragma omp parallel for reduction(+ : sum)
-            for (size_t k = 0; k < width(); k++)
-                sum += cell(i, k) * m.cell(k, j);
-
-            result.cell(i, j) = sum;
-        }
-
-    return result;
+    return __map_op_arithmetic(std::multiplies<T>(), m);
 }
 
 template <class T>
@@ -192,29 +164,9 @@ cmatrix<T> cmatrix<T>::operator/(const T &n) const
 template <class T>
 cmatrix<T> cmatrix<T>::operator^(const unsigned int &n) const
 {
-    // Check if the matrix is square
-    if (not is_square())
-        throw std::invalid_argument("The matrix must be square. Expected: " +
-                                    std::to_string(width()) +
-                                    ". Actual: " +
-                                    std::to_string(height()));
-
-    // If the exponent is 0, return the identity matrix
-    if (n == 0)
-        return cmatrix<T>::identity(width());
-
-    // If the exponent is 1, return a copy of itself
-    if (n == 1)
-        return copy();
-
-    // If the exponent is even, return the square of the matrix to the power of n / 2
-    // Ex: A^2 = (A * A)^1
-    if (n % 2 == 0)
-        return (*this * *this) ^ (n / 2);
-
-    // If the exponent is odd, return the square of the matrix to the power of (n - 1) / 2
-    // Ex: A^3 = (A * A)^1 * A
-    return *this * ((*this * *this) ^ ((n - 1) / 2));
+    return __map_op_arithmetic([&](const T &a, const unsigned int &b)
+                               { return std::pow(a, b); },
+                               n);
 }
 
 // ==================================================
