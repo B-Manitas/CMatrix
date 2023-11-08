@@ -15,7 +15,7 @@ cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
         // Initialize the result matrix
         std::vector<std::vector<T>> m(height(), std::vector<T>(1));
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t r = 0; r < height(); r++)
         {
             // Push the first element of the row to the result matrix
@@ -36,7 +36,7 @@ cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
         // Initialize the result matrix
         std::vector<std::vector<T>> m(1, std::vector<T>(width()));
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t i = 0; i < width(); i++)
         {
             // Push the first element of the column to the result matrix
@@ -83,7 +83,7 @@ cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
         // Initialize the result matrix
         std::vector<std::vector<T>> m(height(), std::vector<T>(1));
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t r = 0; r < height(); r++)
         {
             // Push the first element of the row to the result matrix
@@ -104,7 +104,7 @@ cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
         // Initialize the result matrix
         std::vector<std::vector<T>> m(1, std::vector<T>(width()));
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t c = 0; c < width(); c++)
         {
             // Push the first element of the column to the result matrix
@@ -152,7 +152,7 @@ cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
         // Initialize the result matrix
         std::vector<std::vector<T>> m(height(), std::vector<T>(1));
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t i = 0; i < height(); i++)
         {
             // Initialize the sum to zero
@@ -174,7 +174,7 @@ cmatrix<T> cmatrix<T>::sum(const unsigned int &axis, const T &zero) const
         // Initialize the result matrix
         std::vector<std::vector<T>> m(1, std::vector<T>(width()));
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t i = 0; i < width(); i++)
         {
             // Initialize the sum to zero
@@ -253,7 +253,7 @@ cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
         // Calculate the mean of each row
         const cmatrix<float> &matrix_mean = mean(0);
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t r = 0; r < height(); r++)
         {
             // Calculate the mean of the row
@@ -284,7 +284,7 @@ cmatrix<float> cmatrix<T>::__std(const unsigned int &axis, std::true_type) const
         // Calculate the mean of each column
         const cmatrix<float> &matrix_mean = this->mean(1);
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t c = 0; c < width(); c++)
         {
             // Calculate the mean of the column
@@ -327,7 +327,7 @@ cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
         // Initialize the result matrix.
         std::vector<std::vector<T>> m(height(), std::vector<T>(1));
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t i = 0; i < height(); i++)
         {
             // Get the row and sort it.
@@ -347,7 +347,7 @@ cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
         // Initialize the result matrix.
         std::vector<std::vector<T>> m(1, std::vector<T>(width()));
 
-        #pragma omp parallel for
+#pragma omp parallel for
         for (size_t i = 0; i < width(); i++)
         {
             // Get the column and sort it.
