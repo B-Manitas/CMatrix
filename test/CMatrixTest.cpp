@@ -1039,6 +1039,30 @@ TEST(MatrixTest, min)
     EXPECT_THROW(m_5.min(2), std::invalid_argument);
 }
 
+/** Test min_all method of cmatrix class */
+TEST(MatrixTest, min_all)
+{
+    // EMPTY MATRIX
+    cmatrix<int> m_1;
+    EXPECT_THROW(m_1.min_all(), std::invalid_argument);
+
+    // 3x3 MATRIX
+    cmatrix<int> m_2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
+    EXPECT_EQ(m_2.min_all(), -2);
+
+    // 1x3 MATRIX
+    cmatrix<int> m_3 = {{1, 2, 3}};
+    EXPECT_EQ(m_3.min_all(), 1);
+
+    // 3x1 MATRIX
+    cmatrix<int> m_4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m_4.min_all(), 1);
+
+    // 1x3 STRING MATRIX
+    cmatrix<std::string> m_5 = {{"a", "b", "c"}};
+    EXPECT_EQ(m_5.min_all(), "a");
+}
+
 /** Test max method of cmatrix class */
 TEST(MatrixTest, max)
 {
@@ -1076,6 +1100,30 @@ TEST(MatrixTest, max)
 
     // INVALID AXIS
     EXPECT_THROW(m_5.max(2), std::invalid_argument);
+}
+
+/** Test max_all method of cmatrix class */
+TEST(MatrixTest, max_all)
+{
+    // EMPTY MATRIX
+    cmatrix<int> m_1;
+    EXPECT_THROW(m_1.max_all(), std::invalid_argument);
+
+    // 3x3 MATRIX
+    cmatrix<int> m_2 = {{1, -2, 3}, {3, 6, 9}, {-2, 4, 6}};
+    EXPECT_EQ(m_2.max_all(), 9);
+
+    // 1x3 MATRIX
+    cmatrix<int> m_3 = {{1, 2, 3}};
+    EXPECT_EQ(m_3.max_all(), 3);
+
+    // 3x1 MATRIX
+    cmatrix<int> m_4 = {{1}, {2}, {3}};
+    EXPECT_EQ(m_4.max_all(), 3);
+
+    // 1x3 STRING MATRIX
+    cmatrix<std::string> m_5 = {{"a", "b", "c"}};
+    EXPECT_EQ(m_5.max_all(), "c");
 }
 
 /** Test sum method of cmatrix class */

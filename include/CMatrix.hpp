@@ -839,6 +839,16 @@ public:
      */
     cmatrix<T> min(const unsigned int &axis = 0) const;
     /**
+     * @brief Get the minimum value of all the elements of the matrix.
+     *
+     * @return T The minimum value of all the elements of the matrix.
+     * @throw std::invalid_argument If the matrix is empty.
+     *
+     * @note The type of the matrix must implement the operator <.
+     * @ingroup statistic
+     */
+    T min_all() const;
+    /**
      * @brief Get the maximum value for each row (axis: 0) or column (axis: 1) of the matrix.
      *
      * @param axis The axis to get the maximum value. 0 for the rows, 1 for the columns. (default: 0)
@@ -850,6 +860,16 @@ public:
      * @ingroup statistic
      */
     cmatrix<T> max(const unsigned int &axis = 0) const;
+    /**
+     * @brief Get the maximum value of all the elements of the matrix.
+     *
+     * @return T The maximum value of all the elements of the matrix.
+     * @throw std::invalid_argument If the matrix is empty.
+     *
+     * @note The type of the matrix must implement the operator >.
+     * @ingroup statistic
+     */
+    T max_all() const;
     /**
      * @brief Get the sum of the matrix for each row (axis: 0) or column (axis: 1) of the matrix.
      *

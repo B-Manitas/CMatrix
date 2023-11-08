@@ -56,6 +56,25 @@ cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
 }
 
 template <class T>
+T cmatrix<T>::min_all() const
+{
+    // Precondition: the matrix must have at least one element
+    if (is_empty())
+        throw std::invalid_argument("The matrix must have at least one element.");
+
+    // Initialize the minimum to the first element of the matrix
+    T min = cell(0, 0);
+
+    // Check if the current element is smaller than the stored one
+    for (size_t i = 0; i < height(); i++)
+        for (size_t j = 0; j < width(); j++)
+            if (cell(i, j) < min)
+                min = cell(i, j);
+
+    return min;
+}
+
+template <class T>
 cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
 {
     // Compute the maximum for each row
@@ -102,6 +121,25 @@ cmatrix<T> cmatrix<T>::max(const unsigned int &axis) const
 
     else
         throw std::invalid_argument("The axis must be 0: horizontal, or 1: vertical. Actual: " + std::to_string(axis) + ".");
+}
+
+template <class T>
+T cmatrix<T>::max_all() const
+{
+    // Precondition: the matrix must have at least one element
+    if (is_empty())
+        throw std::invalid_argument("The matrix must have at least one element.");
+
+    // Initialize the maximum to the first element of the matrix
+    T max = cell(0, 0);
+
+    // Check if the current element is greather than the stored one
+    for (size_t i = 0; i < height(); i++)
+        for (size_t j = 0; j < width(); j++)
+            if (cell(i, j) > max)
+                max = cell(i, j);
+
+    return max;
 }
 
 template <class T>
