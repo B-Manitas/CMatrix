@@ -28,23 +28,11 @@ cmatrix<T> cmatrix<T>::copy() const
 }
 
 template <class T>
-void cmatrix<T>::apply(const std::function<T(T, size_t *, size_t *)> &f, size_t *row, size_t *col)
+void cmatrix<T>::apply(const std::function<T(T, size_t, size_t)> &f)
 {
     for (size_t r = 0; r < height(); r++)
-    {
-        // If the user wants to know the row index
-        if (row != nullptr)
-            row = &r;
-
         for (size_t c = 0; c < width(); c++)
-        {
-            // If the user wants to know the column index
-            if (col != nullptr)
-                col = &c;
-
-            cell(r, c) = f(cell(r, c), row, col);
-        }
-    }
+            cell(r, c) = f(cell(r, c), r, c);
 }
 
 template <class T>
@@ -57,34 +45,22 @@ void cmatrix<T>::apply(const std::function<T(T)> &f)
 }
 
 template <class T>
-cmatrix<T> cmatrix<T>::map(const std::function<T(T, size_t *, size_t *)> &f, size_t *row, size_t *col) const
+cmatrix<T> cmatrix<T>::map(const std::function<T(T, size_t, size_t)> &f) const
 {
     cmatrix<T> m = copy();
-    m.apply(f, row, col);
+    m.apply(f);
     return m;
 }
 
 template <class T>
 template <class U>
-cmatrix<U> cmatrix<T>::map(const std::function<U(T, size_t *, size_t *)> &f, size_t *row, size_t *col) const
+cmatrix<U> cmatrix<T>::map(const std::function<U(T, size_t, size_t)> &f) const
 {
     cmatrix<U> m = cmatrix<U>(height(), width());
 
     for (size_t r = 0; r < height(); r++)
-    {
-        // If the user wants to know the row index
-        if (row != nullptr)
-            row = &r;
-
         for (size_t c = 0; c < width(); c++)
-        {
-            // If the user wants to know the column index
-            if (col != nullptr)
-                col = &c;
-
-            m.set_cell(r, c, f(cell(r, c), row, col));
-        }
-    }
+            m.cell(r, c) = f(cell(r, c), r, c);
 
     return m;
 }

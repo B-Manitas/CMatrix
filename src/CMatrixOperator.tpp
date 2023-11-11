@@ -290,14 +290,9 @@ cmatrix<short unsigned int> cmatrix<T>::__map_op_comparaison_val(const std::func
     // Initialize a matrix with the same dimensions of the current matrix
     cmatrix<short unsigned int> result(height(), width(), 0);
 
-    // Initialize variables to store the coordinates of the current cell.
-    // At the beginning, they are set to -1.
-    size_t col = -1, row = -1;
-
     // Check if the value of the cell is less than or equal to the value passed as parameter 'val'.
-    result.apply([&](T _, size_t *row, size_t *col)
-                 { return f(cell(*row, *col), n); },
-                 &row, &col);
+    result.apply([&](T _, size_t row, size_t col)
+                 { return f(cell(row, col), n); });
 
     return result;
 }

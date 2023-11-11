@@ -1355,7 +1355,7 @@ TEST(MatrixTest, apply)
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> m1Copy = m_1.copy();
     cmatrix<int> expected = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
-    m_1.apply([](int x, size_t *i, size_t *j)
+    m_1.apply([](int x, size_t i, size_t j)
               { return x * 2; });
     EXPECT_EQ(m_1, expected);
     m_1.apply([](int x)
@@ -1366,7 +1366,7 @@ TEST(MatrixTest, apply)
     cmatrix<int> m_2 = {{1, 2, 3}};
     cmatrix<int> m2Copy = m_2.copy();
     cmatrix<int> expected2 = {{2, 3, 4}};
-    m_2.apply([](int x, size_t *i, size_t *j)
+    m_2.apply([](int x, size_t i, size_t j)
               { return x + 1; });
     EXPECT_EQ(m_2, expected2);
     m_2.apply([](int x)
@@ -1377,7 +1377,7 @@ TEST(MatrixTest, apply)
     cmatrix<int> m_3 = {{1}, {2}, {3}};
     cmatrix<int> m3Copy = m_3.copy();
     cmatrix<int> expected3 = {{2}, {3}, {4}};
-    m_3.apply([](int x, size_t *i, size_t *j)
+    m_3.apply([](int x, size_t i, size_t j)
               { return x + 1; });
     EXPECT_EQ(m_3, expected3);
     m_3.apply([](int x)
@@ -1392,7 +1392,7 @@ TEST(MatrixTest, map)
     // 3x3 MATRIX
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> expected = {{2, 4, 6}, {8, 10, 12}, {14, 16, 18}};
-    cmatrix<int> m_2 = m_1.map([](int x, size_t *i, size_t *j)
+    cmatrix<int> m_2 = m_1.map([](int x, size_t i, size_t j)
                                { return x * 2; });
     EXPECT_EQ(m_2, expected);
     m_2 = m_1.map([](int x)
@@ -1402,7 +1402,7 @@ TEST(MatrixTest, map)
     // 1x3 MATRIX
     cmatrix<int> m_3 = {{1, 2, 3}};
     cmatrix<int> expected2 = {{2, 3, 4}};
-    cmatrix<int> m_4 = m_3.map([](int x, size_t *i, size_t *j)
+    cmatrix<int> m_4 = m_3.map([](int x, size_t i, size_t j)
                                { return x + 1; });
     EXPECT_EQ(m_4, expected2);
     m_4 = m_3.map([](int x)
@@ -1412,7 +1412,7 @@ TEST(MatrixTest, map)
     // 3x1 MATRIX
     cmatrix<int> m_5 = {{1}, {2}, {3}};
     cmatrix<int> expected3 = {{2}, {3}, {4}};
-    cmatrix<int> m_6 = m_5.map([](int x, size_t *i, size_t *j)
+    cmatrix<int> m_6 = m_5.map([](int x, size_t i, size_t j)
                                { return x + 1; });
     EXPECT_EQ(m_6, expected3);
     m_6 = m_5.map([](int x)
@@ -1421,7 +1421,7 @@ TEST(MatrixTest, map)
 
     // WITH TYPE CONVERSION
     // 3x3 MATRIX
-    cmatrix<float> m_7 = m_1.map<float>([](int x, size_t *i, size_t *j)
+    cmatrix<float> m_7 = m_1.map<float>([](int x, size_t i, size_t j)
                                         { return x * 2; });
     EXPECT_EQ(m_7, expected.cast<float>());
     m_7 = m_1.map<float>([](int x)
@@ -1429,7 +1429,7 @@ TEST(MatrixTest, map)
     EXPECT_EQ(m_7, expected.cast<float>());
 
     // 1x3 MATRIX
-    cmatrix<float> m_8 = m_3.map<float>([](int x, size_t *i, size_t *j)
+    cmatrix<float> m_8 = m_3.map<float>([](int x, size_t i, size_t j)
                                         { return x + 1; });
     EXPECT_EQ(m_8, expected2.cast<float>());
     m_8 = m_3.map<float>([](int x)
@@ -1437,7 +1437,7 @@ TEST(MatrixTest, map)
     EXPECT_EQ(m_8, expected2.cast<float>());
 
     // 3x1 MATRIX
-    cmatrix<float> m_9 = m_5.map<float>([](int x, size_t *i, size_t *j)
+    cmatrix<float> m_9 = m_5.map<float>([](int x, size_t i, size_t j)
                                         { return x + 1; });
     EXPECT_EQ(m_9, expected3.cast<float>());
     m_9 = m_5.map<float>([](int x)
