@@ -150,7 +150,7 @@ cmatrix<int> cmatrix<T>::to_int() const
     return cast<int>();
 }
 
-template <>
+template <> inline
 cmatrix<int> cmatrix<std::string>::to_int() const
 {
     return map<int>([&](std::string cell)
@@ -168,7 +168,7 @@ cmatrix<int> cmatrix<std::string>::to_int() const
 
 // TO FLOAT
 
-template <>
+template <> inline
 cmatrix<float> cmatrix<std::string>::to_float() const
 {
     return map<float>([&](std::string cell)

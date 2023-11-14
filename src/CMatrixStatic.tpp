@@ -12,7 +12,7 @@
 // ==================================================
 // GENERATOR METHODS
 
-template <>
+template <> inline
 cmatrix<int> cmatrix<int>::randint(const size_t &height, const size_t &width, const int &min, const int &max, const int &seed)
 {
     // Set the seed
@@ -27,7 +27,7 @@ cmatrix<int> cmatrix<int>::randint(const size_t &height, const size_t &width, co
     return cmatrix<int>(m);
 }
 
-template <>
+template <> inline
 cmatrix<float> cmatrix<float>::randfloat(const size_t &height, const size_t &width, const float &min, const float &max, const int &seed)
 {
     // Set the seed
@@ -42,13 +42,13 @@ cmatrix<float> cmatrix<float>::randfloat(const size_t &height, const size_t &wid
     return cmatrix<float>(m);
 }
 
-template <>
+template <> inline
 cmatrix<int> cmatrix<int>::zeros(const size_t &width, const size_t &height)
 {
     return cmatrix<int>(height, width, 0);
 }
 
-template <>
+template <> inline
 cmatrix<int> cmatrix<int>::identity(const size_t &size)
 {
     cmatrix<int> m = cmatrix<int>::zeros(size, size);
