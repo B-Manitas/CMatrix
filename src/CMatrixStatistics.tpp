@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_STATISTICS_TPP
+#define CMATRIX_STATISTICS_TPP
+
 template <class T>
 cmatrix<T> cmatrix<T>::min(const unsigned int &axis) const
 {
@@ -364,3 +367,5 @@ cmatrix<T> cmatrix<T>::median(const unsigned int &axis) const
     else
         throw std::invalid_argument("The axis must be 0: horizontal, or 1: vertical. Actual: " + std::to_string(axis) + ".");
 }
+
+#endif // CMATRIX_STATISTICS_TPP

@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_MATH_TPP
+#define CMATRIX_MATH_TPP
+
 // ==================================================
 // COMPARISON FUNCTIONS
 
@@ -146,3 +149,5 @@ cmatrix<T> cmatrix<T>::exp() const
     return map([](const T &n)
                { return std::exp(n); });
 }
+
+#endif // CMATRIX_MATH_TPP

@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_TPP
+#define CMATRIX_TPP
+
 // ==================================================
 // GENERAL FUNCTIONS
 
@@ -208,3 +211,5 @@ cmatrix<std::string> cmatrix<T>::to_string() const
 {
     return __to_string(std::is_fundamental<T>());
 }
+
+#endif // CMATRIX_TPP

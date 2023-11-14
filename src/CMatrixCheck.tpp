@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_CHECK_TPP
+#define CMATRIX_CHECK_TPP
+
 // ==================================================
 // IS METHODS
 
@@ -209,3 +212,5 @@ void cmatrix<T>::__check_valid_type() const
     if (std::is_same<T, bool>::value)
         throw std::invalid_argument("The type " + std::string(typeid(T).name()) + " is not supported.");
 }
+
+#endif // CMATRIX_CHECK_TPP

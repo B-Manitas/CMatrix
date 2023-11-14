@@ -5,6 +5,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_CONSTRUCTOR_TPP
+#define CMATRIX_CONSTRUCTOR_TPP
+
 // ==================================================
 // CONSTRUCTORS
 
@@ -60,3 +63,5 @@ cmatrix<T>::cmatrix(const cmatrix<U> &m)
 
 template <class T>
 cmatrix<T>::~cmatrix() {}
+
+#endif // CMATRIX_CONSTRUCTOR_TPP

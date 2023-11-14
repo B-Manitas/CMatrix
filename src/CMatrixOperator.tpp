@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_OPERATOR_TPP
+#define CMATRIX_OPERATOR_TPP
+
 // ==================================================
 // ASSIGMENT OPERATOR
 
@@ -296,3 +299,5 @@ cmatrix<short unsigned int> cmatrix<T>::__map_op_comparaison_val(const std::func
 
     return result;
 }
+
+#endif // CMATRIX_OPERATOR_TPP

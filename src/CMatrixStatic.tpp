@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_STATIC_TPP
+#define CMATRIX_STATIC_TPP
+
 // ==================================================
 // GENERATOR METHODS
 
@@ -83,3 +86,5 @@ cmatrix<T> cmatrix<T>::merge(const cmatrix<T> &m1, const cmatrix<T> &m2, const u
     m.concatenate(m2, axis);
     return m;
 }
+
+#endif // CMATRIX_STATIC_TPP

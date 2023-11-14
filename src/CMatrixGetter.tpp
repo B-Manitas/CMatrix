@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_GETTER_TPP
+#define CMATRIX_GETTER_TPP
+
 // ==================================================
 // GET METHODS
 
@@ -202,3 +205,5 @@ std::vector<T> cmatrix<T>::diag() const
 
     return d;
 }
+
+#endif // CMATRIX_GETTER_TPP

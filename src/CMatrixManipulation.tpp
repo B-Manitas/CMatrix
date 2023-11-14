@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_MANIPULATION_TPP
+#define CMATRIX_MANIPULATION_TPP
+
 // ==================================================
 // INSERT FUNCTIONS
 
@@ -204,3 +207,5 @@ void cmatrix<T>::concatenate(const cmatrix<T> &m, const unsigned int &axis)
     else
         throw std::invalid_argument("The axis must be 0 or 1. Actual: " + std::to_string(axis));
 }
+
+#endif // CMATRIX_MANIPULATION_TPP

@@ -7,7 +7,8 @@
  * @license MIT License
  */
 
-#pragma once
+#ifndef CMATRIX_HPP
+#define CMATRIX_HPP
 
 #include <algorithm>
 #include <cmath>
@@ -1567,6 +1568,8 @@ public:
      */
     cmatrix<T> &operator^=(const unsigned int &m);
 };
+
+#endif // CMATRIX_H
 
 #include "../src/CMatrix.tpp"
 #include "../src/CMatrixCheck.tpp"

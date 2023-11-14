@@ -6,6 +6,9 @@
  * @see cmatrix
  */
 
+#ifndef CMATRIX_SETTER_TPP
+#define CMATRIX_SETTER_TPP
+
 // ==================================================
 // SET FUNCTIONS
 
@@ -45,3 +48,5 @@ void cmatrix<T>::set_diag(const std::vector<T> &val)
     for (size_t i = 0; i < std::min(width(), height()); i++)
         cell(i, i) = val[i];
 }
+
+#endif // CMATRIX_SETTER_TPP
