@@ -150,4 +150,18 @@ cmatrix<T> cmatrix<T>::exp() const
                { return std::exp(n); });
 }
 
+template <class T>
+cmatrix<T> cmatrix<T>::sqrt() const
+{
+    return map([](const T &n)
+               { return std::sqrt(n); });
+}
+
+template <class T>
+cmatrix<T> cmatrix<T>::abs() const
+{
+    return map([](const T &n)
+               { return std::abs(n); });
+}
+
 #endif // CMATRIX_MATH_TPP

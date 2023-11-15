@@ -1976,10 +1976,52 @@ TEST(MatrixTest, exp)
     cmatrix<float> m_6 = {{1}, {2}, {3}};
     EXPECT_TRUE(m_5.exp().near(m_6));
 
+/** Test sqrt method of cmatrix class */
+TEST(MatrixTest, sqrt)
+{
+    // 3x3 MATRIX
+    cmatrix<float> m_1 = {{1, 4, 9}, {16, 25, 36}, {49, 64, 81}};
+    cmatrix<float> m_2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m_1.sqrt(), m_2);
+
+    // 1x3 MATRIX
+    cmatrix<float> m_3 = {{1, 4, 9}};
+    cmatrix<float> m_4 = {{1, 2, 3}};
+    EXPECT_EQ(m_3.sqrt(), m_4);
+
+    // 3x1 MATRIX
+    cmatrix<float> m_5 = {{1}, {4}, {9}};
+    cmatrix<float> m_6 = {{1}, {2}, {3}};
+    EXPECT_EQ(m_5.sqrt(), m_6);
+
     // EMPTY MATRIX
     cmatrix<float> m_7;
     cmatrix<float> m_8;
-    EXPECT_EQ(m_7.exp(), m_8);
+    EXPECT_EQ(m_7.sqrt(), m_8);
+}
+
+/** Test abs method of cmatrix class */
+TEST(MatrixTest, abs)
+{
+    // 3x3 MATRIX
+    cmatrix<float> m_1 = {{-1, -2, -3}, {-4, -5, -6}, {-7, -8, -9}};
+    cmatrix<float> m_2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m_1.abs(), m_2);
+
+    // 1x3 MATRIX
+    cmatrix<float> m_3 = {{-1, -2, -3}};
+    cmatrix<float> m_4 = {{1, 2, 3}};
+    EXPECT_EQ(m_3.abs(), m_4);
+
+    // 3x1 MATRIX
+    cmatrix<float> m_5 = {{-1}, {-2}, {-3}};
+    cmatrix<float> m_6 = {{1}, {2}, {3}};
+    EXPECT_EQ(m_5.abs(), m_6);
+
+    // EMPTY MATRIX
+    cmatrix<float> m_7;
+    cmatrix<float> m_8;
+    EXPECT_EQ(m_7.abs(), m_8);
 }
 
 // ==================================================

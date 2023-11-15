@@ -1035,6 +1035,24 @@ public:
      * @ingroup math
      */
     cmatrix<T> exp() const;
+    /**
+     * @brief Get the square root of the matrix.
+     *
+     * @return cmatrix<T> The result of the square root.
+     *
+     * @note PARALLELIZED METHOD with OpenMP.
+     * @ingroup math
+     */
+    cmatrix<T> sqrt() const;
+    /**
+     * @brief Get the absolute value of the matrix.
+     *
+     * @return cmatrix<T> The result of the absolute value.
+     *
+     * @note PARALLELIZED METHOD with OpenMP.
+     * @ingroup math
+     */
+    cmatrix<T> abs() const;
 
     // OTHER METHODS
     /**
