@@ -326,6 +326,42 @@ TEST(MatrixTest, size)
     EXPECT_EQ(m_4.size(), (std::pair<size_t, size_t>(0, 0)));
 }
 
+/** Test width_t method of cmatrix class */
+TEST(MatrixTest, width_t)
+{
+    // 3x3 MATRIX
+    cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m_1.width_t<size_t>(), 3);
+    EXPECT_EQ(m_1.width_t<float>(), 3);
+    EXPECT_EQ(m_1.width_t<int>(), 3);
+    EXPECT_EQ(m_1.width_t<double>(), 3);
+
+    // EMPTY MATRIX
+    cmatrix<std::string> m_4;
+    EXPECT_EQ(m_4.width_t<size_t>(), 0);
+    EXPECT_EQ(m_4.width_t<float>(), 0);
+    EXPECT_EQ(m_4.width_t<int>(), 0);
+    EXPECT_EQ(m_4.width_t<double>(), 0);
+}
+
+/** Test height_t method of cmatrix class */
+TEST(MatrixTest, height_t)
+{
+    // 3x3 MATRIX
+    cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    EXPECT_EQ(m_1.height_t<size_t>(), 3);
+    EXPECT_EQ(m_1.height_t<float>(), 3);
+    EXPECT_EQ(m_1.height_t<int>(), 3);
+    EXPECT_EQ(m_1.height_t<double>(), 3);
+
+    // EMPTY MATRIX
+    cmatrix<std::string> m_4;
+    EXPECT_EQ(m_4.height_t<size_t>(), 0);
+    EXPECT_EQ(m_4.height_t<float>(), 0);
+    EXPECT_EQ(m_4.height_t<int>(), 0);
+    EXPECT_EQ(m_4.height_t<double>(), 0);
+}
+
 /** Test transpose method of cmatrix class */
 TEST(MatrixTest, transpose)
 {

@@ -77,7 +77,7 @@ template <class T>
 cmatrix<T> cmatrix<T>::columns(const std::vector<size_t> &ids) const
 {
     cmatrix<T> m(height(), ids.size());
-    
+
     for (size_t i = 0; i < ids.size(); i++)
         m.set_column(i, columns_vec(ids[i]));
 
@@ -174,6 +174,20 @@ template <class T>
 std::pair<size_t, size_t> cmatrix<T>::size() const
 {
     return std::pair<size_t, size_t>(height(), width());
+}
+
+template <class T>
+template <class U>
+U cmatrix<T>::height_t() const
+{
+    return (U)height();
+}
+
+template <class T>
+template <class U>
+U cmatrix<T>::width_t() const
+{
+    return (U)width();
 }
 
 // ==================================================

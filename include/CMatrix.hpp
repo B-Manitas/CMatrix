@@ -491,6 +491,26 @@ public:
      * @ingroup getter
      */
     std::pair<size_t, size_t> size() const;
+    /**
+     * @brief The number of cells of the matrix.
+     *
+     * @tparam U The type of the number of cells.
+     * @return size_t The number of cells.
+     *
+     * @ingroup getter
+     */
+    template <class U>
+    U width_t() const;
+    /**
+     * @brief The number of cells of the matrix.
+     *
+     * @tparam U The type of the number of cells.
+     * @return size_t The number of cells.
+     *
+     * @ingroup getter
+     */
+    template <class U>
+    U height_t() const;
 
     /**
      * @brief Get the transpose of the matrix.
