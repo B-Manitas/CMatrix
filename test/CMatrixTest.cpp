@@ -1890,23 +1890,23 @@ TEST(MatrixTest, matpow)
 TEST(MatrixTest, log)
 {
     // 3x3 MATRIX
-    cmatrix<float> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cmatrix<float> m_2 = {{0, std::log(2), std::log(3)}, {std::log(4), std::log(5), std::log(6)}, {std::log(7), std::log(8), std::log(9)}};
+    cmatrix<double> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<double> m_2 = {{0, std::log(2), std::log(3)}, {std::log(4), std::log(5), std::log(6)}, {std::log(7), std::log(8), std::log(9)}};
     EXPECT_EQ(m_1.log(), m_2);
 
     // 1x3 MATRIX
-    cmatrix<float> m_3 = {{1, 2, 3}};
-    cmatrix<float> m_4 = {{0, std::log(2), std::log(3)}};
+    cmatrix<double> m_3 = {{1, 2, 3}};
+    cmatrix<double> m_4 = {{0, std::log(2), std::log(3)}};
     EXPECT_EQ(m_3.log(), m_4);
 
     // 3x1 MATRIX
-    cmatrix<float> m_5 = {{1}, {2}, {3}};
-    cmatrix<float> m_6 = {{0}, {std::log(2)}, {std::log(3)}};
+    cmatrix<double> m_5 = {{1}, {2}, {3}};
+    cmatrix<double> m_6 = {{0}, {std::log(2)}, {std::log(3)}};
     EXPECT_EQ(m_5.log(), m_6);
 
     // EMPTY MATRIX
-    cmatrix<float> m_7;
-    cmatrix<float> m_8;
+    cmatrix<double> m_7;
+    cmatrix<double> m_8;
     EXPECT_EQ(m_7.log(), m_8);
 }
 
@@ -1914,23 +1914,23 @@ TEST(MatrixTest, log)
 TEST(MatrixTest, log2)
 {
     // 3x3 MATRIX
-    cmatrix<float> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cmatrix<float> m_2 = {{0, 1, std::log2(3)}, {std::log2(4), std::log2(5), std::log2(6)}, {std::log2(7), std::log2(8), std::log2(9)}};
+    cmatrix<double> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<double> m_2 = {{0, 1, std::log2(3)}, {std::log2(4), std::log2(5), std::log2(6)}, {std::log2(7), std::log2(8), std::log2(9)}};
     EXPECT_EQ(m_1.log2(), m_2);
 
     // 1x3 MATRIX
-    cmatrix<float> m_3 = {{1, 2, 3}};
-    cmatrix<float> m_4 = {{0, 1, std::log2(3)}};
+    cmatrix<double> m_3 = {{1, 2, 3}};
+    cmatrix<double> m_4 = {{0, 1, std::log2(3)}};
     EXPECT_EQ(m_3.log2(), m_4);
 
     // 3x1 MATRIX
-    cmatrix<float> m_5 = {{1}, {2}, {3}};
-    cmatrix<float> m_6 = {{0}, {1}, {std::log2(3)}};
+    cmatrix<double> m_5 = {{1}, {2}, {3}};
+    cmatrix<double> m_6 = {{0}, {1}, {std::log2(3)}};
     EXPECT_EQ(m_5.log2(), m_6);
 
     // EMPTY MATRIX
-    cmatrix<float> m_7;
-    cmatrix<float> m_8;
+    cmatrix<double> m_7;
+    cmatrix<double> m_8;
     EXPECT_EQ(m_7.log2(), m_8);
 }
 
@@ -1938,18 +1938,18 @@ TEST(MatrixTest, log2)
 TEST(MatrixTest, log10)
 {
     // 3x3 MATRIX
-    cmatrix<float> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cmatrix<float> m_2 = {{std::log(1), std::log10(2), std::log10(3)}, {std::log10(4), std::log10(5), std::log10(6)}, {std::log10(7), std::log10(8), std::log10(9)}};
+    cmatrix<double> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<double> m_2 = {{std::log(1), std::log10(2), std::log10(3)}, {std::log10(4), std::log10(5), std::log10(6)}, {std::log10(7), std::log10(8), std::log10(9)}};
     EXPECT_TRUE(m_1.log10().near(m_2));
 
     // 1x3 MATRIX
-    cmatrix<float> m_3 = {{1, 2, 3}};
-    cmatrix<float> m_4 = {{std::log(1), std::log10(2), std::log10(3)}};
+    cmatrix<double> m_3 = {{1, 2, 3}};
+    cmatrix<double> m_4 = {{std::log(1), std::log10(2), std::log10(3)}};
     EXPECT_TRUE(m_3.log10().near(m_4));
 
     // 3x1 MATRIX
-    cmatrix<float> m_5 = {{1}, {2}, {3}};
-    cmatrix<float> m_6 = {{std::log(1)}, {std::log10(2)}, {std::log10(3)}};
+    cmatrix<double> m_5 = {{1}, {2}, {3}};
+    cmatrix<double> m_6 = {{std::log(1)}, {std::log10(2)}, {std::log10(3)}};
     EXPECT_TRUE(m_5.log10().near(m_6));
 
     // EMPTY MATRIX
@@ -1962,19 +1962,25 @@ TEST(MatrixTest, log10)
 TEST(MatrixTest, exp)
 {
     // 3x3 MATRIX
-    cmatrix<float> m_1 = {{std::log(1), std::log(2), std::log(3)}, {std::log(4), std::log(5), std::log(6)}, {std::log(7), std::log(8), std::log(9)}};
-    cmatrix<float> m_2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<double> m_1 = {{std::log(1), std::log(2), std::log(3)}, {std::log(4), std::log(5), std::log(6)}, {std::log(7), std::log(8), std::log(9)}};
+    cmatrix<double> m_2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     EXPECT_TRUE(m_1.exp().near(m_2));
 
     // 1x3 MATRIX
-    cmatrix<float> m_3 = {{0, std::log(2), std::log(3)}};
-    cmatrix<float> m_4 = {{1, 2, 3}};
+    cmatrix<double> m_3 = {{0, std::log(2), std::log(3)}};
+    cmatrix<double> m_4 = {{1, 2, 3}};
     EXPECT_TRUE(m_3.exp().near(m_4));
 
     // 3x1 MATRIX
-    cmatrix<float> m_5 = {{0}, {std::log(2)}, {std::log(3)}};
-    cmatrix<float> m_6 = {{1}, {2}, {3}};
+    cmatrix<double> m_5 = {{0}, {std::log(2)}, {std::log(3)}};
+    cmatrix<double> m_6 = {{1}, {2}, {3}};
     EXPECT_TRUE(m_5.exp().near(m_6));
+
+    // EMPTY MATRIX
+    cmatrix<double> m_7;
+    cmatrix<double> m_8;
+    EXPECT_EQ(m_7.exp(), m_8);
+}
 
 /** Test sqrt method of cmatrix class */
 TEST(MatrixTest, sqrt)
