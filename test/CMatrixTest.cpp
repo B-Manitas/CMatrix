@@ -716,10 +716,23 @@ TEST(MatrixTest, find)
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
     // 3x3 MATRIX - FIND
-    EXPECT_EQ(m.find(5), std::make_tuple(1, 1));
+/** Test find_all method of cmatrix class */
+TEST(MatrixTest, find_all)
+{
+    cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    // 3x3 MATRIX - FIND
+    std::vector<std::pair<size_t, size_t>> v = m.find_all([&](int x)
+                                                          { return x > 5; });
+    std::vector<std::pair<size_t, size_t>> expected = {std::make_pair(1, 2), std::make_pair(2, 0), std::make_pair(2, 1), std::make_pair(2, 2)};
+    EXPECT_EQ(v, expected);
+    EXPECT_EQ(m.find_all(5), (std::vector<std::pair<size_t, size_t>>({std::make_pair(1, 1)})));
 
     // 3x3 MATRIX - NOT FIND
-    EXPECT_EQ(m.find(10), std::make_tuple(-1, -1));
+    std::vector<std::pair<size_t, size_t>> v_2 = m.find_all([&](int x)
+                                                             { return x > 10; });
+    EXPECT_EQ(v_2, (std::vector<std::pair<size_t, size_t>>()));
+    EXPECT_EQ(m.find_all(10), (std::vector<std::pair<size_t, size_t>>()));
 }
 
 /** Test remove_row method of cmatrix class */

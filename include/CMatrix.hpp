@@ -705,7 +705,26 @@ public:
      * @note The cell must be of the same type of the matrix.
      * @ingroup manipulation
      */
-    std::tuple<int, int> find(const T &val) const;
+    /**
+     * @brief Find all cells matching the condition.
+     *
+     * @param val The value to find.
+     * @return std::vector<std::pair<size_t, size_t>> The indexes of the cells.
+     *
+     * @note The empty matrix always return an empty vector.
+     * @ingroup manipulation
+     */
+    std::vector<std::pair<size_t, size_t>> find_all(const T &val) const;
+    /**
+     * @brief Find all cells matching the condition.
+     *
+     * @param f The condition to satisfy. f(T value) -> bool
+     * @return std::vector<std::pair<size_t, size_t>> The indexes of the cells.
+     *
+     * @note The empty matrix always return an empty vector.
+     * @ingroup manipulation
+     */
+    std::vector<std::pair<size_t, size_t>> find_all(const std::function<bool(T)> &f) const;
 
     /**
      * @brief Remove a row of the matrix.

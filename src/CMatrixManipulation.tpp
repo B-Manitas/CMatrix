@@ -147,6 +147,27 @@ std::tuple<int, int> cmatrix<T>::find(const T &val) const
                 { return e == val; });
 }
 
+template <class T>
+std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const std::function<bool(T)> &f) const
+{
+    std::vector<std::pair<size_t, size_t>> res;
+
+    // For each cell, check if the condition is satisfied
+    for (size_t row = 0; row < height(); row++)
+        for (size_t col = 0; col < width(); col++)
+            if (f(cell(row, col)))
+                res.push_back(std::pair<size_t, size_t>(row, col));
+
+    return res;
+}
+
+template <class T>
+std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const T &val) const
+{
+    return find_all([&](T e)
+                    { return e == val; });
+}
+
 // ==================================================
 // ERASE FUNCTIONS
 
