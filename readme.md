@@ -68,7 +68,7 @@ CMatrix is structured as follows:
 | Class                                                        | Description                                                                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | include                                                      |                                                                                             |
-| [`CMatrix.hpp`](include/CMatrix.hpp)                         | The main template class that can work with any data type except bool.                       |
+| [`CMatrix.hpp`](include/CMatrix.hpp)                         | The main template class that can work with any data type.                       |
 | src                                                          |                                                                                             |
 | [`CMatrix.tpp`](include/CMatrix.tpp)                         | General methods of the class.                                                               |
 | [`CMatrixConstructors.hpp`](include/CMatrixConstructors.tpp) | Implementation of class constructors.                                                       |

@@ -20,7 +20,7 @@
 #include <vector>
 
 /**
- * @brief The main template class that can work with any data type except bool.
+ * @brief The main template class that can work with any data type.
  *
  * @tparam T The type of elements in the cmatrix.
  */
@@ -117,15 +117,6 @@ private:
      * @ingroup check
      */
     void __check_expected_id(const size_t &n, const size_t &expectedBegin, const size_t &exepectedEnd) const;
-    /**
-     * @brief Check if the type of the matrix is valid.
-     * List of types not supported: bool.
-     *
-     * @throw std::invalid_argument If the type is invalid.
-     *
-     * @ingroup check
-     */
-    void __check_valid_type() const;
 
     // STATISTIC METHODS
     /**

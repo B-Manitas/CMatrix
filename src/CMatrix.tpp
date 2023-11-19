@@ -35,7 +35,7 @@ void cmatrix<T>::apply(const std::function<T(T, size_t, size_t)> &f)
 {
     for (size_t r = 0; r < height(); r++)
         for (size_t c = 0; c < width(); c++)
-            cell(r, c) = f(cell(r, c), r, c);
+            set_cell(r, c, f(cell(r, c), r, c));
 }
 
 template <class T>
@@ -63,7 +63,7 @@ cmatrix<U> cmatrix<T>::map(const std::function<U(T, size_t, size_t)> &f) const
 
     for (size_t r = 0; r < height(); r++)
         for (size_t c = 0; c < width(); c++)
-            m.cell(r, c) = f(cell(r, c), r, c);
+            m.set_cell(r, c, f(cell(r, c), r, c));
 
     return m;
 }
@@ -87,7 +87,7 @@ cmatrix<U> cmatrix<T>::map(const std::function<U(T)> &f) const
     #pragma omp parallel for collapse(2)
     for (size_t r = 0; r < height(); r++)
         for (size_t c = 0; c < width(); c++)
-            m.cell(r, c) = f(cell(r, c));
+            m.set_cell(r, c, f(cell(r, c)));
 
     return m;
 }

@@ -85,7 +85,7 @@ cmatrix<T> cmatrix<T>::matmul(const cmatrix<T> &m) const
             for (size_t k = 0; k < width(); k++)
                 sum += cell(i, k) * m.cell(k, j);
 
-            result.cell(i, j) = sum;
+            result.set_cell(i, j, sum);
         }
 
     return result;

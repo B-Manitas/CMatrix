@@ -269,7 +269,7 @@ cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, cons
     #pragma omp parallel for collapse(2)
     for (size_t r = 0; r < height(); r++)
         for (size_t c = 0; c < width(); c++)
-            result.cell(r, c) = f(cell(r, c), m.cell(r, c));
+            result.set_cell(r, c, f(cell(r, c), m.cell(r, c)));
 
     return result;
 }
@@ -282,7 +282,7 @@ cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, cons
     #pragma omp parallel for collapse(2)
     for (size_t i = 0; i < height(); i++)
         for (size_t j = 0; j < width(); j++)
-            result.cell(i, j) = f(cell(i, j), val);
+            result.set_cell(i, j, f(cell(i, j), val));
 
     return result;
 }

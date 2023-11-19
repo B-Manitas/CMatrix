@@ -63,9 +63,6 @@ TEST(MatrixTest, Constructor)
     EXPECT_EQ(m_8.cell(0, 0), 1.0f);
     EXPECT_EQ(m_8.cell(0, 1), 2.0f);
     EXPECT_EQ(m_8.cell(0, 2), 3.0f);
-
-    // CONVERSION FROM OTHER TYPES - INVALID
-    EXPECT_THROW(cmatrix<bool> m_9(m_7), std::invalid_argument);
 }
 
 // ==================================================

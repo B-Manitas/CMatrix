@@ -180,7 +180,7 @@ cmatrix<short unsigned int> cmatrix<T>::mask(const std::function<bool(T)> &f) co
     for (size_t row = 0; row < height(); row++)
         for (size_t col = 0; col < width(); col++)
             if (f(cell(row, col)))
-                res.cell(row, col) = 1;
+                res.set_cell(row, col, 1);
 
     return res;
 }

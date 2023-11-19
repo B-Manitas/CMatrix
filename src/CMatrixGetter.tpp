@@ -103,7 +103,7 @@ cmatrix<T> cmatrix<T>::cells(const std::vector<std::pair<size_t, size_t>> &ids) 
 
     // Iterate over the ids and set the cells
     for (size_t i = 0; i < ids.size(); i++)
-        m.cell(0, i) = cell(ids[i].first, ids[i].second);
+        m.set_cell(0, i, cell(ids[i].first, ids[i].second));
 
     return m;
 }
@@ -203,7 +203,7 @@ cmatrix<T> cmatrix<T>::transpose() const
     #pragma omp parallel for collapse(2)
     for (size_t r = 0; r < height(); r++)
         for (size_t c = 0; c < width(); c++)
-            m.cell(c, r) = cell(r, c);
+            m.set_cell(c, r, cell(r, c));
 
     return m;
 }

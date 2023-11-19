@@ -46,7 +46,7 @@ void cmatrix<T>::set_diag(const std::vector<T> &val)
 
     // Iterate over the diagonal
     for (size_t i = 0; i < std::min(width(), height()); i++)
-        cell(i, i) = val[i];
+        set_cell(i, i, val[i]);
 }
 
 #endif // CMATRIX_SETTER_TPP
