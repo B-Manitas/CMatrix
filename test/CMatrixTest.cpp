@@ -744,15 +744,15 @@ TEST(MatrixTest, mask)
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
     // 3x3 MATRIX - MASK
-    cmatrix<short unsigned int> mask = m.mask([](int x)
+    cmatrix<bool> mask = m.mask([](int x)
                                               { return x > 5; });
-    cmatrix<short unsigned int> expected = {{0, 0, 0}, {0, 0, 1}, {1, 1, 1}};
+    cmatrix<bool> expected = {{0, 0, 0}, {0, 0, 1}, {1, 1, 1}};
     EXPECT_EQ(mask, expected);
 
     // 3x3 MATRIX - NOT MASK
-    cmatrix<short unsigned int> mask_2 = m.mask([](int x)
+    cmatrix<bool> mask_2 = m.mask([](int x)
                                                 { return x > 10; });
-    cmatrix<short unsigned int> expected_2(3, 3, 0);
+    cmatrix<bool> expected_2(3, 3, false);
     EXPECT_EQ(mask_2, expected_2);
 }
 
@@ -2147,21 +2147,21 @@ TEST(MatrixTest, op_equals)
     // EQUAL 3x3 MATRICES
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> m_2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cmatrix<short unsigned int> m1Bool = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+    cmatrix<bool> m1Bool = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
     EXPECT_TRUE(m_1 == m_2);
     EXPECT_EQ(m_1 == 1, m1Bool);
 
     // EQUAL 1x3 MATRICES
     cmatrix<int> m_3 = {{1, 2, 3}};
     cmatrix<int> m_4 = {{1, 2, 3}};
-    cmatrix<short unsigned int> m3Bool = {{0, 1, 0}};
+    cmatrix<bool> m3Bool = {{0, 1, 0}};
     EXPECT_TRUE(m_3 == m_4);
     EXPECT_EQ(m_3 == 2, m3Bool);
 
     // EQUAL 3x1 MATRICES
     cmatrix<int> m_5 = {{1}, {2}, {3}};
     cmatrix<int> m_6 = {{1}, {2}, {3}};
-    cmatrix<short unsigned int> m5Bool = {{0}, {0}, {1}};
+    cmatrix<bool> m5Bool = {{0}, {0}, {1}};
     EXPECT_TRUE(m_5 == m_6);
     EXPECT_EQ(m_5 == 3, m5Bool);
 
@@ -2172,7 +2172,7 @@ TEST(MatrixTest, op_equals)
     // NOT EQUAL 3x3 MATRICES
     cmatrix<int> m_7 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cmatrix<int> m_8 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
-    cmatrix<short unsigned int> m7Bool = {{0, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+    cmatrix<bool> m7Bool = {{0, 1, 1}, {1, 1, 1}, {1, 1, 1}};
     EXPECT_TRUE(m_7 != m_8);
     EXPECT_EQ(m_7 != 1, m7Bool);
 }
@@ -2182,21 +2182,21 @@ TEST(MatrixTest, op_less)
 {
     // 3x3 MATRICES
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cmatrix<short unsigned int> m1Bool = {{1, 1, 1}, {1, 0, 0}, {0, 0, 0}};
+    cmatrix<bool> m1Bool = {{1, 1, 1}, {1, 0, 0}, {0, 0, 0}};
     EXPECT_EQ(m_1 < 5, m1Bool);
 
     // 1x3 MATRICES
     cmatrix<int> m_3 = {{1, 2, 3}};
-    cmatrix<short unsigned int> m3Bool = {{1, 0, 0}};
+    cmatrix<bool> m3Bool = {{1, 0, 0}};
     EXPECT_EQ(m_3 < 2, m3Bool);
 
     // 3x1 MATRICES
     cmatrix<int> m_5 = {{1}, {2}, {3}};
-    cmatrix<short unsigned int> m5Bool = {{0}, {0}, {0}};
+    cmatrix<bool> m5Bool = {{0}, {0}, {0}};
     EXPECT_EQ(m_5 < -1, m5Bool);
 
     // EMPTY MATRICES
-    EXPECT_EQ(cmatrix<int>() < 0, cmatrix<short unsigned int>());
+    EXPECT_EQ(cmatrix<int>() < 0, cmatrix<bool>());
 }
 
 /** Test operatorLessEqual method of cmatrix class */
@@ -2204,21 +2204,21 @@ TEST(MatrixTest, op_leq)
 {
     // 3x3 MATRICES
     cmatrix<int> m_1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cmatrix<short unsigned int> m1Bool = {{1, 1, 1}, {1, 1, 1}, {0, 0, 0}};
+    cmatrix<bool> m1Bool = {{1, 1, 1}, {1, 1, 1}, {0, 0, 0}};
     EXPECT_EQ(m_1 <= 6, m1Bool);
 
     // 1x3 MATRICES
     cmatrix<int> m_3 = {{1, 2, 3}};
-    cmatrix<short unsigned int> m3Bool = {{1, 1, 1}};
+    cmatrix<bool> m3Bool = {{1, 1, 1}};
     EXPECT_EQ(m_3 <= 3, m3Bool);
 
     // 3x1 MATRICES
     cmatrix<int> m_5 = {{1}, {2}, {3}};
-    cmatrix<short unsigned int> m5Bool = {{1}, {0}, {0}};
+    cmatrix<bool> m5Bool = {{1}, {0}, {0}};
     EXPECT_EQ(m_5 <= 1, m5Bool);
 
     // EMPTY MATRICES
-    EXPECT_EQ(cmatrix<int>() <= -6, cmatrix<short unsigned int>());
+    EXPECT_EQ(cmatrix<int>() <= -6, cmatrix<bool>());
 }
 
 /** Test op_greater method of cmatrix class */
@@ -2226,21 +2226,21 @@ TEST(MatrixTest, op_greater)
 {
     // 3x3 MATRICES
     cmatrix<int> m_1 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
-    cmatrix<short unsigned int> m1Bool = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+    cmatrix<bool> m1Bool = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
     EXPECT_EQ(m_1 > 8, m1Bool);
 
     // 1x3 MATRICES
     cmatrix<int> m_3 = {{3, 2, 1}};
-    cmatrix<short unsigned int> m3Bool = {{1, 0, 0}};
+    cmatrix<bool> m3Bool = {{1, 0, 0}};
     EXPECT_EQ(m_3 > 2, m3Bool);
 
     // 3x1 MATRICES
     cmatrix<int> m_5 = {{3}, {2}, {1}};
-    cmatrix<short unsigned int> m5Bool = {{0}, {0}, {0}};
+    cmatrix<bool> m5Bool = {{0}, {0}, {0}};
     EXPECT_EQ(m_5 > 6, m5Bool);
 
     // EMPTY MATRICES
-    EXPECT_EQ(cmatrix<int>() > 2, cmatrix<short unsigned int>());
+    EXPECT_EQ(cmatrix<int>() > 2, cmatrix<bool>());
 }
 
 /** Test op_geq method of cmatrix class */
@@ -2248,21 +2248,21 @@ TEST(MatrixTest, op_geq)
 {
     // 3x3 MATRICES
     cmatrix<int> m_1 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
-    cmatrix<short unsigned int> m1Bool = {{1, 1, 1}, {1, 1, 1}, {1, 1, 0}};
+    cmatrix<bool> m1Bool = {{1, 1, 1}, {1, 1, 1}, {1, 1, 0}};
     EXPECT_EQ(m_1 >= 2, m1Bool);
 
     // 1x3 MATRICES
     cmatrix<int> m_3 = {{3, 2, 1}};
-    cmatrix<short unsigned int> m3Bool = {{1, 1, 0}};
+    cmatrix<bool> m3Bool = {{1, 1, 0}};
     EXPECT_EQ(m_3 >= 2, m3Bool);
 
     // 3x1 MATRICES
     cmatrix<int> m_5 = {{3}, {2}, {1}};
-    cmatrix<short unsigned int> m5Bool = {{0}, {0}, {0}};
+    cmatrix<bool> m5Bool = {{0}, {0}, {0}};
     EXPECT_EQ(m_5 >= 6, m5Bool);
 
     // EMPTY MATRICES
-    EXPECT_EQ(cmatrix<int>() >= 1, cmatrix<short unsigned int>());
+    EXPECT_EQ(cmatrix<int>() >= 1, cmatrix<bool>());
 }
 
 /** Test op_stream method of cmatrix class */

@@ -57,39 +57,39 @@ bool cmatrix<T>::operator!=(const cmatrix<T> &m) const
 }
 
 template <class T>
-cmatrix<short unsigned int> cmatrix<T>::operator==(const T &n) const
+cmatrix<bool> cmatrix<T>::operator==(const T &n) const
 {
-    return __map_op_comparaison_val(std::equal_to<T>(), n);
+    return mask([n](T x){return x == n;});
 }
 
 template <class T>
-cmatrix<short unsigned int> cmatrix<T>::operator!=(const T &n) const
+cmatrix<bool> cmatrix<T>::operator!=(const T &n) const
 {
-    return __map_op_comparaison_val(std::not_equal_to<T>(), n);
+    return mask([n](T x){return x != n;});
 }
 
 template <class T>
-cmatrix<short unsigned int> cmatrix<T>::operator<(const T &n) const
+cmatrix<bool> cmatrix<T>::operator<(const T &n) const
 {
-    return __map_op_comparaison_val(std::less<T>(), n);
+    return mask([n](T x){return x < n;});
 }
 
 template <class T>
-cmatrix<short unsigned int> cmatrix<T>::operator<=(const T &n) const
+cmatrix<bool> cmatrix<T>::operator<=(const T &n) const
 {
-    return __map_op_comparaison_val(std::less_equal<T>(), n);
+    return mask([n](T x){return x <= n;});
 }
 
 template <class T>
-cmatrix<short unsigned int> cmatrix<T>::operator>(const T &n) const
+cmatrix<bool> cmatrix<T>::operator>(const T &n) const
 {
-    return __map_op_comparaison_val(std::greater<T>(), n);
+    return mask([n](T x){return x > n;});
 }
 
 template <class T>
-cmatrix<short unsigned int> cmatrix<T>::operator>=(const T &n) const
+cmatrix<bool> cmatrix<T>::operator>=(const T &n) const
 {
-    return __map_op_comparaison_val(std::greater_equal<T>(), n);
+    return mask([n](T x){return x >= n;});
 }
 
 // ==================================================
@@ -283,19 +283,6 @@ cmatrix<T> cmatrix<T>::__map_op_arithmetic(const std::function<T(T, T)> &f, cons
     for (size_t i = 0; i < height(); i++)
         for (size_t j = 0; j < width(); j++)
             result.set_cell(i, j, f(cell(i, j), val));
-
-    return result;
-}
-
-template <class T>
-cmatrix<short unsigned int> cmatrix<T>::__map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const
-{
-    // Initialize a matrix with the same dimensions of the current matrix
-    cmatrix<short unsigned int> result(height(), width(), 0);
-
-    // Check if the value of the cell is less than or equal to the value passed as parameter 'val'.
-    result.apply([&](T _, size_t row, size_t col)
-                 { return f(cell(row, col), n); });
 
     return result;
 }

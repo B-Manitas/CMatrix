@@ -189,17 +189,6 @@ private:
      * @ingroup operator
      */
     cmatrix<T> __map_op_arithmetic(const std::function<T(T, T)> &f, const T &val) const;
-    /**
-     * @brief Map a comparison operator to each cell of the matrix and return a matrix of boolean.
-     *
-     * @param f The comparison operator to apply. f(T value, T value) -> bool
-     * @param n The number to compare.
-     * @return cmatrix<short unsigned int> The result of the comparison.
-     *
-     * @note PARALLELIZED METHOD with OpenMP.
-     * @ingroup operator
-     */
-    cmatrix<short unsigned int> __map_op_comparaison_val(const std::function<T(T, T)> &f, const T &n) const;
 
     // GENERAL METHODS
     /**
@@ -721,20 +710,20 @@ public:
      * @brief Create a mask of the matrix matching the condition.
      * 
      * @param f The condition to satisfy. f(T value) -> bool
-     * @return cmatrix<short unsigned int> The mask of the matrix.
+     * @return cmatrix<bool> The mask of the matrix.
      * 
      * @ingroup manipulation
      */
-    cmatrix<short unsigned int>mask(const std::function<bool(T)> &f) const;
+    cmatrix<bool>mask(const std::function<bool(T)> &f) const;
     /**
      * @brief Create a mask of the matrix matching the value.
      * 
      * @param val The value to match.
-     * @return cmatrix<short unsigned int> The mask of the matrix.
+     * @return cmatrix<bool> The mask of the matrix.
      * 
      * @ingroup manipulation
      */
-    cmatrix<short unsigned int> mask(const T &val) const;
+    cmatrix<bool> mask(const T &val) const;
 
     /**
      * @brief Remove a row of the matrix.
@@ -1361,56 +1350,56 @@ public:
      * @brief The equality operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return cmatrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<bool> The matrix of booleans.
      *
      * @ingroup operator
      */
-    cmatrix<short unsigned int> operator==(const T &n) const;
+    cmatrix<bool> operator==(const T &n) const;
     /**
      * @brief The inequality operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return cmatrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<bool> The matrix of booleans.
      *
      * @ingroup operator
      */
-    cmatrix<short unsigned int> operator!=(const T &n) const;
+    cmatrix<bool> operator!=(const T &n) const;
     /**
      * @brief The strictly less than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return cmatrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<bool> The matrix of booleans.
      *
      * @ingroup operator
      */
-    cmatrix<short unsigned int> operator<(const T &n) const;
+    cmatrix<bool> operator<(const T &n) const;
     /**
      * @brief The less than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return cmatrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<bool> The matrix of booleans.
      *
      * @ingroup operator
      */
-    cmatrix<short unsigned int> operator<=(const T &n) const;
+    cmatrix<bool> operator<=(const T &n) const;
     /**
      * @brief The strictly greater than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return cmatrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<bool> The matrix of booleans.
      *
      * @ingroup operator
      */
-    cmatrix<short unsigned int> operator>(const T &n) const;
+    cmatrix<bool> operator>(const T &n) const;
     /**
      * @brief The greater than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
-     * @return cmatrix<short unsigned int> The matrix of booleans.
+     * @return cmatrix<bool> The matrix of booleans.
      *
      * @ingroup operator
      */
-    cmatrix<short unsigned int> operator>=(const T &n) const;
+    cmatrix<bool> operator>=(const T &n) const;
 
     /**
      * @brief The output operator.

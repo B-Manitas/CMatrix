@@ -172,21 +172,20 @@ std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const T &val) const
 // MASK FUNCTIONS
 
 template <class T>
-cmatrix<short unsigned int> cmatrix<T>::mask(const std::function<bool(T)> &f) const
+cmatrix<bool> cmatrix<T>::mask(const std::function<bool(T)> &f) const
 {
-    cmatrix<short unsigned int> res(height(), width(), 0);
+    cmatrix<bool> res(height(), width(), false);
 
     // For each cell, check if the condition is satisfied
     for (size_t row = 0; row < height(); row++)
         for (size_t col = 0; col < width(); col++)
-            if (f(cell(row, col)))
-                res.set_cell(row, col, 1);
+            res.set_cell(row, col, f(cell(row, col)));
 
     return res;
 }
 
 template <class T>
-cmatrix<short unsigned int> cmatrix<T>::mask(const T &val) const
+cmatrix<bool> cmatrix<T>::mask(const T &val) const
 {
     return mask([&](T e)
                 { return e == val; });
