@@ -726,6 +726,24 @@ public:
      * @ingroup manipulation
      */
     std::vector<std::pair<size_t, size_t>> find_all(const std::function<bool(T)> &f) const;
+    /**
+     * @brief Create a mask of the matrix matching the condition.
+     * 
+     * @param f The condition to satisfy. f(T value) -> bool
+     * @return cmatrix<short unsigned int> The mask of the matrix.
+     * 
+     * @ingroup manipulation
+     */
+    cmatrix<short unsigned int>mask(const std::function<bool(T)> &f) const;
+    /**
+     * @brief Create a mask of the matrix matching the value.
+     * 
+     * @param val The value to match.
+     * @return cmatrix<short unsigned int> The mask of the matrix.
+     * 
+     * @ingroup manipulation
+     */
+    cmatrix<short unsigned int> mask(const T &val) const;
 
     /**
      * @brief Remove a row of the matrix.

@@ -736,9 +736,27 @@ TEST(MatrixTest, find_all)
 
     // 3x3 MATRIX - NOT FIND
     std::vector<std::pair<size_t, size_t>> v_2 = m.find_all([&](int x)
-                                                             { return x > 10; });
+                                                            { return x > 10; });
     EXPECT_EQ(v_2, (std::vector<std::pair<size_t, size_t>>()));
     EXPECT_EQ(m.find_all(10), (std::vector<std::pair<size_t, size_t>>()));
+}
+
+/** Test mask method of cmatrix class */
+TEST(MatrixTest, mask)
+{
+    cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    // 3x3 MATRIX - MASK
+    cmatrix<short unsigned int> mask = m.mask([](int x)
+                                              { return x > 5; });
+    cmatrix<short unsigned int> expected = {{0, 0, 0}, {0, 0, 1}, {1, 1, 1}};
+    EXPECT_EQ(mask, expected);
+
+    // 3x3 MATRIX - NOT MASK
+    cmatrix<short unsigned int> mask_2 = m.mask([](int x)
+                                                { return x > 10; });
+    cmatrix<short unsigned int> expected_2(3, 3, 0);
+    EXPECT_EQ(mask_2, expected_2);
 }
 
 /** Test remove_row method of cmatrix class */
