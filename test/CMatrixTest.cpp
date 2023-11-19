@@ -716,7 +716,7 @@ TEST(MatrixTest, find)
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
     // 3x3 MATRIX - FIND
-    EXPECT_EQ(m.find(5), std::make_pair(1, 1));
+    EXPECT_EQ(m.find(2), std::make_pair(0, 1));
 
     // 3x3 MATRIX - NOT FIND
     EXPECT_EQ(m.find(10), std::make_pair(-1, -1));

@@ -690,7 +690,7 @@ public:
      * @brief Find the first cell matching the condition.
      *
      * @param f The condition to satisfy. f(T value) -> bool
-     * @return std::pair<int, int> The first index of the cell. (-1, -1) if not found.
+     * @return std::pair<int, int> The first index (row, column) of the cell. (-1, -1) if not found.
      *
      * @note The empty matrix always return (-1, -1).
      * @ingroup manipulation
@@ -700,7 +700,7 @@ public:
      * @brief Find the first cell matching the given cell.
      *
      * @param val The cell to find.
-     * @return std::pair<int, int> The first index of the cell. (-1, -1) if not found.
+     * @return std::pair<int, int> The first index (row, column) of the cell. (-1, -1) if not found.
      *
      * @note The cell must be of the same type of the matrix.
      * @ingroup manipulation
@@ -710,7 +710,7 @@ public:
      * @brief Find all cells matching the condition.
      *
      * @param val The value to find.
-     * @return std::vector<std::pair<size_t, size_t>> The indexes of the cells.
+     * @return std::vector<std::pair<size_t, size_t>> The indexes (row, column) of the cells.
      *
      * @note The empty matrix always return an empty vector.
      * @ingroup manipulation
@@ -720,7 +720,7 @@ public:
      * @brief Find all cells matching the condition.
      *
      * @param f The condition to satisfy. f(T value) -> bool
-     * @return std::vector<std::pair<size_t, size_t>> The indexes of the cells.
+     * @return std::vector<std::pair<size_t, size_t>> The indexes (row, column) of the cells.
      *
      * @note The empty matrix always return an empty vector.
      * @ingroup manipulation

@@ -135,7 +135,7 @@ std::pair<int, int> cmatrix<T>::find(const std::function<bool(T)> &f) const
     for (size_t row = 0; row < height(); row++)
         for (size_t col = 0; col < width(); col++)
             if (f(cell(row, col)))
-                return std::pair<int, int>(int(col), int(row)); // TODO: change the order: (row, col)
+                return std::pair<int, int>(int(row), int(col));
 
     return std::pair<int, int>(-1, -1);
 }
