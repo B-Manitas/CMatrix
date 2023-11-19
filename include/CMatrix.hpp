@@ -690,21 +690,22 @@ public:
      * @brief Find the first cell matching the condition.
      *
      * @param f The condition to satisfy. f(T value) -> bool
-     * @return std::tuple<int, int> The first index of the cell. (-1, -1) if not found.
+     * @return std::pair<int, int> The first index of the cell. (-1, -1) if not found.
      *
      * @note The empty matrix always return (-1, -1).
      * @ingroup manipulation
      */
-    std::tuple<int, int> find(const std::function<bool(T)> &f) const;
+    std::pair<int, int> find(const std::function<bool(T)> &f) const;
     /**
      * @brief Find the first cell matching the given cell.
      *
      * @param val The cell to find.
-     * @return std::tuple<int, int> The first index of the cell. (-1, -1) if not found.
+     * @return std::pair<int, int> The first index of the cell. (-1, -1) if not found.
      *
      * @note The cell must be of the same type of the matrix.
      * @ingroup manipulation
      */
+    std::pair<int, int> find(const T &val) const;
     /**
      * @brief Find all cells matching the condition.
      *

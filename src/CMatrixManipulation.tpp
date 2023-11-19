@@ -51,7 +51,7 @@ void cmatrix<T>::insert_column(const size_t &pos, const std::vector<T> &val)
         // Check if the position is valid
         __check_expected_id(pos, 0, width());
         __check_valid_col(val);
-        
+
         // Reserve the space for the new column
         matrix.reserve(height() + val.size());
 
@@ -129,19 +129,19 @@ int cmatrix<T>::find_column(const std::vector<T> &val) const
 }
 
 template <class T>
-std::tuple<int, int> cmatrix<T>::find(const std::function<bool(T)> &f) const
+std::pair<int, int> cmatrix<T>::find(const std::function<bool(T)> &f) const
 {
     // For each cell, check if the condition is satisfied
     for (size_t row = 0; row < height(); row++)
         for (size_t col = 0; col < width(); col++)
             if (f(cell(row, col)))
-                return std::tuple<int, int>(int(col), int(row));
+                return std::pair<int, int>(int(col), int(row)); // TODO: change the order: (row, col)
 
-    return std::tuple<int, int>(-1, -1);
+    return std::pair<int, int>(-1, -1);
 }
 
 template <class T>
-std::tuple<int, int> cmatrix<T>::find(const T &val) const
+std::pair<int, int> cmatrix<T>::find(const T &val) const
 {
     return find([&](T e)
                 { return e == val; });
