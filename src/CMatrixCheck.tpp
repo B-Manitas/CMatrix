@@ -205,3 +205,5 @@ void cmatrix<T>::__check_expected_id(const size_t &n, const size_t &expected) co
 {
     __check_expected_id(n, expected, expected);
 }
+
+#endif // CMATRIX_CHECK_TPP
