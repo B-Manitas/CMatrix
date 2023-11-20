@@ -2788,6 +2788,30 @@ TEST(MatrixTest, op_assign_power)
     EXPECT_EQ(m_7, cmatrix<int>());
 }
 
+/** Test op_not method of cmatrix class */
+TEST(MatrixTest, op_not)
+{
+    // 3x3 MATRIX
+    cmatrix<bool> m_1 = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+    cmatrix<bool> m_2 = {{0, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+    EXPECT_EQ(!m_1, m_2);
+
+    // 1x3 MATRIX
+    cmatrix<bool> m_3 = {{1, 0, 0}};
+    cmatrix<bool> m_4 = {{0, 1, 1}};
+    EXPECT_EQ(!m_3, m_4);
+
+    // 3x1 MATRIX
+    cmatrix<bool> m_5 = {{1}, {0}, {0}};
+    cmatrix<bool> m_6 = {{0}, {1}, {1}};
+    EXPECT_EQ(!m_5, m_6);
+
+    // EMPTY MATRIX
+    cmatrix<bool> m_7;
+    cmatrix<bool> m_8;
+    EXPECT_EQ(!m_7, m_8);
+}
+
 GTEST_API_ int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);

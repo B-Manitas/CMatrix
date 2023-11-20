@@ -1564,6 +1564,14 @@ public:
     template <class U>
     friend std::ostream &operator<<(std::ostream &out, const cmatrix<U> &m);
     /**
+     * @brief The not operator.
+     * 
+     * @return cmatrix<bool> The negated matrix.
+     * 
+     * @ingroup operator
+     */
+    cmatrix<T> operator!() const;
+    /**
      * @brief The addition operator.
      *
      * @param m The matrix to add.

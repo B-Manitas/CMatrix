@@ -278,6 +278,12 @@ std::ostream &operator<<(std::ostream &out, const cmatrix<T> &m)
     return out;
 }
 
+template <class T>
+cmatrix<T> cmatrix<T>::operator!() const
+{
+    return not_();
+}
+
 // ==================================================
 // PRIVATE METHODS
 
