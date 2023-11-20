@@ -742,18 +742,157 @@ TEST(MatrixTest, find_all)
 TEST(MatrixTest, mask)
 {
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m2 = {{2, 3, 4}, {5, 5, 7}, {8, 9, 10}};
 
-    // 3x3 MATRIX - MASK
+    // 3x3 MATRIX - MASK WITH FUNCTION
     cmatrix<bool> mask = m.mask([](int x)
-                                              { return x > 5; });
+                                { return x > 5; });
     cmatrix<bool> expected = {{0, 0, 0}, {0, 0, 1}, {1, 1, 1}};
     EXPECT_EQ(mask, expected);
 
-    // 3x3 MATRIX - NOT MASK
-    cmatrix<bool> mask_2 = m.mask([](int x)
-                                                { return x > 10; });
-    cmatrix<bool> expected_2(3, 3, false);
+    // 3x3 MATRIX - MASK WITH MATRIX
+    cmatrix<bool> mask_2 = m.mask([](int x, int y)
+                                  { return x == y; },
+                                  m2);
+    cmatrix<bool> expected_2 = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     EXPECT_EQ(mask_2, expected_2);
+
+    // INVALID SIZE
+    EXPECT_THROW(m.mask([](int x, int y)
+                        { return x == y; },
+                        cmatrix<int>(2, 2, 1)),
+                 std::invalid_argument);
+}
+
+/** Test not_ method of cmatrix class */
+TEST(MatrixTest, not_)
+{
+    cmatrix<bool> m = {{0, 1, 0}, {1, 0, 1}, {0, 1, 0}};
+
+    // 3x3 MATRIX - NOT
+    cmatrix<bool> mask = m.not_();
+    cmatrix<bool> expected = {{1, 0, 1}, {0, 1, 0}, {1, 0, 1}};
+    EXPECT_EQ(mask, expected);
+}
+
+/** Test eq method of cmatrix class */
+TEST(MatrixTest, eq)
+{
+    cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{1, 2, 3}, {8, 5, 6}, {7, 8, 9}};
+
+    // 3x3 MATRIX - VALUE
+    cmatrix<bool> mask = m.eq(5);
+    cmatrix<bool> expected = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+    EXPECT_EQ(mask, expected);
+
+    // 3x3 MATRIX - MATRIX
+    cmatrix<bool> mask_2 = m.eq(m_2);
+    cmatrix<bool> expected_2 = {{1, 1, 1}, {0, 1, 1}, {1, 1, 1}};
+    EXPECT_EQ(mask_2, expected_2);
+
+    // INVALID SIZE
+    EXPECT_THROW(m.eq(cmatrix<int>(2, 2, 1)), std::invalid_argument);
+}
+
+/** Test neq method of cmatrix class */
+TEST(MatrixTest, neq)
+{
+    cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{1, 2, 3}, {8, 5, 6}, {7, 8, 9}};
+
+    // 3x3 MATRIX - VALUE
+    cmatrix<bool> mask = m.neq(5);
+    cmatrix<bool> expected = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+    EXPECT_EQ(mask, expected);
+
+    // 3x3 MATRIX - MATRIX
+    cmatrix<bool> mask_2 = m.neq(m_2);
+    cmatrix<bool> expected_2 = {{0, 0, 0}, {1, 0, 0}, {0, 0, 0}};
+    EXPECT_EQ(mask_2, expected_2);
+
+    // INVALID SIZE
+    EXPECT_THROW(m.neq(cmatrix<int>(2, 2, 1)), std::invalid_argument);
+}
+
+/** Test geq method of cmatrix class */
+TEST(MatrixTest, geq)
+{
+    cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{1, 2, 3}, {8, 5, 6}, {7, 8, 9}};
+
+    // 3x3 MATRIX - VALUE
+    cmatrix<bool> mask = m.geq(5);
+    cmatrix<bool> expected = {{0, 0, 0}, {0, 1, 1}, {1, 1, 1}};
+    EXPECT_EQ(mask, expected);
+
+    // 3x3 MATRIX - MATRIX
+    cmatrix<bool> mask_2 = m.geq(m_2);
+    cmatrix<bool> expected_2 = {{1, 1, 1}, {0, 1, 1}, {1, 1, 1}};
+    EXPECT_EQ(mask_2, expected_2);
+
+    // INVALID SIZE
+    EXPECT_THROW(m.geq(cmatrix<int>(2, 2, 1)), std::invalid_argument);
+}
+
+/** Test leq method of cmatrix class */
+TEST(MatrixTest, leq)
+{
+    cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{1, 2, 3}, {8, 5, 6}, {7, 8, 9}};
+
+    // 3x3 MATRIX - VALUE
+    cmatrix<bool> mask = m.leq(5);
+    cmatrix<bool> expected = {{1, 1, 1}, {1, 1, 0}, {0, 0, 0}};
+    EXPECT_EQ(mask, expected);
+
+    // 3x3 MATRIX - MATRIX
+    cmatrix<bool> mask_2 = m.leq(m_2);
+    cmatrix<bool> expected_2 = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+    EXPECT_EQ(mask_2, expected_2);
+
+    // INVALID SIZE
+    EXPECT_THROW(m.leq(cmatrix<int>(2, 2, 1)), std::invalid_argument);
+}
+
+/** Test gt method of cmatrix class */
+TEST(MatrixTest, gt)
+{
+    cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{1, 2, 3}, {8, 5, 6}, {7, 8, 9}};
+
+    // 3x3 MATRIX - VALUE
+    cmatrix<bool> mask = m.gt(5);
+    cmatrix<bool> expected = {{0, 0, 0}, {0, 0, 1}, {1, 1, 1}};
+    EXPECT_EQ(mask, expected);
+
+    // 3x3 MATRIX - MATRIX
+    cmatrix<bool> mask_2 = m.gt(m_2);
+    cmatrix<bool> expected_2 = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+    EXPECT_EQ(mask_2, expected_2);
+
+    // INVALID SIZE
+    EXPECT_THROW(m.gt(cmatrix<int>(2, 2, 1)), std::invalid_argument);
+}
+
+/** Test lt method of cmatrix class */
+TEST(MatrixTest, lt)
+{
+    cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cmatrix<int> m_2 = {{1, 2, 3}, {8, 5, 6}, {7, 8, 9}};
+
+    // 3x3 MATRIX - VALUE
+    cmatrix<bool> mask = m.lt(5);
+    cmatrix<bool> expected = {{1, 1, 1}, {1, 0, 0}, {0, 0, 0}};
+    EXPECT_EQ(mask, expected);
+
+    // 3x3 MATRIX - MATRIX
+    cmatrix<bool> mask_2 = m.lt(m_2);
+    cmatrix<bool> expected_2 = {{0, 0, 0}, {1, 0, 0}, {0, 0, 0}};
+    EXPECT_EQ(mask_2, expected_2);
+
+    // INVALID SIZE
+    EXPECT_THROW(m.lt(cmatrix<int>(2, 2, 1)), std::invalid_argument);
 }
 
 /** Test remove_row method of cmatrix class */

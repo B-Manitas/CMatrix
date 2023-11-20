@@ -185,10 +185,105 @@ cmatrix<bool> cmatrix<T>::mask(const std::function<bool(T)> &f) const
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::mask(const T &val) const
+cmatrix<bool> cmatrix<T>::mask(const std::function<bool(T, T)> &f, const cmatrix<T> &m) const
 {
-    return mask([&](T e)
+    // Check if the matrices have the same size
+    __check_size(m);
+
+    // Create the result matrix
+    cmatrix<bool> res(height(), width(), false);
+
+    // For each cell, check if the condition is satisfied
+    for (size_t row = 0; row < height(); row++)
+        for (size_t col = 0; col < width(); col++)
+            res.set_cell(row, col, f(cell(row, col), m.cell(row, col)));
+
+    return res;
+}
+
+template <>
+cmatrix<bool> cmatrix<bool>::not_() const
+{
+    return map([](bool e)
+               { return not e; });
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::eq(const cmatrix<T> &m) const
+{
+    return mask(std::equal_to<T>(), m);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::eq(const T &val) const
+{
+    return mask([val](T e)
                 { return e == val; });
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::neq(const cmatrix<T> &m) const
+{
+    return mask(std::not_equal_to<T>(), m);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::neq(const T &val) const
+{
+    return mask([val](T e)
+                { return e != val; });
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::leq(const cmatrix<T> &m) const
+{
+    return mask(std::less_equal<T>(), m);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::leq(const T &val) const
+{
+    return mask([val](T e)
+                { return e <= val; });
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::geq(const cmatrix<T> &m) const
+{
+    return mask(std::greater_equal<T>(), m);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::geq(const T &val) const
+{
+    return mask([val](T e)
+                { return e >= val; });
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::lt(const cmatrix<T> &m) const
+{
+    return mask(std::less<T>(), m);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::lt(const T &val) const
+{
+    return mask([val](T e)
+                { return e < val; });
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::gt(const cmatrix<T> &m) const
+{
+    return mask(std::greater<T>(), m);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::gt(const T &val) const
+{
+    return mask([val](T e)
+                { return e > val; });
 }
 
 // ==================================================

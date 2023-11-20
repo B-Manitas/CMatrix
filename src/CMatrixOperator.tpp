@@ -59,37 +59,61 @@ bool cmatrix<T>::operator!=(const cmatrix<T> &m) const
 template <class T>
 cmatrix<bool> cmatrix<T>::operator==(const T &n) const
 {
-    return mask([n](T x){return x == n;});
+    return eq(n);
 }
 
 template <class T>
 cmatrix<bool> cmatrix<T>::operator!=(const T &n) const
 {
-    return mask([n](T x){return x != n;});
+    return neq(n);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::operator<(const cmatrix<T> &m) const
+{
+    return lt(m);
 }
 
 template <class T>
 cmatrix<bool> cmatrix<T>::operator<(const T &n) const
 {
-    return mask([n](T x){return x < n;});
+    return lt(n);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::operator<=(const cmatrix<T> &m) const
+{
+    return leq(m);
 }
 
 template <class T>
 cmatrix<bool> cmatrix<T>::operator<=(const T &n) const
 {
-    return mask([n](T x){return x <= n;});
+    return leq(n);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::operator>(const cmatrix<T> &m) const
+{
+    return gt(m);
 }
 
 template <class T>
 cmatrix<bool> cmatrix<T>::operator>(const T &n) const
 {
-    return mask([n](T x){return x > n;});
+    return gt(n);
+}
+
+template <class T>
+cmatrix<bool> cmatrix<T>::operator>=(const cmatrix<T> &m) const
+{
+    return geq(m);
 }
 
 template <class T>
 cmatrix<bool> cmatrix<T>::operator>=(const T &n) const
 {
-    return mask([n](T x){return x >= n;});
+    return geq(n);
 }
 
 // ==================================================

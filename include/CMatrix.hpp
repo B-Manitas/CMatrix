@@ -697,22 +697,148 @@ public:
     std::vector<std::pair<size_t, size_t>> find_all(const std::function<bool(T)> &f) const;
     /**
      * @brief Create a mask of the matrix matching the condition.
-     * 
+     *
      * @param f The condition to satisfy. f(T value) -> bool
      * @return cmatrix<bool> The mask of the matrix.
-     * 
+     *
      * @ingroup manipulation
      */
-    cmatrix<bool>mask(const std::function<bool(T)> &f) const;
+    cmatrix<bool> mask(const std::function<bool(T)> &f) const;
     /**
-     * @brief Create a mask of the matrix matching the value.
-     * 
-     * @param val The value to match.
+     * @brief Create a mask of the matrix matching the mask of another matrix.
+     *
+     * @param f The condition to satisfy. f(T value, T value) -> bool
+     * @param m The mask of the matrix.
      * @return cmatrix<bool> The mask of the matrix.
-     * 
+     *
+     * @throw std::invalid_argument If the dimensions of the matrices are not equals.
+     *
      * @ingroup manipulation
      */
-    cmatrix<bool> mask(const T &val) const;
+    cmatrix<bool> mask(const std::function<bool(T, T)> &f, const cmatrix<T> &m) const;
+    /**
+     * @brief Negate the mask of the matrix.
+     *
+     * @return cmatrix<bool> The negated mask of the matrix.
+     *
+     * @note The type of the matrix must be bool.
+     * @ingroup manipulation
+     */
+    cmatrix<bool> not_() const;
+    /**
+     * @brief Check if each cell of the matrix are equals to the cells of another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     * @throw std::invalid_argument If the dimensions of the matrices are not equals.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> eq(const cmatrix<T> &m) const;
+    /**
+     * @brief Check if each cell of the matrix are equals to a value.
+     *
+     * @param val The value to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> eq(const T &val) const;
+    /**
+     * @brief Check if each cell of the matrix are not equals to the cells of another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     * @throw std::invalid_argument If the dimensions of the matrices are not equals.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> neq(const cmatrix<T> &m) const;
+    /**
+     * @brief Check if each cell of the matrix are not equals to a value.
+     *
+     * @param val The value to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> neq(const T &val) const;
+    /**
+     * @brief Check if each cell of the matrix are less or equals to the cells of another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     * @throw std::invalid_argument If the dimensions of the matrices are not equals.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> leq(const cmatrix<T> &m) const;
+    /**
+     * @brief Check if each cell of the matrix are less or equals to a value.
+     *
+     * @param val The value to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> leq(const T &val) const;
+    /**
+     * @brief Check if each cell of the matrix are greater or equals to the cells of another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     * @throw std::invalid_argument If the dimensions of the matrices are not equals.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> geq(const cmatrix<T> &m) const;
+    /**
+     * @brief Check if each cell of the matrix are greater or equals to a value.
+     *
+     * @param val The value to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> geq(const T &val) const;
+    /**
+     * @brief Check if each cell of the matrix are less than the cells of another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     * @throw std::invalid_argument If the dimensions of the matrices are not equals.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> lt(const cmatrix<T> &m) const;
+    /**
+     * @brief Check if each cell of the matrix are less than a value.
+     *
+     * @param val The value to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> lt(const T &val) const;
+    /**
+     * @brief Check if each cell of the matrix are greater than the cells of another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     * @throw std::invalid_argument If the dimensions of the matrices are not equals.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> gt(const cmatrix<T> &m) const;
+    /**
+     * @brief Check if each cell of the matrix are greater than a value.
+     *
+     * @param val The value to compare.
+     * @return cmatrix<bool> The mask of the matrix.
+     *
+     * @ingroup manipulation
+     */
+    cmatrix<bool> gt(const T &val) const;
 
     /**
      * @brief Remove a row of the matrix.
@@ -1354,6 +1480,15 @@ public:
      */
     cmatrix<bool> operator!=(const T &n) const;
     /**
+     * @brief The strictly less than operator comparing the matrix with another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The matrix of booleans.
+     *
+     * @ingroup operator
+     */
+    cmatrix<bool> operator<(const cmatrix<T> &m) const;
+    /**
      * @brief The strictly less than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
@@ -1362,6 +1497,15 @@ public:
      * @ingroup operator
      */
     cmatrix<bool> operator<(const T &n) const;
+    /**
+     * @brief The less than operator comparing the matrix with another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The matrix of booleans.
+     *
+     * @ingroup operator
+     */
+    cmatrix<bool> operator<=(const cmatrix<T> &m) const;
     /**
      * @brief The less than operator comparing the matrix with a value.
      *
@@ -1372,6 +1516,15 @@ public:
      */
     cmatrix<bool> operator<=(const T &n) const;
     /**
+     * @brief The strictly greater than operator comparing the matrix with another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The matrix of booleans.
+     *
+     * @ingroup operator
+     */
+    cmatrix<bool> operator>(const cmatrix<T> &m) const;
+    /**
      * @brief The strictly greater than operator comparing the matrix with a value.
      *
      * @param val The value to compare.
@@ -1380,6 +1533,15 @@ public:
      * @ingroup operator
      */
     cmatrix<bool> operator>(const T &n) const;
+    /**
+     * @brief The greater than operator comparing the matrix with another matrix.
+     *
+     * @param m The matrix to compare.
+     * @return cmatrix<bool> The matrix of booleans.
+     *
+     * @ingroup operator
+     */
+    cmatrix<bool> operator>=(const cmatrix<T> &m) const;
     /**
      * @brief The greater than operator comparing the matrix with a value.
      *
