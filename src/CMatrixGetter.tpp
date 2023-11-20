@@ -109,14 +109,6 @@ cmatrix<T> cmatrix<T>::cells(const std::vector<std::pair<size_t, size_t>> &ids) 
 }
 
 template <class T>
-T &cmatrix<T>::cell(const size_t &row, const size_t &col)
-{
-    __check_valid_row_id(row);
-    __check_valid_col_id(col);
-    return matrix[row][col];
-}
-
-template <class T>
 T cmatrix<T>::cell(const size_t &row, const size_t &col) const
 {
     __check_valid_row_id(row);
