@@ -64,6 +64,13 @@ public:
     cbool operator>(const cbool &b) const { return cbool(m_value > b.m_value); }
     cbool operator>=(const cbool &b) const { return cbool(m_value >= b.m_value); }
     
+    template <class T> cbool operator==(const T &b) const { return cbool(m_value == __to_bool(b)); }
+    template <class T> cbool operator!=(const T &b) const { return cbool(m_value != __to_bool(b)); }
+    template <class T> cbool operator<(const T &b) const { return cbool(m_value < __to_bool(b)); }
+    template <class T> cbool operator<=(const T &b) const { return cbool(m_value <= __to_bool(b)); }
+    template <class T> cbool operator>(const T &b) const { return cbool(m_value > __to_bool(b)); }
+    template <class T> cbool operator>=(const T &b) const { return cbool(m_value >= __to_bool(b)); }
+
     // ARITHMETIC OPERATORS
     cbool operator+(const cbool &b) const { return cbool(m_value || b.m_value); }
     cbool operator-(const cbool &b) const { return cbool(int(m_value) - int(b.m_value)); }
