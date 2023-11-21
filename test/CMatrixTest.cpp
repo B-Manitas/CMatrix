@@ -725,17 +725,70 @@ TEST(MatrixTest, find_all)
     cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
     // 3x3 MATRIX - FIND
-    std::vector<std::pair<size_t, size_t>> v = m.find_all([&](int x)
-                                                          { return x > 5; });
+    std::vector<std::pair<size_t, size_t>> ids = m.find_all([&](int x)
+                                                            { return x > 5; });
     std::vector<std::pair<size_t, size_t>> expected = {std::make_pair(1, 2), std::make_pair(2, 0), std::make_pair(2, 1), std::make_pair(2, 2)};
-    EXPECT_EQ(v, expected);
+    EXPECT_EQ(ids, expected);
     EXPECT_EQ(m.find_all(5), (std::vector<std::pair<size_t, size_t>>({std::make_pair(1, 1)})));
 
     // 3x3 MATRIX - NOT FIND
-    std::vector<std::pair<size_t, size_t>> v_2 = m.find_all([&](int x)
-                                                            { return x > 10; });
-    EXPECT_EQ(v_2, (std::vector<std::pair<size_t, size_t>>()));
+    std::vector<std::pair<size_t, size_t>> ids_2 = m.find_all([&](int x)
+                                                              { return x > 10; });
+    EXPECT_EQ(ids_2, (std::vector<std::pair<size_t, size_t>>()));
     EXPECT_EQ(m.find_all(10), (std::vector<std::pair<size_t, size_t>>()));
+
+    // ==============================
+
+    // 3x3 MATRIX - WITH CELL MASK
+    cmatrix<bool> mask = {{1, 0, 1}, {0, 1, 0}, {1, 0, 1}};
+    std::vector<std::pair<size_t, size_t>> expected_2 = {std::make_pair(0, 0),
+                                                         std::make_pair(0, 2),
+                                                         std::make_pair(1, 1),
+                                                         std::make_pair(2, 0),
+                                                         std::make_pair(2, 2)};
+    EXPECT_EQ(m.find_all(mask), expected_2);
+
+    // 3x3 MATRIX - WITH ROW MASK
+    cmatrix<bool> mask_2 = {{1}, {0}, {1}};
+    std::vector<std::pair<size_t, size_t>> expected_3 = {std::make_pair(0, 0),
+                                                         std::make_pair(0, 1),
+                                                         std::make_pair(0, 2),
+                                                         std::make_pair(2, 0),
+                                                         std::make_pair(2, 1),
+                                                         std::make_pair(2, 2)};
+    EXPECT_EQ(m.find_all(mask_2), expected_3);
+
+    // 3x3 MATRIX - WITH COLUMN MASK
+    cmatrix<bool> mask_3 = {{1, 0, 1}};
+    std::vector<std::pair<size_t, size_t>> expected_4 = {std::make_pair(0, 0),
+                                                         std::make_pair(0, 2),
+                                                         std::make_pair(1, 0),
+                                                         std::make_pair(1, 2),
+                                                         std::make_pair(2, 0),
+                                                         std::make_pair(2, 2)};
+    EXPECT_EQ(m.find_all(mask_3), expected_4);
+
+    // 3x3 MATRIX - WITH INVALID MASK
+    EXPECT_THROW(m.find_all(cmatrix<bool>(4, 2, 1)), std::invalid_argument);
+
+    // 3x1 MATRIX - WITH CELL MASK
+    cmatrix<int> m_2 = {{1}, {2}, {3}};
+    cmatrix<bool> mask_4 = {{1}, {0}, {1}};
+    std::vector<std::pair<size_t, size_t>> expected_5 = {std::make_pair(0, 0), std::make_pair(2, 0)};
+    EXPECT_EQ(m_2.find_all(mask_4), expected_5);
+
+    // 3x1 MATRIX - WITH ROW MASK
+    cmatrix<bool> mask_5 = {{1}, {0}, {1}};
+    EXPECT_EQ(m_2.find_all(mask_5), expected_5);
+
+    // 3x1 MATRIX - WITH COLUMN MASK
+    cmatrix<bool> mask_6 = {{1}};
+    std::vector<std::pair<size_t, size_t>> expected_6 = {std::make_pair(0, 0), std::make_pair(1, 0), std::make_pair(2, 0)};
+    EXPECT_EQ(m_2.find_all(mask_6), expected_6);
+
+    // 3x1 MATRIX - WITH COLUMN MASK - EMPTY
+    cmatrix<bool> mask_7 = {{0}};
+    EXPECT_EQ(m_2.find_all(mask_7), (std::vector<std::pair<size_t, size_t>>()));
 }
 
 /** Test mask method of cmatrix class */

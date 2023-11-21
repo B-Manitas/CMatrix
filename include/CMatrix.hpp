@@ -686,6 +686,20 @@ public:
      */
     std::vector<std::pair<size_t, size_t>> find_all(const T &val) const;
     /**
+     * @brief Find all cells matching the mask of another matrix.
+     *
+     * @param m The mask of the matrix. The dimensions of the mask must be:
+     *          - The same size of the matrix. Then, get the cells ids where the mask is true.
+     *          - The same WIDTH of the matrix. Then, get the cells ids where the mask is true for each ROW.
+     *          - The same HEIGHT of the matrix. Then, get the cells ids where the mask is true for each COLUMN.
+     * @return std::vector<std::pair<size_t, size_t>> The indexes (row, column) of the cells.
+     *
+     * @throw std::invalid_argument If the dimensions of the matrices are invalid.
+     *
+     * @ingroup manipulation
+     */
+    std::vector<std::pair<size_t, size_t>> find_all(const cmatrix<bool> &m) const;
+    /**
      * @brief Find all cells matching the condition.
      *
      * @param f The condition to satisfy. f(T value) -> bool
@@ -1565,9 +1579,9 @@ public:
     friend std::ostream &operator<<(std::ostream &out, const cmatrix<U> &m);
     /**
      * @brief The not operator.
-     * 
+     *
      * @return cmatrix<bool> The negated matrix.
-     * 
+     *
      * @ingroup operator
      */
     cmatrix<T> operator!() const;

@@ -162,6 +162,54 @@ std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const std::function<
 }
 
 template <class T>
+std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const cmatrix<bool> &m) const
+{
+    // To select indexes of the mask that are true in the mask
+    const bool &select_cells = m.height() == height() and m.width() == width();
+
+    // To select indexes of the rows that are true in the mask
+    const bool &select_rows = m.height() == height() and m.width() == 1;
+
+    // To select indexes of the columns that are true in the mask
+    const bool &select_cols = m.height() == 1 and m.width() == width();
+
+    if (select_cells or select_rows or select_cols)
+    {
+        std::vector<std::pair<size_t, size_t>> ids;
+        ids.reserve(m.sum_all());
+
+        // For each cell, check if the condition is satisfied
+        for (size_t row = 0; row < height(); row++)
+            for (size_t col = 0; col < width(); col++)
+            {
+                // Check if the current INDEX is true in the mask
+                const bool &cells = select_cells && m.cell(row, col);
+                
+                // Check if the current ROW is true in the mask
+                const bool &rows = select_rows && m.cell(row, 0);
+                
+                // Check if the current COLUMN is true in the mask
+                const bool &cols = select_cols && m.cell(0, col);
+
+                if (cells or rows or cols)
+                    ids.push_back(std::pair<size_t, size_t>(row, col));
+            }
+
+        return ids;
+    }
+
+    else
+        throw std::invalid_argument("The matrix must have the same size or one of the two dimensions must be 1. Actual: " +
+                                    std::to_string(height()) +
+                                    "x" +
+                                    std::to_string(width()) +
+                                    " and " +
+                                    std::to_string(m.height()) +
+                                    "x" +
+                                    std::to_string(m.width()));
+}
+
+template <class T>
 std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const T &val) const
 {
     return find_all([&](T e)
