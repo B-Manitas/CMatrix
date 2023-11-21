@@ -67,6 +67,53 @@ TEST(MatrixTest, Constructor)
 
 // ==================================================
 // GETTER METHODS
+
+/** Test get method of cmatrix class */
+TEST(MatrixTest, get)
+{
+    // 3x3 MATRIX - CELL
+    cmatrix<int> m = {{1, 2, 3},
+                      {4, 5, 6},
+                      {7, 8, 9}};
+    cmatrix<bool> mask = {{0, 1, 0},
+                         {1, 0, 1},
+                         {0, 1, 0}};
+    cmatrix<int> expected = {{2, 4, 6, 8}};
+    EXPECT_EQ(m.get(mask), expected);
+
+    // 3x3 MATRIX - ROW
+    cmatrix<bool> mask_row = {{1}, {0}, {1}};
+    cmatrix<int> expected_row = {{1, 2, 3}, {7, 8, 9}};
+    EXPECT_EQ(m.get(mask_row), expected_row);
+
+    // 3x3 MATRIX - COLUMN
+    cmatrix<bool> mask_column = {{0, 1, 0}};
+    cmatrix<int> expected_column = {{2}, {5}, {8}};
+    EXPECT_EQ(m.get(mask_column), expected_column);
+
+    // 3x3 MATRIX - INVALID MASK
+    cmatrix<bool> mask_invalid = {{0, 1, 0}, {1, 0, 1}};
+    EXPECT_THROW(m.get(mask_invalid), std::invalid_argument);
+
+    // ==============================
+
+    // 1x3 MATRIX - CELL
+    cmatrix<int> m_2 = {{1, 2, 3}};
+    cmatrix<bool> mask_2 = {{0, 1, 0}};
+    cmatrix<int> expected_2 = {{2}};
+    EXPECT_EQ(m_2.get(mask_2), expected_2);
+
+    // 1x3 MATRIX - ROW
+    cmatrix<bool> mask_row_2 = {{1}};
+    cmatrix<int> expected_row_2 = {{1, 2, 3}};
+    EXPECT_EQ(m_2.get(mask_row_2), expected_row_2);
+
+    // 1x3 MATRIX - COLUMN
+    cmatrix<bool> mask_column_2 = {{0, 1, 0}};
+    cmatrix<int> expected_column_2 = {{2}};
+    EXPECT_EQ(m_2.get(mask_column_2), expected_column_2);
+}
+
 /** Test rows_vec method of cmatrix class */
 TEST(MatrixTest, rows_vec)
 {

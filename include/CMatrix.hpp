@@ -283,9 +283,25 @@ public:
      */
     template <class U>
     cmatrix(const cmatrix<U> &m);
+    /**
+     * @brief Destroy the cmatrix object.
+     */
     ~cmatrix();
 
     // GETTER METHODS
+    /**
+     * @brief Get a submatrix of the matrix.
+     *
+     * @param m The mask of the matrix. The dimensions of the mask must be:
+     *          - The same size of the matrix. Then, get the cells where the mask is true. (return a row matrix)
+     *          - The same WIDTH of the matrix. Then, get the whole rows where the mask is true.
+     *          - The same HEIGHT of the matrix. Then, get the whole columns where the mask is true.
+     * @return cmatrix<T> The submatrix of the matrix.
+     *
+     * @ingroup getter
+     */
+    cmatrix<T> get(const cmatrix<bool> &m) const;
+
     /**
      * @brief Get a row of the matrix.
      *

@@ -13,6 +13,46 @@
 // GET METHODS
 
 template <class T>
+cmatrix<T> cmatrix<T>::get(const cmatrix<bool> &m) const
+{
+    const std::vector<std::pair<size_t, size_t>> &indexes = m.find_all(m);
+
+    // Get all cells where the matrix m is true
+    if (m.height() == height() and m.width() == width())
+        return cells(indexes);
+
+    // Get all rows where the matrix m is true
+    else if (m.height() == height() and m.width() == 1)
+    {
+        std::vector<size_t> indexes_rows(indexes.size());
+
+        // Iterate over the indexes and get the rows ids
+        for (size_t i = 0; i < indexes.size(); i++)
+            indexes_rows[i] = indexes[i].first;
+
+        return rows(indexes_rows);
+    }
+
+    // Get all columns where the matrix m is true
+    else if (m.height() == 1 and m.width() == width())
+    {
+        std::vector<size_t> indexes_columns(indexes.size());
+
+        // Iterate over the indexes and get the columns ids
+        for (size_t i = 0; i < indexes.size(); i++)
+            indexes_columns[i] = indexes[i].second;
+
+        return columns(indexes_columns);
+    }
+
+    else
+        throw std::invalid_argument("The matrix m must have the same dimensions of the matrix or a single row or a single column. Actual dimensions: " +
+                                    std::to_string(m.height()) +
+                                    "x" +
+                                    std::to_string(m.width()));
+}
+
+template <class T>
 std::vector<T> cmatrix<T>::rows_vec(const size_t &n) const
 {
     __check_valid_row_id(n);
