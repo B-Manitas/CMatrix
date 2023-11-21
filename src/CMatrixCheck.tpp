@@ -206,4 +206,11 @@ void cmatrix<T>::__check_expected_id(const size_t &n, const size_t &expected) co
     __check_expected_id(n, expected, expected);
 }
 
+template <class T>
+void cmatrix<T>::__check_valid_type() const
+{
+    if (std::is_same<T, bool>::value)
+        throw std::invalid_argument("The type " + std::string(typeid(T).name()) + " is not supported. Use 'cbool' instead.");
+}
+
 #endif // CMATRIX_CHECK_TPP

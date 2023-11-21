@@ -13,7 +13,7 @@
 // GET METHODS
 
 template <class T>
-cmatrix<T> cmatrix<T>::get(const cmatrix<bool> &m) const
+cmatrix<T> cmatrix<T>::get(const cmatrix<cbool> &m) const
 {
     const std::vector<std::pair<size_t, size_t>> &indexes = m.find_all(m);
 

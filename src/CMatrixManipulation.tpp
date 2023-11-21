@@ -162,7 +162,7 @@ std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const std::function<
 }
 
 template <class T>
-std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const cmatrix<bool> &m) const
+std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const cmatrix<cbool> &m) const
 {
     // To select indexes of the mask that are true in the mask
     const bool &select_cells = m.height() == height() and m.width() == width();
@@ -220,9 +220,9 @@ std::vector<std::pair<size_t, size_t>> cmatrix<T>::find_all(const T &val) const
 // MASK FUNCTIONS
 
 template <class T>
-cmatrix<bool> cmatrix<T>::mask(const std::function<bool(T)> &f) const
+cmatrix<cbool> cmatrix<T>::mask(const std::function<bool(T)> &f) const
 {
-    cmatrix<bool> res(height(), width(), false);
+    cmatrix<cbool> res(height(), width(), false);
 
     // For each cell, check if the condition is satisfied
     for (size_t row = 0; row < height(); row++)
@@ -233,13 +233,13 @@ cmatrix<bool> cmatrix<T>::mask(const std::function<bool(T)> &f) const
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::mask(const std::function<bool(T, T)> &f, const cmatrix<T> &m) const
+cmatrix<cbool> cmatrix<T>::mask(const std::function<bool(T, T)> &f, const cmatrix<T> &m) const
 {
     // Check if the matrices have the same size
     __check_size(m);
 
     // Create the result matrix
-    cmatrix<bool> res(height(), width(), false);
+    cmatrix<cbool> res(height(), width(), false);
 
     // For each cell, check if the condition is satisfied
     for (size_t row = 0; row < height(); row++)
@@ -249,86 +249,86 @@ cmatrix<bool> cmatrix<T>::mask(const std::function<bool(T, T)> &f, const cmatrix
     return res;
 }
 
-template <>
-cmatrix<bool> cmatrix<bool>::not_() const
+template <> inline
+cmatrix<cbool> cmatrix<cbool>::not_() const
 {
-    return map([](bool e)
+    return map([](cbool e)
                { return not e; });
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::eq(const cmatrix<T> &m) const
+cmatrix<cbool> cmatrix<T>::eq(const cmatrix<T> &m) const
 {
     return mask(std::equal_to<T>(), m);
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::eq(const T &val) const
+cmatrix<cbool> cmatrix<T>::eq(const T &val) const
 {
     return mask([val](T e)
                 { return e == val; });
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::neq(const cmatrix<T> &m) const
+cmatrix<cbool> cmatrix<T>::neq(const cmatrix<T> &m) const
 {
     return mask(std::not_equal_to<T>(), m);
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::neq(const T &val) const
+cmatrix<cbool> cmatrix<T>::neq(const T &val) const
 {
     return mask([val](T e)
                 { return e != val; });
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::leq(const cmatrix<T> &m) const
+cmatrix<cbool> cmatrix<T>::leq(const cmatrix<T> &m) const
 {
     return mask(std::less_equal<T>(), m);
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::leq(const T &val) const
+cmatrix<cbool> cmatrix<T>::leq(const T &val) const
 {
     return mask([val](T e)
                 { return e <= val; });
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::geq(const cmatrix<T> &m) const
+cmatrix<cbool> cmatrix<T>::geq(const cmatrix<T> &m) const
 {
     return mask(std::greater_equal<T>(), m);
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::geq(const T &val) const
+cmatrix<cbool> cmatrix<T>::geq(const T &val) const
 {
     return mask([val](T e)
                 { return e >= val; });
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::lt(const cmatrix<T> &m) const
+cmatrix<cbool> cmatrix<T>::lt(const cmatrix<T> &m) const
 {
     return mask(std::less<T>(), m);
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::lt(const T &val) const
+cmatrix<cbool> cmatrix<T>::lt(const T &val) const
 {
     return mask([val](T e)
                 { return e < val; });
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::gt(const cmatrix<T> &m) const
+cmatrix<cbool> cmatrix<T>::gt(const cmatrix<T> &m) const
 {
     return mask(std::greater<T>(), m);
 }
 
 template <class T>
-cmatrix<bool> cmatrix<T>::gt(const T &val) const
+cmatrix<cbool> cmatrix<T>::gt(const T &val) const
 {
     return mask([val](T e)
                 { return e > val; });
