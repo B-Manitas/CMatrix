@@ -149,6 +149,14 @@ cmatrix<T> cmatrix<T>::cells(const std::vector<std::pair<size_t, size_t>> &ids) 
 }
 
 template <class T>
+T &cmatrix<T>::cell(const size_t &row, const size_t &col)
+{
+    __check_valid_row_id(row);
+    __check_valid_col_id(col);
+    return matrix[row][col];
+}
+
+template <class T>
 T cmatrix<T>::cell(const size_t &row, const size_t &col) const
 {
     __check_valid_row_id(row);
@@ -231,8 +239,8 @@ cmatrix<T> cmatrix<T>::transpose() const
     // Create a new matrix with the inverted dimensions
     cmatrix<T> m(width(), height());
 
-    // Swap the rows and the columns
-    #pragma omp parallel for collapse(2)
+// Swap the rows and the columns
+#pragma omp parallel for collapse(2)
     for (size_t r = 0; r < height(); r++)
         for (size_t c = 0; c < width(); c++)
             m.set_cell(c, r, cell(r, c));

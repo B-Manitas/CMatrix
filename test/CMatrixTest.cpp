@@ -255,6 +255,19 @@ TEST(MatrixTest, cell)
     EXPECT_EQ(m.cell(0, 1), 2);
     EXPECT_EQ(m.cell(1, 0), 4);
 
+    // 3x1 MATRIX - REFERENCE
+    cmatrix<int> m_2 = {{1}, {2}, {3}};
+    m_2.cell(0, 0) = 10;
+    EXPECT_EQ(m_2.cell(0, 0), 10);
+    EXPECT_EQ(m_2.cell(1, 0), 2);
+    EXPECT_EQ(m_2.cell(2, 0), 3);
+
+    cmatrix<cbool> m_bool = {{1}, {0}, {1}};
+    m_bool.cell(0, 0) = 0;
+    EXPECT_EQ(m_bool.cell(0, 0), 0);
+    EXPECT_EQ(m_bool.cell(1, 0), 0);
+    EXPECT_EQ(m_bool.cell(2, 0), 1);
+
     // OUT OF RANGE - ROW
     EXPECT_THROW(m.cell(3, 0), std::out_of_range);
 

@@ -431,6 +431,17 @@ public:
      */
     cmatrix<T> cells(const std::vector<std::pair<size_t, size_t>> &ids) const;
     /**
+     * @brief Get the reference to a cell of the matrix.
+     *
+     * @param row The row of the cell to get.
+     * @param col The column of the cell to get.
+     * @return T The cell.
+     * @throw std::out_of_range If the index is out of range.
+     *
+     * @ingroup getter
+     */
+    T &cell(const size_t &row, const size_t &col);
+    /**
      * @brief Get a cell of the matrix.
      *
      * @param row The row of the cell to get.
