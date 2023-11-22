@@ -58,7 +58,9 @@ int main()
     return 0;
 }
 
->>> "[[18, 9], [5, 22], [20, 13]]"
+// TERMINAL
+$ g++ -std=c++11 -fopenmp main.cpp -o main
+> "[[18, 9], [5, 22], [20, 13]]"
 ```
 
 ## Hierarchical Structure
@@ -68,7 +70,8 @@ CMatrix is structured as follows:
 | Class                                                        | Description                                                                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | include                                                      |                                                                                             |
-| [`CMatrix.hpp`](include/CMatrix.hpp)                         | The main template class that can work with any data type.                       |
+| [`CBool.hpp`](include/CBool.hpp)                             | The class that represents a boolean matrix.                                                 |
+| [`CMatrix.hpp`](include/CMatrix.hpp)                         | The main template class that can work with any data type.                                   |
 | src                                                          |                                                                                             |
 | [`CMatrix.tpp`](include/CMatrix.tpp)                         | General methods of the class.                                                               |
 | [`CMatrixConstructors.hpp`](include/CMatrixConstructors.tpp) | Implementation of class constructors.                                                       |
