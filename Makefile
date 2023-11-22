@@ -56,8 +56,7 @@ docs :
 	doxygen doxygen.conf
 	cd docs/latex && make pdf
 	cd ../..
-	mv docs/latex/refman.pdf cmatrix.pdf
-	mv cmatrix.pdf docs
+	mv docs/latex/refman.pdf docs/cmatrix.pdf
 	clear
 
 .PHONY : all test main clean_obj clean_exe clean docs benchmark profiler

@@ -86,7 +86,7 @@ private:
     /**
      * @brief Check if the row is a valid row index of the matrix.
      *
-     * @param row The row index to check.
+     * @param n The row index to check.
      * @throw std::invalid_argument If the row is not a valid row index of the matrix.
      *
      * @ingroup check
@@ -95,7 +95,7 @@ private:
     /**
      * @brief Check if the column is a valid column index of the matrix.
      *
-     * @param col The column index to check.
+     * @param n The column index to check.
      * @throw std::invalid_argument If the column is not a valid column index of the matrix.
      *
      * @ingroup check
@@ -144,7 +144,7 @@ private:
      *
      * @ingroup statistic
      */
-    cmatrix<float> __mean(const unsigned int &axis, std::true_type) const;
+    cmatrix<float> __mean(const unsigned int &axis, std::true_type true_type) const;
     /**
      * @brief Compute the mean value for each row (axis: 0) or column (axis: 1) of the matrix.
      * This method is used when the type of the matrix is not arithmetic.
@@ -156,7 +156,7 @@ private:
      * @ingroup statistic
      *
      */
-    cmatrix<float> __mean(const unsigned int &axis, std::false_type) const;
+    cmatrix<float> __mean(const unsigned int &axis, std::false_type false_type) const;
     /**
      * @brief Compute the std value for each row (axis: 0) or column (axis: 1) of the matrix.
      * This method is used when the type of the matrix is arithmetic.
@@ -169,7 +169,7 @@ private:
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
      */
-    cmatrix<float> __std(const unsigned int &axis, std::true_type) const;
+    cmatrix<float> __std(const unsigned int &axis, std::true_type true_type) const;
     /**
      * @brief Compute the std value for each row (axis: 0) or column (axis: 1) of the matrix.
      * This method is used when the type of the matrix is not arithmetic.
@@ -180,7 +180,7 @@ private:
      *
      * @ingroup statistic
      */
-    cmatrix<float> __std(const unsigned int &axis, std::false_type) const;
+    cmatrix<float> __std(const unsigned int &axis, std::false_type false_type) const;
     /**
      * @brief Apply a operator to each cell of the matrix.
      *
@@ -215,7 +215,7 @@ private:
      * @ingroup general
      */
     template <class U>
-    cmatrix<U> __cast(std::true_type) const;
+    cmatrix<U> __cast(std::true_type true_type) const;
     /**
      * @brief Convert the matrix to a matrix of another type.
      *
@@ -226,7 +226,7 @@ private:
      * @ingroup general
      */
     template <class U>
-    cmatrix<U> __cast(std::false_type) const;
+    cmatrix<U> __cast(std::false_type false_type) const;
     /**
      * @brief Convert the matrix to a string matrix.
      *
@@ -236,7 +236,7 @@ private:
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
-    cmatrix<std::string> __to_string(std::true_type) const;
+    cmatrix<std::string> __to_string(std::true_type true_type) const;
     /**
      * @brief Convert the matrix to a string matrix.
      *
@@ -245,7 +245,7 @@ private:
      *
      * @ingroup general
      */
-    cmatrix<std::string> __to_string(std::false_type) const;
+    cmatrix<std::string> __to_string(std::false_type false_type) const;
 
 public:
     // CONSTRUCTOR METHODS
@@ -255,6 +255,11 @@ public:
      * @param m The matrix to copy.
      * @throw std::invalid_argument If the initializer list is not a matrix.
      * @throw std::invalid_argument If the type is bool.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * > [[1, 2], [3, 4]]
+     * @endcode
      */
     cmatrix(const std::initializer_list<std::initializer_list<T>> &m);
     /**
@@ -263,12 +268,22 @@ public:
      * @param m The vector matrix.
      * @throw std::invalid_argument If the vector is not a matrix.
      * @throw std::invalid_argument If the type is bool.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * > [[1, 2], [3, 4]]
+     * @endcode
      */
     cmatrix(const std::vector<std::vector<T>> &m);
     /**
      * @brief Construct a new cmatrix object.
      *
      * @throw std::invalid_argument If the type is bool.
+     *
+     * @code
+     * $ cmatrix<int> m;
+     * > []
+     * @endcode
      */
     cmatrix();
     /**
@@ -277,6 +292,11 @@ public:
      * @param height The number of rows.
      * @param width The number of columns.
      * @throw std::invalid_argument If the type is bool.
+     *
+     * @code
+     * $ cmatrix<int> m(2, 2);
+     * > [[0, 0], [0, 0]]
+     * @endcode
      */
     cmatrix(const size_t &height, const size_t &width);
     /**
@@ -286,6 +306,11 @@ public:
      * @param width The number of columns.
      * @param val The value to fill the matrix.
      * @throw std::invalid_argument If the type is bool.
+     *
+     * @code
+     * $ cmatrix<int> m(2, 2, 1);
+     * > [[1, 1], [1, 1]]
+     * @endcode
      */
     cmatrix(const size_t &height, const size_t &width, const T &val);
     /**
@@ -294,6 +319,12 @@ public:
      * @param m The matrix to copy.
      * @tparam U The type of the matrix to copy.
      * @throw std::invalid_argument If the type is bool.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<float> n(m);
+     * > n = [[1.0, 2.0], [3.0, 4.0]]
+     * @endcode
      */
     template <class U>
     cmatrix(const cmatrix<U> &m);
@@ -312,6 +343,27 @@ public:
      *          - The same HEIGHT of the matrix. Then, get the whole columns where the mask is true.
      * @return cmatrix<T> The submatrix of the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<bool> mask = {{true, false}, {false, true}};
+     * > m.get(mask);
+     * > [[1, 0], [0, 4]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<bool> mask = {{true, false}}
+     * $ m.get(mask);
+     * > [[1], [3]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<bool> mask = {{true}, {false}}
+     * $ m.get(mask);
+     * > [[1, 2]]
+     * @endcode
+     *
      * @ingroup getter
      */
     cmatrix<T> get(const cmatrix<cbool> &m) const;
@@ -322,7 +374,12 @@ public:
      * @param n The index of the row to get.
      * @return std::vector<T> The row.
      * @throw std::out_of_range If the index is out of range.
-     * @deprecated Use `rows` instead.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.rows_vec(0);
+     * > [1, 2]
+     * @endcode
      *
      * @ingroup getter
      */
@@ -333,7 +390,12 @@ public:
      * @param n The index of the column to get.
      * @return std::vector<T> The column as a flattened vector.
      * @throw std::out_of_range If the index is out of range.
-     * @deprecated Use `columns` instead.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.columns_vec(0);
+     * > [1, 3]
+     * @endcode
      *
      * @ingroup getter
      */
@@ -346,6 +408,12 @@ public:
      * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.rows(1);
+     * > [[3, 4]]
+     * @endcode
+     *
      * @ingroup getter
      */
     cmatrix<T> rows(const size_t &ids) const;
@@ -355,6 +423,12 @@ public:
      * @param ids The indexes of the rows to get.
      * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.rows({0, 1});
+     * > [[1, 2], [3, 4]]
+     * @endcode
      *
      * @ingroup getter
      */
@@ -366,6 +440,12 @@ public:
      * @return cmatrix<T> The rows of the matrix.
      * @throw std::out_of_range If the index is out of range.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.rows({0, 1});
+     * > [[1, 2], [3, 4]]
+     * @endcode
+     *
      * @ingroup getter
      */
     cmatrix<T> rows(const std::vector<size_t> &ids) const;
@@ -375,6 +455,12 @@ public:
      * @param ids The indexes of the columns to get.
      * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.columns(1);
+     * > [[2], [4]]
+     * @endcode
      *
      * @ingroup getter
      */
@@ -386,6 +472,12 @@ public:
      * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.columns({0, 1});
+     * > [[1, 2], [3, 4]]
+     * @endcode
+     *
      * @ingroup getter
      */
     cmatrix<T> columns(const std::initializer_list<size_t> &ids) const;
@@ -395,6 +487,12 @@ public:
      * @param ids The indexes of the columns to get.
      * @return cmatrix<T> The columns of the matrix.
      * @throw std::out_of_range If the index is out of range.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.columns({0, 1});
+     * > [[1, 2], [3, 4]]
+     * @endcode
      *
      * @ingroup getter
      */
@@ -407,6 +505,12 @@ public:
      * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.cells(0, 0);
+     * > [[1]]
+     * @endcode
+     *
      * @ingroup getter
      */
     cmatrix<T> cells(const size_t &row, const size_t &col) const;
@@ -417,6 +521,12 @@ public:
      * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.cells({{0, 0}, {1, 1}});
+     * > [[1, 4]]
+     * @endcode
+     *
      * @ingroup getter
      */
     cmatrix<T> cells(const std::initializer_list<std::pair<size_t, size_t>> &ids) const;
@@ -426,6 +536,12 @@ public:
      * @param ids The indexes of the cells to get. (row, column)
      * @return cmatrix<T> The cells of the matrix.
      * @throw std::out_of_range If the index is out of range.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.cells({{0, 0}, {1, 1}});
+     * > [[1, 4]]
+     * @endcode
      *
      * @ingroup getter
      */
@@ -438,6 +554,12 @@ public:
      * @return T The cell.
      * @throw std::out_of_range If the index is out of range.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.cell(0, 0) = 5;
+     * > [[5, 2], [3, 4]]
+     * @endcode
+     *
      * @ingroup getter
      */
     T &cell(const size_t &row, const size_t &col);
@@ -448,6 +570,12 @@ public:
      * @param col The column of the cell to get.
      * @return T The cell.
      * @throw std::out_of_range If the index is out of range.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.cell(0, 0);
+     * > 1
+     * @endcode
      *
      * @ingroup getter
      */
@@ -461,6 +589,12 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the start index is greater than the end index.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}, {5, 6}};
+     * $ m.slice_rows(0, 1);
+     * > [[1, 2], [3, 4]]
+     * @endcode
+     *
      * @ingroup getter
      */
     cmatrix<T> slice_rows(const size_t &start, const size_t &end) const;
@@ -473,6 +607,12 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the start index is greater than the end index.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2, 3}, {4, 5, 6}};
+     * $ m.slice_columns(0, 1);
+     * > [[1, 2], [4, 5]]
+     * @endcode
+     *
      * @ingroup getter
      */
     cmatrix<T> slice_columns(const size_t &start, const size_t &end) const;
@@ -482,6 +622,12 @@ public:
      *
      * @return size_t The number of columns.
      *
+     * @code
+     * $ cmatrix<int> m = {{1}, {2}};
+     * $ m.width();
+     * > 1
+     * @endcode
+     *
      * @ingroup getter
      */
     size_t width() const;
@@ -489,6 +635,12 @@ public:
      * @brief The number of rows of the matrix.
      *
      * @return size_t The number of rows.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1}, {2}};
+     * $ m.height();
+     * > 2
+     * @endcode
      *
      * @ingroup getter
      */
@@ -498,24 +650,42 @@ public:
      *
      * @return std::pair<size_t, size_t> The number of rows and columns.
      *
+     * @code
+     * $ cmatrix<int> m = {{1}, {2}};
+     * $ m.size();
+     * > (2, 1)
+     * @endcode
+     *
      * @ingroup getter
      */
     std::pair<size_t, size_t> size() const;
     /**
-     * @brief The number of cells of the matrix.
+     * @brief The number of columns of the matrix.
      *
-     * @tparam U The type of the number of cells.
-     * @return size_t The number of cells.
+     * @tparam U The type of the number.
+     * @return size_t The number of columns.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1}, {2}};
+     * $ m.width_t<float>();
+     * > 1.0f
+     * @endcode
      *
      * @ingroup getter
      */
     template <class U>
     U width_t() const;
     /**
-     * @brief The number of cells of the matrix.
+     * @brief The number of rows of the matrix.
      *
-     * @tparam U The type of the number of cells.
-     * @return size_t The number of cells.
+     * @tparam U The type of the number.
+     * @return size_t The number of rows.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1}, {2}};
+     * $ m.height_t<float>();
+     * > 1.0f
+     * @endcode
      *
      * @ingroup getter
      */
@@ -527,6 +697,12 @@ public:
      *
      * @return cmatrix<T> The transpose of the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.transpose();
+     * > [[1, 3], [2, 4]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup getter
      */
@@ -535,6 +711,12 @@ public:
      * @brief Get the diagonal of the matrix.
      *
      * @return std::vector<T> The diagonal of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.diag();
+     * > [1, 4]
+     * @endcode
      *
      * @ingroup getter
      */
@@ -549,6 +731,12 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of columns of the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.set_row(0, {5, 6});
+     * > [[5, 6], [3, 4]]
+     * @endcode
+     *
      * @note The row must be a vector of the same type of the matrix.
      * @ingroup setter
      */
@@ -560,6 +748,12 @@ public:
      * @param val The value to set.
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of rows of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.set_column(0, {5, 6});
+     * > [[5, 2], [6, 4]]
+     * @endcode
      *
      * @note The column must be a vector of the same type of the matrix.
      * @ingroup setter
@@ -573,6 +767,12 @@ public:
      * @param val The value to set.
      * @throw std::out_of_range If the index is out of range.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.set_cell(0, 0, 5);
+     * > [[5, 2], [3, 4]]
+     * @endcode
+     *
      * @note The cell must be of the same type of the matrix.
      * @ingroup setter
      */
@@ -582,6 +782,12 @@ public:
      *
      * @param val The diagonal to set.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the minimum of the number of rows and columns of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.set_diag({5, 6});
+     * > [[5, 2], [3, 6]]
+     * @endcode
      *
      * @note The diagonal must be a vector of the same type of the matrix.
      * @ingroup setter
@@ -597,6 +803,12 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of rows of the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.insert_column(0, {5, 6});
+     * > [[5, 1, 2], [6, 3, 4]]
+     * @endcode
+     *
      * @note The column must be a vector of the same type of the matrix.
      * @ingroup manipulation
      */
@@ -609,6 +821,12 @@ public:
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of columns of the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.insert_row(0, {5, 6});
+     * > [[5, 6], [1, 2], [3, 4]]
+     * @endcode
+     *
      * @note The row must be a vector of the same type of the matrix.
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup manipulation
@@ -620,6 +838,12 @@ public:
      * @param val The row to push.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of columns of the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.push_row_front({5, 6});
+     * > [[5, 6], [1, 2], [3, 4]]
+     * @endcode
+     *
      * @note The row must be a vector of the same type of the matrix.
      * @ingroup manipulation
      */
@@ -629,6 +853,12 @@ public:
      *
      * @param val The row to push.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of columns of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.push_row_back({5, 6});
+     * > [[1, 2], [3, 4], [5, 6]]
+     * @endcode
      *
      * @note The row must be a vector of the same type of the matrix.
      * @ingroup manipulation
@@ -641,6 +871,12 @@ public:
      * @param val The column to push.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of rows of the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.push_col_front({5, 6});
+     * > [[5, 1, 2], [6, 3, 4]]
+     * @endcode
+     *
      * @note The column must be a vector of the same type of the matrix.
      * @ingroup manipulation
      */
@@ -651,16 +887,28 @@ public:
      * @param val The column to push.
      * @throw std::invalid_argument If the size of the vector `val` is not equal to the number of rows of the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.push_col_back({5, 6});
+     * > [[1, 2, 5], [3, 4, 6]]
+     * @endcode
+     *
      * @note The column must be a vector of the same type of the matrix.
      * @ingroup manipulation
      */
     void push_col_back(const std::vector<T> &val);
 
     /**
-     * @bried Find the first row matching the condition.
+     * @brief Find the first row matching the condition.
      *
      * @param f The condition to satisfy. f(std::vector<T> row) -> bool
      * @return int The first index of the row. -1 if not found.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.find_row([](std::vector<int> row) { return row[0] == 1; });
+     * > 0
+     * @endcode
      *
      * @note The empty matrix always return -1.
      * @ingroup manipulation
@@ -672,6 +920,12 @@ public:
      * @param val The row to find.
      * @return int The first index of the row. -1 if not found.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.find_row({1, 2});
+     * > 0
+     * @endcode
+     *
      * @note The row must be a vector of the same type of the matrix.
      * @ingroup manipulation
      */
@@ -681,6 +935,12 @@ public:
      *
      * @param f The condition to satisfy. f(std::vector<T> col) -> bool
      * @return int The first index of the column. -1 if not found.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.find_column([](std::vector<int> col) { return col[0] == 1; });
+     * > 0
+     * @endcode
      *
      * @note The empty matrix always return -1.
      * @ingroup manipulation
@@ -692,6 +952,12 @@ public:
      * @param val The column to find.
      * @return int The first index of the row. -1 if not found.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.find_column({1, 2});
+     * > 0
+     * @endcode
+     *
      * @note The column must be a vector of the same type of the matrix.
      * @ingroup manipulation
      */
@@ -701,6 +967,12 @@ public:
      *
      * @param f The condition to satisfy. f(T value) -> bool
      * @return std::pair<int, int> The first index (row, column) of the cell. (-1, -1) if not found.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.find([](int value) { return value == 1; });
+     * > (0, 0)
+     * @endcode
      *
      * @note The empty matrix always return (-1, -1).
      * @ingroup manipulation
@@ -712,6 +984,12 @@ public:
      * @param val The cell to find.
      * @return std::pair<int, int> The first index (row, column) of the cell. (-1, -1) if not found.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.find(1);
+     * > (0, 0)
+     * @endcode
+     *
      * @note The cell must be of the same type of the matrix.
      * @ingroup manipulation
      */
@@ -721,6 +999,12 @@ public:
      *
      * @param val The value to find.
      * @return std::vector<std::pair<size_t, size_t>> The indexes (row, column) of the cells.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.find_all(1);
+     * > [(0, 0)]
+     * @endcode
      *
      * @note The empty matrix always return an empty vector.
      * @ingroup manipulation
@@ -737,6 +1021,27 @@ public:
      *
      * @throw std::invalid_argument If the dimensions of the matrices are invalid.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<bool> mask = {{true, false}, {false, true}};
+     * $ m.find_all(mask);
+     * > [(0, 0), (1, 1)]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<bool> mask = {{true, false}};
+     * $ m.find_all(mask);
+     * > [(0, 0), (0, 1)]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<bool> mask = {{true}, {false}};
+     * $ m.find_all(mask);
+     * > [(0, 0), (1, 0)]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     std::vector<std::pair<size_t, size_t>> find_all(const cmatrix<cbool> &m) const;
@@ -745,6 +1050,12 @@ public:
      *
      * @param f The condition to satisfy. f(T value) -> bool
      * @return std::vector<std::pair<size_t, size_t>> The indexes (row, column) of the cells.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.find_all([](int value) { return value == 1; });
+     * > [(0, 0)]
+     * @endcode
      *
      * @note The empty matrix always return an empty vector.
      * @ingroup manipulation
@@ -755,6 +1066,12 @@ public:
      *
      * @param f The condition to satisfy. f(T value) -> bool
      * @return cmatrix<cbool> The mask of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.mask([](int value) { return value == 1; });
+     * > [[true, false], [false, false]]
+     * @endcode
      *
      * @ingroup manipulation
      */
@@ -768,6 +1085,13 @@ public:
      *
      * @throw std::invalid_argument If the dimensions of the matrices are not equals.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<int> mask = {{1, 0}, {0, 1}};
+     * $ m.mask([](int a, int b) { return a == b; }, mask);
+     * > [[true, false], [false, true]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     cmatrix<cbool> mask(const std::function<bool(T, T)> &f, const cmatrix<T> &m) const;
@@ -776,7 +1100,13 @@ public:
      *
      * @return cmatrix<cbool> The negated mask of the matrix.
      *
-     * @note The type of the matrix must be bool.
+     * @code
+     * $ cmatrix<int> mask = {{true, false}, {false, true}};
+     * $ mask.not_();
+     * > [[false, true], [true, false]]
+     * @endcode
+     *
+     * @note The type of the matrix must be cbool.
      * @ingroup manipulation
      */
     cmatrix<cbool> not_() const;
@@ -787,6 +1117,12 @@ public:
      * @return cmatrix<cbool> The mask of the matrix.
      * @throw std::invalid_argument If the dimensions of the matrices are not equals.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.eq({{1, 2}, {2, 4}});
+     * > [[true, true], [false, true]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     cmatrix<cbool> eq(const cmatrix<T> &m) const;
@@ -795,6 +1131,12 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<cbool> The mask of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.eq(1);
+     * > [[true, false], [false, false]]
+     * @endcode
      *
      * @ingroup manipulation
      */
@@ -806,6 +1148,12 @@ public:
      * @return cmatrix<cbool> The mask of the matrix.
      * @throw std::invalid_argument If the dimensions of the matrices are not equals.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.neq({{1, 2}, {2, 4}});
+     * > [[false, false], [true, false]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     cmatrix<cbool> neq(const cmatrix<T> &m) const;
@@ -814,6 +1162,12 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<cbool> The mask of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.neq(1);
+     * > [[false, true], [true, true]]
+     * @endcode
      *
      * @ingroup manipulation
      */
@@ -825,6 +1179,12 @@ public:
      * @return cmatrix<cbool> The mask of the matrix.
      * @throw std::invalid_argument If the dimensions of the matrices are not equals.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.leq({{1, 2}, {2, 4}});
+     * > [[true, true], [true, true]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     cmatrix<cbool> leq(const cmatrix<T> &m) const;
@@ -833,6 +1193,12 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<cbool> The mask of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.leq(1);
+     * > [[true, false], [false, false]]
+     * @endcode
      *
      * @ingroup manipulation
      */
@@ -844,6 +1210,12 @@ public:
      * @return cmatrix<cbool> The mask of the matrix.
      * @throw std::invalid_argument If the dimensions of the matrices are not equals.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.geq({{1, 2}, {2, 4}});
+     * > [[true, true], [true, true]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     cmatrix<cbool> geq(const cmatrix<T> &m) const;
@@ -852,6 +1224,12 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<cbool> The mask of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.geq(1);
+     * > [[true, true], [true, true]]
+     * @endcode
      *
      * @ingroup manipulation
      */
@@ -863,6 +1241,12 @@ public:
      * @return cmatrix<cbool> The mask of the matrix.
      * @throw std::invalid_argument If the dimensions of the matrices are not equals.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.lt({{1, 2}, {2, 4}});
+     * > [[false, false], [false, false]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     cmatrix<cbool> lt(const cmatrix<T> &m) const;
@@ -871,6 +1255,12 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<cbool> The mask of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.lt(1);
+     * > [[false, false], [false, false]]
+     * @endcode
      *
      * @ingroup manipulation
      */
@@ -882,6 +1272,12 @@ public:
      * @return cmatrix<cbool> The mask of the matrix.
      * @throw std::invalid_argument If the dimensions of the matrices are not equals.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.gt({{1, 2}, {2, 4}});
+     * > [[false, false], [true, false]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     cmatrix<cbool> gt(const cmatrix<T> &m) const;
@@ -890,6 +1286,12 @@ public:
      *
      * @param val The value to compare.
      * @return cmatrix<cbool> The mask of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.gt(1);
+     * > [[false, true], [true, true]]
+     * @endcode
      *
      * @ingroup manipulation
      */
@@ -901,6 +1303,13 @@ public:
      * @param n The index of the row to remove.
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the matrix is empty.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.remove_row(0);
+     * > [[3, 4]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     void remove_row(const size_t &n);
@@ -910,6 +1319,13 @@ public:
      * @param n The index of the column to remove.
      * @throw std::out_of_range If the index is out of range.
      * @throw std::invalid_argument If the matrix is empty.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.remove_column(0);
+     * > [[2], [4]]
+     * @endcode
+     *
      * @ingroup manipulation
      */
     void remove_column(const size_t &n);
@@ -920,6 +1336,12 @@ public:
      * @param axis The axis to concatenate. 0 for the rows, 1 for the columns. (default: 0)
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * @throw std::invalid_argument If the dimensions of matrices are not equals.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.concatenate({{5, 6}, {7, 8}});
+     * > [[1, 2], [3, 4], [5, 6], [7, 8]]
+     * @endcode
      *
      * @ingroup manipulation
      */
@@ -932,6 +1354,12 @@ public:
      * @return true If the matrix is empty.
      * @return false If the matrix is not empty.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.is_empty();
+     * > false
+     * @endcode
+     *
      * @ingroup check
      */
     bool is_empty() const;
@@ -940,6 +1368,18 @@ public:
      *
      * @return true If the matrix is a square matrix.
      * @return false If the matrix is not a square matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.is_square();
+     * > true
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}, {5, 6}};
+     * $ m.is_square();
+     * > false
+     * @endcode
      *
      * @ingroup check
      */
@@ -950,6 +1390,18 @@ public:
      * @return true If the matrix is a diagonal matrix.
      * @return false If the matrix is not a diagonal matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.is_diag();
+     * > false
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 0}, {0, 4}};
+     * $ m.is_diag();
+     * > true
+     * @endcode
+     *
      * @ingroup check
      */
     bool is_diag() const;
@@ -958,6 +1410,18 @@ public:
      *
      * @return true If the matrix is the identity matrix.
      * @return false If the matrix is not the identity matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.is_identity();
+     * > false
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 0}, {0, 1}};
+     * $ m.is_identity();
+     * > true
+     * @endcode
      *
      * @ingroup check
      */
@@ -968,6 +1432,18 @@ public:
      * @return true If the matrix is a symmetric matrix.
      * @return false If the matrix is not a symmetric matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.is_symetric();
+     * > false
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {2, 4}};
+     * $ m.is_symetric();
+     * > true
+     * @endcode
+     *
      * @ingroup check
      */
     bool is_symetric() const;
@@ -976,6 +1452,18 @@ public:
      *
      * @return true If the matrix is an upper triangular matrix.
      * @return false If the matrix is not an upper triangular matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.is_triangular_up();
+     * > false
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {0, 4}};
+     * $ m.is_triangular_up();
+     * > true
+     * @endcode
      *
      * @ingroup check
      */
@@ -986,6 +1474,18 @@ public:
      * @return true If the matrix is a lower triangular matrix.
      * @return false If the matrix is not a lower triangular matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.is_triangular_low();
+     * > false
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 0}, {3, 4}};
+     * $ m.is_triangular_low();
+     * > true
+     * @endcode
+     *
      * @ingroup check
      */
     bool is_triangular_low() const;
@@ -995,6 +1495,12 @@ public:
      * @param f The condition to satisfy. f(T value) -> bool
      * @return true If all the cells satisfy the condition.
      * @return false If at least one cell does not satisfy the condition.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.all([](int value) { return value == 1; });
+     * > false
+     * @endcode
      *
      * @note The empty matrix always return true.
      * @ingroup check
@@ -1007,6 +1513,12 @@ public:
      * @return true If all the cells are equal to the value.
      * @return false If at least one cell is not equal to the value.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.all(1);
+     * > false
+     * @endcode
+     *
      * @note The empty matrix always return true.
      * @ingroup check
      */
@@ -1018,6 +1530,12 @@ public:
      * @return true If at least one cell satisfy the condition.
      * @return false If all the cells does not satisfy the condition.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.any([](int value) { return value == 1; });
+     * > true
+     * @endcode
+     *
      * @note The empty matrix always return false.
      * @ingroup check
      */
@@ -1028,6 +1546,12 @@ public:
      * @param val The value to check.
      * @return true If at least one cell is equal to the value.
      * @return false If all the cells are not equal to the value.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.any(1);
+     * > true
+     * @endcode
      *
      * @note The empty matrix always return false.
      * @ingroup check
@@ -1042,6 +1566,18 @@ public:
      * @return cmatrix<T> The minimum value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.min(0);
+     * > [[1], [3]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.min(1);
+     * > [[1, 2]]
+     * @endcode
+     *
      * @note The type of the matrix must implement the operator <.
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
@@ -1052,6 +1588,12 @@ public:
      *
      * @return T The minimum value of all the elements of the matrix.
      * @throw std::invalid_argument If the matrix is empty.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.min_all();
+     * > 1
+     * @endcode
      *
      * @note The type of the matrix must implement the operator <.
      * @ingroup statistic
@@ -1064,6 +1606,18 @@ public:
      * @return cmatrix<T> The maximum value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.max(0);
+     * > [[3], [4]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.max(1);
+     * > [[2, 4]]
+     * @endcode
+     *
      * @note The type of the matrix must implement the operator >.
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
@@ -1074,6 +1628,12 @@ public:
      *
      * @return T The maximum value of all the elements of the matrix.
      * @throw std::invalid_argument If the matrix is empty.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.max_all();
+     * > 4
+     * @endcode
      *
      * @note The type of the matrix must implement the operator >.
      * @ingroup statistic
@@ -1087,6 +1647,18 @@ public:
      * @return cmatrix<T> The sum of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.sum(0);
+     * > [[4], [6]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.sum(1);
+     * > [[3, 7]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
      */
@@ -1096,6 +1668,12 @@ public:
      *
      * @param zero The zero value of the sum. (default: the value of the default constructor of the type T)
      * @return T The sum of all the elements of the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.sum_all();
+     * > 10
+     * @endcode
      *
      * @ingroup statistic
      */
@@ -1107,6 +1685,18 @@ public:
      * @return cmatrix<float> The mean value for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
      * @throw std::invalid_argument If the matrix is not arithmetic.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.mean(0);
+     * > [[1.5], [3.5]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.mean(1);
+     * > [[2, 3]]
+     * @endcode
      *
      * @note The matrix must be of arithmetic type.
      * @ingroup statistic
@@ -1121,6 +1711,18 @@ public:
      * @throw std::invalid_argument If the matrix is not arithmetic.
      * @throw std::invalid_argument If the number of elements is less than 2 for the axis.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.std(0);
+     * > [[0.5], [0.5]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.std(1);
+     * > [[1, 1]]
+     * @endcode
+     *
      * @note The matrix must be of arithmetic type.
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup statistic
@@ -1132,6 +1734,18 @@ public:
      * @param axis The axis to get the median value. 0 for the rows, 1 for the columns. (default: 0)
      * @return cmatrix<T> The median value of the matrix for each row or column of the matrix.
      * @throw std::invalid_argument If the axis is not 0 or 1.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.median(0);
+     * > [[1], [4]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.median(1);
+     * > [[3, 4]]
+     * @endcode
      *
      * @note The matrix must implement the operator <.
      * @note If the number of elements is even, the median is the smallest value of the two middle values.
@@ -1149,6 +1763,12 @@ public:
      * @return true If the matrix is near the matrix `val`.
      * @return false If the matrix is not near the matrix `val`.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.near({{1, 2}, {2, 4}});
+     * > [[true, true], [false, true]]
+     * @endcode
+     *
      * @ingroup math
      */
     bool near(const cmatrix<T> &val, const T &tolerance = 1e-5) const;
@@ -1159,6 +1779,12 @@ public:
      * @param tolerance The tolerance of the test. (default: 1e-5)
      * @return true If the matrix is near the value `val`.
      * @return false If the matrix is not near the value `val`.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.near(1);
+     * > [[true, false], [false, false]]
+     * @endcode
      *
      * @ingroup math
      */
@@ -1171,6 +1797,12 @@ public:
      * @return true If the matrix is not near the matrix `val`.
      * @return false If the matrix is near the matrix `val`.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.nearq({{1, 2}, {2, 4}});
+     * > [[true, false], [false, true]]
+     * @endcode
+     *
      * @ingroup math
      */
     bool nearq(const cmatrix<T> &val, const T &tolerance = 1e-5) const;
@@ -1182,6 +1814,12 @@ public:
      * @return true If the matrix is not near the value `val`.
      * @return false If the matrix is near the value `val`.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.nearq(1);
+     * > [[false, true], [true, true]]
+     * @endcode
+     *
      * @ingroup math
      */
     bool nearq(const T &val, const T &tolerance = 1e-5) const;
@@ -1191,6 +1829,12 @@ public:
      * @param m The matrix to multiply.
      * @return cmatrix<T> The result of the product.
      * @throw std::invalid_argument If the number of columns of the matrix is not equal to the number of rows of the matrix `m`.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.matmul({{5, 6}, {7, 8}});
+     * > [[19, 22], [43, 50]]
+     * @endcode
      *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup math
@@ -1203,6 +1847,12 @@ public:
      * @return cmatrix<T> The result of the power.
      * @throw std::invalid_argument If the matrix is not a square matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.matpow(2);
+     * > [[7, 10], [15, 22]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup math
      */
@@ -1211,6 +1861,12 @@ public:
      * @brief Get the natural logarithm of the matrix.
      *
      * @return cmatrix<T> The result of the log.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.log();
+     * > [[0, 0.693147], [1.09861, 1.38629]]
+     * @endcode
      *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup math
@@ -1221,6 +1877,12 @@ public:
      *
      * @return cmatrix<T> The result of the log.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.log2();
+     * > [[0, 1], [1.58496, 2]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup math
      */
@@ -1229,6 +1891,12 @@ public:
      * @brief Get the log10 of the matrix.
      *
      * @return cmatrix<T> The result of the log.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.log10();
+     * > [[0, 0.30103], [0.477121, 0.60206]]
+     * @endcode
      *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup math
@@ -1239,6 +1907,12 @@ public:
      *
      * @return cmatrix<T> The result of the exponential.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.exp();
+     * > [[2.71828, 7.38906], [20.0855, 54.5982]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup math
      */
@@ -1247,6 +1921,12 @@ public:
      * @brief Get the square root of the matrix.
      *
      * @return cmatrix<T> The result of the square root.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 4}, {9, 16}};
+     * $ m.sqrt();
+     * > [[1, 2], [3, 4]]
+     * @endcode
      *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup math
@@ -1257,6 +1937,12 @@ public:
      *
      * @return cmatrix<T> The result of the absolute value.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, -2}, {-3, 4}};
+     * $ m.abs();
+     * > [[1, 2], [3, 4]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup math
      */
@@ -1266,11 +1952,23 @@ public:
     /**
      * @brief Print the matrix in the standard output.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.print();
+     * > [[1, 2], [3, 4]]
+     * @endcode
+     *
      * @ingroup general
      */
     void print() const;
     /**
      * @brief Clear the matrix.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.clear();
+     * > []
+     * @endcode
      *
      * @ingroup general
      */
@@ -1280,6 +1978,14 @@ public:
      *
      * @return cmatrix<T> The copied matrix.
      *
+     * @code
+     * $ cmatrix<int> m1 = {{1, 2}, {3, 4}};
+     * $ cmatrix<int> m2 = m1.copy();
+     * $ m2[0][0] = 0;
+     * > m1 = [[1, 2], [3, 4]]
+     * > m2 = [[0, 2], [3, 4]]
+     * @endcode
+     *
      * @ingroup general
      */
     cmatrix<T> copy() const;
@@ -1288,6 +1994,12 @@ public:
      *
      * @param f The function to apply. f(T value, size_t id_row, size_t id_col) -> T
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.apply([](int value, size_t row, size_t col) { return value + 1; });
+     * > [[2, 3], [4, 5]]
+     * @endcode
+     *
      * @ingroup general
      */
     void apply(const std::function<T(T, size_t, size_t)> &f);
@@ -1295,6 +2007,12 @@ public:
      * @brief Apply a function to each cell of the matrix.
      *
      * @param f The function to apply. f(T value) -> T
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.apply([](int value) { return value + 1; });
+     * > [[2, 3], [4, 5]]
+     * @endcode
      *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
@@ -1306,6 +2024,12 @@ public:
      * @param f The function to apply. f(T value, size_t id_row, size_t id_col) -> T
      * @return cmatrix<T> The result of the function.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.map([](int value, size_t row, size_t col) { return value + 1; });
+     * > [[2, 3], [4, 5]]
+     * @endcode
+     *
      * @ingroup general
      */
     cmatrix<T> map(const std::function<T(T, size_t, size_t)> &f) const;
@@ -1316,6 +2040,12 @@ public:
      * @param f The function to apply. f(T value, size_t id_row, size_t id_col) -> U
      * @return cmatrix<U> The result of the function.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.map<float>([](int value, size_t row, size_t col) { return value + 0.5; });
+     * > [[1.5, 2.5], [3.5, 4.5]]
+     * @endcode
+     *
      * @ingroup general
      */
     template <class U>
@@ -1325,6 +2055,12 @@ public:
      *
      * @param f The function to apply. f(T value) -> T
      * @return cmatrix<T> The result of the function.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.map<float>([](int value) { return value + 0.5; });
+     * > [[1.5, 2.5], [3.5, 4.5]]
+     * @endcode
      *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
@@ -1337,6 +2073,12 @@ public:
      * @param f The function to apply. f(T value) -> U
      * @return cmatrix<U> The result of the function.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.map<float>([](int value) { return value + 0.5; });
+     * > [[1.5, 2.5], [3.5, 4.5]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
@@ -1347,6 +2089,12 @@ public:
      *
      * @param val The value to fill the matrix.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.fill(0);
+     * > [[0, 0], [0, 0]]
+     * @endcode
+     *
      * @ingroup general
      */
     void fill(const T &val);
@@ -1354,6 +2102,12 @@ public:
      * @brief Convert the matrix to a vector.
      *
      * @return std::vector<T> The vector.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.to_vector();
+     * > [1, 2, 3, 4]
+     * @endcode
      *
      * @ingroup general
      */
@@ -1364,6 +2118,12 @@ public:
      * @tparam U The type of the matrix.
      * @return cmatrix<U> The matrix of another type.
      * @throw std::invalid_argument If the type T is not convertible to the type U.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.cast<float>();
+     * > [[1.0, 2.0], [3.0, 4.0]]
+     * @endcode
      *
      * @ingroup general
      */
@@ -1376,6 +2136,12 @@ public:
      * @throw std::invalid_argument If the type T is not convertible to the type int.
      * @throw std::runtime_error If the value is out of range of the type int.
      *
+     * @code
+     * $ cmatrix<float> m = {{1.0, 2.0}, {3.0, 4.0}};
+     * $ m.to_int();
+     * > [[1, 2], [3, 4]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
@@ -1387,6 +2153,12 @@ public:
      * @throw std::invalid_argument If the type T is not convertible to the type float.
      * @throw std::runtime_error If the value is out of range of the type float.
      *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.to_float();
+     * > [[1.0, 2.0], [3.0, 4.0]]
+     * @endcode
+     *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
      */
@@ -1396,6 +2168,12 @@ public:
      *
      * @return cmatrix<std::string> The matrix of strings.
      * @throw std::invalid_argument If the type T is not a primitive type.
+     *
+     * @code
+     * $ cmatrix<int> m = {{1, 2}, {3, 4}};
+     * $ m.to_string();
+     * > [["1", "2"], ["3", "4"]]
+     * @endcode
      *
      * @note PARALLELIZED METHOD with OpenMP.
      * @ingroup general
@@ -1409,6 +2187,18 @@ public:
      * @param m The nested vector to check.
      * @return true If the nested vector is a matrix.
      * @return false If the nested vector is not a matrix.
+     *
+     * @code
+     * $ std::vector<std::vector<int>> m = {{1, 2}, {3, 4}};
+     * $ cmatrix<int>::is_matrix(m);
+     * > true
+     * @endcode
+     *
+     * @code
+     * $ std::vector<std::vector<int>> m = {{1, 2}, {3, 4, 5}};
+     * $ cmatrix<int>::is_matrix(m);
+     * > false
+     * @endcode
      *
      * @ingroup static
      */
@@ -1424,6 +2214,11 @@ public:
      *
      * @return cmatrix<int> The random matrix of integers.
      *
+     * @code
+     * $ cmatrix<int>::randint(2, 3);
+     * > [[1, 2], [3, 4], [5, 6]]
+     * @endcode
+     *
      * @ingroup static
      */
     static cmatrix<int> randint(const size_t &height, const size_t &width, const int &min = 0, const int &max = 100, const int &seed = time(nullptr));
@@ -1438,6 +2233,11 @@ public:
      *
      * @return cmatrix<float> The random matrix of floats.
      *
+     * @code
+     * $ cmatrix<float>::randfloat(2, 3);
+     * > [[0.1, 0.2], [0.3, 0.4], [0.5, 0.6]]
+     * @endcode
+     *
      * @ingroup static
      */
     static cmatrix<float> randfloat(const size_t &height, const size_t &width, const float &min = 0, const float &max = 1, const int &seed = time(nullptr));
@@ -1448,6 +2248,11 @@ public:
      * @param height The number of rows.
      * @return cmatrix<int> The matrix of zeros.
      *
+     * @code
+     * $ cmatrix<int>::zeros(2, 3);
+     * > [[0, 0], [0, 0], [0, 0]]
+     * @endcode
+     *
      * @ingroup static
      */
     static cmatrix<int> zeros(const size_t &width, const size_t &height);
@@ -1456,6 +2261,11 @@ public:
      *
      * @param size The number of rows and columns.
      * @return cmatrix<int> The identity matrix.
+     *
+     * @code
+     * $ cmatrix<int>::identity(3);
+     * > [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+     * @endcode
      *
      * @ingroup static
      */
@@ -1468,6 +2278,20 @@ public:
      * @param axis The axis to merge. 0 for the rows, 1 for the columns. (default: 0)
      *
      * @return cmatrix<T> The merged matrix.
+     *
+     * @code
+     * $ cmatrix<int> m1 = {{1, 2}, {3, 4}};
+     * $ cmatrix<int> m2 = {{5, 6}, {7, 8}};
+     * $ cmatrix<int>::merge(m1, m2, 0);
+     * > [[1, 2], [3, 4], [5, 6], [7, 8]]
+     * @endcode
+     *
+     * @code
+     * $ cmatrix<int> m1 = {{1, 2}, {3, 4}};
+     * $ cmatrix<int> m2 = {{5, 6}, {7, 8}};
+     * $ cmatrix<int>::merge(m1, m2, 1);
+     * > [[1, 2, 5, 6], [3, 4, 7, 8]]
+     * @endcode
      *
      * @ingroup static
      */
@@ -1519,7 +2343,7 @@ public:
     /**
      * @brief The equality operator comparing the matrix with a value.
      *
-     * @param val The value to compare.
+     * @param n The value to compare.
      * @return cmatrix<cbool> The matrix of booleans.
      *
      * @ingroup operator
@@ -1528,7 +2352,7 @@ public:
     /**
      * @brief The inequality operator comparing the matrix with a value.
      *
-     * @param val The value to compare.
+     * @param n The value to compare.
      * @return cmatrix<cbool> The matrix of booleans.
      *
      * @ingroup operator
@@ -1546,7 +2370,7 @@ public:
     /**
      * @brief The strictly less than operator comparing the matrix with a value.
      *
-     * @param val The value to compare.
+     * @param n The value to compare.
      * @return cmatrix<cbool> The matrix of booleans.
      *
      * @ingroup operator
@@ -1564,7 +2388,7 @@ public:
     /**
      * @brief The less than operator comparing the matrix with a value.
      *
-     * @param val The value to compare.
+     * @param n The value to compare.
      * @return cmatrix<cbool> The matrix of booleans.
      *
      * @ingroup operator
@@ -1582,7 +2406,7 @@ public:
     /**
      * @brief The strictly greater than operator comparing the matrix with a value.
      *
-     * @param val The value to compare.
+     * @param n The value to compare.
      * @return cmatrix<cbool> The matrix of booleans.
      *
      * @ingroup operator
@@ -1600,7 +2424,7 @@ public:
     /**
      * @brief The greater than operator comparing the matrix with a value.
      *
-     * @param val The value to compare.
+     * @param n The value to compare.
      * @return cmatrix<cbool> The matrix of booleans.
      *
      * @ingroup operator
@@ -1673,7 +2497,7 @@ public:
     /**
      * @brief The subtraction operator.
      *
-     * @param n The value to subtract.
+     * @param val The value to subtract.
      * @return cmatrix<T> The difference of the matrices.
      *
      * @note PARALLELIZED METHOD with OpenMP.
